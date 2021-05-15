@@ -25,7 +25,9 @@ public class EcoSystem extends Organization {
         }
         return ecoSystem;
     }
-    
+    public static void setInstance(EcoSystem system) {
+        ecoSystem = system;
+    }
     public Network createAndAddNetwork(){
         Network network=new Network();
         ntwkList.add(network);
