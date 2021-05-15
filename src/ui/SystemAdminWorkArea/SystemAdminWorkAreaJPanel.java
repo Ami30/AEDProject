@@ -6,6 +6,9 @@
 package ui.SystemAdminWorkArea;
 
 import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 
 /**
@@ -19,7 +22,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
      */
    JPanel userProcessContainer;
    EcoSystem ecosystem;
-    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer,EcoSystem ecosystem) {
+    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer,UserAccount useraccount,Organization organization,Enterprise enterprise,EcoSystem system) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
@@ -38,11 +41,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 1058, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 638, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
