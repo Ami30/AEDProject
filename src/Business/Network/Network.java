@@ -5,10 +5,33 @@
  */
 package Business.Network;
 
+import Business.Enterprise.EnterpriseDirectory;
+
 /**
  *
  * @author amishagupta
  */
 public class Network {
+
+    private String name;
+    private EnterpriseDirectory enterpriseDir;
     
+    public Network(){
+        enterpriseDir=new EnterpriseDirectory();
+    }
+    public String getName() {
+        return name;
+    }
+      public EnterpriseDirectory getEnterpriseDir() {
+        return enterpriseDir;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    @Override
+    public String toString(){
+        return name;
+    }
 }

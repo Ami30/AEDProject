@@ -4,53 +4,62 @@
  * and open the template in the editor.
  */package Business;
 
+import Business.Network.Network;
+import Business.Organization.Organization;
+import Business.Role.Role;
+import Business.Role.SystemAdminRole;
 import java.util.ArrayList;
 
 /**
  *
  * @author amishagupta
  */
-public class EcoSystem {
-    private static EcoSystem business;
-   // private ArrayList<Network> networkList;
+public class EcoSystem extends Organization {
+    private static EcoSystem ecoSystem;
+    private ArrayList<Network> ntwkList;
+    
+    
     public static EcoSystem getInstance(){
-        if(business==null){
-            business=new EcoSystem();
+        if(ecoSystem==null){
+            ecoSystem=new EcoSystem();
         }
-        return business;
+        return ecoSystem;
     }
     
-//    public Network createAndAddNetwork(){
-//        Network network=new Network();
-//        networkList.add(network);
-//        return network;
-//    }
-//    @Override
-//    public ArrayList<Role> getSupportedRole() {
-//        ArrayList<Role> roleList=new ArrayList<Role>();
-//        roleList.add(new Admin());
-//        return roleList;
-//    }
-//    public Ecosystem(){
-//        super(null);
-//        networkList=new ArrayList<Network>();
-//    }
-//
-//    public ArrayList<Network> getNetworkList() {
-//        return networkList;
-//    }
-//
-//    public void setNetworkList(ArrayList<Network> networkList) {
-//        this.networkList = networkList;
-//    }
-//    
-//    public boolean checkIfUserIsUnique(String userName){
-//        if(!this.getUserDir().checkIfUsernameIsUnique(userName)){
-//            return false;
-//        }
-//        for(Network network:networkList){
-//            
-//        }
-//        return true;
-//    }
+    public Network createAndAddNetwork(){
+        Network network=new Network();
+        ntwkList.add(network);
+        return network;
+    }
+    
+    
+    @Override
+    public ArrayList<Role> getSupportedRole() {
+        ArrayList<Role> listrole=new ArrayList<Role>();
+        listrole.add(new SystemAdminRole());
+        return listrole;
+    }
+    
+    private EcoSystem(){
+        super(null);
+        ntwkList=new ArrayList<Network>();
+    }
+
+    public ArrayList<Network> getNetworkList() {
+        return ntwkList;
+    }
+
+    public void setNetworkList(ArrayList<Network> networkList) {
+        this.ntwkList = networkList;
+    }
+    
+    public boolean checkIfUserIsUnique(String userName){
+        if(!this.getUserAccountDir().checkIfUsernameIsUnique(userName)){
+            return false;
+        }
+        for(Network network:ntwkList){
+            
+        }
+        return true;
+    }
 }

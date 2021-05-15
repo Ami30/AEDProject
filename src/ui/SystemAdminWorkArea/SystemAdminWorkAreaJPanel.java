@@ -5,6 +5,9 @@
  */
 package ui.SystemAdminWorkArea;
 
+import Business.EcoSystem;
+import javax.swing.JPanel;
+
 /**
  *
  * @author amishagupta
@@ -14,8 +17,12 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form SystemAdminWorkAreaJPanel
      */
-    public SystemAdminWorkAreaJPanel() {
+   JPanel userProcessContainer;
+   EcoSystem ecosystem;
+    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer,EcoSystem ecosystem) {
         initComponents();
+        this.userProcessContainer=userProcessContainer;
+        this.ecosystem=ecosystem;
     }
 
     /**
