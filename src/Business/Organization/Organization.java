@@ -27,7 +27,18 @@ public abstract class Organization {
     public abstract ArrayList<Role> getSupportedRole();
     
     public enum Type{
-        Admin("Admin Organization");
+        DoctorOrg("Doctor Organization"),
+        NurseOrg("Nurse Organization"),
+        FoodProviderOrg("Food Provider Organization"),
+        CabProviderOrg("Cab Provider Organization"),
+        AmbulanceProviderOrg("Ambulance Provider Organization"),
+        DeliveryManOrg("Delivery Provider Organization"),
+        PharmacyOrg("Pharmacy Organization"),
+        GroceryStoreOrg("Grocery Store Organization"),
+        SanitizationProviderOrg("Sanitization Provider Organization"),
+        TestingProviderOrg("Testing Provider Organization"),
+        PatientManagerOrg("Patient Manager Organization");
+        
         private String value;
         private Type(String value) {
             this.value = value;
