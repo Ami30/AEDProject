@@ -28,12 +28,36 @@ public class EnterpriseDirectory {
     }
     
     //Create enterprise
-//    public Enterprise createAndAddEnterprise(String name,Enterprise.EnterpriseType type){
-//        Enterprise enterprise=null;
-//        if(type==Enterprise.EnterpriseType.Hospital){
-//            enterprise=new HospitalEnterprise(name);
-//            enterpriseList.add(enterprise);
-//        }
-//        return enterprise;
-//    }
+    public Enterprise createAndAddEnterprise(String name,Enterprise.EnterpriseType type){
+        Enterprise enterprise=null;
+        if(type==Enterprise.EnterpriseType.Hospital){
+            enterprise=new HospitalEnterprise(name);
+            enterpriseList.add(enterprise);
+        }
+        else if(type==Enterprise.EnterpriseType.FoodSupplyingUnits){
+            enterprise=new FoodSupplyingEnterprise(name);
+            enterpriseList.add(enterprise);
+        }
+         else if(type==Enterprise.EnterpriseType.NecessitiesProvider){
+            enterprise=new NecessitiesProviderEnterprise(name);
+            enterpriseList.add(enterprise);
+        }
+          else if(type==Enterprise.EnterpriseType.PatientSupportServices){
+            enterprise=new PatientSupportEnterprise(name);
+            enterpriseList.add(enterprise);
+        }
+           else if(type==Enterprise.EnterpriseType.SanitizationUnits){
+            enterprise=new SanitizationEnterprise(name);
+            enterpriseList.add(enterprise);
+        }
+            else if(type==Enterprise.EnterpriseType.TestingUnits){
+            enterprise=new TestingEnterprise(name);
+            enterpriseList.add(enterprise);
+        }
+             else if(type==Enterprise.EnterpriseType.Transportation){
+            enterprise=new TranspotationEnterprise(name);
+            enterpriseList.add(enterprise);
+        }
+        return enterprise;
+    }
 }
