@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class CabProviderOrganization extends Organization {
     
       public CabProviderOrganization() {
-        super(Organization.Type.CabProviderOrg.getValue());
+        super(Organization.Type.CabProvider.getValue());
         }
 
     @Override

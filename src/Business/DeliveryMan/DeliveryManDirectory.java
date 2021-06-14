@@ -22,17 +22,25 @@ public class DeliveryManDirectory {
     public void setdeliveryManDirectory(ArrayList<DeliveryMan> deliveryManDirectory) {
         this.deliveryManDirectory = deliveryManDirectory;
     }
+      public DeliveryManDirectory() {
+        deliveryManDirectory = new ArrayList();
+    }
     
     public void adddeliveryMan(DeliveryMan deliveryMan)
     {
         deliveryManDirectory.add(deliveryMan);
     }
     
-    public void removedeliveryMan(DeliveryMan deliveryMan){
-        for(DeliveryMan n:deliveryManDirectory){
-            if(n.getId().equalsIgnoreCase(deliveryMan.getId())){
-                deliveryManDirectory.remove(n);
-            }
+    public boolean removedeliveryMan(DeliveryMan deliveryMan){
+       for(int i=0;i<deliveryManDirectory.size();i++){
+        DeliveryMan d = deliveryManDirectory.get(i);
+        if(d.getId() == deliveryMan.getId()){
+            deliveryManDirectory.remove(d);
+            return true;
         }
+       
+        
+    }
+    return false;
     } 
 }

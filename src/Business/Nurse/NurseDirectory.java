@@ -24,18 +24,25 @@ public class NurseDirectory {
         this.nurseDirectory = nurseDirectory;
     }
     
+    public NurseDirectory() {
+        nurseDirectory = new ArrayList();
+    }
     public void addNurse(Nurse nurse)
     {
         nurseDirectory.add(nurse);
     }
     
-    public void removeNurse(Nurse nurse){
-        for(Nurse n:nurseDirectory){
-            if(n.getId().equalsIgnoreCase(nurse.getId())){
-                nurseDirectory.remove(n);
-            }
+    public boolean removeNurse(Nurse nurse){
+     for(int i=0;i<nurseDirectory.size();i++){
+        Nurse n = nurseDirectory.get(i);
+        if(n.getId() == nurse.getId()){
+            nurseDirectory.remove(n);
+            return true;
         }
+       
+        
     }
+    return false;
     
-    
+    }
 }

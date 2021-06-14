@@ -22,17 +22,32 @@ public class DoctorDirectory {
         this.doctorDirectory = doctorDirectory;
     }
     
+      public DoctorDirectory() {
+        doctorDirectory = new ArrayList<>();
+    }
+
+    
     public void addDoctor(Doctor doctor)
-    {
+    {     
         doctorDirectory.add(doctor);
     }
     
-    public void removeDoctor(Doctor doctor){
+    public boolean removeDoctor(Doctor doctor){
         
-        for(Doctor d:doctorDirectory){
-            if(d.getId().equalsIgnoreCase(doctor.getId())){
-                doctorDirectory.remove(d);
-            }
+//        for(Doctor d:doctorDirectory){
+//            if(d.getId()==doctor.getId()){
+//                doctorDirectory.remove(d);
+//            }
+//        }
+    for(int i=0;i<doctorDirectory.size();i++){
+        Doctor d = doctorDirectory.get(i);
+        if(d.getId() == doctor.getId()){
+            doctorDirectory.remove(d);
+            return true;
         }
+       
+        
+    }
+    return false;
     }
 }

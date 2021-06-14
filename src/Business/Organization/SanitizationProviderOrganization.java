@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class SanitizationProviderOrganization extends Organization{
 
     public SanitizationProviderOrganization() {
-        super(Organization.Type.SanitizationProviderOrg.getValue());
+        super(Organization.Type.SanitizationProvider.getValue());
     }
 
     @Override

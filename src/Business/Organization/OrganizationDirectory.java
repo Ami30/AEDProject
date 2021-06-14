@@ -24,47 +24,47 @@ public class OrganizationDirectory {
     
     public Organization createOrg(Organization.Type type){
         Organization organization = null;
-        if (type.getValue().equals(Organization.Type.DoctorOrg.getValue())){
+        if (type.getValue().equals(Organization.Type.Doctor.getValue())){
             organization = new DoctorOrganization();
             orgList.add(organization);
         }
-        else if (type.getValue().equals(Organization.Type.AmbulanceProviderOrg.getValue())){
+        else if (type.getValue().equals(Organization.Type.AmbulanceProvider.getValue())){
             organization = new AmbulanceProviderOrganization();
             orgList.add(organization);
         }
-         else if (type.getValue().equals(Organization.Type.CabProviderOrg.getValue())){
+         else if (type.getValue().equals(Organization.Type.CabProvider.getValue())){
             organization = new CabProviderOrganization();
             orgList.add(organization);
         }
-         else if (type.getValue().equals(Organization.Type.DeliveryManOrg.getValue())){
+         else if (type.getValue().equals(Organization.Type.DeliveryMan.getValue())){
             organization = new DeliveryManOrganization();
             orgList.add(organization);
         }
-         else if (type.getValue().equals(Organization.Type.FoodProviderOrg.getValue())){
+         else if (type.getValue().equals(Organization.Type.FoodProvider.getValue())){
             organization = new FoodProviderOrganization();
             orgList.add(organization);
         }
-         else if (type.getValue().equals(Organization.Type.GroceryStoreOrg.getValue())){
+         else if (type.getValue().equals(Organization.Type.GroceryStore.getValue())){
             organization = new GroceryStoreOrganization();
             orgList.add(organization);
         }
-          else if (type.getValue().equals(Organization.Type.NurseOrg.getValue())){
+          else if (type.getValue().equals(Organization.Type.Nurse.getValue())){
             organization = new NurseOrganization();
             orgList.add(organization);
         }
-            else if (type.getValue().equals(Organization.Type.PatientManagerOrg.getValue())){
+            else if (type.getValue().equals(Organization.Type.PatientManager.getValue())){
             organization = new PatientManagerOrganization();
             orgList.add(organization);
         }
-            else if (type.getValue().equals(Organization.Type.PharmacyOrg.getValue())){
+            else if (type.getValue().equals(Organization.Type.Pharmacy.getValue())){
             organization = new PharmacyOrganization();
             orgList.add(organization);
         }
-            else if (type.getValue().equals(Organization.Type.SanitizationProviderOrg.getValue())){
+            else if (type.getValue().equals(Organization.Type.SanitizationProvider.getValue())){
             organization = new SanitizationProviderOrganization();
             orgList.add(organization);
         }
-            else if (type.getValue().equals(Organization.Type.TestingProviderOrg.getValue())){
+            else if (type.getValue().equals(Organization.Type.TestingProvider.getValue())){
             organization = new TestingProviderOrganization();
             orgList.add(organization);
         }

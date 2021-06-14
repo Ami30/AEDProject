@@ -5,7 +5,12 @@
  */
 package Business.Organization;
 
+import Business.DeliveryMan.DeliveryManDirectory;
+import Business.Doctor.DoctorDirectory;
 import Business.Employee.EmployeeDirectory;
+import Business.GroceryStorePerson.GroceryStorePersonDirectory;
+import Business.Nurse.NurseDirectory;
+import Business.Pharmacist.PharmacistDirectory;
 import Business.Role.Role;
 import Business.UserAccount.UserAccountDirectory;
 import Business.WorkQueue.WorkQueue;
@@ -21,23 +26,28 @@ public abstract class Organization {
     private WorkQueue workQueue;
     private UserAccountDirectory accountDirectory;
     private EmployeeDirectory empDir;
+    private DoctorDirectory docDir;
+    private NurseDirectory nurDir;
+    private PharmacistDirectory pharDir;
+    private DeliveryManDirectory delManDir;
+    private GroceryStorePersonDirectory GrocPerDir;
     private int orgID;
     private static int counter=0;
     
     public abstract ArrayList<Role> getSupportedRole();
     
     public enum Type{
-        DoctorOrg("Doctor Organization"),
-        NurseOrg("Nurse Organization"),
-        FoodProviderOrg("Food Provider Organization"),
-        CabProviderOrg("Cab Provider Organization"),
-        AmbulanceProviderOrg("Ambulance Provider Organization"),
-        DeliveryManOrg("Delivery Provider Organization"),
-        PharmacyOrg("Pharmacy Organization"),
-        GroceryStoreOrg("Grocery Store Organization"),
-        SanitizationProviderOrg("Sanitization Provider Organization"),
-        TestingProviderOrg("Testing Provider Organization"),
-        PatientManagerOrg("Patient Manager Organization");
+        Doctor("Doctor Organization"),
+        Nurse("Nurse Organization"),
+        FoodProvider("Food Provider Organization"),
+        CabProvider("Cab Provider Organization"),
+        AmbulanceProvider("Ambulance Provider Organization"),
+        DeliveryMan("Delivery Provider Organization"),
+        Pharmacy("Pharmacy Organization"),
+        GroceryStore("Grocery Store Organization"),
+        SanitizationProvider("Sanitization Provider Organization"),
+        TestingProvider("Testing Provider Organization"),
+        PatientManager("Patient Manager Organization");
         
         private String value;
         private Type(String value) {
@@ -52,6 +62,11 @@ public abstract class Organization {
         this.name = name;
         workQueue = new WorkQueue();
         empDir = new EmployeeDirectory();
+        docDir=new DoctorDirectory();
+        nurDir=new NurseDirectory();
+        pharDir=new PharmacistDirectory();
+        delManDir=new DeliveryManDirectory();
+        GrocPerDir=new GroceryStorePersonDirectory();
         accountDirectory = new UserAccountDirectory();
         orgID = counter;
         ++counter;
@@ -62,6 +77,46 @@ public abstract class Organization {
 
     public int getOrgID() {
         return orgID;
+    }
+
+    public DoctorDirectory getDocDir() {
+        return docDir;
+    }
+
+    public void setDocDir(DoctorDirectory docDir) {
+        this.docDir = docDir;
+    }
+
+    public PharmacistDirectory getPharDir() {
+        return pharDir;
+    }
+
+    public void setPharDir(PharmacistDirectory pharDir) {
+        this.pharDir = pharDir;
+    }
+
+    public DeliveryManDirectory getDelManDir() {
+        return delManDir;
+    }
+
+    public void setDelManDir(DeliveryManDirectory delManDir) {
+        this.delManDir = delManDir;
+    }
+
+    public GroceryStorePersonDirectory getGrocPerDir() {
+        return GrocPerDir;
+    }
+
+    public void setGrocPerDir(GroceryStorePersonDirectory GrocPerDir) {
+        this.GrocPerDir = GrocPerDir;
+    }
+
+    public NurseDirectory getNurDir() {
+        return nurDir;
+    }
+
+    public void setNurDir(NurseDirectory nurDir) {
+        this.nurDir = nurDir;
     }
 
     public EmployeeDirectory getEmpDir() {
