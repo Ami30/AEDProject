@@ -7,28 +7,30 @@ package Business.SanitizationPerson;
 
 import Business.Patient.Patient;
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  *
  * @author amishagupta
  */
 public class SanitizationPerson extends Business.Person.Person{
- private String id;
+ private int id;
 private String sanitizationServicename;
 ArrayList<Patient> patients;
+private static final AtomicInteger count = new AtomicInteger(0); 
 
-    public SanitizationPerson(String id, String sanitizationServicename, ArrayList<Patient> patients, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email) {
+
+    public SanitizationPerson(String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email) {
         super(fullName, dob, gender, address, zipcode, contactNumber, email);
-        this.id = id;
-        this.sanitizationServicename = sanitizationServicename;
-        this.patients = patients;
+      this.id=count.incrementAndGet(); 
+
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -50,6 +52,6 @@ ArrayList<Patient> patients;
 
      @Override
     public String toString() {
-        return id;
+       return String.valueOf(id);
     }
 }

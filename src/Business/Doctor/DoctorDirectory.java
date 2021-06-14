@@ -22,8 +22,11 @@ public class DoctorDirectory {
         this.doctorDirectory = doctorDirectory;
     }
     
-      public DoctorDirectory() {
-        doctorDirectory = new ArrayList<>();
+      public ArrayList<Doctor> DoctorDirectory() {
+         if(doctorDirectory == null){
+            doctorDirectory = new ArrayList<>();
+        }
+        return doctorDirectory;
     }
 
     

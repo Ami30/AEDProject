@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.HospitalEntAdminRole;
+package ui.TestingEntAdminRole;
 
-import Business.Doctor.Doctor;
+
+import ui.FoodSupplyEntAdminRole.*;
+import ui.SanitizationEntAdminRole.*;
 import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
-import Business.Nurse.Nurse;
 import Business.Organization.Organization;
 import Business.Role.Role;
 import Business.UserAccount.UserAccount;
@@ -22,14 +23,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author amishagupta
  */
-public class ManageHospEntUserJPanel extends javax.swing.JPanel {
+public class ManageTestingEntUserJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageUserJPanel
      */
     private JPanel userProcessContainer;
     private Enterprise enterprise;
-    public ManageHospEntUserJPanel(JPanel userProcessContainer, Enterprise enterprise) {
+    public ManageTestingEntUserJPanel(JPanel userProcessContainer, Enterprise enterprise) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.enterprise=enterprise;
@@ -133,6 +134,8 @@ public class ManageHospEntUserJPanel extends javax.swing.JPanel {
         });
 
         jLabel3.setText("Employee");
+
+        passwordJTextField.setText("jPasswordField1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

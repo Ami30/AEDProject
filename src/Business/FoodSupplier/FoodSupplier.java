@@ -7,6 +7,7 @@ package Business.FoodSupplier;
 
 import Business.Patient.Patient;
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  *
@@ -16,13 +17,12 @@ public class FoodSupplier extends  Business.Person.Person{
     
 private String FoodSuppliername;
 ArrayList<Patient> patients;
-private String id;
+private int id;
+private static final AtomicInteger count = new AtomicInteger(0); 
 
-    public FoodSupplier(String FoodSuppliername, ArrayList<Patient> patients, String id, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email) {
+    public FoodSupplier(String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email) {
         super(fullName, dob, gender, address, zipcode, contactNumber, email);
-        this.FoodSuppliername = FoodSuppliername;
-        this.patients = patients;
-        this.id = id;
+     this.id=count.incrementAndGet(); 
     }
 
     public String getFoodSuppliername() {
@@ -41,17 +41,17 @@ private String id;
         this.patients = patients;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
     
       @Override
     public String toString() {
-        return id;
+        return String.valueOf(id);
     }
 
 }

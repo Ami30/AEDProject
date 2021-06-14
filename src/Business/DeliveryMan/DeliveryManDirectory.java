@@ -22,8 +22,11 @@ public class DeliveryManDirectory {
     public void setdeliveryManDirectory(ArrayList<DeliveryMan> deliveryManDirectory) {
         this.deliveryManDirectory = deliveryManDirectory;
     }
-      public DeliveryManDirectory() {
-        deliveryManDirectory = new ArrayList();
+      public ArrayList<DeliveryMan> DeliveryManDirectory() {
+         if(deliveryManDirectory == null){
+            deliveryManDirectory = new ArrayList<>();
+        }
+        return deliveryManDirectory;
     }
     
     public void adddeliveryMan(DeliveryMan deliveryMan)

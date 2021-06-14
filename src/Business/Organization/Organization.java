@@ -5,13 +5,19 @@
  */
 package Business.Organization;
 
+import Business.AmbulanceDriver.AmbulanceDriverDirectory;
+import Business.CabDriver.CabDriverDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.Doctor.DoctorDirectory;
 import Business.Employee.EmployeeDirectory;
+import Business.FoodSupplier.FoodSupplierDirectory;
 import Business.GroceryStorePerson.GroceryStorePersonDirectory;
 import Business.Nurse.NurseDirectory;
+import Business.PatientManager.PatientManagerDirectory;
 import Business.Pharmacist.PharmacistDirectory;
 import Business.Role.Role;
+import Business.SanitizationPerson.SanitizationPersonDirectory;
+import Business.Tester.TesterDirectory;
 import Business.UserAccount.UserAccountDirectory;
 import Business.WorkQueue.WorkQueue;
 import java.util.ArrayList;
@@ -31,6 +37,12 @@ public abstract class Organization {
     private PharmacistDirectory pharDir;
     private DeliveryManDirectory delManDir;
     private GroceryStorePersonDirectory GrocPerDir;
+    private PatientManagerDirectory pManagerDir;
+    private SanitizationPersonDirectory saniPersonDir;
+    private TesterDirectory testerDir;
+    private FoodSupplierDirectory foodSupplierDir;
+    private CabDriverDirectory cabDriverDir;
+    private AmbulanceDriverDirectory ambulanceDriverDir;
     private int orgID;
     private static int counter=0;
     
@@ -67,6 +79,12 @@ public abstract class Organization {
         pharDir=new PharmacistDirectory();
         delManDir=new DeliveryManDirectory();
         GrocPerDir=new GroceryStorePersonDirectory();
+        pManagerDir=new PatientManagerDirectory();
+        saniPersonDir=new SanitizationPersonDirectory();
+        testerDir=new TesterDirectory();
+        foodSupplierDir=new FoodSupplierDirectory();
+        cabDriverDir=new CabDriverDirectory();
+        ambulanceDriverDir=new AmbulanceDriverDirectory();       
         accountDirectory = new UserAccountDirectory();
         orgID = counter;
         ++counter;
@@ -94,6 +112,55 @@ public abstract class Organization {
     public void setPharDir(PharmacistDirectory pharDir) {
         this.pharDir = pharDir;
     }
+
+    public PatientManagerDirectory getpManagerDir() {
+        return pManagerDir;
+    }
+
+    public void setpManagerDir(PatientManagerDirectory pManagerDir) {
+        this.pManagerDir = pManagerDir;
+    }
+
+    public SanitizationPersonDirectory getSaniPersonDir() {
+        return saniPersonDir;
+    }
+
+    public void setSaniPersonDir(SanitizationPersonDirectory saniPersonDir) {
+        this.saniPersonDir = saniPersonDir;
+    }
+
+    public TesterDirectory getTesterDir() {
+        return testerDir;
+    }
+
+    public void setTesterDir(TesterDirectory testerDir) {
+        this.testerDir = testerDir;
+    }
+
+    public FoodSupplierDirectory getFoodSupplierDir() {
+        return foodSupplierDir;
+    }
+
+    public void setFoodSupplierDir(FoodSupplierDirectory foodSupplierDir) {
+        this.foodSupplierDir = foodSupplierDir;
+    }
+
+    public CabDriverDirectory getCabDriverDir() {
+        return cabDriverDir;
+    }
+
+    public void setCabDriverDir(CabDriverDirectory cabDriverDir) {
+        this.cabDriverDir = cabDriverDir;
+    }
+
+    public AmbulanceDriverDirectory getAmbulanceDriverDir() {
+        return ambulanceDriverDir;
+    }
+
+    public void setAmbulanceDriverDir(AmbulanceDriverDirectory ambulanceDriverDir) {
+        this.ambulanceDriverDir = ambulanceDriverDir;
+    }
+    
 
     public DeliveryManDirectory getDelManDir() {
         return delManDir;

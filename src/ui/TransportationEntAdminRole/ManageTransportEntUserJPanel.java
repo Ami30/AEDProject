@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.HospitalEntAdminRole;
+package ui.TransportationEntAdminRole;
 
+import ui.HospitalEntAdminRole.*;
 import Business.Doctor.Doctor;
 import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
@@ -22,14 +23,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author amishagupta
  */
-public class ManageHospEntUserJPanel extends javax.swing.JPanel {
+public class ManageTransportEntUserJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageUserJPanel
      */
     private JPanel userProcessContainer;
     private Enterprise enterprise;
-    public ManageHospEntUserJPanel(JPanel userProcessContainer, Enterprise enterprise) {
+    public ManageTransportEntUserJPanel(JPanel userProcessContainer, Enterprise enterprise) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.enterprise=enterprise;

@@ -28,11 +28,23 @@ public class TesterDirectory {
         testerDirectory.add(tester);
     }
     
-    public void removetester(Tester tester){
-        for(Tester n:testerDirectory){
-            if(n.getId().equalsIgnoreCase(tester.getId())){
-                testerDirectory.remove(n);
-            }
+        public ArrayList<Tester> TesterDirectory() {
+         if(testerDirectory == null){
+            testerDirectory = new ArrayList<>();
         }
+        return testerDirectory;
+    }
+    
+    public boolean removetester(Tester tester){
+        for(int i=0;i<testerDirectory.size();i++){
+        Tester p = testerDirectory.get(i);
+        if(p.getId() == tester.getId()){
+            testerDirectory.remove(p);
+            return true;
+        }
+     }
+        
+    
+    return false;
     } 
 }
