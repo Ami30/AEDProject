@@ -6,29 +6,31 @@
 package Business.DeliveryMan;
 
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  *
  * @author amishagupta
  */
 public class DeliveryMan extends Business.Person.Person{
-private String id;
+private int id;
+private static final AtomicInteger count = new AtomicInteger(0); 
 //ArrayList<Order> orders;
 private Boolean available;
 
-    public DeliveryMan(String id, Boolean available, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email) {
+    public DeliveryMan( Boolean available, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email) {
         super(fullName, dob, gender, address, zipcode, contactNumber, email);
-        this.id = id;
         this.available = available;
+        this.id=count.incrementAndGet(); 
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+//    public void setId(int id) {
+//        this.id = id;
+//    }
 
     public Boolean getAvailable() {
         return available;
@@ -39,8 +41,8 @@ private Boolean available;
     }
 
         @Override
-    public String toString() {
-        return id;
+     public String toString() {
+         return String.valueOf(id);
     }
 
 }

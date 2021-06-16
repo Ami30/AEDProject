@@ -3,16 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.Driver;
+package Business.CabDriver;
 
 import Business.Person.Person;
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  *
  * @author amishagupta
  */
-public class Driver extends Business.Person.Person{
+public class CabDriver extends Business.Person.Person{
     
     
 private String licenseNumber;
@@ -20,15 +21,13 @@ private String valStartDate;
 private String valEndDate;
 //ArrayList<Bookings> bookingsList;
 private String driverType;
-private String id;
+private int id;
+private static final AtomicInteger count = new AtomicInteger(0); 
 
-    public Driver(String licenseNumber, String valStartDate, String valEndDate, String driverType, String id, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email) {
+    public CabDriver(String licenseNumber,String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email) {
         super(fullName, dob, gender, address, zipcode, contactNumber, email);
-        this.licenseNumber = licenseNumber;
-        this.valStartDate = valStartDate;
-        this.valEndDate = valEndDate;
-        this.driverType = driverType;
-        this.id = id;
+        this.licenseNumber=licenseNumber;
+       this.id=count.incrementAndGet(); 
     }
 
     public String getLicenseNumber() {
@@ -63,17 +62,17 @@ private String id;
         this.driverType = driverType;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     @Override
     public String toString() {
-        return id;
+       return String.valueOf(id);
     }
     
     

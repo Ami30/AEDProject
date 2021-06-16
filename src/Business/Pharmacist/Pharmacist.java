@@ -6,40 +6,42 @@
 package Business.Pharmacist;
 
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  *
  * @author amishagupta
  */
 public class Pharmacist extends Business.Person.Person{
-private String Pharmacyname;
+//private String Pharmacyname;
 //ArrayList<Order> orders;
-private String id;
+private int id;
+private static final AtomicInteger count = new AtomicInteger(0); 
 
-    public Pharmacist(String Pharmacyname, String id, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email) {
+    public Pharmacist(String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email) {
         super(fullName, dob, gender, address, zipcode, contactNumber, email);
-        this.Pharmacyname = Pharmacyname;
-        this.id = id;
+//        this.Pharmacyname = Pharmacyname;
+         this.id=count.incrementAndGet(); 
     }
 
-    public String getPharmacyname() {
-        return Pharmacyname;
-    }
+//    public String getPharmacyname() {
+//        return Pharmacyname;
+//    }
+//
+//    public void setPharmsacyname(String Pharmacyname) {
+//        this.Pharmacyname = Pharmacyname;
+//    }
 
-    public void setPharmacyname(String Pharmacyname) {
-        this.Pharmacyname = Pharmacyname;
-    }
-
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-     @Override
+      @Override
     public String toString() {
-        return id;
+         return String.valueOf(id);
     }
 }

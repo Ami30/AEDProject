@@ -60,11 +60,11 @@ public class MainJFrame extends javax.swing.JFrame {
         btnRegister = new javax.swing.JButton();
         exitJPanel = new javax.swing.JPanel();
         lblWelcome = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 25, 0, 0));
         setMinimumSize(new java.awt.Dimension(1420, 961));
-        setPreferredSize(new java.awt.Dimension(1420, 960));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         containerJPanel.setPreferredSize(new java.awt.Dimension(1338, 840));
@@ -105,12 +105,21 @@ public class MainJFrame extends javax.swing.JFrame {
 
         getContentPane().add(mainScreenJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1680, 1050));
 
-        exitJPanel.setBackground(new java.awt.Color(255, 204, 204));
+        exitJPanel.setBackground(new java.awt.Color(255, 255, 255));
         exitJPanel.setPreferredSize(new java.awt.Dimension(1420, 80));
         exitJPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblWelcome.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         lblWelcome.setText("HELLO ADMIN");
         exitJPanel.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 310, 60));
+
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+        exitJPanel.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 20, -1, -1));
 
         getContentPane().add(exitJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1450, 80));
 
@@ -180,6 +189,15 @@ public class MainJFrame extends javax.swing.JFrame {
        
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        containerJPanel.removeAll();
+        dB4OUtil.storeSystem(system);
+        containerJPanel.setVisible(false);
+        mainScreenJPanel.setVisible(true);     
+        exitJPanel.setVisible(false);
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -218,6 +236,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnRegister;
     private javax.swing.JPanel containerJPanel;
     private javax.swing.JPanel exitJPanel;

@@ -7,6 +7,7 @@ package Business.Nurse;
 
 import Business.Patient.Patient;
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  *
@@ -18,18 +19,20 @@ private String hospital;
 private String designation;
 private String yearsExperience;
 private Boolean availability;
-private String id;
+private int id;
+private static final AtomicInteger count = new AtomicInteger(0); 
+
 ArrayList<Patient> patientAssigned;
 
-    public Nurse(String degree, String hospital, String designation, String yearsExperience, Boolean availability, String id, ArrayList<Patient> patientAssigned, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email) {
+    public Nurse(String degree, String hospital, String designation, String yearsExperience, Boolean availability, ArrayList<Patient> patientAssigned, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email) {
         super(fullName, dob, gender, address, zipcode, contactNumber, email);
         this.degree = degree;
         this.hospital = hospital;
         this.designation = designation;
         this.yearsExperience = yearsExperience;
         this.availability = availability;
-        this.id = id;
         this.patientAssigned = patientAssigned;
+        this.id=count.incrementAndGet(); 
     }
 
     public String getDegree() {
@@ -72,13 +75,13 @@ ArrayList<Patient> patientAssigned;
         this.availability = availability;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+//    public void setId(int id) {
+//        this.id = id;
+//    }
 
     public ArrayList<Patient> getPatientAssigned() {
         return patientAssigned;
@@ -90,7 +93,7 @@ ArrayList<Patient> patientAssigned;
 
       @Override
     public String toString() {
-        return id;
+         return String.valueOf(id);
     }
 
 }

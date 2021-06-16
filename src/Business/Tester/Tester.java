@@ -5,6 +5,8 @@
  */
 package Business.Tester;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  *
  * @author amishagupta
@@ -12,12 +14,13 @@ package Business.Tester;
 public class Tester extends Business.Person.Person{
     
 private String TestingService;
-private String id;
+private int id;
+private static final AtomicInteger count = new AtomicInteger(0); 
 
-    public Tester(String TestingService, String id, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email) {
+    public Tester( String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email) {
         super(fullName, dob, gender, address, zipcode, contactNumber, email);
-        this.TestingService = TestingService;
-        this.id = id;
+         this.id=count.incrementAndGet(); 
+       
     }
 
     public String getTestingService() {
@@ -28,16 +31,16 @@ private String id;
         this.TestingService = TestingService;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
          @Override
     public String toString() {
-        return id;
+        return String.valueOf(id);
     }
 
 

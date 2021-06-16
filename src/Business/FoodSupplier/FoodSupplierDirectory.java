@@ -22,17 +22,27 @@ public class FoodSupplierDirectory {
     public void setfoodSupplierDirectory(ArrayList<FoodSupplier> foodSupplierDirectory) {
         this.foodSupplierDirectory = foodSupplierDirectory;
     }
+      public ArrayList<FoodSupplier> FoodSupplierDirectory() {
+         if(foodSupplierDirectory == null){
+            foodSupplierDirectory = new ArrayList<>();
+        }
+        return foodSupplierDirectory;
+    }
     
     public void addfoodSupplier(FoodSupplier foodSupplier)
     {
         foodSupplierDirectory.add(foodSupplier);
     }
     
-    public void removefoodSupplier(FoodSupplier foodSupplier){
-        for(FoodSupplier n:foodSupplierDirectory){
-            if(n.getId().equalsIgnoreCase(foodSupplier.getId())){
-                foodSupplierDirectory.remove(n);
-            }
+    public boolean removefoodSupplier(FoodSupplier foodSupplier){
+         for(int i=0;i<foodSupplierDirectory.size();i++){
+        FoodSupplier p = foodSupplierDirectory.get(i);
+        if(p.getId() == foodSupplier.getId()){
+            foodSupplierDirectory.remove(p);
+            return true;
         }
+     }
+        
+    return false;
     } 
 }

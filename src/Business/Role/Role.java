@@ -28,7 +28,14 @@ public abstract class Role  {
         StorePersonRole("Store Person"),
         SanitizationServiceRole("Sanitization Service"),
         TestingServiceRole("Testing Service"),
-        PatientManagerRole("Patient Manager");
+        PatientManagerRole("Patient Manager"),
+        FoodSupplyEntAdmin("Food Supplying Admin"),
+        HospitalEntAdmin("Hospital Admin"),
+        NecessitiesEntAdmin("Necessities Admin"),
+        PatientSupportEntAdmin("Patient Support Admin"),
+        SanitizationEntAdmin("Sanitization Admin"),
+        TestingEntAdmin("Testing Provider Admin"),
+        TransportationEntAdmin("Transportation Admin");
         
         private String value;
         private RoleType(String value){

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class PatientManagerOrganization extends Organization{
 
     public PatientManagerOrganization() {
-        super(Organization.Type.PatientManagerOrg.getValue());
+        super(Organization.Type.PatientManager.getValue());
     }
 
     @Override

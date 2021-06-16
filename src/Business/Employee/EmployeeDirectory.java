@@ -28,4 +28,20 @@ public class EmployeeDirectory {
         empList.add(emp);
         return emp;
     }
+    
+     public void removeEmp(Employee e){
+    
+        empList.remove(e);
+      
+    }
+      public void removeEmpByName(String empName){
+        for(int i=0; i<empList.size(); i++){
+            if(empList.get(i).getName().equalsIgnoreCase(empName)){
+                empList.remove(empList.get(i));
+            }
+        }
+        
+      
+    }
+    
 }

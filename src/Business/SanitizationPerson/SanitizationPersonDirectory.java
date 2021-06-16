@@ -27,12 +27,23 @@ public class SanitizationPersonDirectory {
     {
         sanitizationPersonDirectory.add(sanitizationPerson);
     }
-    
-    public void removesanitizationPerson(SanitizationPerson sanitizationPerson){
-        for(SanitizationPerson n:sanitizationPersonDirectory){
-            if(n.getId().equalsIgnoreCase(sanitizationPerson.getId())){
-                sanitizationPersonDirectory.remove(n);
-            }
+        public ArrayList<SanitizationPerson> SanitizationPersonDirectory() {
+         if(sanitizationPersonDirectory == null){
+            sanitizationPersonDirectory = new ArrayList<>();
         }
+        return sanitizationPersonDirectory;
+    }
+    
+    public boolean removesanitizationPerson(SanitizationPerson sanitizationPerson){
+        for(int i=0;i<sanitizationPersonDirectory.size();i++){
+        SanitizationPerson p = sanitizationPersonDirectory.get(i);
+        if(p.getId() == sanitizationPerson.getId()){
+            sanitizationPersonDirectory.remove(p);
+            return true;
+        }
+     }
+        
+    
+    return false;
     } 
 }

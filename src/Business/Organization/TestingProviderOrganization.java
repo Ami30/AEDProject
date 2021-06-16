@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class TestingProviderOrganization extends Organization {
 
    public TestingProviderOrganization() {
-        super(Organization.Type.TestingProviderOrg.getValue());
+        super(Organization.Type.TestingProvider.getValue());
     }
 
     @Override

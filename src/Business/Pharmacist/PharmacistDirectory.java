@@ -23,16 +23,24 @@ public class PharmacistDirectory {
         this.pharmacistDirectory = pharmacistDirectory;
     }
     
+     public PharmacistDirectory() {
+        pharmacistDirectory = new ArrayList();
+    }
     public void addpharmacist(Pharmacist pharmacist)
     {
         pharmacistDirectory.add(pharmacist);
     }
     
-    public void removepharmacist(Pharmacist pharmacist){
-        for(Pharmacist n:pharmacistDirectory){
-            if(n.getId().equalsIgnoreCase(pharmacist.getId())){
-                pharmacistDirectory.remove(n);
-            }
+    public boolean removepharmacist(Pharmacist pharmacist){
+     for(int i=0;i<pharmacistDirectory.size();i++){
+        Pharmacist p = pharmacistDirectory.get(i);
+        if(p.getId() == pharmacist.getId()){
+            pharmacistDirectory.remove(p);
+            return true;
         }
-    } 
+     }
+        
+    
+    return false;
+}
 }
