@@ -35,7 +35,8 @@ public abstract class Role  {
         PatientSupportEntAdmin("Patient Support Admin"),
         SanitizationEntAdmin("Sanitization Admin"),
         TestingEntAdmin("Testing Provider Admin"),
-        TransportationEntAdmin("Transportation Admin");
+        TransportationEntAdmin("Transportation Admin"),
+        PatientRole("Patient");
         
         private String value;
         private RoleType(String value){

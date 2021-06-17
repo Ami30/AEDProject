@@ -27,11 +27,10 @@ public class SanitizationPersonDirectory {
     {
         sanitizationPersonDirectory.add(sanitizationPerson);
     }
-        public ArrayList<SanitizationPerson> SanitizationPersonDirectory() {
-         if(sanitizationPersonDirectory == null){
+        public SanitizationPersonDirectory() {
+ 
             sanitizationPersonDirectory = new ArrayList<>();
-        }
-        return sanitizationPersonDirectory;
+      
     }
     
     public boolean removesanitizationPerson(SanitizationPerson sanitizationPerson){

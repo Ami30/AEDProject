@@ -18,8 +18,8 @@ public class Pharmacist extends Business.Person.Person{
 private int id;
 private static final AtomicInteger count = new AtomicInteger(0); 
 
-    public Pharmacist(String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email) {
-        super(fullName, dob, gender, address, zipcode, contactNumber, email);
+    public Pharmacist(String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username) {
+        super(fullName, dob, gender, address, zipcode, contactNumber, email,username);
 //        this.Pharmacyname = Pharmacyname;
          this.id=count.incrementAndGet(); 
     }

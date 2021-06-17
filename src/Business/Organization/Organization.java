@@ -13,6 +13,7 @@ import Business.Employee.EmployeeDirectory;
 import Business.FoodSupplier.FoodSupplierDirectory;
 import Business.GroceryStorePerson.GroceryStorePersonDirectory;
 import Business.Nurse.NurseDirectory;
+import Business.RegisteredUser.RegisteredUserDirectory;
 import Business.PatientManager.PatientManagerDirectory;
 import Business.Pharmacist.PharmacistDirectory;
 import Business.Role.Role;
@@ -43,9 +44,10 @@ public abstract class Organization {
     private FoodSupplierDirectory foodSupplierDir;
     private CabDriverDirectory cabDriverDir;
     private AmbulanceDriverDirectory ambulanceDriverDir;
+
     private int orgID;
     private static int counter=0;
-    
+    private Type type;
     public abstract ArrayList<Role> getSupportedRole();
     
     public enum Type{
@@ -60,12 +62,17 @@ public abstract class Organization {
         SanitizationProvider("Sanitization Provider Organization"),
         TestingProvider("Testing Provider Organization"),
         PatientManager("Patient Manager Organization");
+
         
         private String value;
         private Type(String value) {
             this.value = value;
         }
         public String getValue() {
+            return value;
+        }
+          @Override
+        public String toString() {
             return value;
         }
     }
@@ -84,7 +91,7 @@ public abstract class Organization {
         testerDir=new TesterDirectory();
         foodSupplierDir=new FoodSupplierDirectory();
         cabDriverDir=new CabDriverDirectory();
-        ambulanceDriverDir=new AmbulanceDriverDirectory();       
+        ambulanceDriverDir=new AmbulanceDriverDirectory();  
         accountDirectory = new UserAccountDirectory();
         orgID = counter;
         ++counter;
@@ -205,6 +212,15 @@ public abstract class Organization {
     public void setWorkQueue(WorkQueue workQueue) {
         this.workQueue = workQueue;
     }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+    
 
     @Override
     public String toString() {

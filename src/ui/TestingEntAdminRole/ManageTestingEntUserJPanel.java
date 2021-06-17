@@ -210,7 +210,7 @@ public class ManageTestingEntUserJPanel extends javax.swing.JPanel {
         Role role = (Role) roleJComboBox.getSelectedItem();
         Employee employee = (Employee) employeeJComboBox.getSelectedItem();       
         organization.getUserAccountDir().createUserAccount(userName, password, employee, role);
-
+      
        
         popData();
     }//GEN-LAST:event_createUserJButtonActionPerformed

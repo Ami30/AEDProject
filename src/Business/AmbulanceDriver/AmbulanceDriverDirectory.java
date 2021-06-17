@@ -16,11 +16,15 @@ public class AmbulanceDriverDirectory {
     ArrayList<AmbulanceDriver> ambulancedriverDirectory;
 
     public ArrayList<AmbulanceDriver> getambulanceDriverDirectory() {
-        if(ambulancedriverDirectory == null){
-            ambulancedriverDirectory = new ArrayList<>();
-        }
+       
         return ambulancedriverDirectory;
     }
+    
+       public AmbulanceDriverDirectory() {
+       
+            ambulancedriverDirectory = new ArrayList<>();    
+    }
+    
 
     public void setambulanceDriverDirectory(ArrayList<AmbulanceDriver> ambulancedriverDirectory) {
         this.ambulancedriverDirectory = ambulancedriverDirectory;

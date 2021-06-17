@@ -175,7 +175,7 @@ public class ManageFoodSupplyEntEmpJPanel extends javax.swing.JPanel {
         lblDoctorslist1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         lblDoctorslist1.setText("Food Service Providers");
 
-        btnRemoveFoodSuppplier.setText("Remove Sanitization Provider");
+        btnRemoveFoodSuppplier.setText("Remove Food Service ");
         btnRemoveFoodSuppplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoveFoodSuppplierActionPerformed(evt);
@@ -354,7 +354,7 @@ public class ManageFoodSupplyEntEmpJPanel extends javax.swing.JPanel {
         String gender = (String) GenderCombobox.getSelectedItem();
         String email=txtEmail.getText();
         if(organization.toString().equals("Food Provider Organization")){
-        FoodSupplier fs=new FoodSupplier(name, null, gender, address, zipcode, contactNumber, email);
+        FoodSupplier fs=new FoodSupplier(name, null, gender, address, zipcode, contactNumber, email,null);
         organization.getFoodSupplierDir().addfoodSupplier(fs);
           organization.getEmpDir().createEmp(name);
           populateFoodSuppliersTable();

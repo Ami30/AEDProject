@@ -509,19 +509,19 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
         String gender = (String) GenderCombobox.getSelectedItem();
         String email=txtEmail.getText();
         if(organization.toString().equals("Delivery Provider Organization")){
-          DeliveryMan del=new DeliveryMan(null, name, null, gender, address, zipcode, contactNumber, email);
+          DeliveryMan del=new DeliveryMan(null, name, null, gender, address, zipcode, contactNumber, email,null);
           organization.getDelManDir().adddeliveryMan(del);
           organization.getEmpDir().createEmp(name);
           populateDeliveryManTable();
         }
         if(organization.toString().equals("Pharmacy Organization")){
-         Pharmacist ph=new Pharmacist(name, null, gender, address, zipcode, contactNumber, email);
+         Pharmacist ph=new Pharmacist(name, null, gender, address, zipcode, contactNumber, email,null);
           organization.getPharDir().addpharmacist(ph);
           organization.getEmpDir().createEmp(name);
           populatePharmacistTable();
         }
         if(organization.toString().equals("Grocery Store Organization")){
-         GroceryStorePerson groc=new GroceryStorePerson(name, null, gender, address, zipcode, contactNumber, email);
+         GroceryStorePerson groc=new GroceryStorePerson(name, null, gender, address, zipcode, contactNumber, email,null);
           organization.getGrocPerDir().addgroceryPerson(groc);
           organization.getEmpDir().createEmp(name);
           populateGroceryPersonTable();

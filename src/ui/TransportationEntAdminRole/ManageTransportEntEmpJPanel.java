@@ -438,13 +438,13 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
         String gender = (String) GenderCombobox.getSelectedItem();
         String email=txtEmail.getText();
         if(organization.toString().equals("Cab Provider Organization")){
-          CabDriver cd=new CabDriver(license, name, null, gender, address, zipcode, contactNumber, email);
+          CabDriver cd=new CabDriver(license, name, null, gender, address, zipcode, contactNumber, email,null);
           organization.getCabDriverDir().addCabDriver(cd);
           organization.getEmpDir().createEmp(name);
           populateCabServiceTable();
         }
         if(organization.toString().equals("Ambulance Provider Organization")){
-         AmbulanceDriver cd=new AmbulanceDriver(license, name, null, gender, address, zipcode, contactNumber, email);
+         AmbulanceDriver cd=new AmbulanceDriver(license, name, null, gender, address, zipcode, contactNumber, email,null);
           organization.getAmbulanceDriverDir().addambulanceDriver(cd);
           organization.getEmpDir().createEmp(name);
           populateAmbulanceServiceTable();

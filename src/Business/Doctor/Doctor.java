@@ -5,7 +5,7 @@
  */
 package Business.Doctor;
 
-import Business.Patient.Patient;
+import Business.RegisteredUser.RegisteredUser;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -23,12 +23,12 @@ private String doctorType;
 private Boolean availability;
 private int id;
 private static final AtomicInteger count = new AtomicInteger(0); 
-ArrayList<Patient> patientAssigned;
+ArrayList<RegisteredUser> patientAssigned;
 
   
 
-    public Doctor(String degree, String hospital, String designation, String yearsExperience, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email) {
-        super(fullName, dob, gender, address, zipcode, contactNumber, email);
+    public Doctor(String degree, String hospital, String designation, String yearsExperience, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username) {
+        super(fullName, dob, gender, address, zipcode, contactNumber, email,username);
         this.degree = degree;
         this.hospital = hospital;
         this.designation = designation;
@@ -93,11 +93,11 @@ ArrayList<Patient> patientAssigned;
 //        
 //    }
 
-    public ArrayList<Patient> getPatientAssigned() {
+    public ArrayList<RegisteredUser> getPatientAssigned() {
         return patientAssigned;
     }
 
-    public void setPatientAssigned(ArrayList<Patient> patientAssigned) {
+    public void setPatientAssigned(ArrayList<RegisteredUser> patientAssigned) {
         this.patientAssigned = patientAssigned;
     }
 

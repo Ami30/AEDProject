@@ -18,8 +18,8 @@ private static final AtomicInteger count = new AtomicInteger(0);
 //ArrayList<Order> orders;
 private Boolean available;
 
-    public DeliveryMan( Boolean available, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email) {
-        super(fullName, dob, gender, address, zipcode, contactNumber, email);
+    public DeliveryMan( Boolean available, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username) {
+        super(fullName, dob, gender, address, zipcode, contactNumber, email,username);
         this.available = available;
         this.id=count.incrementAndGet(); 
     }

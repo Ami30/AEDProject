@@ -101,6 +101,11 @@ public class MainJFrame extends javax.swing.JFrame {
         mainScreenJPanel.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(481, 263, -1, -1));
 
         btnRegister.setText("REGISTER");
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
         mainScreenJPanel.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(579, 263, -1, -1));
 
         getContentPane().add(mainScreenJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1680, 1050));
@@ -111,7 +116,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         lblWelcome.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         lblWelcome.setText("HELLO ADMIN");
-        exitJPanel.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 310, 60));
+        exitJPanel.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 480, 60));
 
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
@@ -197,6 +202,18 @@ public class MainJFrame extends javax.swing.JFrame {
         mainScreenJPanel.setVisible(true);     
         exitJPanel.setVisible(false);
     }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        // TODO add your handling code here:
+        UserRegistrationJPanel panel = new UserRegistrationJPanel(containerJPanel, system);
+        lblWelcome.setText("WELCOME TO PATIENT REGISTRATION!!!");
+        mainScreenJPanel.setVisible(false);
+        containerJPanel.setVisible(true);
+        exitJPanel.setVisible(true);
+        containerJPanel.add("workArea", panel);
+        CardLayout layout = (CardLayout) containerJPanel.getLayout();
+        layout.next(containerJPanel);
+    }//GEN-LAST:event_btnRegisterActionPerformed
 
 
     /**

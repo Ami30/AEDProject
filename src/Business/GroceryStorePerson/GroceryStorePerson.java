@@ -15,8 +15,8 @@ public class GroceryStorePerson extends Business.Person.Person{
     private int id;
     private static final AtomicInteger count = new AtomicInteger(0); 
 
-    public GroceryStorePerson(String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email) {
-        super(fullName, dob, gender, address, zipcode, contactNumber, email);
+    public GroceryStorePerson(String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username) {
+        super(fullName, dob, gender, address, zipcode, contactNumber, email,username);
         this.id=count.incrementAndGet(); 
     }
 

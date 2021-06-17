@@ -453,13 +453,13 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
         String gender = (String) GenderCombobox.getSelectedItem();
         String email=txtEmail.getText();
         if(organization.toString().equals("Doctor Organization")){
-          Doctor doc=new Doctor(degree, ent.getName(), null, yearsExp, name, null, gender, address, zipcode, contactNumber, email);
+          Doctor doc=new Doctor(degree, ent.getName(), null, yearsExp, name, null, gender, address, zipcode, contactNumber, email,null);
           organization.getDocDir().addDoctor(doc);
           organization.getEmpDir().createEmp(name);
           populateDoctorTable();
         }
         if(organization.toString().equals("Nurse Organization")){
-         Nurse nur=new Nurse(degree, ent.getName(), null, yearsExp, null, null, name, null, gender, address, zipcode, contactNumber, email);
+         Nurse nur=new Nurse(degree, ent.getName(), null, yearsExp, null, null, name, null, gender, address, zipcode, contactNumber, email,null);
           organization.getNurDir().addNurse(nur);
           organization.getEmpDir().createEmp(name);
           populateNurseTable();

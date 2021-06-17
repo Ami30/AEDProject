@@ -347,7 +347,7 @@ public class ManageTestingEntEmpJPanel extends javax.swing.JPanel {
         String gender = (String) GenderCombobox.getSelectedItem();
         String email=txtEmail.getText();
         if(organization.toString().equals("Testing Provider Organization")){
-         Tester test=new Tester(name, null, gender, address, zipcode, contactNumber, email);
+         Tester test=new Tester(name, null, gender, address, zipcode, contactNumber, email,null);
         organization.getTesterDir().addtester(test);
           organization.getEmpDir().createEmp(name);
           populateTestersTable();

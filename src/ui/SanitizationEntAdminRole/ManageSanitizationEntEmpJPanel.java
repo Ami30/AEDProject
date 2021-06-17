@@ -352,7 +352,7 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
         String gender = (String) GenderCombobox.getSelectedItem();
         String email=txtEmail.getText();
         if(organization.toString().equals("Sanitization Provider Organization")){
-        SanitizationPerson sp=new SanitizationPerson(name, null, gender, address, zipcode, contactNumber, email);
+        SanitizationPerson sp=new SanitizationPerson(name, null, gender, address, zipcode, contactNumber, email,null);
         organization.getSaniPersonDir().addsanitizationPerson(sp);
           organization.getEmpDir().createEmp(name);
           populateSanitizationPersonTable();

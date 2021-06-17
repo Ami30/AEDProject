@@ -350,7 +350,7 @@ public class ManagePatientSupEntEmpJPanel extends javax.swing.JPanel {
         String gender = (String) GenderCombobox.getSelectedItem();
         String email=txtEmail.getText();
         if(organization.toString().equals("Patient Manager Organization")){
-        PatientManager p=new PatientManager(name, null, gender, address, zipcode, contactNumber, email);
+        PatientManager p=new PatientManager(name, null, gender, address, zipcode, contactNumber, email,null);
           organization.getpManagerDir().addpatientManager(p);
           organization.getEmpDir().createEmp(name);
           populatepatientManagerTable();

@@ -28,11 +28,10 @@ public class TesterDirectory {
         testerDirectory.add(tester);
     }
     
-        public ArrayList<Tester> TesterDirectory() {
-         if(testerDirectory == null){
+        public TesterDirectory() {
+         
             testerDirectory = new ArrayList<>();
-        }
-        return testerDirectory;
+       
     }
     
     public boolean removetester(Tester tester){

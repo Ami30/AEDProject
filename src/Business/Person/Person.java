@@ -19,7 +19,7 @@ private String zipcode;
 private String contactNumber;
 private String email;
 
-    public Person(String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email) {
+    public Person(String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email, String username) {
         this.fullName = fullName;
         this.dob = dob;
         this.gender = gender;
@@ -27,6 +27,7 @@ private String email;
         this.zipcode = zipcode;
         this.contactNumber = contactNumber;
         this.email = email;
+        setUsername(username);
     }
 
 

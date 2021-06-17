@@ -135,7 +135,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnRemoveFoodSuppplier">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Remove Sanitization Provider"/>
+            <Property name="text" type="java.lang.String" value="Remove Food Service "/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoveFoodSuppplierActionPerformed"/>
