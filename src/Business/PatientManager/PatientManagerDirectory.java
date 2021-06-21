@@ -42,4 +42,14 @@ public class PatientManagerDirectory {
     
     return false;
 }
+    
+      public PatientManager findPatientManager(String username){
+        PatientManager pat = null;
+        for(PatientManager d: patientManagerDirectory){
+            if(d.getUsername().equalsIgnoreCase(username)){
+            pat=d;
+            }
+        }
+        return pat;
+    }
 }

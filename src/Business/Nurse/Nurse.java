@@ -6,6 +6,7 @@
 package Business.Nurse;
 
 import Business.RegisteredUser.RegisteredUser;
+import Business.Role.Role;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -20,12 +21,13 @@ private String designation;
 private String yearsExperience;
 private Boolean availability;
 private int id;
+private int patientNumber;
 private static final AtomicInteger count = new AtomicInteger(0); 
 
 ArrayList<RegisteredUser> patientAssigned;
 
-    public Nurse(String degree, String hospital, String designation, String yearsExperience, Boolean availability, ArrayList<RegisteredUser> patientAssigned, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username) {
-        super(fullName, dob, gender, address, zipcode, contactNumber, email,username);
+    public Nurse(String degree, String hospital, String designation, String yearsExperience, Boolean availability, ArrayList<RegisteredUser> patientAssigned, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username,String password, Role role) {
+        super(fullName, dob, gender, address, zipcode, contactNumber, email,username,password, role);
         this.degree = degree;
         this.hospital = hospital;
         this.designation = designation;
@@ -62,6 +64,15 @@ ArrayList<RegisteredUser> patientAssigned;
     public String getYearsExperience() {
         return yearsExperience;
     }
+
+    public int getPatientNumber() {
+        return patientNumber;
+    }
+
+    public void setPatientNumber(int patientNumber) {
+        this.patientNumber = patientNumber;
+    }
+    
 
     public void setYearsExperience(String yearsExperience) {
         this.yearsExperience = yearsExperience;

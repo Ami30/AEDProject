@@ -6,6 +6,7 @@
 package Business.Doctor;
 
 import Business.RegisteredUser.RegisteredUser;
+import Business.Role.Role;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -27,8 +28,8 @@ ArrayList<RegisteredUser> patientAssigned;
 
   
 
-    public Doctor(String degree, String hospital, String designation, String yearsExperience, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username) {
-        super(fullName, dob, gender, address, zipcode, contactNumber, email,username);
+    public Doctor(String degree, String hospital, String designation, String yearsExperience, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username,String password, Role role) {
+        super(fullName, dob, gender, address, zipcode, contactNumber, email,username,password, role);
         this.degree = degree;
         this.hospital = hospital;
         this.designation = designation;

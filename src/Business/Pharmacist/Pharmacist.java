@@ -5,6 +5,7 @@
  */
 package Business.Pharmacist;
 
+import Business.Role.Role;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -18,8 +19,8 @@ public class Pharmacist extends Business.Person.Person{
 private int id;
 private static final AtomicInteger count = new AtomicInteger(0); 
 
-    public Pharmacist(String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username) {
-        super(fullName, dob, gender, address, zipcode, contactNumber, email,username);
+    public Pharmacist(String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username,String password, Role role) {
+        super(fullName, dob, gender, address, zipcode, contactNumber, email,username,password, role);
 //        this.Pharmacyname = Pharmacyname;
          this.id=count.incrementAndGet(); 
     }

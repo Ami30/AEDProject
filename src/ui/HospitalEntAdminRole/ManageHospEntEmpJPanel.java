@@ -11,6 +11,8 @@ import Business.Enterprise.Enterprise;
 import Business.Nurse.Nurse;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
+import Business.Role.DoctorRole;
+import Business.Role.NurseRole;
 import java.awt.Component;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -161,6 +163,10 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
         lblContactNo1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         GenderCombobox = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
+        txtuserName = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtpassword = new javax.swing.JPasswordField();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -354,6 +360,10 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setText("User Name");
+
+        jLabel5.setText("Password");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -361,44 +371,57 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblZipCode)
-                    .addComponent(lblContactNo)
-                    .addComponent(lblExperience)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(addJButton)
-                        .addContainerGap())
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(nameJTextField)
-                            .addComponent(txtZipCode)
-                            .addComponent(txtContactNo)
-                            .addComponent(txtExperience, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(lblAddress)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addGap(29, 29, 29)
-                                    .addComponent(txtDegree, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(lblContactNo1)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblZipCode)
+                            .addComponent(lblContactNo)
+                            .addComponent(lblExperience)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(25, 25, 25)
-                                .addComponent(GenderCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(nameJTextField)
+                                    .addComponent(txtZipCode)
+                                    .addComponent(txtContactNo)
+                                    .addComponent(txtExperience, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addComponent(lblAddress)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addComponent(jLabel4)
+                                            .addGap(29, 29, 29)
+                                            .addComponent(txtDegree, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addComponent(lblContactNo1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel10)
+                                        .addGap(25, 25, 25)
+                                        .addComponent(GenderCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(organizationEmpJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(72, 72, 72)
+                                .addComponent(addJButton)
+                                .addContainerGap())))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(organizationEmpJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(371, 371, 371)
+                        .addComponent(txtpassword))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(90, 90, 90)
+                        .addComponent(txtuserName, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel5)
+                        .addContainerGap(264, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -433,12 +456,18 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
                             .addComponent(txtExperience, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10)))
                     .addComponent(GenderCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtuserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(18, 18, 18)
                 .addComponent(addJButton)
-                .addContainerGap())
+                .addGap(14, 14, 14))
         );
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, -1));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, 280));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
@@ -452,16 +481,21 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
         String contactNumber=txtContactNo.getText();
         String gender = (String) GenderCombobox.getSelectedItem();
         String email=txtEmail.getText();
+        String username = txtuserName.getText();
+        char[] passwordCharArray = txtpassword.getPassword();
+        String password = String.valueOf(passwordCharArray);
         if(organization.toString().equals("Doctor Organization")){
-          Doctor doc=new Doctor(degree, ent.getName(), null, yearsExp, name, null, gender, address, zipcode, contactNumber, email,null);
+          Doctor doc=new Doctor(degree, ent.getName(), null, yearsExp, name, null, gender, address, zipcode, contactNumber, email,username,password, new DoctorRole());
           organization.getDocDir().addDoctor(doc);
-          organization.getEmpDir().createEmp(name);
+           organization.getUserAccountDir().addUserAccount(doc);
+          //organization.getEmpDir().createEmp(name);
           populateDoctorTable();
         }
         if(organization.toString().equals("Nurse Organization")){
-         Nurse nur=new Nurse(degree, ent.getName(), null, yearsExp, null, null, name, null, gender, address, zipcode, contactNumber, email,null);
+         Nurse nur=new Nurse(degree, ent.getName(), null, yearsExp, null, null, name, null, gender, address, zipcode, contactNumber, email,username,password, new NurseRole());
           organization.getNurDir().addNurse(nur);
-          organization.getEmpDir().createEmp(name);
+           organization.getUserAccountDir().addUserAccount(nur);
+          //organization.getEmpDir().createEmp(name);
           populateNurseTable();
         }
        
@@ -555,10 +589,12 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
     private javax.swing.JButton addJButton;
     private javax.swing.JButton btnRemoveDoctor;
     private javax.swing.JButton btnRemoveNurse;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblAddress;
@@ -578,5 +614,7 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtExperience;
     private javax.swing.JTextField txtZipCode;
+    private javax.swing.JPasswordField txtpassword;
+    private javax.swing.JTextField txtuserName;
     // End of variables declaration//GEN-END:variables
 }

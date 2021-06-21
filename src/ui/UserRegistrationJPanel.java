@@ -12,6 +12,7 @@ import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.RegisteredUser.RegisteredUser;
+import Business.Role.PatientManagerRole;
 import Business.Role.PatientRole;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -392,13 +393,14 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
 //            comorbid.add(jCheckBoxcardio.getText());
 //        }
         
-           RegisteredUser p=new RegisteredUser(network.toString(),null, comorbid, null, null, null, name, strDate, email, address, zipcode, contactNumber, email,username);
+           RegisteredUser p=new RegisteredUser(network.toString(),null, comorbid, null, null, null, name, strDate, email, address, zipcode, contactNumber, email,username,password,new PatientRole());
            
            system.getRegisteredUserDirectory().addRegisteredUser(p);
             
 //           organization.getPatientDir().addPatient(p);
-            Employee emp = system.getEmpDir().createEmp(name);
-            system.getUserAccountDir().createUserAccount(username, password, emp, new PatientRole());
+           // Employee emp = system.getEmpDir().createEmp(name);
+           // system.getUserAccountDir().createUserAccount(username, password, emp, new PatientRole());
+            system.getUserAccountDir().addUserAccount(p);
           JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I><font color='green'> Registered Successfully </font><></h2></html>"));
           nameJTextField.setText("");
        txtAddress.setText("");

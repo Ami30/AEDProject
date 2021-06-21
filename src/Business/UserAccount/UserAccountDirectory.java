@@ -14,10 +14,10 @@ import java.util.ArrayList;
  * @author amishagupta
  */
 public class UserAccountDirectory {
-      private ArrayList<UserAccount> uaList;
+      private ArrayList<UserAccount> uaList = new ArrayList();
 
     public UserAccountDirectory() {
-        uaList = new ArrayList();
+        
     }
 
     public ArrayList<UserAccount> getUserAccountList() {
@@ -50,6 +50,8 @@ public class UserAccountDirectory {
         return ua;
     }
     
+    
+    
      public void removeUserAccountByUserName(String name){
          for(int i=0;i<uaList.size();i++){
              if(uaList.get(i).getEmployee().getName().equalsIgnoreCase(name)){
@@ -59,6 +61,15 @@ public class UserAccountDirectory {
         
     }
    
-    
+    public UserAccount addUserAccount(UserAccount userAccount) {
+        uaList.add(userAccount);
+        return userAccount;
+    }
+
+ 
+
+    public void removeUserAccount(UserAccount user) {
+        uaList.remove(user);
+    }
     
 }

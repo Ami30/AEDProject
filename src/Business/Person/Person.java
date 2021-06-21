@@ -5,6 +5,8 @@
  */
 package Business.Person;
 
+import Business.Role.Role;
+
 /**
  *
  * @author amishagupta
@@ -19,7 +21,7 @@ private String zipcode;
 private String contactNumber;
 private String email;
 
-    public Person(String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email, String username) {
+    public Person(String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email, String username, String password, Role role) {
         this.fullName = fullName;
         this.dob = dob;
         this.gender = gender;
@@ -28,6 +30,9 @@ private String email;
         this.contactNumber = contactNumber;
         this.email = email;
         setUsername(username);
+        setPassword(password);
+        setRole(role);
+        setName(fullName);
     }
 
 

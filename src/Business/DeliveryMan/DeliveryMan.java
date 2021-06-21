@@ -5,6 +5,7 @@
  */
 package Business.DeliveryMan;
 
+import Business.Role.Role;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -18,8 +19,8 @@ private static final AtomicInteger count = new AtomicInteger(0);
 //ArrayList<Order> orders;
 private Boolean available;
 
-    public DeliveryMan( Boolean available, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username) {
-        super(fullName, dob, gender, address, zipcode, contactNumber, email,username);
+    public DeliveryMan( Boolean available, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username,String password ,Role role) {
+        super(fullName, dob, gender, address, zipcode, contactNumber, email,username,password, role);
         this.available = available;
         this.id=count.incrementAndGet(); 
     }

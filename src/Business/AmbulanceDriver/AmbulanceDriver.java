@@ -7,6 +7,7 @@ package Business.AmbulanceDriver;
 
 import Business.CabDriver.*;
 import Business.Person.Person;
+import Business.Role.Role;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -25,8 +26,8 @@ private String driverType;
 private int id;
 private static final AtomicInteger count = new AtomicInteger(0); 
 
-    public AmbulanceDriver(String licenseNumber,String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username) {
-        super(fullName, dob, gender, address, zipcode, contactNumber, email,username);
+    public AmbulanceDriver(String licenseNumber,String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username, String password, Role role) {
+        super(fullName, dob, gender, address, zipcode, contactNumber, email,username, password,role);
         this.licenseNumber=licenseNumber;
        this.id=count.incrementAndGet(); 
     }

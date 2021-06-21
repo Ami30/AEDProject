@@ -181,8 +181,12 @@ public class MainJFrame extends javax.swing.JFrame {
             mainScreenJPanel.setVisible(false);
             containerJPanel.setVisible(true);
             exitJPanel.setVisible(true);
-           welcomemsg=welcomemsg+ " " + userAccount.getEmployee().getName();
-            
+            if(userAccount.getName()==null){
+                welcomemsg=welcomemsg+ " " + userAccount.getEmployee().getName();
+            }
+            else{
+           welcomemsg=welcomemsg+ " " + userAccount.getName();
+            }
             CardLayout layout = (CardLayout) containerJPanel.getLayout();
             containerJPanel.add("workArea", userAccount.getRole().createWorkArea(containerJPanel, userAccount, inOrganization, inEnterprise, system));
            lblWelcome.setText(welcomemsg);

@@ -5,6 +5,7 @@
  */
 package Business.RegisteredUser;
 
+import Business.Role.Role;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -25,6 +26,9 @@ private String nurseAssigned;
 private int id;
 private String userCurrentStatus="Healthy";
 private String foodpreference;
+private String fever;
+private String cough;
+private String bodypain;
 private String isVaccinated;
 private String surgeries;
 private String Allergies;
@@ -32,8 +36,8 @@ private String weight;
 private String height;
 private static final AtomicInteger count = new AtomicInteger(0); 
 
-    public RegisteredUser(String userNetwork, String bloodGroup, ArrayList<String> comorbid, String symptom, String foodpreference, String isVaccinated, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username) {
-        super(fullName, dob, gender, address, zipcode, contactNumber, email, username);
+    public RegisteredUser(String userNetwork, String bloodGroup, ArrayList<String> comorbid, String symptom, String foodpreference, String isVaccinated, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username,String password, Role role) {
+        super(fullName, dob, gender, address, zipcode, contactNumber, email, username,password, role);
         this.bloodGroup = bloodGroup;
         this.comorbid = comorbid;
         this.symptom = symptom;
@@ -41,6 +45,31 @@ private static final AtomicInteger count = new AtomicInteger(0);
         this.isVaccinated = isVaccinated;       
         this.id=count.incrementAndGet(); 
     }
+
+    public String getFever() {
+        return fever;
+    }
+
+    public void setFever(String fever) {
+        this.fever = fever;
+    }
+
+    public String getCough() {
+        return cough;
+    }
+
+    public void setCough(String cough) {
+        this.cough = cough;
+    }
+
+    public String getBodypain() {
+        return bodypain;
+    }
+
+    public void setBodypain(String bodypain) {
+        this.bodypain = bodypain;
+    }
+    
 
     public String getRegisteredUserNetwork() {
         return userNetwork;
