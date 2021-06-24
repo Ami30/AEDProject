@@ -5,9 +5,13 @@
  */
 package ui.HospitalEntAdminRole;
 
+import Business.EcoSystem;
+import Business.Enterprise.EnterpriseDirectory;
+import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Organization.Organization.Type;
 import Business.Organization.OrganizationDirectory;
+import Business.UserAccount.UserAccount;
 import java.awt.Component;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -25,10 +29,12 @@ public class ManageHospEntOrgJPanel extends javax.swing.JPanel {
      */
       private OrganizationDirectory directory;
     private JPanel userProcessContainer;
+  
     public ManageHospEntOrgJPanel(JPanel userProcessContainer,OrganizationDirectory directory) {
         initComponents();
          this.userProcessContainer = userProcessContainer;
         this.directory = directory;
+ 
         
         populateTable();
         populateCombo();
@@ -58,7 +64,7 @@ public class ManageHospEntOrgJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) organizationJTable.getModel();
         
         model.setRowCount(0);
-        
+     
         for (Organization organization : directory.getOrgList()){
             Object[] row = new Object[2];
             row[0] = organization.getOrgID();
@@ -120,6 +126,11 @@ public class ManageHospEntOrgJPanel extends javax.swing.JPanel {
         });
 
         organizationJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        organizationJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                organizationJComboBoxActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Organization Type ");
 
@@ -171,6 +182,10 @@ public class ManageHospEntOrgJPanel extends javax.swing.JPanel {
         directory.createOrg(type);
         populateTable();
     }//GEN-LAST:event_addJButtonActionPerformed
+
+    private void organizationJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationJComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_organizationJComboBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -22,6 +22,7 @@ private String contactNumber;
 private String email;
 
     public Person(String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email, String username, String password, Role role) {
+        super(username, password, fullName, role);
         this.fullName = fullName;
         this.dob = dob;
         this.gender = gender;
@@ -33,6 +34,17 @@ private String email;
         setPassword(password);
         setRole(role);
         setName(fullName);
+    }
+
+    public Person(String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email, String string, String string1, String string2, Role role) {
+        super(string, string1, string2, role);
+        this.fullName = fullName;
+        this.dob = dob;
+        this.gender = gender;
+        this.address = address;
+        this.zipcode = zipcode;
+        this.contactNumber = contactNumber;
+        this.email = email;
     }
 
 

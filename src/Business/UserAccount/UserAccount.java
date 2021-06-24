@@ -21,8 +21,12 @@ public class UserAccount {
     private WorkQueue workQueue;
     private String name;
 
-    public UserAccount() {
+    public UserAccount(String username,String password,String name, Role role) {
         workQueue = new WorkQueue();
+        this.username=username;
+        this.password=password;
+        this.name=name;
+        this.role=role;
     }
     
     

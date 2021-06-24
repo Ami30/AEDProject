@@ -262,34 +262,50 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         String password = String.valueOf(passwordJPasswordField.getPassword());
         String name = nameJTextField.getText();
 
-        Employee employee = enterprise.getEmpDir().createEmp(name);
+//        Employee employee = enterprise.getEmpDir().createEmp(name);
         if(enterprise.getEnterpriseType()!=null){
             if(enterprise.getEnterpriseType().toString().equals("Hospital"))
             {
-                UserAccount account = enterprise.getUserAccountDir().createUserAccount(username, password, employee, new HospitalEntAdminRole());
+                UserAccount account=new UserAccount(username, password, name, new HospitalEntAdminRole());
+                enterprise.getUserAccountDir().addUserAccount(account);
+                
+                //enterprise.getUserAccountDir().addUserAccount(account);
+               // UserAccount account = enterprise.getUserAccountDir().createUserAccount(username, password, employee, new HospitalEntAdminRole());
             }
             else if(enterprise.getEnterpriseType().toString().equals("Food Supplying Units")){
-                UserAccount account = enterprise.getUserAccountDir().createUserAccount(username, password, employee, new FoodSupplyEntAdminRole());
+                 UserAccount account=new UserAccount(username, password, name,  new FoodSupplyEntAdminRole());
+                enterprise.getUserAccountDir().addUserAccount(account);
+               // UserAccount account = enterprise.getUserAccountDir().createUserAccount(username, password, employee, new FoodSupplyEntAdminRole());
                 
             }
             else if(enterprise.getEnterpriseType().toString().equals("Transpotation")){
-                UserAccount account = enterprise.getUserAccountDir().createUserAccount(username, password, employee, new TransportationEntAdminRole());
+                 UserAccount account=new UserAccount(username, password, name,  new TransportationEntAdminRole());
+                enterprise.getUserAccountDir().addUserAccount(account);
+               // UserAccount account = enterprise.getUserAccountDir().createUserAccount(username, password, employee, new TransportationEntAdminRole());
                 
             }
             else if(enterprise.getEnterpriseType().toString().equals("Sanitization Units")){
-                UserAccount account = enterprise.getUserAccountDir().createUserAccount(username, password, employee, new SanitizationEntAdminRole());
+                 UserAccount account=new UserAccount(username, password, name, new SanitizationEntAdminRole());
+                enterprise.getUserAccountDir().addUserAccount(account);
+               // UserAccount account = enterprise.getUserAccountDir().createUserAccount(username, password, employee, new SanitizationEntAdminRole());
                 
             }
             else if(enterprise.getEnterpriseType().toString().equals("Testing Units")){
-                UserAccount account = enterprise.getUserAccountDir().createUserAccount(username, password, employee, new TestingEntAdminRole());
+                 UserAccount account=new UserAccount(username, password, name,  new TestingEntAdminRole());
+                enterprise.getUserAccountDir().addUserAccount(account);
+               // UserAccount account = enterprise.getUserAccountDir().createUserAccount(username, password, employee, new TestingEntAdminRole());
                 
             }
             else if(enterprise.getEnterpriseType().toString().equals("Patient Support Services")){
-                UserAccount account = enterprise.getUserAccountDir().createUserAccount(username, password, employee, new PatientSupportEntAdminRole());
+                 UserAccount account=new UserAccount(username, password, name,  new PatientSupportEntAdminRole());
+                enterprise.getUserAccountDir().addUserAccount(account);
+               // UserAccount account = enterprise.getUserAccountDir().createUserAccount(username, password, employee, new PatientSupportEntAdminRole());
                 
             }
             else if(enterprise.getEnterpriseType().toString().equals("Necessities Provider")){
-                UserAccount account = enterprise.getUserAccountDir().createUserAccount(username, password, employee, new NecessitiesEntAdminRole());
+                 UserAccount account=new UserAccount(username, password, name,  new NecessitiesEntAdminRole());
+                enterprise.getUserAccountDir().addUserAccount(account);
+              //  UserAccount account = enterprise.getUserAccountDir().createUserAccount(username, password, employee, new NecessitiesEntAdminRole());
                 
             }
             

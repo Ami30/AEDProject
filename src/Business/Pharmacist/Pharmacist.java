@@ -14,7 +14,9 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author amishagupta
  */
 public class Pharmacist extends Business.Person.Person{
-//private String Pharmacyname;
+private String Pharmacyname;
+private String PharmacyAddress;
+private String PharmacyZipCode;
 //ArrayList<Order> orders;
 private int id;
 private static final AtomicInteger count = new AtomicInteger(0); 
@@ -25,13 +27,6 @@ private static final AtomicInteger count = new AtomicInteger(0);
          this.id=count.incrementAndGet(); 
     }
 
-//    public String getPharmacyname() {
-//        return Pharmacyname;
-//    }
-//
-//    public void setPharmsacyname(String Pharmacyname) {
-//        this.Pharmacyname = Pharmacyname;
-//    }
 
     public int getId() {
         return id;
@@ -41,6 +36,32 @@ private static final AtomicInteger count = new AtomicInteger(0);
         this.id = id;
     }
 
+    
+    public String getPharmacyname() {
+        return Pharmacyname;
+    }
+
+    public void setPharmacyname(String Pharmacyname) {
+        this.Pharmacyname = Pharmacyname;
+    }
+
+    public String getPharmacyAddress() {
+        return PharmacyAddress;
+    }
+
+    public void setPharmacyAddress(String PharmacyAddress) {
+        this.PharmacyAddress = PharmacyAddress;
+    }
+
+    public String getPharmacyZipCode() {
+        return PharmacyZipCode;
+    }
+
+    public void setPharmacyZipCode(String PharmacyZipCode) {
+        this.PharmacyZipCode = PharmacyZipCode;
+    }
+    
+    
       @Override
     public String toString() {
          return String.valueOf(id);

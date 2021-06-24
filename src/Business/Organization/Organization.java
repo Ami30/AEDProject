@@ -92,11 +92,14 @@ public abstract class Organization {
         foodSupplierDir=new FoodSupplierDirectory();
         cabDriverDir=new CabDriverDirectory();
         ambulanceDriverDir=new AmbulanceDriverDirectory();  
-        accountDirectory = new UserAccountDirectory();
+       // accountDirectory = new UserAccountDirectory();
         orgID = counter;
         ++counter;
     }
     public UserAccountDirectory getUserAccountDir() {
+        if(accountDirectory==null){
+        accountDirectory = new UserAccountDirectory();
+        }
         return accountDirectory;
     }
 

@@ -207,7 +207,7 @@ public class ManagePatientSupEntUserJPanel extends javax.swing.JPanel {
         Organization organization = (Organization) organizationJComboBox.getSelectedItem();
         Role role = (Role) roleJComboBox.getSelectedItem();
         Employee employee = (Employee) employeeJComboBox.getSelectedItem();       
-        organization.getUserAccountDir().createUserAccount(userName, password, employee, role);
+      //  organization.getUserAccountDir().createUserAccount(userName, password, employee, role);
         
 
        
