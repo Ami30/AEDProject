@@ -126,6 +126,7 @@ public class HospitalEntAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageOrgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageOrgActionPerformed
         // TODO add your handling code here:
+        
         ManageHospEntOrgJPanel manageOrgJPanel=new ManageHospEntOrgJPanel(workAreaJPanel,enterprise.getOrganizationDirectory());
         workAreaJPanel.add("ManageOrgJPanel", manageOrgJPanel);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();

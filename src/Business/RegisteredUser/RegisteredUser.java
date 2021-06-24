@@ -3,38 +3,80 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.Patient;
+package Business.RegisteredUser;
+
+import Business.Role.Role;
+import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  *
  * @author amishagupta
  */
-public class Patient extends Business.Person.Person {
+public class RegisteredUser extends Business.Person.Person {
 private String bloodGroup;
-private Boolean comorbid;
+private ArrayList<String> comorbid;
 private String symptom;
+private String userNetwork;
 private String doctorAssigned;
 private String foodService;
 private String pharmacy;
 private String healthstatus;
 private String nurseAssigned;
-private String id;
+private int id;
+private String userCurrentStatus="Healthy";
 private String foodpreference;
-private Boolean isVaccinated;
+private String fever;
+private String cough;
+private String bodypain;
+private String isVaccinated;
+private String surgeries;
+private String Allergies;
+private String weight;
+private String height;
+private static final AtomicInteger count = new AtomicInteger(0); 
 
-    public Patient(String bloodGroup, Boolean comorbid, String symptom, String doctorAssigned, String foodService, String pharmacy, String healthstatus, String nurseAssigned, String id, String foodpreference, Boolean isVaccinated, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email) {
-        super(fullName, dob, gender, address, zipcode, contactNumber, email);
+    public RegisteredUser(String userNetwork, String bloodGroup, ArrayList<String> comorbid, String symptom, String foodpreference, String isVaccinated, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username,String password, Role role) {
+        super(fullName, dob, gender, address, zipcode, contactNumber, email, username,password, role);
         this.bloodGroup = bloodGroup;
         this.comorbid = comorbid;
         this.symptom = symptom;
-        this.doctorAssigned = doctorAssigned;
-        this.foodService = foodService;
-        this.pharmacy = pharmacy;
-        this.healthstatus = healthstatus;
-        this.nurseAssigned = nurseAssigned;
-        this.id = id;
         this.foodpreference = foodpreference;
-        this.isVaccinated = isVaccinated;
+        this.isVaccinated = isVaccinated;       
+        this.id=count.incrementAndGet(); 
+    }
+
+    public String getFever() {
+        return fever;
+    }
+
+    public void setFever(String fever) {
+        this.fever = fever;
+    }
+
+    public String getCough() {
+        return cough;
+    }
+
+    public void setCough(String cough) {
+        this.cough = cough;
+    }
+
+    public String getBodypain() {
+        return bodypain;
+    }
+
+    public void setBodypain(String bodypain) {
+        this.bodypain = bodypain;
+    }
+    
+
+    public String getRegisteredUserNetwork() {
+        return userNetwork;
+    }
+
+    public void setRegisteredUserNetwork(String userNetwork) {
+        this.userNetwork = userNetwork;
     }
 
     public String getBloodGroup() {
@@ -45,16 +87,50 @@ private Boolean isVaccinated;
         this.bloodGroup = bloodGroup;
     }
 
-    public Boolean getComorbid() {
+    public ArrayList<String> getComorbid() {
         return comorbid;
     }
 
-    public void setComorbid(Boolean comorbid) {
+    public void setComorbid(ArrayList<String> comorbid) {
         this.comorbid = comorbid;
+    }
+
+    public String getSurgeries() {
+        return surgeries;
+    }
+
+    public void setSurgeries(String surgeries) {
+        this.surgeries = surgeries;
+    }
+
+    public String getAllergies() {
+        return Allergies;
+    }
+
+    public void setAllergies(String Allergies) {
+        this.Allergies = Allergies;
     }
 
     public String getSymptom() {
         return symptom;
+    }
+
+   
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
+    public String getHeight() {
+        return height;
+    }
+
+    public void setHeight(String height) {
+        this.height = height;
     }
 
     public void setSymptom(String symptom) {
@@ -101,11 +177,11 @@ private Boolean isVaccinated;
         this.nurseAssigned = nurseAssigned;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -117,17 +193,17 @@ private Boolean isVaccinated;
         this.foodpreference = foodpreference;
     }
 
-    public Boolean getIsVaccinated() {
+    public String getIsVaccinated() {
         return isVaccinated;
     }
 
-    public void setIsVaccinated(Boolean isVaccinated) {
+    public void setIsVaccinated(String isVaccinated) {
         this.isVaccinated = isVaccinated;
     }
 
     @Override
     public String toString() {
-        return id;
+        return String.valueOf(id);
     }
 
    

@@ -15,9 +15,9 @@ import java.util.ArrayList;
  */
 public class TestingProviderOrganization extends Organization {
 
-   public TestingProviderOrganization() {
-        super(Organization.Type.TestingProvider.getValue());
-    }
+//   public TestingProviderOrganization() {
+//        super(Organization.Type.TestingProvider.getValue());
+//    }
 
     @Override
     public ArrayList<Role> getSupportedRole() {
@@ -25,5 +25,12 @@ public class TestingProviderOrganization extends Organization {
         roles.add(new TestingServiceRole());
         return roles;
     }
-    
+          public TestingProviderOrganization(String name) {
+        super(name);
+    }
+
+    @Override
+    public Type getType() {
+        return Organization.Type.TestingProvider;
+    }
 }

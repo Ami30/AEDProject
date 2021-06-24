@@ -15,15 +15,23 @@ import java.util.ArrayList;
  */
 public class GroceryStoreOrganization extends Organization{
 
-  public GroceryStoreOrganization() {
-        super(Organization.Type.GroceryStore.getValue());
-    }
+//  public GroceryStoreOrganization() {
+//        super(Organization.Type.GroceryStore.getValue());
+//    }
 
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles=new ArrayList();
         roles.add(new StorePersonRole());
         return roles;
+    }
+          public GroceryStoreOrganization(String name) {
+        super(name);
+    }
+
+    @Override
+    public Type getType() {
+        return Organization.Type.GroceryStore;
     }
     
 }

@@ -15,14 +15,22 @@ import java.util.ArrayList;
  */
 public class CabProviderOrganization extends Organization {
     
-      public CabProviderOrganization() {
-        super(Organization.Type.CabProvider.getValue());
-        }
+//      public CabProviderOrganization() {
+//        super(Organization.Type.CabProvider.getValue());
+//        }
 
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles=new ArrayList();
         roles.add(new CabServiceRole());
         return roles;
+    }
+          public CabProviderOrganization(String name) {
+        super(name);
+    }
+
+    @Override
+    public Type getType() {
+        return Organization.Type.CabProvider;
     }
 }

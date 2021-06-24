@@ -17,10 +17,13 @@ public class UserAccountDirectory {
       private ArrayList<UserAccount> uaList;
 
     public UserAccountDirectory() {
-        uaList = new ArrayList();
+        
     }
 
     public ArrayList<UserAccount> getUserAccountList() {
+        if(uaList==null){
+        uaList = new ArrayList<>();
+        }
         return uaList;
     }
     
@@ -40,15 +43,17 @@ public class UserAccountDirectory {
         return true;
     }
     
-    public UserAccount createUserAccount(String username, String password, Employee employee, Role role){
-        UserAccount ua = new UserAccount();
-        ua.setUsername(username);
-        ua.setPassword(password);
-        ua.setEmployee(employee);
-        ua.setRole(role);
-        uaList.add(ua);
-        return ua;
-    }
+//    public UserAccount createUserAccount(String username, String password, Employee employee, Role role){
+//        UserAccount ua = new UserAccount(username);
+//        ua.setUsername(username);
+//        ua.setPassword(password);
+//        ua.setEmployee(employee);
+//        ua.setRole(role);
+//        uaList.add(ua);
+//        return ua;
+//    }
+    
+    
     
      public void removeUserAccountByUserName(String name){
          for(int i=0;i<uaList.size();i++){
@@ -59,6 +64,18 @@ public class UserAccountDirectory {
         
     }
    
-    
+    public UserAccount addUserAccount(UserAccount userAccount) {
+        if(uaList==null){
+        uaList = new ArrayList<>();
+        }
+        uaList.add(userAccount);
+        return userAccount;
+    }
+
+ 
+
+    public void removeUserAccount(UserAccount user) {
+        uaList.remove(user);
+    }
     
 }

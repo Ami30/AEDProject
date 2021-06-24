@@ -5,7 +5,9 @@
  */
 package Business.Nurse;
 
-import Business.Patient.Patient;
+import Business.Organization.Organization;
+import Business.RegisteredUser.RegisteredUser;
+import Business.Role.Role;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -19,13 +21,15 @@ private String hospital;
 private String designation;
 private String yearsExperience;
 private Boolean availability;
+private Organization orgType;
 private int id;
+private int patientNumber;
 private static final AtomicInteger count = new AtomicInteger(0); 
 
-ArrayList<Patient> patientAssigned;
+ArrayList<RegisteredUser> patientAssigned;
 
-    public Nurse(String degree, String hospital, String designation, String yearsExperience, Boolean availability, ArrayList<Patient> patientAssigned, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email) {
-        super(fullName, dob, gender, address, zipcode, contactNumber, email);
+    public Nurse(String degree, String hospital, String designation, String yearsExperience, Boolean availability, ArrayList<RegisteredUser> patientAssigned, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username,String password, Role role,Organization orgType) {
+        super(fullName, dob, gender, address, zipcode, contactNumber, email,username,password, role);
         this.degree = degree;
         this.hospital = hospital;
         this.designation = designation;
@@ -33,6 +37,7 @@ ArrayList<Patient> patientAssigned;
         this.availability = availability;
         this.patientAssigned = patientAssigned;
         this.id=count.incrementAndGet(); 
+        this.orgType = orgType;
     }
 
     public String getDegree() {
@@ -63,6 +68,15 @@ ArrayList<Patient> patientAssigned;
         return yearsExperience;
     }
 
+    public int getPatientNumber() {
+        return patientNumber;
+    }
+
+    public void setPatientNumber(int patientNumber) {
+        this.patientNumber = patientNumber;
+    }
+    
+
     public void setYearsExperience(String yearsExperience) {
         this.yearsExperience = yearsExperience;
     }
@@ -83,14 +97,22 @@ ArrayList<Patient> patientAssigned;
 //        this.id = id;
 //    }
 
-    public ArrayList<Patient> getPatientAssigned() {
+    public ArrayList<RegisteredUser> getPatientAssigned() {
         return patientAssigned;
     }
 
-    public void setPatientAssigned(ArrayList<Patient> patientAssigned) {
+    public void setPatientAssigned(ArrayList<RegisteredUser> patientAssigned) {
         this.patientAssigned = patientAssigned;
     }
 
+    public Organization getOrgType() {
+        return orgType;
+    }
+
+    public void setOrgType(Organization orgType) {
+        this.orgType = orgType;
+    }
+ 
       @Override
     public String toString() {
          return String.valueOf(id);

@@ -13,6 +13,7 @@ import Business.Employee.EmployeeDirectory;
 import Business.FoodSupplier.FoodSupplierDirectory;
 import Business.GroceryStorePerson.GroceryStorePersonDirectory;
 import Business.Nurse.NurseDirectory;
+import Business.RegisteredUser.RegisteredUserDirectory;
 import Business.PatientManager.PatientManagerDirectory;
 import Business.Pharmacist.PharmacistDirectory;
 import Business.Role.Role;
@@ -29,6 +30,10 @@ import java.util.ArrayList;
 public abstract class Organization {
     
     private String name;
+    private String email;
+    private String contactNumber;
+    private String zipcode;
+    private String address;
     private WorkQueue workQueue;
     private UserAccountDirectory accountDirectory;
     private EmployeeDirectory empDir;
@@ -43,9 +48,10 @@ public abstract class Organization {
     private FoodSupplierDirectory foodSupplierDir;
     private CabDriverDirectory cabDriverDir;
     private AmbulanceDriverDirectory ambulanceDriverDir;
+
     private int orgID;
     private static int counter=0;
-    
+    private Type type;
     public abstract ArrayList<Role> getSupportedRole();
     
     public enum Type{
@@ -60,6 +66,7 @@ public abstract class Organization {
         SanitizationProvider("Sanitization Provider Organization"),
         TestingProvider("Testing Provider Organization"),
         PatientManager("Patient Manager Organization");
+
         
         private String value;
         private Type(String value) {
@@ -68,14 +75,22 @@ public abstract class Organization {
         public String getValue() {
             return value;
         }
+          @Override
+        public String toString() {
+            return value;
+        }
     }
 
-    public Organization(String name) {
+    public Organization(String name, String contactNumber, String email, String address, String zipcode) {
         this.name = name;
+        this.contactNumber = contactNumber;
+        this.email = email;
+        this.address = address;
+        this.zipcode = zipcode;
         workQueue = new WorkQueue();
         empDir = new EmployeeDirectory();
-        docDir=new DoctorDirectory();
-        nurDir=new NurseDirectory();
+//        docDir=new DoctorDirectory();
+//        nurDir=new NurseDirectory();
         pharDir=new PharmacistDirectory();
         delManDir=new DeliveryManDirectory();
         GrocPerDir=new GroceryStorePersonDirectory();
@@ -84,12 +99,20 @@ public abstract class Organization {
         testerDir=new TesterDirectory();
         foodSupplierDir=new FoodSupplierDirectory();
         cabDriverDir=new CabDriverDirectory();
-        ambulanceDriverDir=new AmbulanceDriverDirectory();       
-        accountDirectory = new UserAccountDirectory();
+        ambulanceDriverDir=new AmbulanceDriverDirectory();  
+       // accountDirectory = new UserAccountDirectory();
         orgID = counter;
         ++counter;
     }
+
+    public Organization(String name) {
+        this.name = name;
+    }
+    
     public UserAccountDirectory getUserAccountDir() {
+        if(accountDirectory==null){
+        accountDirectory = new UserAccountDirectory();
+        }
         return accountDirectory;
     }
 
@@ -98,6 +121,9 @@ public abstract class Organization {
     }
 
     public DoctorDirectory getDocDir() {
+        if(docDir == null){
+            docDir=new DoctorDirectory();
+        }
         return docDir;
     }
 
@@ -179,6 +205,9 @@ public abstract class Organization {
     }
 
     public NurseDirectory getNurDir() {
+        if(nurDir == null){
+            nurDir=new NurseDirectory();
+        }
         return nurDir;
     }
 
@@ -205,6 +234,55 @@ public abstract class Organization {
     public void setWorkQueue(WorkQueue workQueue) {
         this.workQueue = workQueue;
     }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public static int getCounter() {
+        return counter;
+    }
+
+    public static void setCounter(int counter) {
+        Organization.counter = counter;
+    }
+    
 
     @Override
     public String toString() {

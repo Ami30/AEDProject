@@ -15,6 +15,9 @@ import Business.Nurse.Nurse;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.Pharmacist.Pharmacist;
+import Business.Role.DeliveryManRole;
+import Business.Role.PharmacistRole;
+import Business.Role.StorePersonRole;
 import java.awt.Component;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -36,7 +39,6 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
     private OrganizationDirectory organizationDir;
     private JPanel userProcessContainer;
     private Enterprise ent;
-    private ArrayList<String> gender;
     
     public ManageNeccessEntEmpJPanel(JPanel userProcessContainer,OrganizationDirectory organizationDir,Enterprise ent) {
         initComponents();
@@ -44,17 +46,6 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
         this.organizationDir = organizationDir;
         this.ent=ent;
 
-        this.gender=new ArrayList<>();
-     
-        gender.add(new String("MALE"));
-        gender.add(new String("FEMALE"));
-        gender.add(new String("OTHERS"));
-        GenderCombobox.removeAllItems();
-        
-        for(String g:gender)
-        {
-            GenderCombobox.addItem(g);
-        }
         populateOrganizationComboBox();
         populateOrganizationEmpComboBox();
         populateDeliveryManTable();
@@ -186,6 +177,10 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
         lblContactNo1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         GenderCombobox = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
+        txtuserName = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtpassword = new javax.swing.JPasswordField();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -414,12 +409,16 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
 
         jLabel10.setText("Gender:");
 
-        GenderCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        GenderCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Male", "Female", "Others" }));
         GenderCombobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GenderComboboxActionPerformed(evt);
             }
         });
+
+        jLabel1.setText("User Name");
+
+        jLabel4.setText("Password");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -465,6 +464,19 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
                 .addGap(243, 243, 243)
                 .addComponent(addJButton)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(371, 371, 371)
+                        .addComponent(txtpassword))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(90, 90, 90)
+                        .addComponent(txtuserName, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel4)
+                        .addContainerGap(264, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -491,12 +503,18 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
                     .addComponent(txtContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
                     .addComponent(GenderCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtuserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addComponent(addJButton)
-                .addContainerGap())
+                .addGap(16, 16, 16))
         );
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, -1, -1));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, -1, 240));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
@@ -508,22 +526,28 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
         String contactNumber=txtContactNo.getText();
         String gender = (String) GenderCombobox.getSelectedItem();
         String email=txtEmail.getText();
-        if(organization.toString().equals("Delivery Provider Organization")){
-          DeliveryMan del=new DeliveryMan(null, name, null, gender, address, zipcode, contactNumber, email);
+         String username = txtuserName.getText();
+        char[] passwordCharArray = txtpassword.getPassword();
+        String password = String.valueOf(passwordCharArray);
+        if(organization.getType().getValue().equals("Delivery Provider Organization")){
+          DeliveryMan del=new DeliveryMan(null, name, null, gender, address, zipcode, contactNumber, email,username,password, new DeliveryManRole());
           organization.getDelManDir().adddeliveryMan(del);
-          organization.getEmpDir().createEmp(name);
+          organization.getUserAccountDir().addUserAccount(del);
+        //  organization.getEmpDir().createEmp(name);
           populateDeliveryManTable();
         }
-        if(organization.toString().equals("Pharmacy Organization")){
-         Pharmacist ph=new Pharmacist(name, null, gender, address, zipcode, contactNumber, email);
+        if(organization.getType().getValue().equals("Pharmacy Organization")){
+         Pharmacist ph=new Pharmacist(name, null, gender, address, zipcode, contactNumber, email,username,password, new PharmacistRole());
           organization.getPharDir().addpharmacist(ph);
-          organization.getEmpDir().createEmp(name);
+          organization.getUserAccountDir().addUserAccount(ph);
+          //organization.getEmpDir().createEmp(name);
           populatePharmacistTable();
         }
-        if(organization.toString().equals("Grocery Store Organization")){
-         GroceryStorePerson groc=new GroceryStorePerson(name, null, gender, address, zipcode, contactNumber, email);
+        if(organization.getType().getValue().equals("Grocery Store Organization")){
+         GroceryStorePerson groc=new GroceryStorePerson(name, null, gender, address, zipcode, contactNumber, email,username,password, new StorePersonRole());
           organization.getGrocPerDir().addgroceryPerson(groc);
-          organization.getEmpDir().createEmp(name);
+          organization.getUserAccountDir().addUserAccount(groc);
+          //organization.getEmpDir().createEmp(name);
           populateGroceryPersonTable();
         }
         
@@ -630,9 +654,11 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnRemoveDeliveryMan;
     private javax.swing.JButton btnRemovePharmacist;
     private javax.swing.JButton btnRemoveStorePerson;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblAddress;
@@ -651,5 +677,7 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtContactNo;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtZipCode;
+    private javax.swing.JPasswordField txtpassword;
+    private javax.swing.JTextField txtuserName;
     // End of variables declaration//GEN-END:variables
 }

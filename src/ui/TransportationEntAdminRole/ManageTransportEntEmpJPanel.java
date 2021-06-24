@@ -13,6 +13,8 @@ import Business.Enterprise.Enterprise;
 import Business.Nurse.Nurse;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
+import Business.Role.AmbulanceServiceRole;
+import Business.Role.CabServiceRole;
 import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -33,7 +35,7 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
     private OrganizationDirectory organizationDir;
     private JPanel userProcessContainer;
     private Enterprise ent;
-    private ArrayList<String> gender;
+
     
     public ManageTransportEntEmpJPanel(JPanel userProcessContainer,OrganizationDirectory organizationDir,Enterprise ent) {
         initComponents();
@@ -41,17 +43,6 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
         this.organizationDir = organizationDir;
         this.ent=ent;
 
-        this.gender=new ArrayList<>();
-     
-        gender.add(new String("MALE"));
-        gender.add(new String("FEMALE"));
-        gender.add(new String("OTHERS"));
-        GenderCombobox.removeAllItems();
-        
-        for(String g:gender)
-        {
-            GenderCombobox.addItem(g);
-        }
         populateOrganizationComboBox();
         populateOrganizationEmpComboBox();
         populateCabServiceTable();
@@ -160,6 +151,10 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
         lblContactNo1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         GenderCombobox = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
+        txtuserName = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtpassword = new javax.swing.JPasswordField();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -340,12 +335,16 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
 
         jLabel10.setText("Gender:");
 
-        GenderCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        GenderCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Male", "Female", "Others" }));
         GenderCombobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GenderComboboxActionPerformed(evt);
             }
         });
+
+        jLabel1.setText("User Name");
+
+        jLabel4.setText("Password");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -358,11 +357,19 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
                     .addComponent(lblContactNo)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel10))
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel4))
                 .addGap(55, 55, 55)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtpassword)
+                        .addGap(390, 390, 390))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(organizationEmpJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 344, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(GenderCombobox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(nameJTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
                             .addComponent(txtZipCode)
                             .addComponent(txtContactNo))
@@ -376,19 +383,20 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
                                 .addComponent(lbllicense)
                                 .addGap(29, 29, 29)
                                 .addComponent(txtlicenseno, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(lblContactNo1)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblContactNo1)
+                                    .addComponent(jLabel1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(organizationEmpJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(GenderCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(txtuserName)
+                                        .addContainerGap())))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(addJButton)
-                        .addContainerGap())))
+                        .addGap(283, 283, 283))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -418,13 +426,20 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
-                    .addComponent(GenderCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(GenderCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtuserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addJButton)
-                .addContainerGap())
+                .addGap(15, 15, 15))
         );
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, -1));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, 270));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
@@ -437,16 +452,21 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
         String contactNumber=txtContactNo.getText();
         String gender = (String) GenderCombobox.getSelectedItem();
         String email=txtEmail.getText();
+        String username = txtuserName.getText();
+        char[] passwordCharArray = txtpassword.getPassword();
+        String password = String.valueOf(passwordCharArray);
         if(organization.toString().equals("Cab Provider Organization")){
-          CabDriver cd=new CabDriver(license, name, null, gender, address, zipcode, contactNumber, email);
+          CabDriver cd=new CabDriver(license, name, null, gender, address, zipcode, contactNumber, email,username,password,new CabServiceRole());
           organization.getCabDriverDir().addCabDriver(cd);
-          organization.getEmpDir().createEmp(name);
+          organization.getUserAccountDir().addUserAccount(cd);
+          //organization.getEmpDir().createEmp(name);
           populateCabServiceTable();
         }
         if(organization.toString().equals("Ambulance Provider Organization")){
-         AmbulanceDriver cd=new AmbulanceDriver(license, name, null, gender, address, zipcode, contactNumber, email);
+         AmbulanceDriver cd=new AmbulanceDriver(license, name, null, gender, address, zipcode, contactNumber, email,username,password,new AmbulanceServiceRole());
           organization.getAmbulanceDriverDir().addambulanceDriver(cd);
-          organization.getEmpDir().createEmp(name);
+          organization.getUserAccountDir().addUserAccount(cd);
+          //organization.getEmpDir().createEmp(name);
           populateAmbulanceServiceTable();
         }
        
@@ -536,9 +556,11 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
     private javax.swing.JButton addJButton;
     private javax.swing.JButton btnRemoveAmbulanceService;
     private javax.swing.JButton btnRemoveCabService;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblAddress;
@@ -557,5 +579,7 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtZipCode;
     private javax.swing.JTextField txtlicenseno;
+    private javax.swing.JPasswordField txtpassword;
+    private javax.swing.JTextField txtuserName;
     // End of variables declaration//GEN-END:variables
 }

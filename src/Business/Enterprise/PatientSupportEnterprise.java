@@ -5,6 +5,7 @@
  */
 package Business.Enterprise;
 
+import Business.Organization.OrganizationDirectory;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -14,8 +15,13 @@ import java.util.ArrayList;
  */
 public class PatientSupportEnterprise extends Enterprise{
 
-    public PatientSupportEnterprise(String name) {
-        super(name, EnterpriseType.PatientSupportServices);
+//    public PatientSupportEnterprise(String name) {
+//        super(name, EnterpriseType.PatientSupportServices);
+//    }
+
+
+    public PatientSupportEnterprise(String name, String contactNumber, String email, String address, String zipcode) {
+        super(EnterpriseType.PatientSupportServices, name, contactNumber, email, address, zipcode);
     }
 
     @Override

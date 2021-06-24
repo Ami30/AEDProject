@@ -28,34 +28,34 @@ public class EnterpriseDirectory {
     }
     
     //Create enterprise
-    public Enterprise createAndAddEnterprise(String name,Enterprise.EnterpriseType type){
+    public Enterprise createAndAddEnterprise(String numOfBeds,String name,String contactNumber, String email, String address, String zipcode,Enterprise.EnterpriseType type){
         Enterprise enterprise=null;
         if(type==Enterprise.EnterpriseType.Hospital){
-            enterprise=new HospitalEnterprise(name);
+            enterprise=new HospitalEnterprise(numOfBeds, name, contactNumber, email, address, zipcode);
             enterpriseList.add(enterprise);
         }
         else if(type==Enterprise.EnterpriseType.FoodSupplyingUnits){
-            enterprise=new FoodSupplyingEnterprise(name);
+            enterprise=new FoodSupplyingEnterprise(name, contactNumber, email, address, zipcode);
             enterpriseList.add(enterprise);
         }
          else if(type==Enterprise.EnterpriseType.NecessitiesProvider){
-            enterprise=new NecessitiesProviderEnterprise(name);
+            enterprise=new NecessitiesProviderEnterprise(name, contactNumber, email, address, zipcode);
             enterpriseList.add(enterprise);
         }
           else if(type==Enterprise.EnterpriseType.PatientSupportServices){
-            enterprise=new PatientSupportEnterprise(name);
+            enterprise=new PatientSupportEnterprise(name, contactNumber, email, address, zipcode);
             enterpriseList.add(enterprise);
         }
            else if(type==Enterprise.EnterpriseType.SanitizationUnits){
-            enterprise=new SanitizationEnterprise(name);
+            enterprise=new SanitizationEnterprise(name, contactNumber, email, address, zipcode);
             enterpriseList.add(enterprise);
         }
             else if(type==Enterprise.EnterpriseType.TestingUnits){
-            enterprise=new TestingEnterprise(name);
+            enterprise=new TestingEnterprise(name, contactNumber, email, address, zipcode);
             enterpriseList.add(enterprise);
         }
              else if(type==Enterprise.EnterpriseType.Transportation){
-            enterprise=new TranspotationEnterprise(name);
+            enterprise=new TranspotationEnterprise(name, contactNumber, email, address, zipcode);
             enterpriseList.add(enterprise);
         }
         return enterprise;

@@ -6,8 +6,10 @@
 
 import Business.Network.Network;
 import Business.Organization.Organization;
+import Business.RegisteredUser.RegisteredUserDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
+import Business.UserAccount.UserAccountDirectory;
 import java.util.ArrayList;
 
 /**
@@ -17,7 +19,9 @@ import java.util.ArrayList;
 public class EcoSystem extends Organization {
     private static EcoSystem ecoSystem;
     private ArrayList<Network> ntwkList;
+//    private UserAccountDirectory userAccountDirectory;
     
+    private RegisteredUserDirectory registeredUserDirectory;
     
     public static EcoSystem getInstance(){
         if(ecoSystem==null){
@@ -33,6 +37,7 @@ public class EcoSystem extends Organization {
         ntwkList.add(network);
         return network;
     }
+    
     
     
     @Override
@@ -54,6 +59,24 @@ public class EcoSystem extends Organization {
     public void setNetworkList(ArrayList<Network> networkList) {
         this.ntwkList = networkList;
     }
+
+    public RegisteredUserDirectory getRegisteredUserDirectory() {
+        if(registeredUserDirectory==null){
+            registeredUserDirectory=new RegisteredUserDirectory();
+        }
+       
+        return registeredUserDirectory;
+    }
+
+//    public UserAccountDirectory getUserAccountDirectory() {
+//        return userAccountDirectory;
+//    }
+
+   
+    public void setPatientDirectory(RegisteredUserDirectory patientDirectory) {
+        this.registeredUserDirectory = patientDirectory;
+    }
+    
     
     public boolean checkIfUserIsUnique(String userName){
         if(!this.getUserAccountDir().checkIfUsernameIsUnique(userName)){
@@ -64,4 +87,6 @@ public class EcoSystem extends Organization {
         }
         return true;
     }
+
+  
 }

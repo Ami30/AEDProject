@@ -5,6 +5,7 @@
  */
 package Business.Enterprise;
 
+import Business.Organization.OrganizationDirectory;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -14,14 +15,19 @@ import java.util.ArrayList;
  */
 public class TestingEnterprise extends Enterprise{
 
-    public TestingEnterprise(String name) {
-        super(name, EnterpriseType.TestingUnits);
-    }
+//    public TestingEnterprise(String name) {
+//        super(name, EnterpriseType.TestingUnits);
+//    }
 
     
+
+    public TestingEnterprise(String name, String contactNumber, String email, String address, String zipcode) {
+        super(EnterpriseType.TestingUnits, name, contactNumber, email, address, zipcode);
+    }
+
     @Override
     public ArrayList<Role> getSupportedRole() {
-       return null;
+        return null;
     }
     
 }

@@ -19,9 +19,14 @@ public class UserAccount {
     private Role role;
     private Employee emp;
     private WorkQueue workQueue;
+    private String name;
 
-    public UserAccount() {
+    public UserAccount(String username,String password,String name, Role role) {
         workQueue = new WorkQueue();
+        this.username=username;
+        this.password=password;
+        this.name=name;
+        this.role=role;
     }
     
     
@@ -61,6 +66,15 @@ public class UserAccount {
     public WorkQueue getWorkQueue() {
         return workQueue;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
 
     
     

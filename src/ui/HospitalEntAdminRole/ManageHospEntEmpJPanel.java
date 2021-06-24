@@ -11,6 +11,8 @@ import Business.Enterprise.Enterprise;
 import Business.Nurse.Nurse;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
+import Business.Role.DoctorRole;
+import Business.Role.NurseRole;
 import java.awt.Component;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -32,7 +34,6 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
     private OrganizationDirectory organizationDir;
     private JPanel userProcessContainer;
     private Enterprise ent;
-    private ArrayList<String> gender;
     
     public ManageHospEntEmpJPanel(JPanel userProcessContainer,OrganizationDirectory organizationDir,Enterprise ent) {
         initComponents();
@@ -40,25 +41,14 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
         this.organizationDir = organizationDir;
         this.ent=ent;
 
-        this.gender=new ArrayList<>();
-     
-        gender.add(new String("MALE"));
-        gender.add(new String("FEMALE"));
-        gender.add(new String("OTHERS"));
-        GenderCombobox.removeAllItems();
-        
-        for(String g:gender)
-        {
-            GenderCombobox.addItem(g);
-        }
         populateOrganizationComboBox();
         populateOrganizationEmpComboBox();
         populateDoctorTable();
-        populateNurseTable();
+//        populateNurseTable();
          organizationDoctorJTable.setRowHeight(25);
         organizationDoctorJTable.getTableHeader().setDefaultRenderer(new HeaderColor());
-         organizationNurseJTable1.setRowHeight(25);
-        organizationNurseJTable1.getTableHeader().setDefaultRenderer(new HeaderColor());
+//         organizationNurseJTable1.setRowHeight(25);
+//        organizationNurseJTable1.getTableHeader().setDefaultRenderer(new HeaderColor());
         
     }
      public class HeaderColor extends DefaultTableCellRenderer {
@@ -94,34 +84,46 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         for(Organization org:organizationDir.getOrgList()){
         for (Doctor doc : org.getDocDir().getdoctorDirectory()){
-            Object[] row = new Object[6];
+            Object[] row = new Object[7];
             row[0] = doc;
             row[1] = doc.getFullName();          
             row[2] = doc.getAddress();
             row[3] = doc.getZipcode();
             row[4] = doc.getContactNumber();
             row[5] = doc.getEmail();
+            row[6] = doc.getOrgType();
             model.addRow(row);
         }
-        }
-    }
-     private void populateNurseTable(){
-        DefaultTableModel model = (DefaultTableModel) organizationNurseJTable1.getModel();
-        
-        model.setRowCount(0);
-        for(Organization org:organizationDir.getOrgList()){
         for (Nurse nur : org.getNurDir().getnurseDirectory()){
-            Object[] row = new Object[6];
-            row[0] = nur;  
+            Object[] row = new Object[7];
+            row[0] = nur;
             row[1] = nur.getFullName();          
             row[2] = nur.getAddress();
             row[3] = nur.getZipcode();
             row[4] = nur.getContactNumber();
             row[5] = nur.getEmail();
+            row[6] = nur.getOrgType();
             model.addRow(row);
         }
         }
     }
+//     private void populateNurseTable(){
+//        DefaultTableModel model = (DefaultTableModel) organizationNurseJTable1.getModel();
+//        
+//        model.setRowCount(0);
+//        for(Organization org:organizationDir.getOrgList()){
+//        for (Nurse nur : org.getNurDir().getnurseDirectory()){
+//            Object[] row = new Object[6];
+//            row[0] = nur;  
+//            row[1] = nur.getFullName();          
+//            row[2] = nur.getAddress();
+//            row[3] = nur.getZipcode();
+//            row[4] = nur.getContactNumber();
+//            row[5] = nur.getEmail();
+//            model.addRow(row);
+//        }
+//        }
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -133,12 +135,8 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lblnurselist = new javax.swing.JLabel();
         DoctorScrollPane = new javax.swing.JScrollPane();
         organizationDoctorJTable = new javax.swing.JTable();
-        NurseScrollPane = new javax.swing.JScrollPane();
-        organizationNurseJTable1 = new javax.swing.JTable();
-        btnRemoveNurse = new javax.swing.JButton();
         lblDoctorslist1 = new javax.swing.JLabel();
         btnRemoveDoctor = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -161,28 +159,29 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
         lblContactNo1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         GenderCombobox = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
+        txtuserName = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtpassword = new javax.swing.JPasswordField();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblnurselist.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
-        lblnurselist.setText("Nurses");
-
         organizationDoctorJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Name", "Address", "ZipCode", "Contact Number", "Email"
+                "ID", "Name", "Address", "ZipCode", "Contact Number", "Email", "Type"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -197,45 +196,8 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
         organizationDoctorJTable.setSelectionBackground(new java.awt.Color(235, 227, 126));
         DoctorScrollPane.setViewportView(organizationDoctorJTable);
 
-        organizationNurseJTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Name", "Address", "ZipCode", "Contact Number", "Email"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        organizationNurseJTable1.setRequestFocusEnabled(false);
-        organizationNurseJTable1.setSelectionBackground(new java.awt.Color(235, 227, 126));
-        NurseScrollPane.setViewportView(organizationNurseJTable1);
-
-        btnRemoveNurse.setText("Remove Nurse");
-        btnRemoveNurse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoveNurseActionPerformed(evt);
-            }
-        });
-
         lblDoctorslist1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
-        lblDoctorslist1.setText("Doctors");
+        lblDoctorslist1.setText("Employees");
 
         btnRemoveDoctor.setText("Remove Doctor");
         btnRemoveDoctor.addActionListener(new java.awt.event.ActionListener() {
@@ -249,40 +211,27 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(433, 433, 433)
-                        .addComponent(lblDoctorslist1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(443, 443, 443)
-                        .addComponent(lblnurselist))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnRemoveNurse)
-                        .addComponent(NurseScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnRemoveDoctor)
-                        .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(433, 433, 433)
+                            .addComponent(lblDoctorslist1))
+                        .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnRemoveDoctor, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(lblDoctorslist1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRemoveDoctor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblnurselist)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(NurseScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnRemoveNurse)
-                .addContainerGap())
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, -1, -1));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, -1, 190));
 
         txtAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -347,12 +296,16 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
 
         jLabel10.setText("Gender:");
 
-        GenderCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        GenderCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Male", "Female", "Others" }));
         GenderCombobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GenderComboboxActionPerformed(evt);
             }
         });
+
+        jLabel1.setText("User Name");
+
+        jLabel5.setText("Password");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -360,24 +313,22 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblZipCode)
                     .addComponent(lblContactNo)
-                    .addComponent(lblExperience)
+                    .addComponent(lblExperience, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(addJButton)
-                        .addContainerGap())
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(nameJTextField)
                             .addComponent(txtZipCode)
                             .addComponent(txtContactNo)
                             .addComponent(txtExperience, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(jPanel2Layout.createSequentialGroup()
@@ -395,10 +346,19 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addGap(25, 25, 25)
-                                .addComponent(GenderCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtpassword)
+                                    .addComponent(GenderCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(organizationEmpJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(addJButton)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(txtuserName, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel5))
+                                .addComponent(organizationEmpJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -433,12 +393,18 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
                             .addComponent(txtExperience, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10)))
                     .addComponent(GenderCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtuserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addJButton)
-                .addContainerGap())
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, -1));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, -1, 350));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
@@ -452,17 +418,26 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
         String contactNumber=txtContactNo.getText();
         String gender = (String) GenderCombobox.getSelectedItem();
         String email=txtEmail.getText();
-        if(organization.toString().equals("Doctor Organization")){
-          Doctor doc=new Doctor(degree, ent.getName(), null, yearsExp, name, null, gender, address, zipcode, contactNumber, email);
+        String username = txtuserName.getText();
+        char[] passwordCharArray = txtpassword.getPassword();
+        String password = String.valueOf(passwordCharArray);
+        if(organization.getType().getValue().equals("Doctor Organization")){
+          Doctor doc=new Doctor(degree, ent.getName(), null, yearsExp, name, null, gender, address, zipcode, contactNumber, email,username,password, new DoctorRole(), organization);
           organization.getDocDir().addDoctor(doc);
-          organization.getEmpDir().createEmp(name);
+           organization.getUserAccountDir().addUserAccount(doc);
+          //organization.getEmpDir().createEmp(name);
           populateDoctorTable();
         }
-        if(organization.toString().equals("Nurse Organization")){
-         Nurse nur=new Nurse(degree, ent.getName(), null, yearsExp, null, null, name, null, gender, address, zipcode, contactNumber, email);
+        if(organization.getType().getValue().equals("Nurse Organization")){
+            
+          Nurse nur=new Nurse(degree, ent.getName(), null, yearsExp, null, null, name, null, gender, address, zipcode, contactNumber, email,username,password, new NurseRole(), organization);
           organization.getNurDir().addNurse(nur);
-          organization.getEmpDir().createEmp(name);
-          populateNurseTable();
+          organization.getUserAccountDir().addUserAccount(nur);
+//         Nurse nur=new Nurse(degree, ent.getName(), null, yearsExp, null, null, name, null, gender, address, zipcode, contactNumber, email,username,password, new NurseRole());
+//          organization.getNurDir().addNurse(nur);
+//           organization.getUserAccountDir().addUserAccount(nur);
+          //organization.getEmpDir().createEmp(name);
+          populateDoctorTable();
         }
        
         
@@ -504,16 +479,29 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        Doctor d=(Doctor)organizationDoctorJTable.getValueAt(row, 0);
+       
         
-       for(int i=0;i<organizationDir.getOrgList().size();i++){
-           Organization o= organizationDir.getOrgList().get(i);
-           Boolean success=o.getDocDir().removeDoctor(d);
-           if(success){
-               o.getEmpDir().removeEmpByName(d.getFullName());
-               o.getUserAccountDir().removeUserAccountByUserName(d.getFullName());
-           }
-       }      
+        Organization org = (Organization)organizationDoctorJTable.getValueAt(row, 6);
+        if(org.toString().equalsIgnoreCase("Doctor Organization")){
+             Doctor d=(Doctor)organizationDoctorJTable.getValueAt(row, 0);
+            org.getDocDir().removeDoctor(d);
+            org.getUserAccountDir().removeUserAccount(d);
+        }else {
+            Nurse n =(Nurse)organizationDoctorJTable.getValueAt(row, 0);
+            org.getNurDir().removeNurse(n);
+            org.getUserAccountDir().removeUserAccount(n);
+        }
+        
+//       for(int i=0;i<organizationDir.getOrgList().size();i++){
+//           Organization o= organizationDir.getOrgList().get(i);
+//           Boolean success=o.getDocDir().removeDoctor(d);
+//           if(success){
+//               o.getDocDir().removeDoctor(d);
+////               o.getEmpDir().removeEmpByName(d.getFullName());
+////               o.getUserAccountDir().removeUserAccountByUserName(d.getUsername());
+//               o.getUserAccountDir().removeUserAccount(d);
+//           }
+//       }      
         
 //        for(Organization o:organizationDir.getOrgList())
 //        {
@@ -525,40 +513,18 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
         populateDoctorTable();
     }//GEN-LAST:event_btnRemoveDoctorActionPerformed
 
-    private void btnRemoveNurseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveNurseActionPerformed
-        // TODO add your handling code here:
-          int row = organizationNurseJTable1.getSelectedRow();
-        if(row<0) {
-            JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        Nurse n=(Nurse)organizationNurseJTable1.getValueAt(row, 0);
-        
-       for(int i=0;i<organizationDir.getOrgList().size();i++){
-           Organization o= organizationDir.getOrgList().get(i);
-           Boolean success=o.getNurDir().removeNurse(n);
-           if(success){
-               o.getEmpDir().removeEmpByName(n.getFullName());
-               o.getUserAccountDir().removeUserAccountByUserName(n.getFullName());
-           }
-       }      
-        populateNurseTable();
-    
-        
-    }//GEN-LAST:event_btnRemoveNurseActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane DoctorScrollPane;
     private javax.swing.JComboBox GenderCombobox;
-    private javax.swing.JScrollPane NurseScrollPane;
     private javax.swing.JButton addJButton;
     private javax.swing.JButton btnRemoveDoctor;
-    private javax.swing.JButton btnRemoveNurse;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblAddress;
@@ -567,16 +533,16 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblDoctorslist1;
     private javax.swing.JLabel lblExperience;
     private javax.swing.JLabel lblZipCode;
-    private javax.swing.JLabel lblnurselist;
     private javax.swing.JTextField nameJTextField;
     private javax.swing.JTable organizationDoctorJTable;
     private javax.swing.JComboBox organizationEmpJComboBox;
-    private javax.swing.JTable organizationNurseJTable1;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtContactNo;
     private javax.swing.JTextField txtDegree;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtExperience;
     private javax.swing.JTextField txtZipCode;
+    private javax.swing.JPasswordField txtpassword;
+    private javax.swing.JTextField txtuserName;
     // End of variables declaration//GEN-END:variables
 }

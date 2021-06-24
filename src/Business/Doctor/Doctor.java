@@ -5,7 +5,9 @@
  */
 package Business.Doctor;
 
-import Business.Patient.Patient;
+import Business.Organization.Organization;
+import Business.RegisteredUser.RegisteredUser;
+import Business.Role.Role;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -19,21 +21,22 @@ private String degree;
 private String hospital;
 private String designation;
 private String yearsExperience;
-private String doctorType;
+private Organization orgType;
 private Boolean availability;
 private int id;
 private static final AtomicInteger count = new AtomicInteger(0); 
-ArrayList<Patient> patientAssigned;
+ArrayList<RegisteredUser> patientAssigned;
 
   
 
-    public Doctor(String degree, String hospital, String designation, String yearsExperience, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email) {
-        super(fullName, dob, gender, address, zipcode, contactNumber, email);
+    public Doctor(String degree, String hospital, String designation, String yearsExperience, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username,String password, Role role, Organization orgType) {
+        super(fullName, dob, gender, address, zipcode, contactNumber, email,username,password, role);
         this.degree = degree;
         this.hospital = hospital;
         this.designation = designation;
         this.yearsExperience = yearsExperience;
         this.id=count.incrementAndGet(); 
+        this.orgType = orgType;
     }
 
     public String getDegree() {
@@ -68,13 +71,14 @@ ArrayList<Patient> patientAssigned;
         this.yearsExperience = yearsExperience;
     }
 
-    public String getDoctorType() {
-        return doctorType;
+    public Organization getOrgType() {
+        return orgType;
     }
 
-    public void setDoctorType(String doctorType) {
-        this.doctorType = doctorType;
+    public void setOrgType(Organization orgType) {
+        this.orgType = orgType;
     }
+
 
     public Boolean getAvailability() {
         return availability;
@@ -93,11 +97,11 @@ ArrayList<Patient> patientAssigned;
 //        
 //    }
 
-    public ArrayList<Patient> getPatientAssigned() {
+    public ArrayList<RegisteredUser> getPatientAssigned() {
         return patientAssigned;
     }
 
-    public void setPatientAssigned(ArrayList<Patient> patientAssigned) {
+    public void setPatientAssigned(ArrayList<RegisteredUser> patientAssigned) {
         this.patientAssigned = patientAssigned;
     }
 

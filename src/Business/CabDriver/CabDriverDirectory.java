@@ -15,10 +15,11 @@ public class CabDriverDirectory {
     ArrayList<CabDriver> cabdriverDirectory;
 
     public ArrayList<CabDriver> getCabDriverDirectory() {
-        if(cabdriverDirectory == null){
-            cabdriverDirectory = new ArrayList<>();
-        }
         return cabdriverDirectory;
+    }
+        public CabDriverDirectory() {
+       
+            cabdriverDirectory = new ArrayList<>();    
     }
 
     public void setCabDriverDirectory(ArrayList<CabDriver> cabdriverDirectory) {

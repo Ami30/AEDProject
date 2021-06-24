@@ -22,11 +22,10 @@ public class FoodSupplierDirectory {
     public void setfoodSupplierDirectory(ArrayList<FoodSupplier> foodSupplierDirectory) {
         this.foodSupplierDirectory = foodSupplierDirectory;
     }
-      public ArrayList<FoodSupplier> FoodSupplierDirectory() {
-         if(foodSupplierDirectory == null){
+      public FoodSupplierDirectory() {
+
             foodSupplierDirectory = new ArrayList<>();
-        }
-        return foodSupplierDirectory;
+
     }
     
     public void addfoodSupplier(FoodSupplier foodSupplier)
