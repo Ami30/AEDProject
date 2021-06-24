@@ -14,10 +14,10 @@ import java.util.ArrayList;
  * @author amishagupta
  */
 public class PharmacyOrganization extends Organization{
-
-   public PharmacyOrganization() {
-        super(Organization.Type.Pharmacy.getValue());
-    }
+//
+//   public PharmacyOrganization() {
+//        super(Organization.Type.Pharmacy.getValue());
+//    }
 
     @Override
     public ArrayList<Role> getSupportedRole() {
@@ -25,5 +25,12 @@ public class PharmacyOrganization extends Organization{
         roles.add(new PharmacistRole());
         return roles;
     }
-    
+          public PharmacyOrganization(String name) {
+        super(name);
+    }
+
+    @Override
+    public Type getType() {
+        return Organization.Type.Pharmacy;
+    }
 }

@@ -5,6 +5,7 @@
  */
 package Business.Enterprise;
 
+import Business.Organization.OrganizationDirectory;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -14,13 +15,18 @@ import java.util.ArrayList;
  */
 public class TranspotationEnterprise extends Enterprise{
 
-    public TranspotationEnterprise(String name) {
-        super(name, EnterpriseType.Transportation);
-    }   
+//    public TranspotationEnterprise(String name) {
+//        super(name, EnterpriseType.Transportation);
+//    }   
     
+
+    public TranspotationEnterprise(String name, String contactNumber, String email, String address, String zipcode) {
+        super(EnterpriseType.Transportation, name, contactNumber, email, address, zipcode);
+    }
+
     @Override
     public ArrayList<Role> getSupportedRole() {
-       return null;
+        return null;
     }
     
 }

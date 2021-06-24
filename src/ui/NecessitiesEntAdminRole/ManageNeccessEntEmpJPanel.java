@@ -39,7 +39,6 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
     private OrganizationDirectory organizationDir;
     private JPanel userProcessContainer;
     private Enterprise ent;
-    private ArrayList<String> gender;
     
     public ManageNeccessEntEmpJPanel(JPanel userProcessContainer,OrganizationDirectory organizationDir,Enterprise ent) {
         initComponents();
@@ -47,17 +46,6 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
         this.organizationDir = organizationDir;
         this.ent=ent;
 
-        this.gender=new ArrayList<>();
-     
-        gender.add(new String("MALE"));
-        gender.add(new String("FEMALE"));
-        gender.add(new String("OTHERS"));
-        GenderCombobox.removeAllItems();
-        
-        for(String g:gender)
-        {
-            GenderCombobox.addItem(g);
-        }
         populateOrganizationComboBox();
         populateOrganizationEmpComboBox();
         populateDeliveryManTable();
@@ -421,7 +409,7 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
 
         jLabel10.setText("Gender:");
 
-        GenderCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        GenderCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Male", "Female", "Others" }));
         GenderCombobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GenderComboboxActionPerformed(evt);
@@ -541,22 +529,25 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
          String username = txtuserName.getText();
         char[] passwordCharArray = txtpassword.getPassword();
         String password = String.valueOf(passwordCharArray);
-        if(organization.toString().equals("Delivery Provider Organization")){
+        if(organization.getType().getValue().equals("Delivery Provider Organization")){
           DeliveryMan del=new DeliveryMan(null, name, null, gender, address, zipcode, contactNumber, email,username,password, new DeliveryManRole());
           organization.getDelManDir().adddeliveryMan(del);
-          organization.getEmpDir().createEmp(name);
+          organization.getUserAccountDir().addUserAccount(del);
+        //  organization.getEmpDir().createEmp(name);
           populateDeliveryManTable();
         }
-        if(organization.toString().equals("Pharmacy Organization")){
+        if(organization.getType().getValue().equals("Pharmacy Organization")){
          Pharmacist ph=new Pharmacist(name, null, gender, address, zipcode, contactNumber, email,username,password, new PharmacistRole());
           organization.getPharDir().addpharmacist(ph);
-          organization.getEmpDir().createEmp(name);
+          organization.getUserAccountDir().addUserAccount(ph);
+          //organization.getEmpDir().createEmp(name);
           populatePharmacistTable();
         }
-        if(organization.toString().equals("Grocery Store Organization")){
+        if(organization.getType().getValue().equals("Grocery Store Organization")){
          GroceryStorePerson groc=new GroceryStorePerson(name, null, gender, address, zipcode, contactNumber, email,username,password, new StorePersonRole());
           organization.getGrocPerDir().addgroceryPerson(groc);
-          organization.getEmpDir().createEmp(name);
+          organization.getUserAccountDir().addUserAccount(groc);
+          //organization.getEmpDir().createEmp(name);
           populateGroceryPersonTable();
         }
         

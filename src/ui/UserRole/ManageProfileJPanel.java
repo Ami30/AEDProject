@@ -14,6 +14,8 @@ import Business.Role.PatientRole;
 import Business.UserAccount.UserAccount;
 import java.awt.Component;
 import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JLabel;
@@ -29,76 +31,26 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageProfileJPanel
      */
-     private ArrayList<String> gender;
-    private ArrayList<String> foodpref;
-    private ArrayList<String> vaccinated;
-    private ArrayList<String> bloodGroup;
+
     private ArrayList<String> comorbid;
     private UserAccount useraccount;
     private EcoSystem system;
-
+     DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
  
-    public ManageProfileJPanel(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system) {
+    public ManageProfileJPanel(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system) throws ParseException {
         initComponents();
         this.useraccount=account;
         this.system = system;
-        populateComboboxes();
-        populateprofile();
-       this.comorbid=new ArrayList<>();
-        
-    }
-    
-    public void populateComboboxes(){
-         this.gender=new ArrayList<>();
-          this.foodpref=new ArrayList<>();
-          this.vaccinated=new ArrayList<>();
-           this.bloodGroup=new ArrayList<>();
-           GenderCombobox.removeAllItems();
-           FoodPrefCombobox.removeAllItems();
-           VaccinationCombobox.removeAllItems();
-           BloodGroupCombobox.removeAllItems();
-            cityJComboBox.removeAllItems();
-        gender.add("Male");
-        gender.add("Female");
-        gender.add("Others");
-        foodpref.add("Vegetarian");
-        foodpref.add("Non-Vegetarian");
-        foodpref.add("Vegan");
-        vaccinated.add("Yes");
-        vaccinated.add("No");
-        vaccinated.add("1st Dose Done");
-         bloodGroup.add("A+");
-         bloodGroup.add("A-");
-         bloodGroup.add("B+");
-         bloodGroup.add("B-");
-         bloodGroup.add("O+");
-         bloodGroup.add("AB+");
-         bloodGroup.add("AB-");
-        
-        
-        
-        for(String g:gender)
-        {
-            GenderCombobox.addItem(g);
-        }
-        for(String f:foodpref)
-        {
-            FoodPrefCombobox.addItem(f);
-        }
-        for(String v:vaccinated)
-        {
-            VaccinationCombobox.addItem(v);
-        }
-          for(String b:bloodGroup)
-        {
-            BloodGroupCombobox.addItem(b);
-        }
-          
-          
+        cityJComboBox.removeAllItems();  
         for (Network network : system.getNetworkList()) {
             cityJComboBox.addItem(network);
         }
+        populateprofile();
+        this.comorbid=new ArrayList<>();
+        
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -131,7 +83,6 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
         lblfoodpref = new javax.swing.JLabel();
         cityJComboBox = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         GenderCombobox = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
         txtZipCode = new javax.swing.JTextField();
@@ -150,6 +101,7 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
         lblGender = new javax.swing.JLabel();
         txtContactNo = new javax.swing.JTextField();
         txtHeight = new javax.swing.JTextField();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         addJButton.setText("Save");
         addJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -192,7 +144,7 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
             }
         });
 
-        BloodGroupCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        BloodGroupCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A+", "A-", "B+", "B-", "O+", "AB+", "AB-" }));
         BloodGroupCombobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BloodGroupComboboxActionPerformed(evt);
@@ -217,6 +169,7 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
             }
         });
 
+        VaccinationCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Yes", "No", "1st Dose Done" }));
         VaccinationCombobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 VaccinationComboboxActionPerformed(evt);
@@ -230,7 +183,7 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(178, Short.MAX_VALUE)
+                .addContainerGap(177, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jCheckBoxDiabetes)
@@ -314,9 +267,7 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Name");
 
-        jDateChooser1.setDateFormatString("dd-MM-yyyy");
-
-        GenderCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        GenderCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Male", "Female", "Others" }));
         GenderCombobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GenderComboboxActionPerformed(evt);
@@ -355,7 +306,7 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
 
         lblContactNo.setText("Contact Number");
 
-        FoodPrefCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        FoodPrefCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Vegetarian", "Non-Vegetarian", "Vegan" }));
         FoodPrefCombobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FoodPrefComboboxActionPerformed(evt);
@@ -391,9 +342,9 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
                             .addComponent(nameJTextField)
                             .addComponent(txtZipCode)
                             .addComponent(txtContactNo)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, Short.MAX_VALUE)
+                            .addComponent(txtWeight, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(lblGender)
@@ -411,7 +362,7 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblfoodpref)
                                     .addComponent(lblContactNo2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 5, Short.MAX_VALUE)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtHeight, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(FoodPrefCombobox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -486,7 +437,7 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(32, 32, 32)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(87, 87, 87)
+                .addGap(85, 85, 85)
                 .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
         );
@@ -529,10 +480,7 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
         String selectedfoodpref = (String) FoodPrefCombobox.getSelectedItem();
         String selectedvaccine = (String) VaccinationCombobox.getSelectedItem();
         String selectedBloodGroup=(String) BloodGroupCombobox.getSelectedItem();
-        Date birthDate = jDateChooser1.getDate();
-        String strDate = DateFormat.getDateInstance().format(birthDate);
-        //         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        //        String stringDate = sdf.format(doBirth );
+        String birthDate = formatter.format(jDateChooser1.getDate());
         if(jCheckBoxAsthama.isSelected()){
             comorbid.add(jCheckBoxAsthama.getText());
         }
@@ -559,7 +507,7 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
         registeredUser.setAddress(address);
         registeredUser.setEmail(email);
         registeredUser.setContactNumber(contactNumber);
-        registeredUser.setDob(strDate);
+        registeredUser.setDob(birthDate);
         registeredUser.setAllergies(allergy);
         registeredUser.setSurgeries(surgery);
         registeredUser.setWeight(weight);
@@ -678,7 +626,7 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtZipCode;
     // End of variables declaration//GEN-END:variables
 
-    private void populateprofile() {
+    private void populateprofile() throws ParseException {
         String username = useraccount.getUsername();
         RegisteredUser registeredUser= system.getRegisteredUserDirectory().findRegisteredUser(username);
         
@@ -689,30 +637,18 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
         txtContactNo.setText(registeredUser.getContactNumber());
         txtAllergy.setText(registeredUser.getAllergies());
         txtSurgery.setText(registeredUser.getSurgeries());
-       // GenderCombobox.getModel().setSelectedItem(o);
-//        for (int i = 0; i < GenderCombobox.getItemCount(); i++)
-//        {
-//            
-//            if (GenderCombobox.getItemAt(i).equals(registeredUser.getGender()))
-//            {
-//                GenderCombobox.setSelectedIndex(i);
-//                break;
-//            }
-//        }
-//for (int i = 0; i < 3; i++){
-//if (GenderCombobox.getItemAt(i).toString ().contains(registeredUser.getGender())) 
-//{ 
-//    GenderCombobox.setSelectedIndex(i);
-//}
-//}
-
         FoodPrefCombobox.setSelectedItem(registeredUser.getFoodpreference());
         VaccinationCombobox.setSelectedItem(registeredUser.getIsVaccinated());
         cityJComboBox.setSelectedItem(registeredUser.getRegisteredUserNetwork());
         txtEmail.setText(registeredUser.getEmail());
         txtWeight.setText(registeredUser.getWeight());
-        txtHeight.setText(registeredUser.getHeight());
-        jDateChooser1.setDateFormatString(registeredUser.getDob());
+        txtHeight.setText(registeredUser.getHeight());       
+        String birthDate = registeredUser.getDob();
+        if(birthDate != null){
+            Date date = (Date) formatter.parse(birthDate);
+            jDateChooser1.setDate(date);
+        } 
+        if(registeredUser.getComorbid()!=null){
         for(String s:registeredUser.getComorbid()){
             if(s.equals(jCheckBoxDiabetes.getText())){
                 jCheckBoxDiabetes.setSelected(true);
@@ -732,6 +668,7 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
                 if(s.equals(jCheckBoxcardio.getText())){
                 jCheckBoxcardio.setSelected(true);
             }
+        }
         }
 
         

@@ -16,10 +16,16 @@ public abstract class Enterprise extends Organization {
     private EnterpriseType enterpriseType;
     private OrganizationDirectory orgDir;
     
-     public Enterprise(String name,EnterpriseType type){
-        super(name);
-        this.enterpriseType=type;
-        orgDir=new OrganizationDirectory();
+//     public Enterprise(String name,EnterpriseType type){
+//        super(name);
+//        this.enterpriseType=type;
+//        orgDir=new OrganizationDirectory();
+//    }
+
+    public Enterprise(EnterpriseType enterpriseType, String name, String contactNumber, String email, String address, String zipcode) {
+        super(name, contactNumber, email, address, zipcode);
+        this.enterpriseType = enterpriseType;
+        this.orgDir = new OrganizationDirectory();
     }
 
     public OrganizationDirectory getOrganizationDirectory() {
@@ -27,8 +33,8 @@ public abstract class Enterprise extends Organization {
     }
     
     public enum EnterpriseType{
-        Hospital("Hospital"),
         FoodSupplyingUnits("Food Supplying Units"),
+        Hospital("Hospital"),
         Transportation("Transpotation"),
         SanitizationUnits("Sanitization Units"),
         TestingUnits("Testing Units"),

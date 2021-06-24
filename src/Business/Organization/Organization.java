@@ -30,6 +30,10 @@ import java.util.ArrayList;
 public abstract class Organization {
     
     private String name;
+    private String email;
+    private String contactNumber;
+    private String zipcode;
+    private String address;
     private WorkQueue workQueue;
     private UserAccountDirectory accountDirectory;
     private EmployeeDirectory empDir;
@@ -77,12 +81,16 @@ public abstract class Organization {
         }
     }
 
-    public Organization(String name) {
+    public Organization(String name, String contactNumber, String email, String address, String zipcode) {
         this.name = name;
+        this.contactNumber = contactNumber;
+        this.email = email;
+        this.address = address;
+        this.zipcode = zipcode;
         workQueue = new WorkQueue();
         empDir = new EmployeeDirectory();
-        docDir=new DoctorDirectory();
-        nurDir=new NurseDirectory();
+//        docDir=new DoctorDirectory();
+//        nurDir=new NurseDirectory();
         pharDir=new PharmacistDirectory();
         delManDir=new DeliveryManDirectory();
         GrocPerDir=new GroceryStorePersonDirectory();
@@ -96,6 +104,11 @@ public abstract class Organization {
         orgID = counter;
         ++counter;
     }
+
+    public Organization(String name) {
+        this.name = name;
+    }
+    
     public UserAccountDirectory getUserAccountDir() {
         if(accountDirectory==null){
         accountDirectory = new UserAccountDirectory();
@@ -108,6 +121,9 @@ public abstract class Organization {
     }
 
     public DoctorDirectory getDocDir() {
+        if(docDir == null){
+            docDir=new DoctorDirectory();
+        }
         return docDir;
     }
 
@@ -189,6 +205,9 @@ public abstract class Organization {
     }
 
     public NurseDirectory getNurDir() {
+        if(nurDir == null){
+            nurDir=new NurseDirectory();
+        }
         return nurDir;
     }
 
@@ -222,6 +241,46 @@ public abstract class Organization {
 
     public void setType(Type type) {
         this.type = type;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public static int getCounter() {
+        return counter;
+    }
+
+    public static void setCounter(int counter) {
+        Organization.counter = counter;
     }
     
 

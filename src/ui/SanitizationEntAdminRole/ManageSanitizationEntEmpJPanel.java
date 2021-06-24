@@ -37,7 +37,7 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
     private OrganizationDirectory organizationDir;
     private JPanel userProcessContainer;
     private Enterprise ent;
-    private ArrayList<String> gender;
+
     
     public ManageSanitizationEntEmpJPanel(JPanel userProcessContainer,OrganizationDirectory organizationDir,Enterprise ent) {
         initComponents();
@@ -45,17 +45,6 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
         this.organizationDir = organizationDir;
         this.ent=ent;
 
-        this.gender=new ArrayList<>();
-     
-        gender.add(new String("MALE"));
-        gender.add(new String("FEMALE"));
-        gender.add(new String("OTHERS"));
-        GenderCombobox.removeAllItems();
-        
-        for(String g:gender)
-        {
-            GenderCombobox.addItem(g);
-        }
         populateOrganizationComboBox();
         populateOrganizationEmpComboBox();
         populateSanitizationPersonTable();
@@ -262,7 +251,7 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
 
         jLabel10.setText("Gender:");
 
-        GenderCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        GenderCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Male", "Female", "Others" }));
         GenderCombobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GenderComboboxActionPerformed(evt);
@@ -381,7 +370,7 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
         String username = txtuserName.getText();
         char[] passwordCharArray = txtpassword.getPassword();
         String password = String.valueOf(passwordCharArray);
-        if(organization.toString().equals("Sanitization Provider Organization")){
+        if(organization.getType().getValue().equals("Sanitization Provider Organization")){
         SanitizationPerson sp=new SanitizationPerson(name, null, gender, address, zipcode, contactNumber, email,username,password, new SanitizationServiceRole());
         organization.getSaniPersonDir().addsanitizationPerson(sp);
          organization.getUserAccountDir().addUserAccount(sp);

@@ -15,15 +15,23 @@ import java.util.ArrayList;
  */
 public class DeliveryManOrganization extends Organization{
 
-   public DeliveryManOrganization() {
-        super(Organization.Type.DeliveryMan.getValue());
-    }
+//   public DeliveryManOrganization() {
+//        super(Organization.Type.DeliveryMan.getValue());
+//    }
 
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles=new ArrayList();
         roles.add(new DeliveryManRole());
         return roles;
+    }
+     public DeliveryManOrganization(String name) {
+        super(name);
+    }
+
+    @Override
+    public Type getType() {
+        return Organization.Type.DeliveryMan;
     }
     
 }

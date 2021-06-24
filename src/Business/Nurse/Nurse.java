@@ -5,6 +5,7 @@
  */
 package Business.Nurse;
 
+import Business.Organization.Organization;
 import Business.RegisteredUser.RegisteredUser;
 import Business.Role.Role;
 import java.util.ArrayList;
@@ -20,13 +21,14 @@ private String hospital;
 private String designation;
 private String yearsExperience;
 private Boolean availability;
+private Organization orgType;
 private int id;
 private int patientNumber;
 private static final AtomicInteger count = new AtomicInteger(0); 
 
 ArrayList<RegisteredUser> patientAssigned;
 
-    public Nurse(String degree, String hospital, String designation, String yearsExperience, Boolean availability, ArrayList<RegisteredUser> patientAssigned, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username,String password, Role role) {
+    public Nurse(String degree, String hospital, String designation, String yearsExperience, Boolean availability, ArrayList<RegisteredUser> patientAssigned, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username,String password, Role role,Organization orgType) {
         super(fullName, dob, gender, address, zipcode, contactNumber, email,username,password, role);
         this.degree = degree;
         this.hospital = hospital;
@@ -35,6 +37,7 @@ ArrayList<RegisteredUser> patientAssigned;
         this.availability = availability;
         this.patientAssigned = patientAssigned;
         this.id=count.incrementAndGet(); 
+        this.orgType = orgType;
     }
 
     public String getDegree() {
@@ -102,6 +105,14 @@ ArrayList<RegisteredUser> patientAssigned;
         this.patientAssigned = patientAssigned;
     }
 
+    public Organization getOrgType() {
+        return orgType;
+    }
+
+    public void setOrgType(Organization orgType) {
+        this.orgType = orgType;
+    }
+ 
       @Override
     public String toString() {
          return String.valueOf(id);

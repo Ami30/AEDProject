@@ -34,70 +34,19 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
      */
     private JPanel userProcessContainer;
     private EcoSystem system;
-    private ArrayList<String> gender;
-    private ArrayList<String> foodpref;
-    private ArrayList<String> vaccinated;
-    private ArrayList<String> bloodGroup;
-    private ArrayList<String> comorbid;
+    DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+    
     public UserRegistrationJPanel(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.system=system;
-        populateComboboxes();
-        this.comorbid=new ArrayList<>();
-    }
-    
-    public void populateComboboxes(){
-         this.gender=new ArrayList<>();
-          this.foodpref=new ArrayList<>();
-          this.vaccinated=new ArrayList<>();
-           this.bloodGroup=new ArrayList<>();
-           GenderCombobox.removeAllItems();
-//           FoodPrefCombobox.removeAllItems();
-//           VaccinationCombobox.removeAllItems();
-//           BloodGroupCombobox.removeAllItems();
-            cityJComboBox.removeAllItems();
-        gender.add("Male");
-        gender.add("Female");
-        gender.add("Others");
-        foodpref.add("Vegetarian");
-        foodpref.add("Non-Vegetarian");
-        foodpref.add("Vegan");
-        vaccinated.add("Yes");
-        vaccinated.add("No");
-        vaccinated.add("1st Dose Done");
-         bloodGroup.add("A+");
-         bloodGroup.add("A-");
-         bloodGroup.add("B+");
-         bloodGroup.add("B-");
-         bloodGroup.add("O+");
-         bloodGroup.add("AB+");
-         bloodGroup.add("AB-");
-        
-        
-        
-        for(String g:gender)
-        {
-            GenderCombobox.addItem(g);
-        }
-//        for(String f:foodpref)
-//        {
-//            FoodPrefCombobox.addItem(f);
-//        }
-//        for(String v:vaccinated)
-//        {
-//            VaccinationCombobox.addItem(v);
-//        }
-//          for(String b:bloodGroup)
-//        {
-//            BloodGroupCombobox.addItem(b);
-//        }
-          
-          
-        for (Network network : system.getNetworkList()) {
+         cityJComboBox.removeAllItems();
+              for (Network network : system.getNetworkList()) {
             cityJComboBox.addItem(network);
         }
+        
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -181,7 +130,7 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
 
         lblGender.setText("Gender:");
 
-        GenderCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        GenderCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Male", "Female", "Others" }));
         GenderCombobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GenderComboboxActionPerformed(evt);
@@ -364,42 +313,20 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
         String contactNumber=txtContactNo.getText();
         String selectedgender = (String) GenderCombobox.getSelectedItem();
         String email=txtEmail.getText();
-//        String selectedfoodpref = (String) FoodPrefCombobox.getSelectedItem();
-//        String selectedvaccine = (String) VaccinationCombobox.getSelectedItem();
+
         String username= txtusername.getText();
-//        String symptom= txtsymptoms.getText();
-        Date birthDate = jDateChooser1.getDate();
-        String strDate = DateFormat.getDateInstance().format(birthDate);
-//         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//        String stringDate = sdf.format(doBirth );
+
+        //Date birthDate = jDateChooser1.getDate();
+       // String strDate = DateFormat.getDateInstance().format(birthDate);
+        String birthDate = formatter.format(jDateChooser1.getDate());
         String password = String.valueOf(this.pwdfield.getPassword());
         String comfirmpassword = String.valueOf(this.pwdfieldconfirm.getPassword()); 
-//        if(jCheckBoxAsthama.isSelected()){
-//            comorbid.add(jCheckBoxAsthama.getText());
-//        }
-//        if(jCheckBoxAtrial.isSelected()){
-//            comorbid.add(jCheckBoxAtrial.getText());
-//        }
-//        if(jCheckBoxCystic.isSelected()){
-//            comorbid.add(jCheckBoxCystic.getText());
-//        }
-//        if(jCheckBoxDiabetes.isSelected()){
-//            comorbid.add(jCheckBoxDiabetes.getText());
-//        }
-//        if(jCheckBoxSmoking.isSelected()){
-//            comorbid.add(jCheckBoxSmoking.getText());
-//        }
-//        if(jCheckBoxcardio.isSelected()){
-//            comorbid.add(jCheckBoxcardio.getText());
-//        }
+
         
-           RegisteredUser p=new RegisteredUser(network.toString(),null, comorbid, null, null, null, name, strDate, email, address, zipcode, contactNumber, email,username,password,new PatientRole());
+           RegisteredUser p=new RegisteredUser(network.toString(),null, null, null, null, null, name, birthDate, email, address, zipcode, contactNumber, email,username,password,new PatientRole());
            
            system.getRegisteredUserDirectory().addRegisteredUser(p);
             
-//           organization.getPatientDir().addPatient(p);
-           // Employee emp = system.getEmpDir().createEmp(name);
-           // system.getUserAccountDir().createUserAccount(username, password, emp, new PatientRole());
             system.getUserAccountDir().addUserAccount(p);
           JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I><font color='green'> Registered Successfully </font><></h2></html>"));
           nameJTextField.setText("");
@@ -408,12 +335,7 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
        txtContactNo.setText("");
         GenderCombobox.getSelectedItem();
        txtEmail.setText("");
-//        FoodPrefCombobox.getSelectedItem();
-//       VaccinationCombobox.getSelectedItem();
        txtusername.setText("");
-//       txtsymptoms.setText("");
-     
-
      pwdfield.setText("");
      pwdfieldconfirm.setText(""); 
             

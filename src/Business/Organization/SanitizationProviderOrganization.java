@@ -15,9 +15,9 @@ import java.util.ArrayList;
  */
 public class SanitizationProviderOrganization extends Organization{
 
-    public SanitizationProviderOrganization() {
-        super(Organization.Type.SanitizationProvider.getValue());
-    }
+//    public SanitizationProviderOrganization() {
+//        super(Organization.Type.SanitizationProvider.getValue());
+//    }
 
     @Override
     public ArrayList<Role> getSupportedRole() {
@@ -25,5 +25,12 @@ public class SanitizationProviderOrganization extends Organization{
         roles.add(new SanitizationServiceRole());
         return roles;
     }
-    
+          public SanitizationProviderOrganization(String name) {
+        super(name);
+    }
+
+    @Override
+    public Type getType() {
+        return Organization.Type.Nurse.SanitizationProvider;
+    }
 }

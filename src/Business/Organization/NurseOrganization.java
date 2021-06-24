@@ -15,15 +15,24 @@ import java.util.ArrayList;
  */
 public class NurseOrganization extends Organization {
 
-   public NurseOrganization() {
-        super(Organization.Type.Nurse.getValue());
-    }
+//   public NurseOrganization() {
+//        super(Organization.Type.Nurse.getValue());
+//    }
 
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles=new ArrayList();
         roles.add(new NurseRole());
         return roles;
+    }
+    
+     public NurseOrganization(String name) {
+        super(name);
+    }
+
+    @Override
+    public Type getType() {
+        return Organization.Type.Nurse;
     }
     
     

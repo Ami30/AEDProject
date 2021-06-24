@@ -15,6 +15,10 @@ public class DoctorDirectory {
       ArrayList<Doctor> doctorDirectory;
 
     public ArrayList<Doctor> getdoctorDirectory() {
+        if(doctorDirectory==null){
+             doctorDirectory = new ArrayList<>();
+        }
+        
         return doctorDirectory;
     }
 
@@ -23,10 +27,6 @@ public class DoctorDirectory {
     }
     
       public DoctorDirectory() {
-
-            doctorDirectory = new ArrayList<>();
-        
-    
     }
 
     

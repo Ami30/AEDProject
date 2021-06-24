@@ -86,6 +86,7 @@ public class RequestDoctorAppointmentJPanel extends javax.swing.JPanel {
      public void populateRequesttable() {
         DefaultTableModel model = (DefaultTableModel) SubmittedrequestsJTable.getModel();
         model.setRowCount(0);
+        if(system.getWorkQueue()!=null){
         for (WorkRequest workRequest : system.getWorkQueue().getWorkRqstList()) {
             if (workRequest instanceof RequestDoctor){
                if (((RequestDoctor) workRequest).getRegisteredUser().getUsername().equals(useraccount.getUsername())){
@@ -104,6 +105,7 @@ public class RequestDoctorAppointmentJPanel extends javax.swing.JPanel {
             }
             
             
+        }
         }
    
     }
@@ -228,19 +230,22 @@ public class RequestDoctorAppointmentJPanel extends javax.swing.JPanel {
                             .addComponent(ComboboxCough, javax.swing.GroupLayout.Alignment.TRAILING, 0, 254, Short.MAX_VALUE))))
                 .addGap(192, 192, 192))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(420, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(362, 362, 362))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblSubmittedrqsts)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(425, 425, 425))))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(DoctorScrollPane)
-                .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 414, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(362, 362, 362))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblSubmittedrqsts)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(425, 425, 425))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 982, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

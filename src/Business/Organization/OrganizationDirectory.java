@@ -5,6 +5,7 @@
  */
 package Business.Organization;
 
+import Business.Organization.Organization.Type;
 import java.util.ArrayList;
 
 /**
@@ -22,50 +23,50 @@ public class OrganizationDirectory {
         return orgList;
     }
     
-    public Organization createOrg(Organization.Type type){
+    public Organization createOrg(Type type,String name){
         Organization organization = null;
         if (type.getValue().equals(Organization.Type.Doctor.getValue())){
-            organization = new DoctorOrganization();
+            organization = new DoctorOrganization(name);
             orgList.add(organization);
         }
         else if (type.getValue().equals(Organization.Type.AmbulanceProvider.getValue())){
-            organization = new AmbulanceProviderOrganization();
+            organization = new AmbulanceProviderOrganization(name);
             orgList.add(organization);
         }
          else if (type.getValue().equals(Organization.Type.CabProvider.getValue())){
-            organization = new CabProviderOrganization();
+            organization = new CabProviderOrganization(name);
             orgList.add(organization);
         }
          else if (type.getValue().equals(Organization.Type.DeliveryMan.getValue())){
-            organization = new DeliveryManOrganization();
+            organization = new DeliveryManOrganization(name);
             orgList.add(organization);
         }
          else if (type.getValue().equals(Organization.Type.FoodProvider.getValue())){
-            organization = new FoodProviderOrganization();
+            organization = new FoodProviderOrganization(name);
             orgList.add(organization);
         }
          else if (type.getValue().equals(Organization.Type.GroceryStore.getValue())){
-            organization = new GroceryStoreOrganization();
+            organization = new GroceryStoreOrganization(name);
             orgList.add(organization);
         }
           else if (type.getValue().equals(Organization.Type.Nurse.getValue())){
-            organization = new NurseOrganization();
+            organization = new NurseOrganization(name);
             orgList.add(organization);
         }
             else if (type.getValue().equals(Organization.Type.PatientManager.getValue())){
-            organization = new PatientManagerOrganization();
+            organization = new PatientManagerOrganization(name);
             orgList.add(organization);
         }
             else if (type.getValue().equals(Organization.Type.Pharmacy.getValue())){
-            organization = new PharmacyOrganization();
+            organization = new PharmacyOrganization(name);
             orgList.add(organization);
         }
             else if (type.getValue().equals(Organization.Type.SanitizationProvider.getValue())){
-            organization = new SanitizationProviderOrganization();
+            organization = new SanitizationProviderOrganization(name);
             orgList.add(organization);
         }
             else if (type.getValue().equals(Organization.Type.TestingProvider.getValue())){
-            organization = new TestingProviderOrganization();
+            organization = new TestingProviderOrganization(name);
             orgList.add(organization);
         }
         return organization;

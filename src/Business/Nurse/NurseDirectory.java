@@ -17,6 +17,9 @@ public class NurseDirectory {
     ArrayList<Nurse> nurseDirectory;
 
     public ArrayList<Nurse> getnurseDirectory() {
+        if(nurseDirectory == null){
+            nurseDirectory = new ArrayList();
+        }
         return nurseDirectory;
     }
 
@@ -25,7 +28,7 @@ public class NurseDirectory {
     }
     
     public NurseDirectory() {
-        nurseDirectory = new ArrayList();
+//        nurseDirectory = new ArrayList();
     }
     public void addNurse(Nurse nurse)
     {
