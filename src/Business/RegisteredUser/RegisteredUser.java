@@ -5,7 +5,9 @@
  */
 package Business.RegisteredUser;
 
+import Business.Network.Network;
 import Business.Role.Role;
+import Business.WorkQueue.HealthRequestDirectory;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -17,7 +19,7 @@ public class RegisteredUser extends Business.Person.Person {
 private String bloodGroup;
 private ArrayList<String> comorbid;
 private String symptom;
-private String userNetwork;
+private Network userNetwork;
 private String doctorAssigned;
 private String foodService;
 private String pharmacy;
@@ -35,8 +37,10 @@ private String Allergies;
 private String weight;
 private String height;
 private static final AtomicInteger count = new AtomicInteger(0); 
+private HealthRequestDirectory HealthRequestDirectory = new HealthRequestDirectory();
 
-    public RegisteredUser(String userNetwork, String bloodGroup, ArrayList<String> comorbid, String symptom, String foodpreference, String isVaccinated, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username,String password, Role role) {
+
+    public RegisteredUser(Network userNetwork, String bloodGroup, ArrayList<String> comorbid, String symptom, String foodpreference, String isVaccinated, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username,String password, Role role) {
         super(fullName, dob, gender, address, zipcode, contactNumber, email, username,password, role);
         this.bloodGroup = bloodGroup;
         this.comorbid = comorbid;
@@ -44,6 +48,7 @@ private static final AtomicInteger count = new AtomicInteger(0);
         this.foodpreference = foodpreference;
         this.isVaccinated = isVaccinated;       
         this.id=count.incrementAndGet(); 
+        this.userNetwork = userNetwork;
     }
 
     public String getFever() {
@@ -71,11 +76,11 @@ private static final AtomicInteger count = new AtomicInteger(0);
     }
     
 
-    public String getRegisteredUserNetwork() {
+    public Network getRegisteredUserNetwork() {
         return userNetwork;
     }
 
-    public void setRegisteredUserNetwork(String userNetwork) {
+    public void setRegisteredUserNetwork(Network userNetwork) {
         this.userNetwork = userNetwork;
     }
 
@@ -199,6 +204,13 @@ private static final AtomicInteger count = new AtomicInteger(0);
 
     public void setIsVaccinated(String isVaccinated) {
         this.isVaccinated = isVaccinated;
+    }
+
+    public HealthRequestDirectory getHealthRequestDirectory() {
+        if(HealthRequestDirectory == null){
+            HealthRequestDirectory = new HealthRequestDirectory();
+        }
+        return HealthRequestDirectory;
     }
 
     @Override

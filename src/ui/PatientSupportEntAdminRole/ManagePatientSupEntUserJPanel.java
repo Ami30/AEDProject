@@ -11,6 +11,8 @@ import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
 import Business.Nurse.Nurse;
 import Business.Organization.Organization;
+import Business.PatientManager.PatientManager;
+import Business.Role.PatientManagerRole;
 import Business.Role.Role;
 import Business.UserAccount.UserAccount;
 import java.awt.Component;
@@ -206,8 +208,9 @@ public class ManagePatientSupEntUserJPanel extends javax.swing.JPanel {
         String password = passwordJTextField.getText();
         Organization organization = (Organization) organizationJComboBox.getSelectedItem();
         Role role = (Role) roleJComboBox.getSelectedItem();
-        Employee employee = (Employee) employeeJComboBox.getSelectedItem();       
-      //  organization.getUserAccountDir().createUserAccount(userName, password, employee, role);
+        Employee employee = (Employee) employeeJComboBox.getSelectedItem();
+        UserAccount account = new UserAccount(userName, password, null, new PatientManagerRole());
+        organization.getUserAccountDir().addUserAccount(account);
         
 
        
@@ -225,8 +228,8 @@ public class ManagePatientSupEntUserJPanel extends javax.swing.JPanel {
     public void populateEmployeeComboBox(Organization organization){
         employeeJComboBox.removeAllItems();
         
-        for (Employee employee : organization.getEmpDir().getEmpList()){
-            employeeJComboBox.addItem(employee);
+        for (PatientManager employee : organization.getpManagerDir().getPatientManagerDirectory()){
+            employeeJComboBox.addItem(employee.getName());
         }
         //        if(organization.toString().equals("Doctor Organization")){
 //            for (Doctor d : organization.getDocDir().getdoctorDirectory()){

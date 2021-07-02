@@ -54,12 +54,13 @@ public class NecessitiesEntAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(235, 227, 126));
+        jPanel1.setBackground(new java.awt.Color(191, 124, 253));
 
         btnManageEmp.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnManageEmp.setText("Manage Employee");
         btnManageEmp.setBorder(null);
         btnManageEmp.setBorderPainted(false);
+        btnManageEmp.setContentAreaFilled(false);
         btnManageEmp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageEmpActionPerformed(evt);
@@ -68,8 +69,9 @@ public class NecessitiesEntAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         btnManageOrg.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnManageOrg.setText("Manage Organization");
-        btnManageOrg.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(74, 126, 203), null, null));
+        btnManageOrg.setBorder(null);
         btnManageOrg.setBorderPainted(false);
+        btnManageOrg.setContentAreaFilled(false);
         btnManageOrg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageOrgActionPerformed(evt);
@@ -80,6 +82,7 @@ public class NecessitiesEntAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnManageUsers.setText("Manage Users");
         btnManageUsers.setBorder(null);
         btnManageUsers.setBorderPainted(false);
+        btnManageUsers.setContentAreaFilled(false);
         btnManageUsers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageUsersActionPerformed(evt);

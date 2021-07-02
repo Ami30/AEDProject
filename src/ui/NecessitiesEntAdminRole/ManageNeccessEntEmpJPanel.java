@@ -47,16 +47,16 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
         this.ent=ent;
 
         populateOrganizationComboBox();
-        populateOrganizationEmpComboBox();
+      //  populateOrganizationEmpComboBox();
         populateDeliveryManTable();
         populatePharmacistTable();
         populateGroceryPersonTable();
-         organizationPharmacistJTable.setRowHeight(25);
+        organizationPharmacistJTable.setRowHeight(25);
         organizationPharmacistJTable.getTableHeader().setDefaultRenderer(new HeaderColor());
-         organizationDeliveryManJTable1.setRowHeight(25);
+        organizationDeliveryManJTable1.setRowHeight(25);
         organizationDeliveryManJTable1.getTableHeader().setDefaultRenderer(new HeaderColor());
         organizationGroceryManJTable2.setRowHeight(25);
-         organizationGroceryManJTable2.getTableHeader().setDefaultRenderer(new HeaderColor());
+        organizationGroceryManJTable2.getTableHeader().setDefaultRenderer(new HeaderColor());
         
     }
      public class HeaderColor extends DefaultTableCellRenderer {
@@ -78,19 +78,20 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
         }
     }
     
-    public void populateOrganizationEmpComboBox(){
-        organizationEmpJComboBox.removeAllItems();
-        
-        for (Organization organization : organizationDir.getOrgList()){
-            organizationEmpJComboBox.addItem(organization);
-        }
-    }
+//    public void populateOrganizationEmpComboBox(){
+//        organizationEmpJComboBox.removeAllItems();
+//        
+//        for (Organization organization : organizationDir.getOrgList()){
+//            organizationEmpJComboBox.addItem(organization);
+//        }
+//    }
 
     private void populateDeliveryManTable(){
         DefaultTableModel model = (DefaultTableModel) organizationDeliveryManJTable1.getModel();
         
         model.setRowCount(0);
         for(Organization org:organizationDir.getOrgList()){
+            
         for (DeliveryMan del : org.getDelManDir().getdeliveryManDirectory()){
             Object[] row = new Object[6];
             row[0] = del;
@@ -101,6 +102,7 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
             row[5] = del.getEmail();
             model.addRow(row);
         }
+            
         }
     }
      private void populatePharmacistTable(){
@@ -108,6 +110,7 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
         
         model.setRowCount(0);
         for(Organization org:organizationDir.getOrgList()){
+            
         for (Pharmacist ph : org.getPharDir().getpharmacistDirectory()){
             Object[] row = new Object[6];
             row[0] = ph;  
@@ -118,6 +121,7 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
             row[5] = ph.getEmail();
             model.addRow(row);
         }
+        
         }
     }
      
@@ -126,6 +130,7 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
         
         model.setRowCount(0);
         for(Organization org:organizationDir.getOrgList()){
+           
         for (GroceryStorePerson gr : org.getGrocPerDir().getgroceryPersonDirectory()){
             Object[] row = new Object[6];
             row[0] = gr;  
@@ -136,6 +141,7 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
             row[5] = gr.getEmail();
             model.addRow(row);
         }
+           
         }
     }
 

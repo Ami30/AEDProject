@@ -8,6 +8,7 @@ package Business.Doctor;
 import Business.Organization.Organization;
 import Business.RegisteredUser.RegisteredUser;
 import Business.Role.Role;
+import Business.WorkQueue.HealthRequestDirectory;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -26,6 +27,7 @@ private Boolean availability;
 private int id;
 private static final AtomicInteger count = new AtomicInteger(0); 
 ArrayList<RegisteredUser> patientAssigned;
+private HealthRequestDirectory requestDirectory;
 
   
 
@@ -105,9 +107,16 @@ ArrayList<RegisteredUser> patientAssigned;
         this.patientAssigned = patientAssigned;
     }
 
+    public HealthRequestDirectory getRequestDirectory() {
+        if(requestDirectory==null){
+            requestDirectory = new HealthRequestDirectory();
+        }
+        return requestDirectory;
+    }
+
         @Override
     public String toString() {
-        return String.valueOf(id);
+        return getName();
     }
 
 }

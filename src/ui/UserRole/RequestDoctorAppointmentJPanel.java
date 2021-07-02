@@ -7,10 +7,15 @@ package ui.UserRole;
 
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.Organization;
+import Business.Organization.PatientManagerOrganization;
 import Business.RegisteredUser.RegisteredUser;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.HealthRequest;
 import Business.WorkQueue.RequestDoctor;
 import Business.WorkQueue.WorkRequest;
+import com.db4o.User;
 import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -33,6 +38,7 @@ public class RequestDoctorAppointmentJPanel extends javax.swing.JPanel {
      private ArrayList<String> bodyPain;
       private UserAccount useraccount;
        private EcoSystem system;
+       RegisteredUser user;
        Enterprise ent;
     public RequestDoctorAppointmentJPanel(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system) {
         initComponents();
@@ -40,10 +46,13 @@ public class RequestDoctorAppointmentJPanel extends javax.swing.JPanel {
         this.system=system;
         this.useraccount=account;
         this.ent=enterprise;
-             populatecombobox();
+        String username = useraccount.getUsername();
+        user =system.getRegisteredUserDirectory().findRegisteredUser(username);
+        populatecombobox();
         populateRequesttable();
         SubmittedrequestsJTable.setRowHeight(25);
         SubmittedrequestsJTable.getTableHeader().setDefaultRenderer(new HeaderColor());
+        
  
     }
       public class HeaderColor extends DefaultTableCellRenderer {
@@ -86,26 +95,38 @@ public class RequestDoctorAppointmentJPanel extends javax.swing.JPanel {
      public void populateRequesttable() {
         DefaultTableModel model = (DefaultTableModel) SubmittedrequestsJTable.getModel();
         model.setRowCount(0);
-        if(system.getWorkQueue()!=null){
-        for (WorkRequest workRequest : system.getWorkQueue().getWorkRqstList()) {
-            if (workRequest instanceof RequestDoctor){
-               if (((RequestDoctor) workRequest).getRegisteredUser().getUsername().equals(useraccount.getUsername())){
-                    Object[] row = new Object[9];
-                            row[0] = workRequest;
-                            row[1] = ((RequestDoctor) workRequest).getRegisteredUser().getEmployee().getName();
-                            row[2] = ((RequestDoctor) workRequest).getPatientManager()==null?"Not Assigned":((RequestDoctor) workRequest).getPatientManager().getEmployee().getName();
-                            row[3] = ((RequestDoctor) workRequest).getDoctor()==null?"Not Assigned":((RequestDoctor) workRequest).getDoctor().getEmployee().getName();
-                            row[4] = ((RequestDoctor) workRequest).getNurUserAccount()==null?"Not Assigned":((RequestDoctor) workRequest).getNurUserAccount().getEmployee().getName();
-                            row[5] = ((RequestDoctor) workRequest).getHospitalAssigned()==null?"Hospital Not Assigned":((RequestDoctor) workRequest).getHospitalAssigned();
-                            row[6] = ((RequestDoctor) workRequest).getDoctorMessage()==null?"No Comments":((RequestDoctor) workRequest).getDoctorMessage();
-                            row[7] = ((RequestDoctor) workRequest).getPatientmanagerComment()==null?"No Comments":((RequestDoctor) workRequest).getPatientmanagerComment();
-                            row[8] = ((RequestDoctor) workRequest).getRequeststatus();
-                            model.addRow(row);
-               }
-            }
-            
-            
-        }
+//        if(system.getWorkQueue()!=null){
+//        for (WorkRequest workRequest : system.getWorkQueue().getWorkRqstList()) {
+//            if (workRequest instanceof RequestDoctor){
+//               if (((RequestDoctor) workRequest).getRegisteredUser().getUsername().equals(useraccount.getUsername())){
+//                    Object[] row = new Object[7];
+//                            row[0] = workRequest;
+//                            row[1] = ((RequestDoctor) workRequest).getRegisteredUser().getEmployee().getName();
+//                            row[2] = ((RequestDoctor) workRequest).getPatientManager()==null?"Not Assigned":((RequestDoctor) workRequest).getPatientManager().getEmployee().getName();
+//                            row[3] = ((RequestDoctor) workRequest).getDoctor()==null?"Not Assigned":((RequestDoctor) workRequest).getDoctor().getEmployee().getName();
+//                            row[4] = ((RequestDoctor) workRequest).getNurUserAccount()==null?"Not Assigned":((RequestDoctor) workRequest).getNurUserAccount().getEmployee().getName();
+//                            row[5] = ((RequestDoctor) workRequest).getHospitalAssigned()==null?"Hospital Not Assigned":((RequestDoctor) workRequest).getHospitalAssigned();
+//                            row[6] = ((RequestDoctor) workRequest).getDoctorMessage()==null?"No Comments":((RequestDoctor) workRequest).getDoctorMessage();
+//                            row[7] = ((RequestDoctor) workRequest).getPatientmanagerComment()==null?"No Comments":((RequestDoctor) workRequest).getPatientmanagerComment();
+//                            row[8] = ((RequestDoctor) workRequest).getRequeststatus();
+//                            model.addRow(row);
+//               }
+//            }
+//            
+//            
+//        }
+//        }
+
+        
+        for(HealthRequest req : user.getHealthRequestDirectory().getRequestList()){
+            Object[] row = new Object[6];
+            row[0] = req.getRequestNumber();
+            row[1] = req.getPatientManager()==null?"Not Assigned":req.getPatientManager().getName();
+            row[2] = req.getDoctor()==null?"Not Assigned":req.getDoctor().getName();
+            row[3] = req.getNurse()==null?"Not Assigned":req.getNurse().getName();
+            row[4] = req.getHospital()==null?"Not Assigned": req.getHospital().getName();
+            row[5] = req.getStatus();
+            model.addRow(row);
         }
    
     }
@@ -167,20 +188,20 @@ public class RequestDoctorAppointmentJPanel extends javax.swing.JPanel {
 
         SubmittedrequestsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Request ID", "Name", "Patient Manager", "Doctor Assigned", "Nurse Assigned", "Hospital Assigned", "Doctor's Comments", "Patient Manager Comment", "Request Status"
+                "Request ID", "Patient Manager", "Doctor Assigned", "Nurse Assigned", "Hospital Assigned", "Request Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                true, false, false, false, false, false, true, true, true
+                true, false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -209,50 +230,49 @@ public class RequestDoctorAppointmentJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblSymptoms)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtSymptom, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblFever)
-                        .addGap(182, 182, 182)
-                        .addComponent(ComboBoxFever, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCough)
-                            .addComponent(lblBodyPain))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ComboBoxBodyPain, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ComboboxCough, javax.swing.GroupLayout.Alignment.TRAILING, 0, 254, Short.MAX_VALUE))))
-                .addGap(192, 192, 192))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 414, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(362, 362, 362))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblSubmittedrqsts)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(425, 425, 425))))
+                        .addComponent(lblSubmittedrqsts)
+                        .addGap(425, 425, 425))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 982, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblSymptoms)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtSymptom, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblFever)
+                                .addGap(182, 182, 182)
+                                .addComponent(ComboBoxFever, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblCough)
+                                    .addComponent(lblBodyPain))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ComboBoxBodyPain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ComboboxCough, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(74, 74, 74)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(371, 371, 371)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -261,7 +281,8 @@ public class RequestDoctorAppointmentJPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ComboboxCough, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCough))
+                            .addComponent(lblCough)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(ComboBoxBodyPain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblBodyPain))
@@ -269,13 +290,11 @@ public class RequestDoctorAppointmentJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSymptom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblSymptoms))
-                .addGap(33, 33, 33)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(90, 90, 90)
                 .addComponent(lblSubmittedrqsts, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -293,20 +312,38 @@ public class RequestDoctorAppointmentJPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String username = useraccount.getUsername();
-        RegisteredUser registeredUser= system.getRegisteredUserDirectory().findRegisteredUser(username);
         String selectedfever = (String) ComboBoxFever.getSelectedItem();
         String selectedcough = (String) ComboboxCough.getSelectedItem();
         String selectedbodypain = (String) ComboBoxBodyPain.getSelectedItem();
-        registeredUser.setFever(selectedfever);
-        registeredUser.setBodypain(selectedbodypain);
-        registeredUser.setCough(selectedcough);
+        String otherSymptoms = txtSymptom.getText();
+//        registeredUser.setFever(selectedfever);
+//        registeredUser.setBodypain(selectedbodypain);
+//        registeredUser.setCough(selectedcough);
         
-        RequestDoctor requestDoc=new RequestDoctor();
-        requestDoc.setRequestID();
-        requestDoc.setRegisteredUser(useraccount);
-        requestDoc.setRequeststatus("Request Submitted");
-        system.getWorkQueue().getWorkRqstList().add(requestDoc);
+        
+        //creating new Health reuest starts
+        
+        Network network = user.getRegisteredUserNetwork();
+        Organization organization = null;
+        for(Enterprise ent : network.getEnterpriseDir().getEnterpriseList()){
+            for(Organization org : ent.getOrganizationDirectory().getOrgList()){
+                if(org.getType().getValue().equalsIgnoreCase("Patient Manager Organization")){
+                    organization = org;
+                }
+            }    
+    }
+        HealthRequest req = new HealthRequest("New", user, null, null, null, organization, selectedfever, selectedcough, selectedbodypain, selectedcough,null);
+        user.getHealthRequestDirectory().addRequestList(req);
+        organization.getRequestDirectory().addRequestList(req);
+        // creating new Helath requesr
+        
+        
+//        RequestDoctor requestDoc=new RequestDoctor();
+//        requestDoc.setRequestID();
+//        requestDoc.setRegisteredUser(useraccount);
+//        requestDoc.setRequeststatus("Request Submitted");
+//        system.getWorkQueue().getWorkRqstList().add(requestDoc);
+        
         JOptionPane.showMessageDialog(null, "Your Request Sent Successfully to Patient Support Services.You will soon be assigned a Patient Manger.");
         populateRequesttable();
         

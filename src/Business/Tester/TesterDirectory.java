@@ -16,6 +16,9 @@ public class TesterDirectory {
     ArrayList<Tester> testerDirectory;
 
     public ArrayList<Tester> gettesterDirectory() {
+        if(testerDirectory == null){
+            testerDirectory = new ArrayList<>();
+        }
         return testerDirectory;
     }
 
@@ -42,8 +45,16 @@ public class TesterDirectory {
             return true;
         }
      }
-        
-    
     return false;
     } 
+    
+      public Tester findTester(String username){
+        Tester tester = null;
+        for(Tester test: testerDirectory){
+            if(test.getUsername().equalsIgnoreCase(username)){
+            tester=test;
+            }
+        }
+        return tester;
+    }
 }

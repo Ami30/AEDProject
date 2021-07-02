@@ -64,6 +64,16 @@ public class UserAccountDirectory {
         
     }
    
+       public UserAccount getUserAccountByUserName(String name){
+           UserAccount user = null;
+           for(UserAccount usr: uaList){
+               if(usr.getUsername().equalsIgnoreCase(name)){
+                   user=usr;
+               }
+           }
+           return user;
+    }
+     
     public UserAccount addUserAccount(UserAccount userAccount) {
         if(uaList==null){
         uaList = new ArrayList<>();

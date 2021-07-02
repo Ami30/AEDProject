@@ -71,5 +71,14 @@ public class OrganizationDirectory {
         }
         return organization;
     }
+    public Organization getOrganization(String name){
+       Organization organization = null;
+       for(Organization org : orgList){
+           if(org.getType().getValue().equalsIgnoreCase(name)){
+               organization = org;
+           }
+       }
+       return organization;
+    }
   
 }

@@ -7,6 +7,7 @@ package Business.Organization;
 
 import Business.Role.PatientManagerRole;
 import Business.Role.Role;
+import Business.WorkQueue.HealthRequestDirectory;
 import java.util.ArrayList;
 
 /**
@@ -18,6 +19,16 @@ public class PatientManagerOrganization extends Organization{
 //    public PatientManagerOrganization() {
 //        super(Organization.Type.PatientManager.getValue());
 //    }
+//    private HealthRequestDirectory requestDirectory = new HealthRequestDirectory();
+//
+//    public HealthRequestDirectory getRequestDirectory() {
+//        if(requestDirectory == null){
+//            requestDirectory = new HealthRequestDirectory();
+//        }
+//        return requestDirectory;
+//    }
+
+    
 
     @Override
     public ArrayList<Role> getSupportedRole() {

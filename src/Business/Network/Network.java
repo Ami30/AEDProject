@@ -16,8 +16,9 @@ public class Network {
     private String name;
     private EnterpriseDirectory enterpriseDir;
     
-    public Network(){
+    public Network(String name){
         enterpriseDir=new EnterpriseDirectory();
+        this.name = name;
     }
     public String getName() {
         return name;

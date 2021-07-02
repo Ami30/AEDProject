@@ -52,25 +52,26 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnConsultDoctor = new javax.swing.JButton();
+        btnViewAllRequests = new javax.swing.JButton();
         btnManageProfile = new javax.swing.JButton();
         btnOrderMedicine = new javax.swing.JButton();
         btnBookFoodService = new javax.swing.JButton();
         btnBookAmbulance = new javax.swing.JButton();
         btnSanitizationService = new javax.swing.JButton();
+        btnAssignedRequests = new javax.swing.JButton();
         workAreaJPanel = new javax.swing.JPanel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(235, 227, 126));
 
-        btnConsultDoctor.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnConsultDoctor.setText("Add a User in System");
-        btnConsultDoctor.setBorder(null);
-        btnConsultDoctor.setBorderPainted(false);
-        btnConsultDoctor.addActionListener(new java.awt.event.ActionListener() {
+        btnViewAllRequests.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnViewAllRequests.setText("View All Requests");
+        btnViewAllRequests.setBorder(null);
+        btnViewAllRequests.setBorderPainted(false);
+        btnViewAllRequests.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultDoctorActionPerformed(evt);
+                btnViewAllRequestsActionPerformed(evt);
             }
         });
 
@@ -124,6 +125,16 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnAssignedRequests.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnAssignedRequests.setText("View Assigned Requests");
+        btnAssignedRequests.setBorder(null);
+        btnAssignedRequests.setBorderPainted(false);
+        btnAssignedRequests.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAssignedRequestsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -131,12 +142,13 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnConsultDoctor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnViewAllRequests, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnOrderMedicine, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
                     .addComponent(btnManageProfile, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
                     .addComponent(btnBookFoodService, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
                     .addComponent(btnBookAmbulance, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                    .addComponent(btnSanitizationService, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE))
+                    .addComponent(btnSanitizationService, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                    .addComponent(btnAssignedRequests, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -145,7 +157,7 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(15, 15, 15)
                 .addComponent(btnManageProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnConsultDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnViewAllRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnOrderMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -154,7 +166,9 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnBookAmbulance, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSanitizationService, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(649, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAssignedRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(612, Short.MAX_VALUE))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 880));
@@ -164,13 +178,13 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
         add(workAreaJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 1180, 880));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnConsultDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultDoctorActionPerformed
+    private void btnViewAllRequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllRequestsActionPerformed
         // TODO add your handling code here:
-      RequestDoctorAppointmentJPanel requestDoctorAppointmentJPanel=new RequestDoctorAppointmentJPanel(workAreaJPanel,enterprise,useraccount,system);
-        workAreaJPanel.add("DoctorAppointmentJPanel", requestDoctorAppointmentJPanel);
+      PatientManagerAssignDocJPanel viewAllRequestJPanel=new PatientManagerAssignDocJPanel(workAreaJPanel,enterprise,useraccount,system, org);
+        workAreaJPanel.add("viewAllRequestJPanel", viewAllRequestJPanel);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);
-    }//GEN-LAST:event_btnConsultDoctorActionPerformed
+    }//GEN-LAST:event_btnViewAllRequestsActionPerformed
 
     private void btnManageProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProfileActionPerformed
         // TODO add your handling code here:
@@ -182,7 +196,7 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnOrderMedicineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderMedicineActionPerformed
         // TODO add your handling code here:
-        PatientManagerAssignDocJPanel assignDocJPanel=new PatientManagerAssignDocJPanel(workAreaJPanel,enterprise,useraccount,system);
+        PatientManagerAssignDocJPanel assignDocJPanel=new PatientManagerAssignDocJPanel(workAreaJPanel,enterprise,useraccount,system, org);
         workAreaJPanel.add("MedicineJPanel", assignDocJPanel);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);
@@ -212,14 +226,23 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(workAreaJPanel);
     }//GEN-LAST:event_btnSanitizationServiceActionPerformed
 
+    private void btnAssignedRequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignedRequestsActionPerformed
+        // TODO add your handling code here:
+        PatientManagerAssignedRequests viewAssignedRequests=new PatientManagerAssignedRequests(workAreaJPanel,enterprise,useraccount,system, org);
+        workAreaJPanel.add("viewAllRequestJPanel", viewAssignedRequests);
+        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+        layout.next(workAreaJPanel);
+    }//GEN-LAST:event_btnAssignedRequestsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAssignedRequests;
     private javax.swing.JButton btnBookAmbulance;
     private javax.swing.JButton btnBookFoodService;
-    private javax.swing.JButton btnConsultDoctor;
     private javax.swing.JButton btnManageProfile;
     private javax.swing.JButton btnOrderMedicine;
     private javax.swing.JButton btnSanitizationService;
+    private javax.swing.JButton btnViewAllRequests;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel workAreaJPanel;
     // End of variables declaration//GEN-END:variables

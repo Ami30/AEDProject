@@ -205,7 +205,7 @@ public class ManageHospEntUserJPanel extends javax.swing.JPanel {
         String password = passwordJTextField.getText();
         Organization organization = (Organization) organizationJComboBox.getSelectedItem();
         Role role = (Role) roleJComboBox.getSelectedItem();
-        Employee employee = (Employee) employeeJComboBox.getSelectedItem();       
+       // Employee employee = (Employee) employeeJComboBox.getSelectedItem();       
       //  organization.getUserAccountDir().createUserAccount(userName, password, employee, role);
 
        
@@ -263,7 +263,7 @@ public class ManageHospEntUserJPanel extends javax.swing.JPanel {
     private void organizationJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationJComboBoxActionPerformed
         Organization organization = (Organization) organizationJComboBox.getSelectedItem();
         if (organization != null){
-            populateEmployeeComboBox(organization);
+//            populateEmployeeComboBox(organization);
             populateRoleComboBox(organization);
         }
     }//GEN-LAST:event_organizationJComboBoxActionPerformed

@@ -277,9 +277,10 @@ public class ManagePatientSupEntEmpJPanel extends javax.swing.JPanel {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(nameJTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                                    .addComponent(nameJTextField)
                                     .addComponent(txtZipCode)
-                                    .addComponent(txtContactNo))
+                                    .addComponent(txtContactNo)
+                                    .addComponent(txtuserName, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -309,9 +310,7 @@ public class ManagePatientSupEntEmpJPanel extends javax.swing.JPanel {
                             .addComponent(addJButton)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addGap(90, 90, 90)
-                                .addComponent(txtuserName, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(234, 234, 234)
                                 .addComponent(jLabel4)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -348,7 +347,7 @@ public class ManagePatientSupEntEmpJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel4))
                 .addGap(37, 37, 37)
                 .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, -1, 290));
@@ -367,7 +366,7 @@ public class ManagePatientSupEntEmpJPanel extends javax.swing.JPanel {
         char[] passwordCharArray = txtpassword.getPassword();
         String password = String.valueOf(passwordCharArray);
         if(organization.getType().getValue().equals("Patient Manager Organization")){
-        PatientManager p=new PatientManager(name, null, gender, address, zipcode, contactNumber, email,username,password,new PatientManagerRole());
+         PatientManager p=new PatientManager(name, null, gender, address, zipcode, contactNumber, email,username,password,new PatientManagerRole());
           organization.getpManagerDir().addpatientManager(p);
           organization.getUserAccountDir().addUserAccount(p);
           ///organization.getEmpDir().createEmp(name);

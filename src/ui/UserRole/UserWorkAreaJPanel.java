@@ -15,6 +15,9 @@ import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 /**
@@ -172,11 +175,15 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnConsultDoctorActionPerformed
 
     private void btnManageProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProfileActionPerformed
-        // TODO add your handling code here:
-        ManageProfileJPanel manageuserProfileJPanel=new ManageProfileJPanel(workAreaJPanel,enterprise,useraccount,system);
-        workAreaJPanel.add("UserProfileJPanel", manageuserProfileJPanel);
-        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
-        layout.next(workAreaJPanel);
+        try {
+            // TODO add your handling code here:
+            ManageProfileJPanel manageuserProfileJPanel=new ManageProfileJPanel(workAreaJPanel,enterprise,useraccount,system);
+            workAreaJPanel.add("UserProfileJPanel", manageuserProfileJPanel);
+            CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+            layout.next(workAreaJPanel);
+        } catch (ParseException ex) {
+            Logger.getLogger(UserWorkAreaJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnManageProfileActionPerformed
 
     private void btnOrderMedicineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderMedicineActionPerformed

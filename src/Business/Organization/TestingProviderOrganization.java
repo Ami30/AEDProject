@@ -18,7 +18,7 @@ public class TestingProviderOrganization extends Organization {
 //   public TestingProviderOrganization() {
 //        super(Organization.Type.TestingProvider.getValue());
 //    }
-
+    
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles=new ArrayList();

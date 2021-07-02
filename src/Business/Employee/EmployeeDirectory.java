@@ -15,10 +15,13 @@ public class EmployeeDirectory {
       private ArrayList<Employee> empList;
 
     public EmployeeDirectory() {
-        empList = new ArrayList();
+//        empList = new ArrayList();
     }
 
     public ArrayList<Employee> getEmpList() {
+        if(empList == null){
+            empList = new ArrayList();
+        }
         return empList;
     }
     
