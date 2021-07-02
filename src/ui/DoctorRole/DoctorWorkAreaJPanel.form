@@ -39,7 +39,8 @@
                       <Component id="btnOrderMedicine" alignment="0" pref="238" max="32767" attributes="0"/>
                       <Component id="btnManageProfile" alignment="0" pref="238" max="32767" attributes="0"/>
                       <Component id="btnBookAmbulance" alignment="1" pref="238" max="32767" attributes="0"/>
-                      <Component id="btnSanitizationService" alignment="0" pref="238" max="32767" attributes="0"/>
+                      <Component id="btnSanitizationService" alignment="0" pref="230" max="32767" attributes="0"/>
+                      <Component id="btnManageProfile1" alignment="0" pref="230" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -50,7 +51,9 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Component id="btnManageProfile" min="-2" pref="31" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btnManageProfile1" min="-2" pref="31" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnOrderMedicine" min="-2" pref="31" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnBookAmbulance" min="-2" pref="31" max="-2" attributes="0"/>
@@ -124,6 +127,25 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSanitizationServiceActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnManageProfile1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name=".SF NS Text" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Assigned Requests"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+                <BevelBorder>
+                  <Color PropertyName="highlightInner" blue="cb" green="7e" red="4a" type="rgb"/>
+                </BevelBorder>
+              </Border>
+            </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageProfile1ActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

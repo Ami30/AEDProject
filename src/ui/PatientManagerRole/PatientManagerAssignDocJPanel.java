@@ -7,15 +7,23 @@ package ui.PatientManagerRole;
 
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
+import Business.Organization.Organization;
+import Business.PatientManager.PatientManager;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.HealthRequest;
 import Business.WorkQueue.RequestDoctor;
 import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
 import java.awt.Component;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import ui.UserRole.HealthRequestReport;
 
 /**
  *
@@ -28,13 +36,23 @@ public class PatientManagerAssignDocJPanel extends javax.swing.JPanel {
      */
      private UserAccount useraccount;
        private EcoSystem system;
-    public PatientManagerAssignDocJPanel(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system) {
+       private PatientManager patientManager;
+       private Enterprise enterprise;
+       private Organization organization;
+       private JPanel userProcessContainer;
+       private HealthRequest req;
+    public PatientManagerAssignDocJPanel(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system, Organization organization) {
         initComponents();
         this.useraccount=account;
         this.system=system;
-        populateRequestTable();
+        this.enterprise = enterprise;
+        this.organization = organization;
+        this.userProcessContainer = userProcessContainer;
+        String username = useraccount.getUsername();
+        patientManager =organization.getpManagerDir().findPatientManager(username);
         SubmittedrequestsJTable.setRowHeight(25);
         SubmittedrequestsJTable.getTableHeader().setDefaultRenderer(new HeaderColor());
+        populateRequestTable();
     }
      public class HeaderColor extends DefaultTableCellRenderer {
         public HeaderColor() {
@@ -49,23 +67,16 @@ public class PatientManagerAssignDocJPanel extends javax.swing.JPanel {
   public void populateRequestTable() {
         DefaultTableModel model = (DefaultTableModel) SubmittedrequestsJTable.getModel();
         model.setRowCount(0);
-        for (WorkRequest workRequest : system.getWorkQueue().getWorkRqstList()) {
-            if (workRequest instanceof RequestDoctor){          
-                    Object[] row = new Object[9];
-                            row[0] = workRequest;
-                            row[1] = ((RequestDoctor) workRequest).getRegisteredUser().getEmployee().getName();
-                            row[2] = ((RequestDoctor) workRequest).getPatientManager()==null?"Not Assigned":((RequestDoctor) workRequest).getPatientManager().getEmployee().getName();
-                            row[3] = ((RequestDoctor) workRequest).getDoctor()==null?"Not Assigned":((RequestDoctor) workRequest).getDoctor().getEmployee().getName();
-                            row[4] = ((RequestDoctor) workRequest).getNurUserAccount()==null?"Not Assigned":((RequestDoctor) workRequest).getNurUserAccount().getEmployee().getName();
-                            row[5] = ((RequestDoctor) workRequest).getHospitalAssigned()==null?"Hospital Not Assigned":((RequestDoctor) workRequest).getHospitalAssigned();
-                            row[6] = ((RequestDoctor) workRequest).getDoctorMessage()==null?"No Comments":((RequestDoctor) workRequest).getDoctorMessage();
-                            row[7] = ((RequestDoctor) workRequest).getPatientmanagerComment()==null?"No Comments":((RequestDoctor) workRequest).getPatientmanagerComment();
-                            row[8] = ((RequestDoctor) workRequest).getRequeststatus();
-                            model.addRow(row);
-               
-            }
-            
-            
+           for(HealthRequest req : organization.getRequestDirectory().getRequestList()){
+            Object[] row = new Object[7];
+            row[0] = req;
+            row[1] = req.getUser().getName();
+            row[2] = req.getPatientManager()==null?"Not Assigned":req.getPatientManager().getName();
+            row[3] = req.getDoctor()==null?"Not Assigned":req.getDoctor().getName();
+            row[4] = req.getNurse()==null?"Not Assigned":req.getNurse().getName();
+            row[5] = req.getHospital()==null?"Not Assigned": req.getHospital().getName();
+            row[6] = req.getStatus();
+            model.addRow(row);
         }
    
     }
@@ -82,26 +93,24 @@ public class PatientManagerAssignDocJPanel extends javax.swing.JPanel {
         SubmittedrequestsJTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         BtnAssign = new javax.swing.JButton();
-        lblComment = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        commentTxtArea = new javax.swing.JTextArea();
+        viewDetails = new javax.swing.JButton();
 
         SubmittedrequestsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Request ID", "Requester's Name", "Patient Manager", "Doctor Assigned", "Nurse Assigned", "Hospital Assigned", "Doctor's Comments", "Patient Manager Comment", "Request Status"
+                "Request ID", "Requester's Name", "Patient Manager", "Doctor Assigned", "Nurse Assigned", "Hospital Assigned", "Request Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                true, false, false, false, false, false, true, true, true
+                true, false, false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -126,11 +135,12 @@ public class PatientManagerAssignDocJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblComment.setText("Enter Comments");
-
-        commentTxtArea.setColumns(20);
-        commentTxtArea.setRows(5);
-        jScrollPane1.setViewportView(commentTxtArea);
+        viewDetails.setText("View Details");
+        viewDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewDetailsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -139,18 +149,16 @@ public class PatientManagerAssignDocJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(460, 460, 460)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(418, 418, 418)
-                        .addComponent(lblComment)
-                        .addGap(40, 40, 40)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addComponent(BtnAssign)))
+                        .addGap(42, 42, 42)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(viewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(BtnAssign))
+                            .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -160,12 +168,11 @@ public class PatientManagerAssignDocJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnAssign)
-                    .addComponent(lblComment)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(236, Short.MAX_VALUE))
+                    .addComponent(viewDetails))
+                .addContainerGap(322, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -176,29 +183,45 @@ public class PatientManagerAssignDocJPanel extends javax.swing.JPanel {
               JOptionPane.showMessageDialog(null, "Please select a row!");
             return;
          }
-         else if (commentTxtArea.getText()==null){
-             JOptionPane.showMessageDialog(null, "Please enter Comments!");
-         }
          else{
-        RequestDoctor request1 = (RequestDoctor)SubmittedrequestsJTable.getValueAt(selectedRow, 0);
-        request1.setPatientManager(useraccount);
-        request1.setPatientmanagerComment(commentTxtArea.getText());
-        request1.setStatus("Patient Manager Assigned");       
+        req = (HealthRequest)SubmittedrequestsJTable.getValueAt(selectedRow, 0);
+        if(req.getPatientManager()==null){
+        req.setPatientManager(patientManager);
+        patientManager.getRequestDirectory().addRequestList(req);
         populateRequestTable();
         JOptionPane.showMessageDialog(null, "This Request has been assigned to you successfuuly");
+        }else{
+            JOptionPane.showMessageDialog(null, "This Request is already assigned to: " +req.getPatientManager().getName());
+        }
+        
          }
             
         
     }//GEN-LAST:event_BtnAssignActionPerformed
+
+    private void viewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDetailsActionPerformed
+        // TODO add your handling code here:
+          int selectedRow = SubmittedrequestsJTable.getSelectedRow();
+         if (selectedRow < 0){
+              JOptionPane.showMessageDialog(null, "Please select a row!");
+            return;
+         }
+         else{
+                  req = (HealthRequest)SubmittedrequestsJTable.getValueAt(selectedRow, 0);
+                  HealthRequestReport healthRequest=new HealthRequestReport(userProcessContainer,enterprise,useraccount,system, req, patientManager, "patManAllReq");
+                  userProcessContainer.add("PatientManagerProfileJPanel", healthRequest);
+                  CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                  layout.next(userProcessContainer);
+         }
+        
+    }//GEN-LAST:event_viewDetailsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAssign;
     private javax.swing.JScrollPane DoctorScrollPane;
     private javax.swing.JTable SubmittedrequestsJTable;
-    private javax.swing.JTextArea commentTxtArea;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblComment;
+    private javax.swing.JButton viewDetails;
     // End of variables declaration//GEN-END:variables
 }

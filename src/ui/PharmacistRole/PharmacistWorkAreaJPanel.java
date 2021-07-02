@@ -141,10 +141,10 @@ public class PharmacistWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnOrderMedicineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderMedicineActionPerformed
         // TODO add your handling code here:
-        PatientManagerAssignDocJPanel assignDocJPanel=new PatientManagerAssignDocJPanel(workAreaJPanel,enterprise,useraccount,system);
-        workAreaJPanel.add("MedicineJPanel", assignDocJPanel);
-        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
-        layout.next(workAreaJPanel);
+//        PatientManagerAssignDocJPanel assignDocJPanel=new PatientManagerAssignDocJPanel(workAreaJPanel,enterprise,useraccount,system);
+//        workAreaJPanel.add("MedicineJPanel", assignDocJPanel);
+//        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+//        layout.next(workAreaJPanel);
     }//GEN-LAST:event_btnOrderMedicineActionPerformed
 
 

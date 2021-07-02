@@ -7,6 +7,7 @@ package Business.Enterprise;
 
 import Business.Organization.OrganizationDirectory;
 import Business.Role.Role;
+import Business.WorkQueue.HealthRequestDirectory;
 import java.util.ArrayList;
 
 /**
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 public class HospitalEnterprise extends Enterprise{
     
     private String numberOfBeds;
+    private HealthRequestDirectory requestDirectory;
 
 //    public HospitalEnterprise(String name) {
 //        super(name, EnterpriseType.Hospital);
@@ -31,5 +33,22 @@ public class HospitalEnterprise extends Enterprise{
     public ArrayList<Role> getSupportedRole() {
         return null;
     }
+
+    public String getNumberOfBeds() {
+        return numberOfBeds;
+    }
+
+    public void setNumberOfBeds(String numberOfBeds) {
+        this.numberOfBeds = numberOfBeds;
+    }
+
+    public HealthRequestDirectory getRequestDirectory() {
+        if(requestDirectory== null){
+            requestDirectory = new HealthRequestDirectory();
+        }
+        return requestDirectory;
+    }
+    
+    
     
 }

@@ -33,7 +33,6 @@ public class ManagePatientManagerProfileJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageProfileJPanel
      */
-     private ArrayList<String> gender;
     private UserAccount useraccount;
     private EcoSystem system;
     private Enterprise enterprise;
@@ -44,15 +43,6 @@ public class ManagePatientManagerProfileJPanel extends javax.swing.JPanel {
         this.system = system;
         this.enterprise=enterprise;
         populateprofile();
-         GenderCombobox.removeAllItems();
-        gender.add("Male");
-        gender.add("Female");
-        gender.add("Others");
-        GenderCombobox.removeAllItems();
-        for(String g:gender)
-        {
-            GenderCombobox.addItem(g);
-        }
  
     }
     

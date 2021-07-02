@@ -6,6 +6,8 @@
 package Business.Tester;
 
 import Business.Role.Role;
+import Business.WorkQueue.HealthRequest;
+import Business.WorkQueue.HealthRequestDirectory;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -16,11 +18,14 @@ public class Tester extends Business.Person.Person{
     
 private String TestingService;
 private int id;
+private String name;
+private TestsDirectory testDirectory;
+private HealthRequestDirectory requestDirectory;
 private static final AtomicInteger count = new AtomicInteger(0); 
 
     public Tester( String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username,String password, Role role) {
         super(fullName, dob, gender, address, zipcode, contactNumber, email,username,password, role);
-         this.id=count.incrementAndGet(); 
+         this.id=count.incrementAndGet();
        
     }
 
@@ -39,9 +44,33 @@ private static final AtomicInteger count = new AtomicInteger(0);
     public void setId(int id) {
         this.id = id;
     }
-         @Override
-    public String toString() {
-        return String.valueOf(id);
+
+    public TestsDirectory getTestDirectory() {
+        if(testDirectory == null){
+            testDirectory = new TestsDirectory();
+        }
+        
+        return testDirectory;
+    }
+
+    public void setTestDirectory(TestsDirectory testDirectory) {
+        this.testDirectory = testDirectory;
+    }
+
+    public HealthRequestDirectory getRequestDirectory() {
+        if(requestDirectory == null){
+            requestDirectory= new HealthRequestDirectory();
+        }
+        return requestDirectory;
+    }
+
+    public void setRequestDirectory(HealthRequestDirectory requestDirectory) {
+        this.requestDirectory = requestDirectory;
+    }
+    
+   @Override
+    public String toString(){
+        return this.getName();
     }
 
 

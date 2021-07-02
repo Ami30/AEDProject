@@ -376,14 +376,13 @@ public class ManageTestingEntEmpJPanel extends javax.swing.JPanel {
         String username = txtuserName.getText();
         char[] passwordCharArray = txtpassword.getPassword();
         String password = String.valueOf(passwordCharArray);
-        if(organization.toString().equals("Testing Provider Organization")){
+        if(organization.getType().getValue().equalsIgnoreCase("Testing Provider Organization")){
          Tester test=new Tester(name, null, gender, address, zipcode, contactNumber, email,username,password, new TestingServiceRole());
         organization.getTesterDir().addtester(test);
         organization.getUserAccountDir().addUserAccount(test);
           //organization.getEmpDir().createEmp(name);
           populateTestersTable();
         }
-      
        
         
 

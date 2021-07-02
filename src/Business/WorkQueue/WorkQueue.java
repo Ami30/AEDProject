@@ -15,10 +15,13 @@ public class WorkQueue {
      private ArrayList<WorkRequest> workRqstList;
 
     public WorkQueue() {
-        workRqstList = new ArrayList();
+//        workRqstList = new ArrayList();
     }
 
     public ArrayList<WorkRequest> getWorkRqstList() {
+        if(workRqstList == null){
+            workRqstList = new ArrayList();
+        }
         return workRqstList;
     }
 }

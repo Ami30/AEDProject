@@ -14,7 +14,7 @@ import Business.Organization.OrganizationDirectory;
  */
 public abstract class Enterprise extends Organization {
     private EnterpriseType enterpriseType;
-    private OrganizationDirectory orgDir;
+    private OrganizationDirectory orgDir = new OrganizationDirectory();
     
 //     public Enterprise(String name,EnterpriseType type){
 //        super(name);
@@ -25,10 +25,13 @@ public abstract class Enterprise extends Organization {
     public Enterprise(EnterpriseType enterpriseType, String name, String contactNumber, String email, String address, String zipcode) {
         super(name, contactNumber, email, address, zipcode);
         this.enterpriseType = enterpriseType;
-        this.orgDir = new OrganizationDirectory();
+//        this.orgDir = new OrganizationDirectory();
     }
 
     public OrganizationDirectory getOrganizationDirectory() {
+        if(orgDir == null){
+            orgDir = new OrganizationDirectory();
+        }
         return orgDir;
     }
     

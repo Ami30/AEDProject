@@ -32,8 +32,8 @@ public class EcoSystem extends Organization {
     public static void setInstance(EcoSystem system) {
         ecoSystem = system;
     }
-    public Network createAndAddNetwork(){
-        Network network=new Network();
+    public Network createAndAddNetwork(String name){
+        Network network=new Network(name);
         ntwkList.add(network);
         return network;
     }

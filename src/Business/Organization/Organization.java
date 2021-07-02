@@ -20,6 +20,7 @@ import Business.Role.Role;
 import Business.SanitizationPerson.SanitizationPersonDirectory;
 import Business.Tester.TesterDirectory;
 import Business.UserAccount.UserAccountDirectory;
+import Business.WorkQueue.HealthRequestDirectory;
 import Business.WorkQueue.WorkQueue;
 import java.util.ArrayList;
 
@@ -48,6 +49,7 @@ public abstract class Organization {
     private FoodSupplierDirectory foodSupplierDir;
     private CabDriverDirectory cabDriverDir;
     private AmbulanceDriverDirectory ambulanceDriverDir;
+    private HealthRequestDirectory requestDirectory = new HealthRequestDirectory();
 
     private int orgID;
     private static int counter=0;
@@ -87,14 +89,14 @@ public abstract class Organization {
         this.email = email;
         this.address = address;
         this.zipcode = zipcode;
-        workQueue = new WorkQueue();
-        empDir = new EmployeeDirectory();
+//        workQueue = new WorkQueue();
+//        empDir = new EmployeeDirectory();
 //        docDir=new DoctorDirectory();
 //        nurDir=new NurseDirectory();
         pharDir=new PharmacistDirectory();
         delManDir=new DeliveryManDirectory();
         GrocPerDir=new GroceryStorePersonDirectory();
-        pManagerDir=new PatientManagerDirectory();
+//        pManagerDir=new PatientManagerDirectory();
         saniPersonDir=new SanitizationPersonDirectory();
         testerDir=new TesterDirectory();
         foodSupplierDir=new FoodSupplierDirectory();
@@ -140,6 +142,10 @@ public abstract class Organization {
     }
 
     public PatientManagerDirectory getpManagerDir() {
+        if(pManagerDir==null){
+            pManagerDir=new PatientManagerDirectory();
+        }
+        
         return pManagerDir;
     }
 
@@ -156,6 +162,9 @@ public abstract class Organization {
     }
 
     public TesterDirectory getTesterDir() {
+        if(testerDir == null){
+            testerDir = new TesterDirectory();
+        }
         return testerDir;
     }
 
@@ -216,6 +225,9 @@ public abstract class Organization {
     }
 
     public EmployeeDirectory getEmpDir() {
+        if(empDir == null){
+            empDir = new EmployeeDirectory();
+        }
         return empDir;
     }
     
@@ -224,6 +236,9 @@ public abstract class Organization {
     }
 
     public WorkQueue getWorkQueue() {
+        if(workQueue == null){
+            workQueue = new WorkQueue();
+        }
         return workQueue;
     }
 
@@ -283,6 +298,12 @@ public abstract class Organization {
         Organization.counter = counter;
     }
     
+    public HealthRequestDirectory getRequestDirectory() {
+        if(requestDirectory == null){
+            requestDirectory = new HealthRequestDirectory();
+        }
+        return requestDirectory;
+    }
 
     @Override
     public String toString() {

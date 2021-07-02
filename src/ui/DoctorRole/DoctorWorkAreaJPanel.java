@@ -59,6 +59,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         btnOrderMedicine = new javax.swing.JButton();
         btnBookAmbulance = new javax.swing.JButton();
         btnSanitizationService = new javax.swing.JButton();
+        btnManageProfile1 = new javax.swing.JButton();
         workAreaJPanel = new javax.swing.JPanel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -105,6 +106,16 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnManageProfile1.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnManageProfile1.setText("Assigned Requests");
+        btnManageProfile1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(74, 126, 203), null, null));
+        btnManageProfile1.setBorderPainted(false);
+        btnManageProfile1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageProfile1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -115,7 +126,8 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
                     .addComponent(btnOrderMedicine, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
                     .addComponent(btnManageProfile, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
                     .addComponent(btnBookAmbulance, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                    .addComponent(btnSanitizationService, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE))
+                    .addComponent(btnSanitizationService, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                    .addComponent(btnManageProfile1, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -123,7 +135,9 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(btnManageProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnManageProfile1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnOrderMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnBookAmbulance, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -175,10 +189,19 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
 //        layout.next(workAreaJPanel);
     }//GEN-LAST:event_btnSanitizationServiceActionPerformed
 
+    private void btnManageProfile1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProfile1ActionPerformed
+        // TODO add your handling code here:
+        DoctorAssignedRequests doctorAssignedRequests=new DoctorAssignedRequests(workAreaJPanel,enterprise,useraccount,system, org);
+        workAreaJPanel.add("viewAllRequestJPanel", doctorAssignedRequests);
+        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+        layout.next(workAreaJPanel);
+    }//GEN-LAST:event_btnManageProfile1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBookAmbulance;
     private javax.swing.JButton btnManageProfile;
+    private javax.swing.JButton btnManageProfile1;
     private javax.swing.JButton btnOrderMedicine;
     private javax.swing.JButton btnSanitizationService;
     private javax.swing.JPanel jPanel1;

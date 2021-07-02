@@ -49,6 +49,7 @@ public class HospitalEntAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnManageEmp = new javax.swing.JButton();
         btnManageOrg = new javax.swing.JButton();
         btnManageUsers = new javax.swing.JButton();
+        btnManagePatients = new javax.swing.JButton();
         workAreaJPanel = new javax.swing.JPanel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -85,6 +86,16 @@ public class HospitalEntAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnManagePatients.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnManagePatients.setText("Manage Patients");
+        btnManagePatients.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(74, 126, 203), null, null));
+        btnManagePatients.setBorderPainted(false);
+        btnManagePatients.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManagePatientsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -94,7 +105,8 @@ public class HospitalEntAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnManageEmp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnManageUsers, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                    .addComponent(btnManageOrg, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE))
+                    .addComponent(btnManageOrg, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                    .addComponent(btnManagePatients, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -106,7 +118,9 @@ public class HospitalEntAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnManageEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnManageUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(760, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnManagePatients, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(718, Short.MAX_VALUE))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 880));
@@ -141,10 +155,19 @@ public class HospitalEntAdminWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(workAreaJPanel);
     }//GEN-LAST:event_btnManageUsersActionPerformed
 
+    private void btnManagePatientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagePatientsActionPerformed
+        // TODO add your handling code here:
+        HospitalAssignedRequests managePatientJPanel=new HospitalAssignedRequests(workAreaJPanel,enterprise, useraccount,system, org);
+        workAreaJPanel.add("ManageEnterpriseAdminJPanel", managePatientJPanel);
+        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+        layout.next(workAreaJPanel);
+    }//GEN-LAST:event_btnManagePatientsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnManageEmp;
     private javax.swing.JButton btnManageOrg;
+    private javax.swing.JButton btnManagePatients;
     private javax.swing.JButton btnManageUsers;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel workAreaJPanel;

@@ -12,9 +12,12 @@ import java.util.ArrayList;
  * @author amishagupta
  */
 public class PatientManagerDirectory {
-    ArrayList<PatientManager> patientManagerDirectory;
+    ArrayList<PatientManager> patientManagerDirectory = new ArrayList();
 
     public ArrayList<PatientManager> getPatientManagerDirectory() {
+        if(patientManagerDirectory == null){
+            patientManagerDirectory = new ArrayList();
+        }
         return patientManagerDirectory;
     }
 
@@ -23,7 +26,7 @@ public class PatientManagerDirectory {
     }
   
       public PatientManagerDirectory() {
-        patientManagerDirectory = new ArrayList();
+//        patientManagerDirectory = new ArrayList();
     }
     public void addpatientManager(PatientManager pmanager)
     {

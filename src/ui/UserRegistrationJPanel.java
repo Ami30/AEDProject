@@ -323,7 +323,7 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
         String comfirmpassword = String.valueOf(this.pwdfieldconfirm.getPassword()); 
 
         
-           RegisteredUser p=new RegisteredUser(network.toString(),null, null, null, null, null, name, birthDate, email, address, zipcode, contactNumber, email,username,password,new PatientRole());
+           RegisteredUser p=new RegisteredUser(network,null, null, null, null, null, name, birthDate, selectedgender, address, zipcode, contactNumber, email,username,password,new PatientRole());
            
            system.getRegisteredUserDirectory().addRegisteredUser(p);
             

@@ -43,4 +43,14 @@ public class PharmacistDirectory {
     
     return false;
 }
+    
+    public Pharmacist findPhar(String username){
+        Pharmacist phar = null;
+        for(Pharmacist p: pharmacistDirectory){
+            if(p.getUsername().equalsIgnoreCase(username)){
+            phar=p;
+            }
+        }
+        return phar;
+    }
 }
