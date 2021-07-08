@@ -42,14 +42,16 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnManageEnterprise = new javax.swing.JButton();
         btnManageNetwork = new javax.swing.JButton();
         btnManageEntAdmin = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         workAreaJPanel = new javax.swing.JPanel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(235, 227, 126));
+        jPanel1.setBackground(new java.awt.Color(18, 102, 153));
 
-        btnManageEnterprise.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnManageEnterprise.setText("Manage Enterprise");
+        btnManageEnterprise.setBackground(new java.awt.Color(255, 233, 147));
+        btnManageEnterprise.setFont(new java.awt.Font("Bradley Hand", 1, 16)); // NOI18N
+        btnManageEnterprise.setText("MANAGE ENTERPRISE");
         btnManageEnterprise.setBorder(null);
         btnManageEnterprise.setBorderPainted(false);
         btnManageEnterprise.addActionListener(new java.awt.event.ActionListener() {
@@ -58,8 +60,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnManageNetwork.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnManageNetwork.setText("Manage Network");
+        btnManageNetwork.setBackground(new java.awt.Color(255, 233, 147));
+        btnManageNetwork.setFont(new java.awt.Font("Bradley Hand", 1, 16)); // NOI18N
+        btnManageNetwork.setText("MANAGE NETWORK");
         btnManageNetwork.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(74, 126, 203), null, null));
         btnManageNetwork.setBorderPainted(false);
         btnManageNetwork.addActionListener(new java.awt.event.ActionListener() {
@@ -68,8 +71,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnManageEntAdmin.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnManageEntAdmin.setText("Manage Enterprise Admin");
+        btnManageEntAdmin.setBackground(new java.awt.Color(255, 233, 147));
+        btnManageEntAdmin.setFont(new java.awt.Font("Bradley Hand", 1, 16)); // NOI18N
+        btnManageEntAdmin.setText("MANAGE ENTERPRISE ADMIN");
         btnManageEntAdmin.setBorder(null);
         btnManageEntAdmin.setBorderPainted(false);
         btnManageEntAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -77,6 +81,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageEntAdminActionPerformed(evt);
             }
         });
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/stayHome1.gif"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -86,27 +92,32 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnManageEnterprise, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnManageEntAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                    .addComponent(btnManageNetwork, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE))
+                    .addComponent(btnManageEntAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnManageNetwork, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(btnManageNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnManageEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnManageEntAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(760, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addComponent(btnManageNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(btnManageEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(btnManageEntAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(90, 90, 90)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(310, Short.MAX_VALUE))
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 880));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 880));
 
-        workAreaJPanel.setBackground(new java.awt.Color(74, 122, 193));
+        workAreaJPanel.setBackground(new java.awt.Color(255, 255, 255));
         workAreaJPanel.setLayout(new java.awt.CardLayout());
-        add(workAreaJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 1180, 880));
+        add(workAreaJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 1130, 880));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEnterpriseActionPerformed
@@ -138,6 +149,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnManageEntAdmin;
     private javax.swing.JButton btnManageEnterprise;
     private javax.swing.JButton btnManageNetwork;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel workAreaJPanel;
     // End of variables declaration//GEN-END:variables

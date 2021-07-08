@@ -6,6 +6,7 @@
 package Business.WorkQueue;
 
 import Business.Doctor.Doctor;
+import Business.Employee.PrescriptionDirectory;
 import Business.Enterprise.HospitalEnterprise;
 import Business.Nurse.Nurse;
 import Business.Organization.Organization;
@@ -35,6 +36,8 @@ public class HealthRequest {
     private String otherSymptoms;
     private HospitalEnterprise hospital;
     private TestsDirectory testDirectory;
+    private TestsDirectory previousTestDirectory;
+    private PrescriptionDirectory prescriptionDirectory;
     
 
     public HealthRequest(String status, RegisteredUser user, Doctor doctor, Nurse nurse, PatientManager patientManager, Organization organization, String fever, String cough, String bodyPain, String otherSymptoms, HospitalEnterprise hospital) {
@@ -154,6 +157,28 @@ public class HealthRequest {
             testDirectory = new TestsDirectory();
         }
         return testDirectory;
+    }
+
+    public TestsDirectory getPreviousTestDirectory() {
+        if(previousTestDirectory == null){
+            previousTestDirectory = new TestsDirectory();
+        }
+        return previousTestDirectory;
+    }
+
+    public void setPreviousTestDirectory(TestsDirectory previousTestDirectory) {
+        this.previousTestDirectory = previousTestDirectory;
+    }
+
+    public PrescriptionDirectory getPrescriptionDirectory() {
+        if(prescriptionDirectory==null){
+            prescriptionDirectory = new PrescriptionDirectory();
+        }
+        return prescriptionDirectory;
+    }
+
+    public void setPrescriptionDirectory(PrescriptionDirectory prescriptionDirectory) {
+        this.prescriptionDirectory = prescriptionDirectory;
     }
 
 

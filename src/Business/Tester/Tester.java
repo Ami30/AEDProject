@@ -20,6 +20,8 @@ private String TestingService;
 private int id;
 private String name;
 private TestsDirectory testDirectory;
+private TestsDirectory addTestDirectory;
+private TestsDirectory completedTestsDirectory;
 private HealthRequestDirectory requestDirectory;
 private static final AtomicInteger count = new AtomicInteger(0); 
 
@@ -67,6 +69,29 @@ private static final AtomicInteger count = new AtomicInteger(0);
     public void setRequestDirectory(HealthRequestDirectory requestDirectory) {
         this.requestDirectory = requestDirectory;
     }
+
+    public TestsDirectory getCompletedTestsDirectory() {
+        if(completedTestsDirectory==null){
+            completedTestsDirectory = new TestsDirectory();
+        }
+        return completedTestsDirectory;
+    }
+
+    public void setCompletedTestsDirectory(TestsDirectory completedTestsDirectory) {
+        this.completedTestsDirectory = completedTestsDirectory;
+    }
+
+    public TestsDirectory getAddTestDirectory() {
+        if(addTestDirectory== null){
+            addTestDirectory = new TestsDirectory();
+        }
+        return addTestDirectory;
+    }
+
+    public void setAddTestDirectory(TestsDirectory addTestDirectory) {
+        this.addTestDirectory = addTestDirectory;
+    }
+    
     
    @Override
     public String toString(){

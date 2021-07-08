@@ -4,11 +4,13 @@
  * and open the template in the editor.
  */package Business;
 
+import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.RegisteredUser.RegisteredUserDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
+import Business.UserAccount.UserAccount;
 import Business.UserAccount.UserAccountDirectory;
 import java.util.ArrayList;
 
@@ -83,7 +85,23 @@ public class EcoSystem extends Organization {
             return false;
         }
         for(Network network:ntwkList){
-            
+            for (Enterprise enterprise : network.getEnterpriseDir().getEnterpriseList()) {
+                for (UserAccount u : enterprise.getUserAccountDir().getUserAccountList()) {
+                    if (u.getUsername().toLowerCase().equals(userName.toLowerCase())) {
+                        return false;
+                    }
+                }
+                for (Organization org : enterprise.getOrganizationDirectory().getOrgList()) {
+                    for (UserAccount userAccount : org.getUserAccountDir().getUserAccountList()) {
+                        if (userAccount.getUsername().toLowerCase().equals(userName.toLowerCase())) {
+                         return false;
+                        }
+                    }
+                }
+            }
+        }   
+        if ("sysadmin".equals(userName.toLowerCase())) {
+           return false;
         }
         return true;
     }

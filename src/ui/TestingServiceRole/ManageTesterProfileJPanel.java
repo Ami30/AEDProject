@@ -9,6 +9,7 @@ import ui.DoctorRole.*;
 import Business.Doctor.Doctor;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
+import Business.Organization.Organization;
 import Business.Tester.Tester;
 import Business.UserAccount.UserAccount;
 import java.text.DateFormat;
@@ -280,13 +281,18 @@ public class ManageTesterProfileJPanel extends javax.swing.JPanel {
     private void populateprofile() throws ParseException {
         String username = useraccount.getUsername();
        // Doctor doctor1= enterprise.getDocDir().findDoctor(username);
-        Tester tester=enterprise.getOrganizationDirectory().getOrgList().get(0).getTesterDir().findTester(username);
-        nameJTextField.setText(tester.getFullName());
-        txtAddress.setText(tester.getAddress());
-        txtZipCode.setText(tester.getZipcode());
-        txtContactNo.setText(tester.getContactNumber());
-        GenderCombobox.setSelectedItem(tester.getGender());  
-        txtEmail.setText(tester.getEmail());       
-        String birthDate = tester.getDob();   
+       Tester tester = null;
+       for(Organization org : enterprise.getOrganizationDirectory().getOrgList()){
+           if(org.getTesterDir().findTester(username)!= null){
+               tester = org.getTesterDir().findTester(username);
+               nameJTextField.setText(tester.getFullName());
+            txtAddress.setText(tester.getAddress());
+            txtZipCode.setText(tester.getZipcode());
+            txtContactNo.setText(tester.getContactNumber());
+            GenderCombobox.setSelectedItem(tester.getGender());  
+            txtEmail.setText(tester.getEmail());       
+            String birthDate = tester.getDob();   
+           }
+       }
     }
 }
