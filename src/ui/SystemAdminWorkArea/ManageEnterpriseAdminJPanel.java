@@ -8,6 +8,7 @@ package ui.SystemAdminWorkArea;
 import Business.EcoSystem;
 import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
+import Business.Validations.Validations;
 import Business.Network.Network;
 import Business.Role.FoodSupplyEntAdminRole;
 import Business.Role.HospitalEntAdminRole;
@@ -18,6 +19,7 @@ import Business.Role.TestingEntAdminRole;
 import Business.Role.TransportationEntAdminRole;
 import Business.UserAccount.UserAccount;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -261,13 +263,22 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         String username = usernameJTextField.getText();
         String password = String.valueOf(passwordJPasswordField.getPassword());
         String name = nameJTextField.getText();
-
+        Validations validation = new Validations();
+        if(!validation.isValidPassword(password)){
+            return;
+        }
+        Boolean unique=system.checkIfUserIsUnique(username);
+        if(!unique){
+            JOptionPane.showMessageDialog(null, "Username" + username + " already exists. Please try with different username", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
 //        Employee employee = enterprise.getEmpDir().createEmp(name);
         if(enterprise.getEnterpriseType()!=null){
             if(enterprise.getEnterpriseType().toString().equals("Hospital"))
             {
                 UserAccount account=new UserAccount(username, password, name, new HospitalEntAdminRole());
                 enterprise.getUserAccountDir().addUserAccount(account);
+                JOptionPane.showMessageDialog(null, "User Account created successfully");
                 
                 //enterprise.getUserAccountDir().addUserAccount(account);
                // UserAccount account = enterprise.getUserAccountDir().createUserAccount(username, password, employee, new HospitalEntAdminRole());
@@ -275,36 +286,42 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             else if(enterprise.getEnterpriseType().toString().equals("Food Supplying Units")){
                  UserAccount account=new UserAccount(username, password, name,  new FoodSupplyEntAdminRole());
                 enterprise.getUserAccountDir().addUserAccount(account);
+                 JOptionPane.showMessageDialog(null, "User Account created successfully");
                // UserAccount account = enterprise.getUserAccountDir().createUserAccount(username, password, employee, new FoodSupplyEntAdminRole());
                 
             }
             else if(enterprise.getEnterpriseType().toString().equals("Transpotation")){
                  UserAccount account=new UserAccount(username, password, name,  new TransportationEntAdminRole());
                 enterprise.getUserAccountDir().addUserAccount(account);
+                 JOptionPane.showMessageDialog(null, "User Account created successfully");
                // UserAccount account = enterprise.getUserAccountDir().createUserAccount(username, password, employee, new TransportationEntAdminRole());
                 
             }
             else if(enterprise.getEnterpriseType().toString().equals("Sanitization Units")){
                  UserAccount account=new UserAccount(username, password, name, new SanitizationEntAdminRole());
                 enterprise.getUserAccountDir().addUserAccount(account);
+                 JOptionPane.showMessageDialog(null, "User Account created successfully");
                // UserAccount account = enterprise.getUserAccountDir().createUserAccount(username, password, employee, new SanitizationEntAdminRole());
                 
             }
             else if(enterprise.getEnterpriseType().toString().equals("Testing Units")){
                  UserAccount account=new UserAccount(username, password, name,  new TestingEntAdminRole());
                 enterprise.getUserAccountDir().addUserAccount(account);
+                 JOptionPane.showMessageDialog(null, "User Account created successfully");
                // UserAccount account = enterprise.getUserAccountDir().createUserAccount(username, password, employee, new TestingEntAdminRole());
                 
             }
             else if(enterprise.getEnterpriseType().toString().equals("Patient Support Services")){
                  UserAccount account=new UserAccount(username, password, name,  new PatientSupportEntAdminRole());
                 enterprise.getUserAccountDir().addUserAccount(account);
+                 JOptionPane.showMessageDialog(null, "User Account created successfully");
                // UserAccount account = enterprise.getUserAccountDir().createUserAccount(username, password, employee, new PatientSupportEntAdminRole());
                 
             }
             else if(enterprise.getEnterpriseType().toString().equals("Necessities Provider")){
                  UserAccount account=new UserAccount(username, password, name,  new NecessitiesEntAdminRole());
                 enterprise.getUserAccountDir().addUserAccount(account);
+                 JOptionPane.showMessageDialog(null, "User Account created successfully");
               //  UserAccount account = enterprise.getUserAccountDir().createUserAccount(username, password, employee, new NecessitiesEntAdminRole());
                 
             }

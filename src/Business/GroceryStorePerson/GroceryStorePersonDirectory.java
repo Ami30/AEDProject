@@ -42,4 +42,13 @@ public class GroceryStorePersonDirectory {
     }
     return false;
     } 
+    public GroceryStorePerson findStorePerson(String username){
+        GroceryStorePerson gsp = null;
+        for(GroceryStorePerson p: groceryPersonDirectory){
+            if(p.getUsername().equalsIgnoreCase(username)){
+            gsp=p;
+            }
+        }
+        return gsp;
+    }
 }

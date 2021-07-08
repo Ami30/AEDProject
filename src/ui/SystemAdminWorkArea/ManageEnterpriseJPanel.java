@@ -253,6 +253,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         String numberOfBeds = txtNumberOfBeds.getText();
 
         Enterprise enterprise = network.getEnterpriseDir().createAndAddEnterprise(numberOfBeds,name, contactNumber, email, address, zipcode, type);
+        JOptionPane.showMessageDialog(null, name+" created successfully");
         populateTable();
     }//GEN-LAST:event_submitJButtonActionPerformed
 

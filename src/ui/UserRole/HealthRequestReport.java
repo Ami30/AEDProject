@@ -29,6 +29,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import ui.DoctorRole.AddPrescription;
 import ui.DoctorRole.AssignHospitalToRequest;
 
 /**
@@ -437,6 +438,11 @@ public class HealthRequestReport extends javax.swing.JPanel {
         );
 
         btnPres.setText("Add Prescription");
+        btnPres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPresActionPerformed(evt);
+            }
+        });
 
         btnBed.setText("Assign Bed");
         btnBed.addActionListener(new java.awt.event.ActionListener() {
@@ -649,6 +655,14 @@ public class HealthRequestReport extends javax.swing.JPanel {
          CardLayout layout = (CardLayout) userProcessContainer.getLayout();
          layout.next(userProcessContainer);
     }//GEN-LAST:event_btnTestActionPerformed
+
+    private void btnPresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPresActionPerformed
+        // TODO add your handling code here:
+        AddPrescription  addPrescription=new AddPrescription(userProcessContainer,enterprise,useraccount,system, request);
+         userProcessContainer.add("PatientManagerProfileJPanel", addPrescription);
+         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+         layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnPresActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

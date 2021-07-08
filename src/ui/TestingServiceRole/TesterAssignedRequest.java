@@ -5,31 +5,19 @@
  */
 package ui.TestingServiceRole;
 
-import ui.HospitalEntAdminRole.*;
-import ui.DoctorRole.*;
-import Business.Doctor.Doctor;
-import ui.PatientManagerRole.*;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
-import static Business.Enterprise.Enterprise.EnterpriseType.Hospital;
 import Business.Organization.Organization;
-import Business.PatientManager.PatientManager;
 import Business.Tester.Tester;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HealthRequest;
-import Business.WorkQueue.RequestDoctor;
-import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
-import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import ui.UserRole.HealthRequestReport;
 
 /**
  *
@@ -47,6 +35,7 @@ public class TesterAssignedRequest extends javax.swing.JPanel {
        private Organization organization;
        private JPanel userProcessContainer;
        private HealthRequest req;
+       private Tester tester;
     public TesterAssignedRequest(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system, Organization organization) {
         initComponents();
         this.useraccount=account;
@@ -73,8 +62,11 @@ public class TesterAssignedRequest extends javax.swing.JPanel {
   public void populateRequestTable() {
         DefaultTableModel model = (DefaultTableModel) SubmittedrequestsJTable.getModel();
         model.setRowCount(0);
-        Tester tester=enterprise.getOrganizationDirectory().getOrgList().get(0).getTesterDir().findTester(useraccount.getUsername());
-           for(HealthRequest req : tester.getRequestDirectory().getRequestList()){
+        Tester tester = null;
+       for(Organization org : enterprise.getOrganizationDirectory().getOrgList()){
+           if(org.getTesterDir().findTester(useraccount.getUsername())!= null){
+               tester = org.getTesterDir().findTester(useraccount.getUsername());
+              for(HealthRequest req : tester.getRequestDirectory().getRequestList()){
             Object[] row = new Object[4];
             row[0] = req;
             row[1] = req.getUser().getName();
@@ -82,6 +74,9 @@ public class TesterAssignedRequest extends javax.swing.JPanel {
             row[3] = req.getStatus();
             model.addRow(row);
         }
+           }
+       }
+           
    
     }
     /**
@@ -97,6 +92,7 @@ public class TesterAssignedRequest extends javax.swing.JPanel {
         SubmittedrequestsJTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         viewDetails = new javax.swing.JButton();
+        btnManageProfile3 = new javax.swing.JButton();
 
         SubmittedrequestsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -131,6 +127,16 @@ public class TesterAssignedRequest extends javax.swing.JPanel {
             }
         });
 
+        btnManageProfile3.setFont(new java.awt.Font(".SF NS Text", 0, 12)); // NOI18N
+        btnManageProfile3.setText("Manage completed Test");
+        btnManageProfile3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(74, 126, 203), null, null));
+        btnManageProfile3.setBorderPainted(false);
+        btnManageProfile3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageProfile3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -143,7 +149,10 @@ public class TesterAssignedRequest extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(viewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(viewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnManageProfile3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
@@ -155,8 +164,10 @@ public class TesterAssignedRequest extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(viewDetails)
-                .addContainerGap(322, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(viewDetails)
+                    .addComponent(btnManageProfile3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(314, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -168,19 +179,42 @@ public class TesterAssignedRequest extends javax.swing.JPanel {
             return;
          }
          else{
-                  req = (HealthRequest)SubmittedrequestsJTable.getValueAt(selectedRow, 0);
-                  PatientsRequestReport patientsRequests=new PatientsRequestReport(userProcessContainer,enterprise,useraccount,system, req, null);
-                  userProcessContainer.add("PatientManagerProfileJPanel", patientsRequests);
+                for(Organization org : enterprise.getOrganizationDirectory().getOrgList()){
+                if(org.getTesterDir().findTester(useraccount.getUsername())!= null){
+                    tester=org.getTesterDir().findTester(useraccount.getUsername());
+                   req = (HealthRequest)SubmittedrequestsJTable.getValueAt(selectedRow, 0);
+                  TestersRequestReport testerRequests=new TestersRequestReport(userProcessContainer,enterprise,useraccount,system, req, null, tester);
+                  userProcessContainer.add("PatientManagerProfileJPanel", testerRequests);
                   CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                   layout.next(userProcessContainer);
+                }
+                }
+                  
          }
         
     }//GEN-LAST:event_viewDetailsActionPerformed
+
+    private void btnManageProfile3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProfile3ActionPerformed
+        // TODO add your handling code here:
+        
+            int selectedRow = SubmittedrequestsJTable.getSelectedRow();
+         if (selectedRow < 0){
+              JOptionPane.showMessageDialog(null, "Please select a row!");
+            return;
+         }
+         else{
+        req = (HealthRequest)SubmittedrequestsJTable.getValueAt(selectedRow, 0);CompletedTestReport completedTestResult=new CompletedTestReport(userProcessContainer,enterprise,useraccount,system, req);
+        userProcessContainer.add("userReport", completedTestResult);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+         }
+    }//GEN-LAST:event_btnManageProfile3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane DoctorScrollPane;
     private javax.swing.JTable SubmittedrequestsJTable;
+    private javax.swing.JButton btnManageProfile3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton viewDetails;
     // End of variables declaration//GEN-END:variables

@@ -6,6 +6,7 @@
 package Business.Pharmacist;
 
 import Business.Role.Role;
+import Business.WorkQueue.HealthRequestDirectory;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -17,6 +18,8 @@ public class Pharmacist extends Business.Person.Person{
 private String Pharmacyname;
 private String PharmacyAddress;
 private String PharmacyZipCode;
+private MedicineDirectory medicineDirectory;
+private HealthRequestDirectory requestDirectory;
 //ArrayList<Order> orders;
 private int id;
 private static final AtomicInteger count = new AtomicInteger(0); 
@@ -36,6 +39,22 @@ private static final AtomicInteger count = new AtomicInteger(0);
         this.id = id;
     }
 
+    public MedicineDirectory getMedicineDirectory() {
+        return medicineDirectory;
+    }
+
+    public void setMedicineDirectory(MedicineDirectory medicineDirectory) {
+        this.medicineDirectory = medicineDirectory;
+    }
+
+    public HealthRequestDirectory getRequestDirectory() {
+        return requestDirectory;
+    }
+
+    public void setRequestDirectory(HealthRequestDirectory requestDirectory) {
+        this.requestDirectory = requestDirectory;
+    }
+ 
     
     public String getPharmacyname() {
         return Pharmacyname;
@@ -64,6 +83,6 @@ private static final AtomicInteger count = new AtomicInteger(0);
     
       @Override
     public String toString() {
-         return String.valueOf(id);
+         return this.getName();
     }
 }
