@@ -7,7 +7,7 @@ package Business.Employee;
 
 /**
  *
- * @author kunal
+ * @author amishagupta
  */
 public class Prescription {
     private String comment;

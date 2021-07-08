@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author kunal
+ * @author amishagupta
  */
 public class PrescriptionDirectory {
     ArrayList<Prescription> prescriptionList  = new ArrayList<>();
