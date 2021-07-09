@@ -9,6 +9,7 @@ import ui.SanitizationEntAdminRole.*;
 import ui.PatientSupportEntAdminRole.*;
 import ui.HospitalEntAdminRole.*;
 import Business.Doctor.Doctor;
+import Business.EcoSystem;
 import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
 import Business.FoodSupplier.FoodSupplier;
@@ -18,6 +19,7 @@ import Business.Organization.OrganizationDirectory;
 import Business.PatientManager.PatientManager;
 import Business.Role.FoodServiceRole;
 import Business.SanitizationPerson.SanitizationPerson;
+import Business.Validations.Validations;
 import java.awt.Component;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -39,13 +41,13 @@ public class ManageFoodSupplyEntEmpJPanel extends javax.swing.JPanel {
     private OrganizationDirectory organizationDir;
     private JPanel userProcessContainer;
     private Enterprise ent;
-    
-    public ManageFoodSupplyEntEmpJPanel(JPanel userProcessContainer,OrganizationDirectory organizationDir,Enterprise ent) {
+    private EcoSystem system;
+    public ManageFoodSupplyEntEmpJPanel(EcoSystem system,JPanel userProcessContainer,OrganizationDirectory organizationDir,Enterprise ent) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.organizationDir = organizationDir;
         this.ent=ent;
-
+        this.system=system;
         populateOrganizationComboBox();
         populateOrganizationEmpComboBox();
         populateFoodSuppliersTable();
@@ -363,7 +365,7 @@ public class ManageFoodSupplyEntEmpJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
-
+        Validations validation=new Validations();
         Organization organization = (Organization) organizationEmpJComboBox.getSelectedItem();
         String name = nameJTextField.getText();
         String address=txtAddress.getText();
@@ -373,8 +375,29 @@ public class ManageFoodSupplyEntEmpJPanel extends javax.swing.JPanel {
         String email=txtEmail.getText();
         String username = txtuserName.getText();
         char[] passwordCharArray = txtpassword.getPassword();
-        String password = String.valueOf(passwordCharArray);
+        String password = String.valueOf(passwordCharArray);        
         if(organization.getType().getValue().equals("Food Provider Organization")){
+            if(name.equals("")||address.equals("")||email.equals("")||zipcode.equals("")||contactNumber.equals("")||username.equals("")||password.equals("")){
+            JOptionPane.showMessageDialog(null, "Please enter all the fields.", "Error!", JOptionPane.ERROR_MESSAGE);
+             return;
+        }
+        Boolean unique=system.checkIfUserIsUnique(username);
+        if(!unique){
+            JOptionPane.showMessageDialog(null, "Username " + username + " already exists. Please try with different username", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(!validation.isValidPassword(password)){
+            return;
+        }
+        if(!validation.isValidZipCode(zipcode)){
+            return;
+        }
+        if(!validation.isValidPhoneNumber(contactNumber)){
+            return;
+        }
+        if(!validation.isValidEmail(email)){
+            return;
+        }
         FoodSupplier fs=new FoodSupplier(name, null, gender, address, zipcode, contactNumber, email,username,password, new FoodServiceRole());
         organization.getFoodSupplierDir().addfoodSupplier(fs);
         organization.getUserAccountDir().addUserAccount(fs);
