@@ -10,6 +10,8 @@ import ui.DoctorRole.*;
 import Business.Doctor.Doctor;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
+import Business.GroceryStorePerson.GroceryStorePerson;
+import Business.Organization.Organization;
 import Business.Pharmacist.Pharmacist;
 import Business.UserAccount.UserAccount;
 import java.text.DateFormat;
@@ -240,18 +242,25 @@ public class ManageStorePersonProfileJPanel extends javax.swing.JPanel {
         
         String username = useraccount.getUsername();
 //        RegisteredUser registeredUser= system.getRegisteredUserDirectory().findRegisteredUser(username);
-        Pharmacist phar=enterprise.getOrganizationDirectory().getOrgList().get(0).getPharDir().findPhar(username);
-        phar.setFullName(name);
-        phar.setAddress(address);
-        phar.setEmail(email);
-        phar.setContactNumber(contactNumber);
-        phar.setDob(birthDate);
-
+ //       Pharmacist phar=enterprise.getOrganizationDirectory().getOrgList().get(0).getPharDir().findPhar(username);
+        
+         GroceryStorePerson groc = null;
+       for(Organization org : enterprise.getOrganizationDirectory().getOrgList()){
+           if(org.getGrocPerDir().findStorePerson(username)!= null){
+               groc = org.getGrocPerDir().findStorePerson(username); 
+     
+        groc.setFullName(name);
+        groc.setAddress(address);
+        groc.setEmail(email);
+        groc.setContactNumber(contactNumber);
+        groc.setDob(birthDate);
+           
 
         JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I><font color='green'> Details Saved Successfully!! </font><></h2></html>"));
       
 
-
+           }
+       }
     }//GEN-LAST:event_addJButtonActionPerformed
 
     private void txtZipCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtZipCodeActionPerformed
@@ -294,17 +303,25 @@ public class ManageStorePersonProfileJPanel extends javax.swing.JPanel {
     private void populateprofile() throws ParseException {
         String username = useraccount.getUsername();
        // Doctor doctor1= enterprise.getDocDir().findDoctor(username);
-        Pharmacist phar=enterprise.getOrganizationDirectory().getOrgList().get(0).getPharDir().findPhar(username);
-        nameJTextField.setText(phar.getFullName());
-        txtAddress.setText(phar.getAddress());
-        txtZipCode.setText(phar.getZipcode());
-        txtContactNo.setText(phar.getContactNumber());
-        GenderCombobox.setSelectedItem(phar.getGender());  
-        txtEmail.setText(phar.getEmail());       
-        String birthDate = phar.getDob();
+        
+         GroceryStorePerson groc = null;
+       for(Organization org : enterprise.getOrganizationDirectory().getOrgList()){
+           if(org.getGrocPerDir().findStorePerson(username)!= null){
+               groc = org.getGrocPerDir().findStorePerson(username); 
+        
+        
+        nameJTextField.setText(groc.getFullName());
+        txtAddress.setText(groc.getAddress());
+        txtZipCode.setText(groc.getZipcode());
+        txtContactNo.setText(groc.getContactNumber());
+        GenderCombobox.setSelectedItem(groc.getGender());  
+        txtEmail.setText(groc.getEmail());       
+        String birthDate = groc.getDob();
         if(birthDate != null){
             Date date = (Date) formatter.parse(birthDate);
             jDateChooser1.setDate(date);
         }    
+           }
+       }
     }
 }

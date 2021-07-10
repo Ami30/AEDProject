@@ -9,6 +9,7 @@ import ui.DoctorRole.*;
 import Business.Doctor.Doctor;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
+import Business.Organization.Organization;
 import Business.Pharmacist.Pharmacist;
 import Business.UserAccount.UserAccount;
 import java.text.DateFormat;
@@ -239,17 +240,27 @@ public class ManagePharmacistProfileJPanel extends javax.swing.JPanel {
         
         String username = useraccount.getUsername();
 //        RegisteredUser registeredUser= system.getRegisteredUserDirectory().findRegisteredUser(username);
-        Pharmacist phar=enterprise.getOrganizationDirectory().getOrgList().get(0).getPharDir().findPhar(username);
+
+      //  Pharmacist phar=enterprise.getOrganizationDirectory().getOrgList().get(0).getPharDir().findPhar(username);
+        
+         Pharmacist phar = null;
+       for(Organization org : enterprise.getOrganizationDirectory().getOrgList()){
+           if(org.getPharDir().findPhar(username)!= null){
+               phar = org.getPharDir().findPhar(username);      
+        
+        
+        
         phar.setFullName(name);
         phar.setAddress(address);
         phar.setEmail(email);
         phar.setContactNumber(contactNumber);
         phar.setDob(birthDate);
-
+           
 
         JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I><font color='green'> Details Saved Successfully!! </font><></h2></html>"));
-      
-
+           }
+       
+}
 
     }//GEN-LAST:event_addJButtonActionPerformed
 
@@ -293,7 +304,12 @@ public class ManagePharmacistProfileJPanel extends javax.swing.JPanel {
     private void populateprofile() throws ParseException {
         String username = useraccount.getUsername();
        // Doctor doctor1= enterprise.getDocDir().findDoctor(username);
-        Pharmacist phar=enterprise.getOrganizationDirectory().getOrgList().get(0).getPharDir().findPhar(username);
+        //Pharmacist phar=enterprise.getOrganizationDirectory().getOrgList().get(0).getPharDir().findPhar(username);
+        
+          Pharmacist phar = null;
+       for(Organization org : enterprise.getOrganizationDirectory().getOrgList()){
+           if(org.getPharDir().findPhar(username)!= null){
+               phar = org.getPharDir().findPhar(username);       
         nameJTextField.setText(phar.getFullName());
         txtAddress.setText(phar.getAddress());
         txtZipCode.setText(phar.getZipcode());
@@ -304,6 +320,8 @@ public class ManagePharmacistProfileJPanel extends javax.swing.JPanel {
         if(birthDate != null){
             Date date = (Date) formatter.parse(birthDate);
             jDateChooser1.setDate(date);
-        }    
+        } 
+           }
+       }
     }
 }

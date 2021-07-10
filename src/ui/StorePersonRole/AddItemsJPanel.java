@@ -9,6 +9,7 @@ import ui.PharmacistRole.*;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.GroceryStorePerson.GroceryStorePerson;
+import Business.GroceryStorePerson.Items;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.Pharmacist.Medicine;
@@ -50,8 +51,8 @@ public class AddItemsJPanel extends javax.swing.JPanel {
         this.org = org;
         storePerson=org.getGrocPerDir().findStorePerson(userAccount.getUsername());
         populateTestTable();
-        testTable.setRowHeight(25);
-        testTable.getTableHeader().setDefaultRenderer(new HeaderColor());
+        itemsTable.setRowHeight(25);
+        itemsTable.getTableHeader().setDefaultRenderer(new HeaderColor());
     }
 
     public class HeaderColor extends DefaultTableCellRenderer {
@@ -66,15 +67,15 @@ public class AddItemsJPanel extends javax.swing.JPanel {
 
     }
     private void populateTestTable(){
-        DefaultTableModel model = (DefaultTableModel) testTable.getModel();
+        DefaultTableModel model = (DefaultTableModel) itemsTable.getModel();
         
         model.setRowCount(0);
-//        for (Medicine med : storePerson.getMedicineDirectory().getMedicineList()){          
-//            Object[] row = new Object[2];
-//            row[0] = med;
-//            row[1] = med.getMedicineQuantity();
-//            model.addRow(row);
-//        }
+        for (Items item : storePerson.getItemsDirectory().getItemsList()){          
+            Object[] row = new Object[2];
+            row[0] = item;
+            row[1] = item.getItemQuantity();
+            model.addRow(row);
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -87,7 +88,7 @@ public class AddItemsJPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         DoctorScrollPane = new javax.swing.JScrollPane();
-        testTable = new javax.swing.JTable();
+        itemsTable = new javax.swing.JTable();
         lblDoctorslist1 = new javax.swing.JLabel();
         btnRemoveFoodSuppplier = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -97,7 +98,7 @@ public class AddItemsJPanel extends javax.swing.JPanel {
         txtName = new javax.swing.JTextField();
         lblAddress = new javax.swing.JLabel();
 
-        testTable.setModel(new javax.swing.table.DefaultTableModel(
+        itemsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -123,9 +124,9 @@ public class AddItemsJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        testTable.setRequestFocusEnabled(false);
-        testTable.setSelectionBackground(new java.awt.Color(235, 227, 126));
-        DoctorScrollPane.setViewportView(testTable);
+        itemsTable.setRequestFocusEnabled(false);
+        itemsTable.setSelectionBackground(new java.awt.Color(235, 227, 126));
+        DoctorScrollPane.setViewportView(itemsTable);
 
         lblDoctorslist1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         lblDoctorslist1.setText("Items Available");
@@ -245,28 +246,14 @@ public class AddItemsJPanel extends javax.swing.JPanel {
 
     private void btnRemoveFoodSuppplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveFoodSuppplierActionPerformed
         // TODO add your handling code here:
-        int row = testTable.getSelectedRow();
+        int row = itemsTable.getSelectedRow();
         if(row<0) {
             JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        Tester tester=(Tester)testTable.getValueAt(row, 0);
-
-        for(int i=0;i<organizationDir.getOrgList().size();i++){
-            Organization o= organizationDir.getOrgList().get(i);
-
-            Boolean success=o.getTesterDir().removetester(tester);
-            if(success){
-                o.getEmpDir().removeEmpByName(tester.getFullName());
-                o.getUserAccountDir().removeUserAccountByUserName(tester.getFullName());
-            }
-        }
-
-        //        for(Organization o:organizationDir.getOrgList())
-        //        {
-            //            //o.getEmpDir().removeEmp(e);
-            //            o.getDocDir().removeDoctor(d);
-            //        }
+        Items item=(Items)itemsTable.getValueAt(row, 0);
+        storePerson.getItemsDirectory().removeItemsList(item);
+ 
 
         populateTestTable();
     }//GEN-LAST:event_btnRemoveFoodSuppplierActionPerformed
@@ -277,13 +264,13 @@ public class AddItemsJPanel extends javax.swing.JPanel {
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
 
-//        String name = txtName.getText();
-//        String medicinequantity=txtQuantity.getText();
-//        int quantity=Integer.parseInt(medicinequantity);
-//       
-//        Medicine med = new Medicine(name, quantity);
-//        pharmacist.getMedicineDirectory().addMedicineList(med);
-//        populateTestTable();
+        String name = txtName.getText();
+        String itemquantity=txtQuantity.getText();
+        int quantity=Integer.parseInt(itemquantity);
+       
+        Items item = new Items(name, quantity);
+        storePerson.getItemsDirectory().addItemsList(item);
+        populateTestTable();
 
     }//GEN-LAST:event_addJButtonActionPerformed
 
@@ -292,12 +279,12 @@ public class AddItemsJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane DoctorScrollPane;
     private javax.swing.JButton addJButton;
     private javax.swing.JButton btnRemoveFoodSuppplier;
+    private javax.swing.JTable itemsTable;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblDoctorslist1;
-    private javax.swing.JTable testTable;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtQuantity;
     // End of variables declaration//GEN-END:variables

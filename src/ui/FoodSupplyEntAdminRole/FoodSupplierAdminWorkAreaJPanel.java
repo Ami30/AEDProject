@@ -121,7 +121,7 @@ public class FoodSupplierAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEmpActionPerformed
         // TODO add your handling code here:
-        ManageFoodSupplyEntEmpJPanel manageSanitizationEmpJPanel=new ManageFoodSupplyEntEmpJPanel(workAreaJPanel,enterprise.getOrganizationDirectory(),enterprise);
+        ManageFoodSupplyEntEmpJPanel manageSanitizationEmpJPanel=new ManageFoodSupplyEntEmpJPanel(system,workAreaJPanel,enterprise.getOrganizationDirectory(),enterprise);
         workAreaJPanel.add("ManageEmpJPanel", manageSanitizationEmpJPanel);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);

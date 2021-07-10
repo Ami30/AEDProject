@@ -93,15 +93,15 @@ public abstract class Organization {
 //        empDir = new EmployeeDirectory();
 //        docDir=new DoctorDirectory();
 //        nurDir=new NurseDirectory();
-        pharDir=new PharmacistDirectory();
-        delManDir=new DeliveryManDirectory();
-        GrocPerDir=new GroceryStorePersonDirectory();
+ //       pharDir=new PharmacistDirectory();
+ //       delManDir=new DeliveryManDirectory();
+  //      GrocPerDir=new GroceryStorePersonDirectory();
 //        pManagerDir=new PatientManagerDirectory();
-        saniPersonDir=new SanitizationPersonDirectory();
-        testerDir=new TesterDirectory();
-        foodSupplierDir=new FoodSupplierDirectory();
-        cabDriverDir=new CabDriverDirectory();
-        ambulanceDriverDir=new AmbulanceDriverDirectory();  
+ //       saniPersonDir=new SanitizationPersonDirectory();
+  //      testerDir=new TesterDirectory();
+  //      foodSupplierDir=new FoodSupplierDirectory();
+  //      cabDriverDir=new CabDriverDirectory();
+  //      ambulanceDriverDir=new AmbulanceDriverDirectory();  
        // accountDirectory = new UserAccountDirectory();
         orgID = counter;
         ++counter;
@@ -134,6 +134,9 @@ public abstract class Organization {
     }
 
     public PharmacistDirectory getPharDir() {
+        if(pharDir==null){
+           pharDir=new PharmacistDirectory();
+        }
         return pharDir;
     }
 
@@ -154,6 +157,9 @@ public abstract class Organization {
     }
 
     public SanitizationPersonDirectory getSaniPersonDir() {
+        if(saniPersonDir==null){
+            saniPersonDir=new SanitizationPersonDirectory();
+        }
         return saniPersonDir;
     }
 
@@ -173,6 +179,9 @@ public abstract class Organization {
     }
 
     public FoodSupplierDirectory getFoodSupplierDir() {
+        if(foodSupplierDir==null){
+            foodSupplierDir=new FoodSupplierDirectory();
+        }
         return foodSupplierDir;
     }
 
@@ -181,6 +190,9 @@ public abstract class Organization {
     }
 
     public CabDriverDirectory getCabDriverDir() {
+        if(cabDriverDir==null){
+            cabDriverDir=new CabDriverDirectory();
+        }
         return cabDriverDir;
     }
 
@@ -189,6 +201,9 @@ public abstract class Organization {
     }
 
     public AmbulanceDriverDirectory getAmbulanceDriverDir() {
+         if(ambulanceDriverDir==null){
+            ambulanceDriverDir=new AmbulanceDriverDirectory();
+        }
         return ambulanceDriverDir;
     }
 
@@ -198,6 +213,9 @@ public abstract class Organization {
     
 
     public DeliveryManDirectory getDelManDir() {
+        if(delManDir==null){
+            delManDir=new DeliveryManDirectory();
+        }
         return delManDir;
     }
 
@@ -206,6 +224,9 @@ public abstract class Organization {
     }
 
     public GroceryStorePersonDirectory getGrocPerDir() {
+        if(GrocPerDir==null){
+            GrocPerDir=new GroceryStorePersonDirectory();
+        }
         return GrocPerDir;
     }
 

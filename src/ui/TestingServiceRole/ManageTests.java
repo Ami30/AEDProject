@@ -251,23 +251,9 @@ public class ManageTests extends javax.swing.JPanel {
         }
         Tester tester=(Tester)testTable.getValueAt(row, 0);
         
-       for(int i=0;i<organizationDir.getOrgList().size();i++){
-           Organization o= organizationDir.getOrgList().get(i);
-           
-           Boolean success=o.getTesterDir().removetester(tester);
-           if(success){
-               o.getEmpDir().removeEmpByName(tester.getFullName());
-               o.getUserAccountDir().removeUserAccountByUserName(tester.getFullName());
-           }
-       }      
+         Tests test=(Tests)testTable.getValueAt(row, 0);
+        tester.getTestDirectory().removeTestsList(test);
         
-//        for(Organization o:organizationDir.getOrgList())
-//        {
-//            //o.getEmpDir().removeEmp(e);
-//            o.getDocDir().removeDoctor(d);
-//        }
-       
-
         populateTestTable();
     }//GEN-LAST:event_btnRemoveFoodSuppplierActionPerformed
 

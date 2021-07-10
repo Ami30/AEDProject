@@ -48,8 +48,8 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
         this.org = org;
         pharmacist=org.getPharDir().findPhar(userAccount.getUsername());
         populateTestTable();
-        testTable.setRowHeight(25);
-        testTable.getTableHeader().setDefaultRenderer(new HeaderColor());
+        medicineTable.setRowHeight(25);
+        medicineTable.getTableHeader().setDefaultRenderer(new HeaderColor());
     }
 
     public class HeaderColor extends DefaultTableCellRenderer {
@@ -64,7 +64,7 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
 
     }
     private void populateTestTable(){
-        DefaultTableModel model = (DefaultTableModel) testTable.getModel();
+        DefaultTableModel model = (DefaultTableModel) medicineTable.getModel();
         
         model.setRowCount(0);
         for (Medicine med : pharmacist.getMedicineDirectory().getMedicineList()){          
@@ -85,9 +85,9 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         DoctorScrollPane = new javax.swing.JScrollPane();
-        testTable = new javax.swing.JTable();
+        medicineTable = new javax.swing.JTable();
         lblDoctorslist1 = new javax.swing.JLabel();
-        btnRemoveFoodSuppplier = new javax.swing.JButton();
+        btnRemovemedicine = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         txtQuantity = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -95,7 +95,7 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
         txtName = new javax.swing.JTextField();
         lblAddress = new javax.swing.JLabel();
 
-        testTable.setModel(new javax.swing.table.DefaultTableModel(
+        medicineTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -121,17 +121,17 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        testTable.setRequestFocusEnabled(false);
-        testTable.setSelectionBackground(new java.awt.Color(235, 227, 126));
-        DoctorScrollPane.setViewportView(testTable);
+        medicineTable.setRequestFocusEnabled(false);
+        medicineTable.setSelectionBackground(new java.awt.Color(235, 227, 126));
+        DoctorScrollPane.setViewportView(medicineTable);
 
         lblDoctorslist1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         lblDoctorslist1.setText("Medicines Available");
 
-        btnRemoveFoodSuppplier.setText("Remove Medicine");
-        btnRemoveFoodSuppplier.addActionListener(new java.awt.event.ActionListener() {
+        btnRemovemedicine.setText("Remove Medicine");
+        btnRemovemedicine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoveFoodSuppplierActionPerformed(evt);
+                btnRemovemedicineActionPerformed(evt);
             }
         });
 
@@ -145,7 +145,7 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
                 .addGap(365, 365, 365))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnRemoveFoodSuppplier)
+                    .addComponent(btnRemovemedicine)
                     .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -157,7 +157,7 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnRemoveFoodSuppplier)
+                .addComponent(btnRemovemedicine)
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
@@ -242,33 +242,18 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRemoveFoodSuppplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveFoodSuppplierActionPerformed
+    private void btnRemovemedicineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemovemedicineActionPerformed
         // TODO add your handling code here:
-        int row = testTable.getSelectedRow();
+        int row = medicineTable.getSelectedRow();
         if(row<0) {
             JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        Tester tester=(Tester)testTable.getValueAt(row, 0);
-
-        for(int i=0;i<organizationDir.getOrgList().size();i++){
-            Organization o= organizationDir.getOrgList().get(i);
-
-            Boolean success=o.getTesterDir().removetester(tester);
-            if(success){
-                o.getEmpDir().removeEmpByName(tester.getFullName());
-                o.getUserAccountDir().removeUserAccountByUserName(tester.getFullName());
-            }
-        }
-
-        //        for(Organization o:organizationDir.getOrgList())
-        //        {
-            //            //o.getEmpDir().removeEmp(e);
-            //            o.getDocDir().removeDoctor(d);
-            //        }
+        Medicine med=(Medicine)medicineTable.getValueAt(row, 0);
+        pharmacist.getMedicineDirectory().removeMedicineList(med);
 
         populateTestTable();
-    }//GEN-LAST:event_btnRemoveFoodSuppplierActionPerformed
+    }//GEN-LAST:event_btnRemovemedicineActionPerformed
 
     private void txtQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantityActionPerformed
         // TODO add your handling code here:
@@ -290,13 +275,13 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane DoctorScrollPane;
     private javax.swing.JButton addJButton;
-    private javax.swing.JButton btnRemoveFoodSuppplier;
+    private javax.swing.JButton btnRemovemedicine;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblDoctorslist1;
-    private javax.swing.JTable testTable;
+    private javax.swing.JTable medicineTable;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtQuantity;
     // End of variables declaration//GEN-END:variables

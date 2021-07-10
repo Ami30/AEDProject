@@ -43,7 +43,7 @@ private Boolean available;
 
         @Override
      public String toString() {
-         return String.valueOf(id);
+         return getName();
     }
 
 }

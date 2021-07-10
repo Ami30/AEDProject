@@ -3,23 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.PharmacistRole;
+package ui.StorePersonRole;
 
+import ui.PharmacistRole.*;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.HealthRequest;
 import javax.swing.JPanel;
 
 /**
  *
  * @author amishagupta
  */
-public class ManageOrdersJPanel extends javax.swing.JPanel {
+public class DeliveredItemsJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ManagePharmacistProfileJPanel
+     * Creates new form DeliveredMedicinesJPanel
      */
-    public ManageOrdersJPanel(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system) {
+    public DeliveredItemsJPanel(JPanel userProcessContainer,Enterprise ent, UserAccount userAccount, EcoSystem system, HealthRequest request) {
         initComponents();
     }
 
@@ -36,11 +38,11 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 973, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 623, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

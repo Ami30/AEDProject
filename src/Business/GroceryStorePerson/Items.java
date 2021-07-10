@@ -5,6 +5,8 @@
  */
 package Business.GroceryStorePerson;
 
+import Business.DeliveryMan.DeliveryMan;
+
 /**
  *
  * @author amishagupta
@@ -12,7 +14,8 @@ package Business.GroceryStorePerson;
 public class Items {
     private String itemName;
     private int itemQuantity;
-
+    private DeliveryMan deliveryMan;
+    private String orderStatus;
     
 
     public Items(String itemName, int itemQuantity) {
@@ -30,6 +33,22 @@ public class Items {
 
     public int getItemQuantity() {
         return itemQuantity;
+    }
+
+    public DeliveryMan getDeliveryMan() {
+        return deliveryMan;
+    }
+
+    public void setDeliveryMan(DeliveryMan deliveryMan) {
+        this.deliveryMan = deliveryMan;
+    }
+
+    public String getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
     }
 
     public void setItemQuantity(int itemQuantity) {
