@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.TestingServiceRole;
+package ui.SanitizationServiceRole;
 
 
+import ui.TestingServiceRole.*;
 import Business.EcoSystem;
 import ui.TestingEntAdminRole.*;
 import Business.Enterprise.Enterprise;
@@ -13,6 +14,8 @@ import Business.FoodSupplier.FoodSupplier;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.Role.TestingServiceRole;
+import Business.SanitizationPerson.SanitizationPerson;
+import Business.SanitizationPerson.SanitizationServiceType;
 import Business.Tester.Tester;
 import Business.Tester.Tests;
 import Business.UserAccount.UserAccount;
@@ -28,7 +31,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author amishagupta
  */
-public class ManageTests extends javax.swing.JPanel {
+public class AddSanitizationServiceType extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageEmpJPanel
@@ -38,10 +41,10 @@ public class ManageTests extends javax.swing.JPanel {
     private Enterprise ent;
     private UserAccount userAccount;
     private EcoSystem system;
-    private Tester tester;
+    private SanitizationPerson saniPerson;
     private Organization org;
        
-    public ManageTests(JPanel userProcessContainer,Enterprise ent, UserAccount userAccount, EcoSystem system, Organization org) {
+    public AddSanitizationServiceType(JPanel userProcessContainer,Enterprise ent, UserAccount userAccount, EcoSystem system, Organization org) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.organizationDir = organizationDir;
@@ -49,10 +52,10 @@ public class ManageTests extends javax.swing.JPanel {
         this.system = system;
         this.ent=ent;
         this.org = org;
-        tester=org.getTesterDir().findTester(userAccount.getUsername());
+        saniPerson=org.getSaniPersonDir().findSaniPerson(userAccount.getUsername());
         populateTestTable();
-        testTable.setRowHeight(25);
-        testTable.getTableHeader().setDefaultRenderer(new HeaderColor());
+        saniTable.setRowHeight(25);
+        saniTable.getTableHeader().setDefaultRenderer(new HeaderColor());
         
     }
      public class HeaderColor extends DefaultTableCellRenderer {
@@ -68,13 +71,13 @@ public class ManageTests extends javax.swing.JPanel {
     }
 
     private void populateTestTable(){
-        DefaultTableModel model = (DefaultTableModel) testTable.getModel();
+        DefaultTableModel model = (DefaultTableModel) saniTable.getModel();
         
         model.setRowCount(0);
-        for (Tests test : tester.getTestDirectory().getTestList()){          
+        for (SanitizationServiceType saniService : saniPerson.getSaniServiceTypeDirectory().getSanitizationServiceList()){          
             Object[] row = new Object[2];
-            row[0] = test;
-            row[1] = test.getReportingTime();
+            row[0] = saniService;
+            row[1] = saniService.getRequiredtime();
             model.addRow(row);
         }
     }
@@ -90,7 +93,7 @@ public class ManageTests extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         DoctorScrollPane = new javax.swing.JScrollPane();
-        testTable = new javax.swing.JTable();
+        saniTable = new javax.swing.JTable();
         lblDoctorslist1 = new javax.swing.JLabel();
         btnRemoveFoodSuppplier = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -102,7 +105,7 @@ public class ManageTests extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        testTable.setModel(new javax.swing.table.DefaultTableModel(
+        saniTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -110,7 +113,7 @@ public class ManageTests extends javax.swing.JPanel {
                 {null, null}
             },
             new String [] {
-                "Name", "Report Duration"
+                "Type", "Required time"
             }
         ) {
             Class[] types = new Class [] {
@@ -128,14 +131,14 @@ public class ManageTests extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        testTable.setRequestFocusEnabled(false);
-        testTable.setSelectionBackground(new java.awt.Color(235, 227, 126));
-        DoctorScrollPane.setViewportView(testTable);
+        saniTable.setRequestFocusEnabled(false);
+        saniTable.setSelectionBackground(new java.awt.Color(235, 227, 126));
+        DoctorScrollPane.setViewportView(saniTable);
 
         lblDoctorslist1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
-        lblDoctorslist1.setText("Testing Service Providers");
+        lblDoctorslist1.setText("Sanitization Service");
 
-        btnRemoveFoodSuppplier.setText("Remove Test");
+        btnRemoveFoodSuppplier.setText("Remove Sanitization Service");
         btnRemoveFoodSuppplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoveFoodSuppplierActionPerformed(evt);
@@ -176,9 +179,9 @@ public class ManageTests extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setText("Test Name:");
+        jLabel2.setText("Sanitization Type :");
 
-        addJButton.setText("Add Test");
+        addJButton.setText("Add Sanitization Type");
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButtonActionPerformed(evt);
@@ -200,7 +203,7 @@ public class ManageTests extends javax.swing.JPanel {
                         .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
                         .addComponent(lblAddress)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtDuration, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(185, 185, 185)
@@ -218,19 +221,19 @@ public class ManageTests extends javax.swing.JPanel {
                     .addComponent(txtDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
                 .addComponent(addJButton)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 590, 150));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 650, 150));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
 
-        String name = txtName.getText();
+        String type = txtName.getText();
         String duration=txtDuration.getText();
         
-         Tests test = new Tests(name, duration);
-         tester.getTestDirectory().addTestsList(test);
+        SanitizationServiceType saniService=new SanitizationServiceType(type,duration);
+        saniPerson.getSaniServiceTypeDirectory().addSanitizationServiceList(saniService);
           populateTestTable();
         
        
@@ -244,30 +247,16 @@ public class ManageTests extends javax.swing.JPanel {
 
     private void btnRemoveFoodSuppplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveFoodSuppplierActionPerformed
         // TODO add your handling code here:
-        int row = testTable.getSelectedRow();
+        int row = saniTable.getSelectedRow();
         if(row<0) {
             JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        Tester tester=(Tester)testTable.getValueAt(row, 0);
+        SanitizationPerson saniPer=(SanitizationPerson)saniTable.getValueAt(row, 0);
         
-       for(int i=0;i<organizationDir.getOrgList().size();i++){
-           Organization o= organizationDir.getOrgList().get(i);
-           
-           Boolean success=o.getTesterDir().removetester(tester);
-           if(success){
-               o.getEmpDir().removeEmpByName(tester.getFullName());
-               o.getUserAccountDir().removeUserAccountByUserName(tester.getFullName());
-           }
-       }      
+         SanitizationServiceType saniServiceType=(SanitizationServiceType)saniTable.getValueAt(row, 0);
+        saniPer.getSaniServiceTypeDirectory().removeSanitizationServiceList(saniServiceType);
         
-//        for(Organization o:organizationDir.getOrgList())
-//        {
-//            //o.getEmpDir().removeEmp(e);
-//            o.getDocDir().removeDoctor(d);
-//        }
-       
-
         populateTestTable();
     }//GEN-LAST:event_btnRemoveFoodSuppplierActionPerformed
 
@@ -281,7 +270,7 @@ public class ManageTests extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblDoctorslist1;
-    private javax.swing.JTable testTable;
+    private javax.swing.JTable saniTable;
     private javax.swing.JTextField txtDuration;
     private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables

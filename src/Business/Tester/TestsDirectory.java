@@ -29,6 +29,7 @@ public class TestsDirectory {
         testList.add(test);
     }
           public void removeTestsList(Tests test){
-        testList.remove(test);
+              if(testList!=null){
+        testList.remove(test);}
     }
 }

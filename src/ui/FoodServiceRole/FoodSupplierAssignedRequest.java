@@ -3,11 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.TestingServiceRole;
+package ui.FoodServiceRole;
 
+import ui.SanitizationServiceRole.*;
+import ui.TestingServiceRole.*;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
+import Business.FoodSupplier.FoodSupplier;
 import Business.Organization.Organization;
+import Business.SanitizationPerson.SanitizationPerson;
 import Business.Tester.Tester;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HealthRequest;
@@ -23,28 +27,26 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author amishagupta
  */
-public class TesterAssignedRequest extends javax.swing.JPanel {
+public class FoodSupplierAssignedRequest extends javax.swing.JPanel {
 
     /**
      * Creates new form PatientManagerAssignDocJPanel
      */
      private UserAccount useraccount;
        private EcoSystem system;
-//       private HospitalEnterprise hospital;
        private Enterprise enterprise;
        private Organization organization;
        private JPanel userProcessContainer;
        private HealthRequest req;
-       private Tester tester;
-    public TesterAssignedRequest(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system, Organization organization) {
+       private FoodSupplier foodSupplier;
+    public FoodSupplierAssignedRequest(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system, Organization organization) {
         initComponents();
         this.useraccount=account;
         this.system=system;
         this.enterprise = enterprise;
         this.organization = organization;
         this.userProcessContainer = userProcessContainer;
-//        String username = useraccount.getUsername();
-//        doctor =organization.getDocDir().findDoctor(username);
+
         SubmittedrequestsJTable.setRowHeight(25);
         SubmittedrequestsJTable.getTableHeader().setDefaultRenderer(new HeaderColor());
         populateRequestTable();
@@ -62,11 +64,13 @@ public class TesterAssignedRequest extends javax.swing.JPanel {
   public void populateRequestTable() {
         DefaultTableModel model = (DefaultTableModel) SubmittedrequestsJTable.getModel();
         model.setRowCount(0);
-        Tester tester = null;
+
+        
+       FoodSupplier foodSupplier=null;
        for(Organization org : enterprise.getOrganizationDirectory().getOrgList()){
-           if(org.getTesterDir().findTester(useraccount.getUsername())!= null){
-               tester = org.getTesterDir().findTester(useraccount.getUsername());
-              for(HealthRequest req : tester.getRequestDirectory().getRequestList()){
+           if(org.getFoodSupplierDir().findFoodSupplier(useraccount.getUsername())!= null){
+               foodSupplier = org.getFoodSupplierDir().findFoodSupplier(useraccount.getUsername());
+              for(HealthRequest req : foodSupplier.getRequestDirectory().getRequestList()){
             Object[] row = new Object[4];
             row[0] = req;
             row[1] = req.getUser().getName();
@@ -180,11 +184,11 @@ public class TesterAssignedRequest extends javax.swing.JPanel {
          }
          else{
                 for(Organization org : enterprise.getOrganizationDirectory().getOrgList()){
-                if(org.getTesterDir().findTester(useraccount.getUsername())!= null){
-                    tester=org.getTesterDir().findTester(useraccount.getUsername());
+                  if(org.getFoodSupplierDir().findFoodSupplier(useraccount.getUsername())!= null){
+               foodSupplier = org.getFoodSupplierDir().findFoodSupplier(useraccount.getUsername());
                    req = (HealthRequest)SubmittedrequestsJTable.getValueAt(selectedRow, 0);
-                  TestersRequestReport testerRequests=new TestersRequestReport(userProcessContainer,enterprise,useraccount,system, req, null, tester);
-                  userProcessContainer.add("PatientManagerProfileJPanel", testerRequests);
+                  FoodSupplierRequestReport foodSupplierRequests=new FoodSupplierRequestReport(userProcessContainer,enterprise,useraccount,system, req, foodSupplier);
+                  userProcessContainer.add("SanitizationRequestJPanel", foodSupplierRequests);
                   CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                   layout.next(userProcessContainer);
                 }
@@ -203,8 +207,9 @@ public class TesterAssignedRequest extends javax.swing.JPanel {
             return;
          }
          else{
-        req = (HealthRequest)SubmittedrequestsJTable.getValueAt(selectedRow, 0);CompletedTestReport completedTestResult=new CompletedTestReport(userProcessContainer,enterprise,useraccount,system, req);
-        userProcessContainer.add("userReport", completedTestResult);
+        req = (HealthRequest)SubmittedrequestsJTable.getValueAt(selectedRow, 0);
+        CompletedFoodServiceReport completedFoodService=new CompletedFoodServiceReport(userProcessContainer,enterprise,useraccount,system, req);
+        userProcessContainer.add("userReport", completedFoodService);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
          }

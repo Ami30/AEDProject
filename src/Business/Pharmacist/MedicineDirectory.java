@@ -28,4 +28,8 @@ public class MedicineDirectory {
        public void addMedicineList(Medicine medicine){
         medicineList.add(medicine);
     }
+          public void removeMedicineList(Medicine medicine){
+              if(medicineList!=null){
+        medicineList.remove(medicine);}
+    }
 }

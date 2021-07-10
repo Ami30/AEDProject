@@ -5,6 +5,9 @@
  */
 package Business.Pharmacist;
 
+import Business.DeliveryMan.DeliveryMan;
+import Business.UserAccount.UserAccount;
+
 /**
  *
  * @author amishagupta
@@ -12,7 +15,8 @@ package Business.Pharmacist;
 public class Medicine {
     private String medicineName;
     private int medicineQuantity;
-
+    private DeliveryMan deliveryMan;
+    private String orderstatus;
     
 
     public Medicine(String medicineName, int medicineQuantity) {
@@ -35,6 +39,23 @@ public class Medicine {
     public void setMedicineQuantity(int medicineQuantity) {
         this.medicineQuantity = medicineQuantity;
     }
+
+    public DeliveryMan getDeliveryMan() {
+        return deliveryMan;
+    }
+
+    public void setDeliveryMan(DeliveryMan deliveryMan) {
+        this.deliveryMan = deliveryMan;
+    }
+
+    public String getOrderstatus() {
+        return orderstatus;
+    }
+
+    public void setOrderstatus(String orderstatus) {
+        this.orderstatus = orderstatus;
+    }
+    
     
         @Override
     public String toString() {

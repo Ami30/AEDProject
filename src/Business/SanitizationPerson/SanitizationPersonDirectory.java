@@ -45,4 +45,13 @@ public class SanitizationPersonDirectory {
     
     return false;
     } 
+     public SanitizationPerson findSaniPerson(String username){
+        SanitizationPerson saniPerson = null;
+        for(SanitizationPerson p: sanitizationPersonDirectory){
+            if(p.getUsername().equalsIgnoreCase(username)){
+            saniPerson=p;
+            }
+        }
+        return saniPerson;
+    }
 }

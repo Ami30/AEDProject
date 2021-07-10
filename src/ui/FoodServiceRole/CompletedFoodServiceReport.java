@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.TestingServiceRole;
+package ui.FoodServiceRole;
 
 
+import ui.SanitizationServiceRole.*;
+import ui.TestingServiceRole.*;
 import Business.EcoSystem;
 import ui.TestingEntAdminRole.*;
 import Business.Enterprise.Enterprise;
@@ -32,7 +34,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author amishagupta
  */
-public class CompletedTestReport extends javax.swing.JPanel {
+public class CompletedFoodServiceReport extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageEmpJPanel
@@ -48,7 +50,7 @@ public class CompletedTestReport extends javax.swing.JPanel {
     private HealthRequest request;
     DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
        
-    public CompletedTestReport(JPanel userProcessContainer,Enterprise ent, UserAccount userAccount, EcoSystem system, HealthRequest request) {
+    public CompletedFoodServiceReport(JPanel userProcessContainer,Enterprise ent, UserAccount userAccount, EcoSystem system, HealthRequest request) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = userAccount;
@@ -180,7 +182,7 @@ public class CompletedTestReport extends javax.swing.JPanel {
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reportPanelLayout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(reportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGap(18, 18, 18)

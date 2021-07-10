@@ -64,12 +64,12 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="testTable">
+            <Component class="javax.swing.JTable" name="saniTable">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="2" rowCount="4">
-                    <Column editable="false" title="Name" type="java.lang.String"/>
-                    <Column editable="false" title="Report Duration" type="java.lang.String"/>
+                    <Column editable="false" title="Type" type="java.lang.String"/>
+                    <Column editable="false" title="Required time" type="java.lang.String"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -102,12 +102,12 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name=".SF NS Text" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Testing Service Providers"/>
+            <Property name="text" type="java.lang.String" value="Sanitization Service"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnRemoveFoodSuppplier">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Remove Test"/>
+            <Property name="text" type="java.lang.String" value="Remove Sanitization Service"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoveFoodSuppplierActionPerformed"/>
@@ -118,7 +118,7 @@
     <Container class="javax.swing.JPanel" name="jPanel2">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="30" y="290" width="590" height="150"/>
+          <AbsoluteConstraints x="30" y="290" width="650" height="150"/>
         </Constraint>
       </Constraints>
 
@@ -171,12 +171,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Test Name:"/>
+            <Property name="text" type="java.lang.String" value="Sanitization Type :"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="addJButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Add Test"/>
+            <Property name="text" type="java.lang.String" value="Add Sanitization Type"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addJButtonActionPerformed"/>

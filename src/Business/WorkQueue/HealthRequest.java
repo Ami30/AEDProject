@@ -8,11 +8,16 @@ package Business.WorkQueue;
 import Business.Doctor.Doctor;
 import Business.Employee.PrescriptionDirectory;
 import Business.Enterprise.HospitalEnterprise;
+import Business.FoodSupplier.FoodPackageDirectory;
+import Business.GroceryStorePerson.ItemsDirectory;
 import Business.Nurse.Nurse;
 import Business.Organization.Organization;
 import static Business.Organization.Organization.Type.Doctor;
 import Business.PatientManager.PatientManager;
+import Business.Pharmacist.MedicineDirectory;
 import Business.RegisteredUser.RegisteredUser;
+import Business.SanitizationPerson.SanitizationServiceType;
+import Business.SanitizationPerson.SanitizationServiceTypeDirectory;
 import Business.Tester.TestsDirectory;
 import com.db4o.User;
 import java.util.Random;
@@ -37,6 +42,14 @@ public class HealthRequest {
     private HospitalEnterprise hospital;
     private TestsDirectory testDirectory;
     private TestsDirectory previousTestDirectory;
+    private MedicineDirectory medicineDirectory;
+    private MedicineDirectory previousmedicineDirectory;
+    private ItemsDirectory itemsDirectory;
+    private ItemsDirectory previousitemsDirectory;
+    private SanitizationServiceTypeDirectory saniServiceTypeDir;
+    private SanitizationServiceTypeDirectory previousSaniServiceTypeDir;
+    private FoodPackageDirectory foodPackageDirectory;
+    private FoodPackageDirectory previousFoodPackageDirectory;
     private PrescriptionDirectory prescriptionDirectory;
     
 
@@ -170,6 +183,99 @@ public class HealthRequest {
         this.previousTestDirectory = previousTestDirectory;
     }
 
+    public MedicineDirectory getMedicineDirectory() {
+        if(medicineDirectory==null){
+            medicineDirectory=new MedicineDirectory();
+        }
+        return medicineDirectory;
+    }
+
+    public void setMedicineDirectory(MedicineDirectory medicineDirectory) {
+        this.medicineDirectory = medicineDirectory;
+    }
+
+    public MedicineDirectory getPreviousmedicineDirectory() {
+        if(previousmedicineDirectory==null){
+            previousmedicineDirectory=new MedicineDirectory();
+        }
+        return previousmedicineDirectory;
+    }
+
+    public void setPreviousmedicineDirectory(MedicineDirectory previousmedicineDirectory) {
+        this.previousmedicineDirectory = previousmedicineDirectory;
+    }
+
+    public ItemsDirectory getItemsDirectory() {
+        if(itemsDirectory==null){
+            itemsDirectory=new ItemsDirectory();
+        }
+        return itemsDirectory;
+    }
+
+    public void setItemsDirectory(ItemsDirectory itemsDirectory) {
+        this.itemsDirectory = itemsDirectory;
+    }
+
+    public ItemsDirectory getPreviousitemsDirectory() {
+        if(previousitemsDirectory==null){
+            previousitemsDirectory=new ItemsDirectory();
+        }
+        return previousitemsDirectory;
+    }
+
+    public SanitizationServiceTypeDirectory getSaniServiceTypeDir() {
+        if(saniServiceTypeDir==null){
+            saniServiceTypeDir=new SanitizationServiceTypeDirectory();
+        }
+        return saniServiceTypeDir;
+    }
+
+    public void setSaniServiceTypeDir(SanitizationServiceTypeDirectory saniServiceTypeDir) {
+        this.saniServiceTypeDir = saniServiceTypeDir;
+    }
+
+    public SanitizationServiceTypeDirectory getPreviousSaniServiceTypeDir() {
+        if(previousSaniServiceTypeDir==null){
+            previousSaniServiceTypeDir=new SanitizationServiceTypeDirectory();
+        }
+        return previousSaniServiceTypeDir;
+    }
+
+    public void setPreviousSaniServiceTypeDir(SanitizationServiceTypeDirectory previousSaniServiceTypeDir) {
+        this.previousSaniServiceTypeDir = previousSaniServiceTypeDir;
+    }
+    
+    
+
+    public void setPreviousitemsDirectory(ItemsDirectory previousitemsDirectory) {
+        this.previousitemsDirectory = previousitemsDirectory;
+    }
+
+    public FoodPackageDirectory getFoodPackageDirectory() {
+        if(foodPackageDirectory==null){
+            foodPackageDirectory=new FoodPackageDirectory();
+        }
+        return foodPackageDirectory;
+    }
+
+    public void setFoodPackageDirectory(FoodPackageDirectory foodPackageDirectory) {
+        this.foodPackageDirectory = foodPackageDirectory;
+    }
+
+    public FoodPackageDirectory getPreviousFoodPackageDirectory() {
+        if(previousFoodPackageDirectory==null){
+            previousFoodPackageDirectory=new FoodPackageDirectory();
+        }
+        return previousFoodPackageDirectory;
+    }
+
+    public void setPreviousFoodPackageDirectory(FoodPackageDirectory previousFoodPackageDirectory) {
+        this.previousFoodPackageDirectory = previousFoodPackageDirectory;
+    }
+    
+    
+
+    
     public PrescriptionDirectory getPrescriptionDirectory() {
         if(prescriptionDirectory==null){
             prescriptionDirectory = new PrescriptionDirectory();

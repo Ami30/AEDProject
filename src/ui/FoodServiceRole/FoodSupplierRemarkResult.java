@@ -3,16 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.TestingServiceRole;
+package ui.FoodServiceRole;
 
 
+import ui.SanitizationServiceRole.*;
+import ui.TestingServiceRole.*;
 import Business.EcoSystem;
 import ui.TestingEntAdminRole.*;
 import Business.Enterprise.Enterprise;
+import Business.FoodSupplier.FoodPackage;
 import Business.FoodSupplier.FoodSupplier;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.Role.TestingServiceRole;
+import Business.SanitizationPerson.SanitizationPerson;
+import Business.SanitizationPerson.SanitizationServiceType;
 import Business.Tester.Tester;
 import Business.Tester.Tests;
 import Business.UserAccount.UserAccount;
@@ -33,7 +38,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author amishagupta
  */
-public class TestRemarkResult extends javax.swing.JPanel {
+public class FoodSupplierRemarkResult extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageEmpJPanel
@@ -43,21 +48,21 @@ public class TestRemarkResult extends javax.swing.JPanel {
     private Enterprise ent;
     private UserAccount userAccount;
     private EcoSystem system;
-    private Tester tester;
+    private FoodSupplier foodSupplier;
     private Organization org;
-    private Tests test;
+    private FoodPackage foodPackage;
     private HealthRequest request;
     DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
        
-    public TestRemarkResult(JPanel userProcessContainer,Enterprise ent, UserAccount userAccount, EcoSystem system, Tests test, HealthRequest request, Tester tester) {
+    public FoodSupplierRemarkResult(JPanel userProcessContainer,Enterprise ent, UserAccount userAccount, EcoSystem system, FoodPackage foodPackage, HealthRequest request, FoodSupplier foodSupplier) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = userAccount;
         this.system = system;
         this.ent=ent;
-        this.test=test;
+        this.foodPackage=foodPackage;
         this.request = request;
-        this.tester = tester;
+        this.foodSupplier = foodSupplier;
         populateDetails();
 
         
@@ -88,10 +93,8 @@ public class TestRemarkResult extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         lblAddress = new javax.swing.JLabel();
         addJButton = new javax.swing.JButton();
-        lblTestName = new javax.swing.JLabel();
-        lblTestDuration = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        txtResult = new javax.swing.JTextField();
+        lblSaniTypeName = new javax.swing.JLabel();
+        lblSaniTimeRequired = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtRemark = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -100,9 +103,9 @@ public class TestRemarkResult extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Test Name:");
+        jLabel2.setText("Food Package Name:");
 
-        lblAddress.setText("Report Duration(Hrs):");
+        lblAddress.setText("Food Package Details");
 
         addJButton.setText("Submit");
         addJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -111,17 +114,15 @@ public class TestRemarkResult extends javax.swing.JPanel {
             }
         });
 
-        lblTestName.setText("jLabel1");
+        lblSaniTypeName.setText("jLabel1");
 
-        lblTestDuration.setText("jLabel1");
+        lblSaniTimeRequired.setText("jLabel1");
 
-        jLabel1.setText("Test Result:");
+        jLabel3.setText("Remark:");
 
-        jLabel3.setText("Test Remark:");
+        jLabel4.setText("Status:");
 
-        jLabel4.setText("Test Status:");
-
-        testStatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Positive", "Negative" }));
+        testStatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not Started", "In Progress", "Completed" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -133,24 +134,22 @@ public class TestRemarkResult extends javax.swing.JPanel {
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblTestName, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblSaniTypeName, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(32, 32, 32)
                                 .addComponent(lblAddress)
                                 .addGap(18, 18, 18)
-                                .addComponent(lblTestDuration, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtResult)
+                                .addComponent(lblSaniTimeRequired, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtRemark)
                             .addComponent(testStatusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(222, 222, 222)
                         .addComponent(addJButton)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,20 +158,16 @@ public class TestRemarkResult extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(lblAddress)
-                    .addComponent(lblTestName)
-                    .addComponent(lblTestDuration))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblSaniTypeName)
+                    .addComponent(lblSaniTimeRequired))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
+                        .addGap(82, 82, 82)
                         .addComponent(jLabel3))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
+                        .addGap(67, 67, 67)
                         .addComponent(txtRemark, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(testStatusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -184,26 +179,23 @@ public class TestRemarkResult extends javax.swing.JPanel {
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, 290));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setText("                      Test Reporting");
+        jLabel5.setText("                      Food Supplier Report");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 270, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
 
-        String testResult = txtResult.getText();
-        String testRemark = txtRemark.getText();
-        String testStatus = testStatusComboBox.getSelectedItem().toString();
-        test.setStatus(testStatus);
-        test.setTestRemark(testRemark);
-        test.setTestResult(testResult);
+        String foodSupplierRemark = txtRemark.getText();
+        String foodStatus = testStatusComboBox.getSelectedItem().toString();
+        foodPackage.setStatus(foodStatus);
+        foodPackage.setFoodProviderRemark(foodSupplierRemark);
         Date date = new Date();
         String stringDate = formatter.format(date);
-        test.setTestReportingDate(stringDate);
-        request.getPreviousTestDirectory().addTestsList(test);
-        tester.getCompletedTestsDirectory().addTestsList(test);
-        request.getTestDirectory().removeTestsList(test);
-        tester.getTestDirectory().removeTestsList(test);
-        
+        foodPackage.setCompletedDate(stringDate);
+        request.getPreviousFoodPackageDirectory().addFoodTypeList(foodPackage);
+        foodSupplier.getCompletedfoodpackageDirectory().addFoodTypeList(foodPackage);
+        request.getFoodPackageDirectory().removeFoodTypeList(foodPackage);
+        foodSupplier.getFoodpackageDirectory().removeFoodTypeList(foodPackage);       
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
@@ -214,22 +206,20 @@ public class TestRemarkResult extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addJButton;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAddress;
-    private javax.swing.JLabel lblTestDuration;
-    private javax.swing.JLabel lblTestName;
+    private javax.swing.JLabel lblSaniTimeRequired;
+    private javax.swing.JLabel lblSaniTypeName;
     private javax.swing.JComboBox<String> testStatusComboBox;
     private javax.swing.JTextField txtRemark;
-    private javax.swing.JTextField txtResult;
     // End of variables declaration//GEN-END:variables
 
     private void populateDetails(){
-        lblTestName.setText(test.getTestName());
-        lblTestDuration.setText(test.getReportingTime());
+        lblSaniTypeName.setText(foodPackage.getFoodPackageName());
+        lblSaniTimeRequired.setText(foodPackage.getFoodPackageDetails());
     }
 }

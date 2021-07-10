@@ -40,6 +40,9 @@ private static final AtomicInteger count = new AtomicInteger(0);
     }
 
     public MedicineDirectory getMedicineDirectory() {
+        if(medicineDirectory==null){
+            medicineDirectory=new MedicineDirectory();
+        }
         return medicineDirectory;
     }
 
@@ -48,6 +51,9 @@ private static final AtomicInteger count = new AtomicInteger(0);
     }
 
     public HealthRequestDirectory getRequestDirectory() {
+        if(requestDirectory==null){
+            requestDirectory=new HealthRequestDirectory();
+        }
         return requestDirectory;
     }
 

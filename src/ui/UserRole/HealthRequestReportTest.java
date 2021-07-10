@@ -605,7 +605,7 @@ public class HealthRequestReportTest extends javax.swing.JPanel {
                    for(Tests test: testSelectedList){
                        request.getTestDirectory().addTestsList(test);
                    }
-                   tester.getRequestDirectory().addRequestList(request);
+                  tester.getRequestDirectory().addRequestList(request);
                   JOptionPane.showMessageDialog(null, "This request assigned to Test Provider: "+tester.getName()+" Successfully!");
                   doctorJpanel.setVisible(true);
              }

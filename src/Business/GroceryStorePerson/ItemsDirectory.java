@@ -28,5 +28,9 @@ public class ItemsDirectory {
        public void addItemsList(Items item){
         itemsList.add(item);
     }
+           public void removeItemsList(Items item){
+               if(itemsList!=null){
+        itemsList.remove(item);}
+    }
     
 }

@@ -43,5 +43,15 @@ public class FoodSupplierDirectory {
      }
         
     return false;
-    } 
+    }
+    
+    public FoodSupplier findFoodSupplier(String username){
+        FoodSupplier foodSup = null;
+        for(FoodSupplier p: foodSupplierDirectory){
+            if(p.getUsername().equalsIgnoreCase(username)){
+            foodSup=p;
+            }
+        }
+        return foodSup;
+    }
 }

@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.TestingServiceRole;
+package ui.FoodServiceRole;
 
+import ui.SanitizationServiceRole.*;
+import ui.TestingServiceRole.*;
 import ui.DoctorRole.*;
 import ui.UserRole.*;
 import ui.TestingEntAdminRole.*;
@@ -27,7 +29,7 @@ import javax.swing.JPanel;
  * @author amishagupta
  */
 
-public class TestingServiceWorkAreaJPanel extends javax.swing.JPanel {
+public class FoodServiceWorkAreaJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form HospitalEntAdminWorkAreaJPanel
@@ -37,7 +39,7 @@ public class TestingServiceWorkAreaJPanel extends javax.swing.JPanel {
     UserAccount useraccount;
     Organization org;
     EcoSystem system;
-    public TestingServiceWorkAreaJPanel(JPanel userProcessContainer, UserAccount useraccount, Organization org, Enterprise enterprise, EcoSystem system) {
+    public FoodServiceWorkAreaJPanel(JPanel userProcessContainer, UserAccount useraccount, Organization org, Enterprise enterprise, EcoSystem system) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.enterprise=enterprise;
@@ -86,7 +88,7 @@ public class TestingServiceWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         btnManageProfile2.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnManageProfile2.setText("Add Tests");
+        btnManageProfile2.setText("Add Food Package");
         btnManageProfile2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(74, 126, 203), null, null));
         btnManageProfile2.setBorderPainted(false);
         btnManageProfile2.addActionListener(new java.awt.event.ActionListener() {
@@ -129,18 +131,18 @@ public class TestingServiceWorkAreaJPanel extends javax.swing.JPanel {
     private void btnManageProfileTesterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProfileTesterActionPerformed
         try {
             // TODO add your handling code here:
-            ManageTesterProfileJPanel manageTesterProfile=new ManageTesterProfileJPanel(workAreaJPanel,enterprise,useraccount,system);
+            ManageFoodSupplierProfileJPanel manageTesterProfile=new ManageFoodSupplierProfileJPanel(workAreaJPanel,enterprise,useraccount,system);
             workAreaJPanel.add("UserProfileJPanel", manageTesterProfile);
             CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
             layout.next(workAreaJPanel);
         } catch (ParseException ex) {
-            Logger.getLogger(TestingServiceWorkAreaJPanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FoodServiceWorkAreaJPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnManageProfileTesterActionPerformed
 
     private void btnManageProfile1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProfile1ActionPerformed
         // TODO add your handling code here:
-        TesterAssignedRequest testerAssignedRequests=new TesterAssignedRequest(workAreaJPanel,enterprise,useraccount,system, org);
+        FoodSupplierAssignedRequest testerAssignedRequests=new FoodSupplierAssignedRequest(workAreaJPanel,enterprise,useraccount,system, org);
         workAreaJPanel.add("viewAllRequestJPanel", testerAssignedRequests);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);
@@ -148,7 +150,7 @@ public class TestingServiceWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageProfile2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProfile2ActionPerformed
         // TODO add your handling code here:
-        ManageTests manageTest=new ManageTests(workAreaJPanel,enterprise,useraccount,system,org);
+        AddFoodServicesTypesJPanel manageTest=new AddFoodServicesTypesJPanel(workAreaJPanel,enterprise,useraccount,system,org);
         workAreaJPanel.add("UserProfileJPanel", manageTest);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);

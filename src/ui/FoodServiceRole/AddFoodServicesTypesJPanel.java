@@ -3,16 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.TestingServiceRole;
+package ui.FoodServiceRole;
 
 
+import ui.SanitizationServiceRole.*;
+import ui.TestingServiceRole.*;
 import Business.EcoSystem;
 import ui.TestingEntAdminRole.*;
 import Business.Enterprise.Enterprise;
 import Business.FoodSupplier.FoodSupplier;
+import Business.FoodSupplier.FoodPackage;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.Role.TestingServiceRole;
+import Business.SanitizationPerson.SanitizationPerson;
+import Business.SanitizationPerson.SanitizationServiceType;
 import Business.Tester.Tester;
 import Business.Tester.Tests;
 import Business.UserAccount.UserAccount;
@@ -28,7 +33,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author amishagupta
  */
-public class ManageTests extends javax.swing.JPanel {
+public class AddFoodServicesTypesJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageEmpJPanel
@@ -38,10 +43,10 @@ public class ManageTests extends javax.swing.JPanel {
     private Enterprise ent;
     private UserAccount userAccount;
     private EcoSystem system;
-    private Tester tester;
+    private FoodSupplier foodProvider;
     private Organization org;
        
-    public ManageTests(JPanel userProcessContainer,Enterprise ent, UserAccount userAccount, EcoSystem system, Organization org) {
+    public AddFoodServicesTypesJPanel(JPanel userProcessContainer,Enterprise ent, UserAccount userAccount, EcoSystem system, Organization org) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.organizationDir = organizationDir;
@@ -49,10 +54,10 @@ public class ManageTests extends javax.swing.JPanel {
         this.system = system;
         this.ent=ent;
         this.org = org;
-        tester=org.getTesterDir().findTester(userAccount.getUsername());
+        foodProvider=org.getFoodSupplierDir().findFoodSupplier(userAccount.getUsername());
         populateTestTable();
-        testTable.setRowHeight(25);
-        testTable.getTableHeader().setDefaultRenderer(new HeaderColor());
+        foodTypesTable.setRowHeight(25);
+        foodTypesTable.getTableHeader().setDefaultRenderer(new HeaderColor());
         
     }
      public class HeaderColor extends DefaultTableCellRenderer {
@@ -68,13 +73,13 @@ public class ManageTests extends javax.swing.JPanel {
     }
 
     private void populateTestTable(){
-        DefaultTableModel model = (DefaultTableModel) testTable.getModel();
+        DefaultTableModel model = (DefaultTableModel) foodTypesTable.getModel();
         
         model.setRowCount(0);
-        for (Tests test : tester.getTestDirectory().getTestList()){          
+        for (FoodPackage foodPackage : foodProvider.getFoodpackageDirectory().getFoodTypeList()){          
             Object[] row = new Object[2];
-            row[0] = test;
-            row[1] = test.getReportingTime();
+            row[0] = foodPackage;
+            row[1] = foodPackage.getFoodPackageDetails();
             model.addRow(row);
         }
     }
@@ -90,19 +95,20 @@ public class ManageTests extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         DoctorScrollPane = new javax.swing.JScrollPane();
-        testTable = new javax.swing.JTable();
+        foodTypesTable = new javax.swing.JTable();
         lblDoctorslist1 = new javax.swing.JLabel();
         btnRemoveFoodSuppplier = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        txtDuration = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         addJButton = new javax.swing.JButton();
         txtName = new javax.swing.JTextField();
         lblAddress = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtPackageDetails = new javax.swing.JTextArea();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        testTable.setModel(new javax.swing.table.DefaultTableModel(
+        foodTypesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -110,7 +116,7 @@ public class ManageTests extends javax.swing.JPanel {
                 {null, null}
             },
             new String [] {
-                "Name", "Report Duration"
+                "Package Name", "Package Details"
             }
         ) {
             Class[] types = new Class [] {
@@ -128,14 +134,14 @@ public class ManageTests extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        testTable.setRequestFocusEnabled(false);
-        testTable.setSelectionBackground(new java.awt.Color(235, 227, 126));
-        DoctorScrollPane.setViewportView(testTable);
+        foodTypesTable.setRequestFocusEnabled(false);
+        foodTypesTable.setSelectionBackground(new java.awt.Color(235, 227, 126));
+        DoctorScrollPane.setViewportView(foodTypesTable);
 
         lblDoctorslist1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
-        lblDoctorslist1.setText("Testing Service Providers");
+        lblDoctorslist1.setText("Food Service");
 
-        btnRemoveFoodSuppplier.setText("Remove Test");
+        btnRemoveFoodSuppplier.setText("Remove Food Package");
         btnRemoveFoodSuppplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoveFoodSuppplierActionPerformed(evt);
@@ -170,22 +176,20 @@ public class ManageTests extends javax.swing.JPanel {
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, -1, 280));
 
-        txtDuration.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDurationActionPerformed(evt);
-            }
-        });
+        jLabel2.setText("Package Name");
 
-        jLabel2.setText("Test Name:");
-
-        addJButton.setText("Add Test");
+        addJButton.setText("Add Food Package");
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButtonActionPerformed(evt);
             }
         });
 
-        lblAddress.setText("Report Duration(Hrs):");
+        lblAddress.setText("Package Details");
+
+        txtPackageDetails.setColumns(20);
+        txtPackageDetails.setRows(5);
+        jScrollPane1.setViewportView(txtPackageDetails);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -200,8 +204,8 @@ public class ManageTests extends javax.swing.JPanel {
                         .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
                         .addComponent(lblAddress)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtDuration, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(185, 185, 185)
                         .addComponent(addJButton)))
@@ -210,27 +214,31 @@ public class ManageTests extends javax.swing.JPanel {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAddress)
-                    .addComponent(txtDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAddress)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(addJButton)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 590, 150));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 720, 150));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
 
-        String name = txtName.getText();
-        String duration=txtDuration.getText();
+        String packageName = txtName.getText();
+        String packageDetails=txtPackageDetails.getText();
         
-         Tests test = new Tests(name, duration);
-         tester.getTestDirectory().addTestsList(test);
+        FoodPackage foodPackage=new FoodPackage(packageName,packageDetails);
+        foodProvider.getFoodpackageDirectory().addFoodTypeList(foodPackage);
           populateTestTable();
         
        
@@ -238,36 +246,18 @@ public class ManageTests extends javax.swing.JPanel {
 
     }//GEN-LAST:event_addJButtonActionPerformed
 
-    private void txtDurationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDurationActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDurationActionPerformed
-
     private void btnRemoveFoodSuppplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveFoodSuppplierActionPerformed
         // TODO add your handling code here:
-        int row = testTable.getSelectedRow();
+        int row = foodTypesTable.getSelectedRow();
         if(row<0) {
             JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        Tester tester=(Tester)testTable.getValueAt(row, 0);
+        FoodSupplier foodSupplier=(FoodSupplier)foodTypesTable.getValueAt(row, 0);
         
-       for(int i=0;i<organizationDir.getOrgList().size();i++){
-           Organization o= organizationDir.getOrgList().get(i);
-           
-           Boolean success=o.getTesterDir().removetester(tester);
-           if(success){
-               o.getEmpDir().removeEmpByName(tester.getFullName());
-               o.getUserAccountDir().removeUserAccountByUserName(tester.getFullName());
-           }
-       }      
+        FoodPackage foodPackage=(FoodPackage)foodTypesTable.getValueAt(row, 0);
+        foodSupplier.getFoodpackageDirectory().removeFoodTypeList(foodPackage);
         
-//        for(Organization o:organizationDir.getOrgList())
-//        {
-//            //o.getEmpDir().removeEmp(e);
-//            o.getDocDir().removeDoctor(d);
-//        }
-       
-
         populateTestTable();
     }//GEN-LAST:event_btnRemoveFoodSuppplierActionPerformed
 
@@ -276,13 +266,14 @@ public class ManageTests extends javax.swing.JPanel {
     private javax.swing.JScrollPane DoctorScrollPane;
     private javax.swing.JButton addJButton;
     private javax.swing.JButton btnRemoveFoodSuppplier;
+    private javax.swing.JTable foodTypesTable;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblDoctorslist1;
-    private javax.swing.JTable testTable;
-    private javax.swing.JTextField txtDuration;
     private javax.swing.JTextField txtName;
+    private javax.swing.JTextArea txtPackageDetails;
     // End of variables declaration//GEN-END:variables
 }
