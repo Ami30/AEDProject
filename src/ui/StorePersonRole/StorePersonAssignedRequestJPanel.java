@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.TestingServiceRole;
+package ui.PharmacistRole;
 
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
-import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 
@@ -15,12 +14,12 @@ import javax.swing.JPanel;
  *
  * @author amishagupta
  */
-public class TestingServiceWorkAreaJPanel1 extends javax.swing.JPanel {
+public class ManageOrdersJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form TestingServiceWorkAreaJPanel
+     * Creates new form ManagePharmacistProfileJPanel
      */
-    public TestingServiceWorkAreaJPanel1(JPanel userProcessContainer, UserAccount useraccount, Organization org, Enterprise enterprise, EcoSystem system) {
+    public ManageOrdersJPanel(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system) {
         initComponents();
     }
 
@@ -37,11 +36,11 @@ public class TestingServiceWorkAreaJPanel1 extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 973, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 623, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
