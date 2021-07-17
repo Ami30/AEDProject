@@ -14,6 +14,9 @@ import Business.Pharmacist.Pharmacist;
 import Business.Tester.Tester;
 import Business.UserAccount.UserAccount;
 import java.awt.Component;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -37,6 +40,7 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
     private EcoSystem system;
     private Pharmacist pharmacist;
     private Organization org;
+    DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
        
     public AddMedicinesJPanel(JPanel userProcessContainer,Enterprise ent, UserAccount userAccount, EcoSystem system, Organization org) {
         initComponents();
@@ -70,7 +74,7 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
         for (Medicine med : pharmacist.getMedicineDirectory().getMedicineList()){          
             Object[] row = new Object[2];
             row[0] = med;
-            row[1] = med.getMedicineQuantity();
+            row[1] = med.getExpiryDate();
             model.addRow(row);
         }
     }
@@ -89,11 +93,11 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
         lblDoctorslist1 = new javax.swing.JLabel();
         btnRemovemedicine = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        txtQuantity = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         addJButton = new javax.swing.JButton();
         txtName = new javax.swing.JTextField();
         lblAddress = new javax.swing.JLabel();
+        expiryDateChooser = new com.toedter.calendar.JDateChooser();
 
         medicineTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -103,7 +107,7 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
                 {null, null}
             },
             new String [] {
-                "Name", "Quantity"
+                "Name", "Expiry Date"
             }
         ) {
             Class[] types = new Class [] {
@@ -161,12 +165,6 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
-        txtQuantity.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtQuantityActionPerformed(evt);
-            }
-        });
-
         jLabel2.setText("Medicine Name");
 
         addJButton.setText("Add Medicine");
@@ -176,7 +174,7 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblAddress.setText("Medicine Quantity");
+        lblAddress.setText("Expiry Date");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -191,22 +189,24 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
                         .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lblAddress)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(expiryDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(228, 228, 228)
-                        .addComponent(addJButton)))
-                .addGap(0, 10, Short.MAX_VALUE))
+                        .addComponent(addJButton)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(10, 10, 10))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAddress)
-                    .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblAddress))
+                    .addComponent(expiryDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(addJButton)
                 .addGap(37, 37, 37))
@@ -216,29 +216,25 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 826, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(3, 3, 3)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 132, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 132, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 566, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(274, 274, 274)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 71, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(274, 274, 274)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 72, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -255,17 +251,12 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
         populateTestTable();
     }//GEN-LAST:event_btnRemovemedicineActionPerformed
 
-    private void txtQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantityActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtQuantityActionPerformed
-
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
 
         String name = txtName.getText();
-        String medicinequantity=txtQuantity.getText();
-        int quantity=Integer.parseInt(medicinequantity);
-       
-        Medicine med = new Medicine(name, quantity);
+        Date date = expiryDateChooser.getDate();
+        String orderDate = formatter.format(date);
+        Medicine med = new Medicine(name, orderDate);
         pharmacist.getMedicineDirectory().addMedicineList(med);
         populateTestTable();
 
@@ -276,6 +267,7 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane DoctorScrollPane;
     private javax.swing.JButton addJButton;
     private javax.swing.JButton btnRemovemedicine;
+    private com.toedter.calendar.JDateChooser expiryDateChooser;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -283,6 +275,5 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblDoctorslist1;
     private javax.swing.JTable medicineTable;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtQuantity;
     // End of variables declaration//GEN-END:variables
 }

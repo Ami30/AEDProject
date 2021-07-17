@@ -3,14 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.UserRole;
+package ui.PatientManagerRole;
 
+import ui.UserRole.*;
 import Business.Doctor.Doctor;
 import Business.EcoSystem;
 import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
 import Business.Enterprise.HospitalEnterprise;
 import Business.Network.Network;
+import Business.Nurse.Nurse;
 import Business.Organization.DoctorOrganization;
 import Business.Organization.Organization;
 import Business.PatientManager.PatientManager;
@@ -37,7 +39,7 @@ import ui.DoctorRole.AssignHospitalToRequest;
  *
  * @author amishagupta
  */
-public class HealthRequestReport extends javax.swing.JPanel {
+public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageProfileJPanel
@@ -53,7 +55,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
     private Enterprise enterprise;
      DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
  
-    public HealthRequestReport(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system, HealthRequest request, PatientManager patientManager, String buttonFlag) {
+    public HealthRequestReportQuarantineFlowJPanel(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system, HealthRequest request, PatientManager patientManager, String buttonFlag) {
         initComponents();
         this.useraccount=account;
         this.system = system;
@@ -62,11 +64,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.patientManager = patientManager;
         this.buttonFlag = buttonFlag;
-        btnPres.setVisible(false);
-        btnBed.setVisible(false);
-        btnTest.setVisible(false);
         doctorJpanel.setVisible(false);
-        toggleButton();
         populateprofile();
         this.comorbid=new ArrayList<>();
         
@@ -117,16 +115,12 @@ public class HealthRequestReport extends javax.swing.JPanel {
         lblCough = new javax.swing.JLabel();
         lblBodyPain = new javax.swing.JLabel();
         lblOtherSymptoms = new javax.swing.JLabel();
-        btnAssignToMe = new javax.swing.JButton();
         btnAssignToDoctor = new javax.swing.JButton();
         doctorJpanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         doctorJTable = new javax.swing.JTable();
         btnSubmit = new javax.swing.JButton();
-        btnPres = new javax.swing.JButton();
-        btnBed = new javax.swing.JButton();
-        btnTest = new javax.swing.JButton();
-        btnReportBacktoAM = new javax.swing.JButton();
+        btnAssignToNurse = new javax.swing.JButton();
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Personal Details", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font(".SF NS Text", 1, 13))); // NOI18N
 
@@ -383,13 +377,6 @@ public class HealthRequestReport extends javax.swing.JPanel {
                 .addGap(28, 28, 28))
         );
 
-        btnAssignToMe.setText("Assign to Me");
-        btnAssignToMe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAssignToMeActionPerformed(evt);
-            }
-        });
-
         btnAssignToDoctor.setText("Assign a Doctor");
         btnAssignToDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -439,31 +426,10 @@ public class HealthRequestReport extends javax.swing.JPanel {
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
-        btnPres.setText("Add Prescription");
-        btnPres.addActionListener(new java.awt.event.ActionListener() {
+        btnAssignToNurse.setText("Assign a Nurse");
+        btnAssignToNurse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPresActionPerformed(evt);
-            }
-        });
-
-        btnBed.setText("Assign Bed");
-        btnBed.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBedActionPerformed(evt);
-            }
-        });
-
-        btnTest.setText("Assign Test");
-        btnTest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTestActionPerformed(evt);
-            }
-        });
-
-        btnReportBacktoAM.setText("Report to AM");
-        btnReportBacktoAM.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReportBacktoAMActionPerformed(evt);
+                btnAssignToNurseActionPerformed(evt);
             }
         });
 
@@ -477,23 +443,14 @@ public class HealthRequestReport extends javax.swing.JPanel {
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(doctorJpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(doctorJpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnPres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAssignToMe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnAssignToDoctor)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnAssignToDoctor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnBed, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnTest, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                            .addComponent(btnReportBacktoAM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)))
+                        .addComponent(btnAssignToNurse)))
                 .addContainerGap(178, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -508,15 +465,9 @@ public class HealthRequestReport extends javax.swing.JPanel {
                     .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAssignToMe)
                             .addComponent(btnAssignToDoctor)
-                            .addComponent(btnReportBacktoAM))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnPres)
-                            .addComponent(btnBed)
-                            .addComponent(btnTest))
-                        .addGap(16, 16, 16)
+                            .addComponent(btnAssignToNurse))
+                        .addGap(45, 45, 45)
                         .addComponent(doctorJpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -561,42 +512,6 @@ public class HealthRequestReport extends javax.swing.JPanel {
                   CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                   layout.next(userProcessContainer);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    public void toggleButton(){
-        if(buttonFlag.equalsIgnoreCase("patManAllReq")){
-            btnAssignToDoctor.setVisible(false);
-        }else if(buttonFlag.equalsIgnoreCase("patManAssignedReq")){
-            btnAssignToMe.setVisible(false);
-        }else if(buttonFlag.equalsIgnoreCase("doctor")){
-            btnAssignToDoctor.setVisible(false);
-            btnAssignToMe.setVisible(false);
-            btnPres.setVisible(true);
-            btnBed.setVisible(true);
-            btnTest.setVisible(true);
-        }else if(buttonFlag.equalsIgnoreCase("hospital")){
-            btnAssignToDoctor.setVisible(false);
-            btnAssignToMe.setVisible(false);
-            btnPres.setVisible(false);
-            btnBed.setVisible(false);
-            btnTest.setVisible(false);
-            doctorJpanel.setVisible(false);
-        }
-    }
-    private void btnAssignToMeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignToMeActionPerformed
-        // TODO add your handling code here:
-
-        if(request.getPatientManager()==null){
-         request.setPatientManager(patientManager);
-        patientManager.getRequestDirectory().addRequestList(request);
-        populateprofile();
-        JOptionPane.showMessageDialog(null, "This Request has been assigned to you successfuuly");
-            
-        }else{
-            JOptionPane.showMessageDialog(null, "This Request is already assigned to: " +request.getPatientManager().getName());
-        }
-       
-            
-    }//GEN-LAST:event_btnAssignToMeActionPerformed
 
     private void btnAssignToDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignToDoctorActionPerformed
         // TODO add your handling code here:
@@ -652,53 +567,42 @@ public class HealthRequestReport extends javax.swing.JPanel {
          }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
-    private void btnBedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBedActionPerformed
+    private void btnAssignToNurseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignToNurseActionPerformed
         // TODO add your handling code here:
+        doctorJpanel.setVisible(true);
+        DefaultTableModel model = (DefaultTableModel) doctorJTable.getModel();
+        model.setRowCount(0);
+        for(Network net: system.getNetworkList()){
+            if(net.getName().equalsIgnoreCase(request.getUser().getRegisteredUserNetwork().getName())){
+                   for(Enterprise ent: net.getEnterpriseDir().getEnterpriseList()){
+            if(ent.getEnterpriseType().getValue().equalsIgnoreCase("Hospital")){
+                for(Organization org: ent.getOrganizationDirectory().getOrgList()){
+                    if(org.getType().getValue().equalsIgnoreCase("Nurse Organization")){
+                        for(Nurse nurse: org.getNurDir().getnurseDirectory()){
+                            Object[] row = new Object[4];
+                            row[0] = nurse;
+                            row[1] = nurse.getDegree();
+                            row[2] = nurse.getYearsExperience();
+                            row[3] = nurse.getZipcode();
+                            model.addRow(row);
+                            
+                        }
+                    }
+                    
+                    
+                }
+            }
+        }
+            }
+        }
         
-        AssignHospitalToRequest assignHospital=new AssignHospitalToRequest(userProcessContainer,enterprise,useraccount,system,request);
-        userProcessContainer.add("userReport", assignHospital);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnBedActionPerformed
-
-    private void btnTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTestActionPerformed
-        // TODO add your handling code here:
-         HealthRequestReportTest healthRequestReportTest=new HealthRequestReportTest(userProcessContainer,enterprise,useraccount,system, request, null);
-         userProcessContainer.add("PatientManagerProfileJPanel", healthRequestReportTest);
-         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-         layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnTestActionPerformed
-
-    private void btnPresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPresActionPerformed
-        // TODO add your handling code here:
-        AddPrescription  addPrescription=new AddPrescription(userProcessContainer,enterprise,useraccount,system, request);
-         userProcessContainer.add("PatientManagerProfileJPanel", addPrescription);
-         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-         layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnPresActionPerformed
-
-    private void btnReportBacktoAMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportBacktoAMActionPerformed
-        // TODO add your handling code here:
-        PatientManager patMan = request.getPatientManager();
-        Date date = new Date();
-        String nowDtae = formatter.format(date);
-        PersonalNotification notification = new PersonalNotification(
-        "Doctor has assigned this request back to you", nowDtae, request.getRequestNumber());
-        notification.setStatus("new");
-        patMan.getNotificationDirectory().addNotification(notification);
-        
-        request.setStatus("quarantined");
-    }//GEN-LAST:event_btnReportBacktoAMActionPerformed
+    }//GEN-LAST:event_btnAssignToNurseActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssignToDoctor;
-    private javax.swing.JButton btnAssignToMe;
-    private javax.swing.JButton btnBed;
-    private javax.swing.JButton btnPres;
-    private javax.swing.JButton btnReportBacktoAM;
+    private javax.swing.JButton btnAssignToNurse;
     private javax.swing.JButton btnSubmit;
-    private javax.swing.JButton btnTest;
     private javax.swing.JTable doctorJTable;
     private javax.swing.JPanel doctorJpanel;
     private javax.swing.JButton jButton1;

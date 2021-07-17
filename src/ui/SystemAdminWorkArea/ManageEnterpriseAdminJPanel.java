@@ -8,7 +8,7 @@ package ui.SystemAdminWorkArea;
 import Business.EcoSystem;
 import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
-import Business.Validations.Validations;
+import Business.Validation.Validations;
 import Business.Network.Network;
 import Business.Role.FoodSupplyEntAdminRole;
 import Business.Role.HospitalEntAdminRole;

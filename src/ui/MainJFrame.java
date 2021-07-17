@@ -88,18 +88,16 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        txtUsername.setFont(new java.awt.Font("Bradley Hand", 0, 14)); // NOI18N
         txtUsername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
 
         lblpassword.setBackground(new java.awt.Color(255, 255, 255));
-        lblpassword.setFont(new java.awt.Font("Bradley Hand", 1, 18)); // NOI18N
+        lblpassword.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         lblpassword.setText("PASSWORD");
 
-        txtPassword.setFont(new java.awt.Font("Bradley Hand", 0, 14)); // NOI18N
         txtPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
 
         btnLogin.setBackground(new java.awt.Color(169, 221, 243));
-        btnLogin.setFont(new java.awt.Font("Bradley Hand", 1, 18)); // NOI18N
+        btnLogin.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnLogin.setText("LOGIN");
         btnLogin.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnLogin.setContentAreaFilled(false);
@@ -109,11 +107,11 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        lblUsername.setFont(new java.awt.Font("Bradley Hand", 1, 18)); // NOI18N
+        lblUsername.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         lblUsername.setText("USERNAME");
 
         btnRegister.setBackground(new java.awt.Color(169, 221, 243));
-        btnRegister.setFont(new java.awt.Font("Bradley Hand", 1, 18)); // NOI18N
+        btnRegister.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnRegister.setText("REGISTER");
         btnRegister.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRegister.setContentAreaFilled(false);
@@ -178,7 +176,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/gif2.gif"))); // NOI18N
 
         jLabel3.setBackground(new java.awt.Color(18, 102, 153));
-        jLabel3.setFont(new java.awt.Font("Bradley Hand", 1, 36)); // NOI18N
+        jLabel3.setFont(new java.awt.Font(".SF NS Text", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("WELCOME TO PATIENT CARE SYSTEM");
 

@@ -15,6 +15,7 @@ import Business.Pharmacist.Pharmacist;
 import Business.Tester.Tester;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HealthRequest;
+import Business.WorkQueue.OrderMedicine;
 import java.awt.CardLayout;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -39,6 +40,7 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private Pharmacist pharmacist;
     private Enterprise enterprise;
+    private DeliveryMan delMan;
      DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
     public RequestDetailsReportJPanel(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system, HealthRequest request,Pharmacist pharmacist) {
         initComponents();
@@ -68,13 +70,10 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
         lblZipCode = new javax.swing.JLabel();
         lblContactNo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        lblContactNo1 = new javax.swing.JLabel();
         lblRequestNumber = new javax.swing.JLabel();
         lblPatientsName = new javax.swing.JLabel();
         lblContact = new javax.swing.JLabel();
         lblGender = new javax.swing.JLabel();
-        lblDob = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
         Addresslabel = new javax.swing.JLabel();
         lblAddress = new javax.swing.JLabel();
         btnAssigndeliveryMan = new javax.swing.JButton();
@@ -92,8 +91,6 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
         lblContactNo.setText("Contact Number:");
 
         jLabel1.setText("Gender:");
-
-        lblContactNo1.setText("Date of Birth");
 
         lblRequestNumber.setText("jLabel4");
         lblRequestNumber.setMaximumSize(new java.awt.Dimension(6, 20));
@@ -115,18 +112,6 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
         lblGender.setMinimumSize(new java.awt.Dimension(6, 20));
         lblGender.setPreferredSize(new java.awt.Dimension(6, 20));
 
-        lblDob.setText("jLabel4");
-        lblDob.setMaximumSize(new java.awt.Dimension(6, 20));
-        lblDob.setMinimumSize(new java.awt.Dimension(6, 20));
-        lblDob.setPreferredSize(new java.awt.Dimension(6, 20));
-
-        jButton3.setText("History");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
         Addresslabel.setText("Address");
 
         lblAddress.setText("jLabel4");
@@ -139,29 +124,22 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblContactNo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblZipCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Addresslabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(55, 55, 55)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblContactNo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblContactNo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblZipCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Addresslabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(55, 55, 55)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblGender, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(lblRequestNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
-                                    .addComponent(lblPatientsName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblContact, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(lblDob, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(101, 101, 101)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lblGender, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lblRequestNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                            .addComponent(lblPatientsName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblContact, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(lblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -187,13 +165,7 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Addresslabel, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblContactNo1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDob, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                .addGap(34, 34, 34))
         );
 
         btnAssigndeliveryMan.setText("Assign Delivery Man");
@@ -214,11 +186,11 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Medicine Name", "Medicine Quantity", "Delivery Man", "Order Status"
+                "OrderId", "Order Date", "Order Status", "DeliveryMan"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -241,35 +213,35 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(267, 267, 267)
-                        .addComponent(deliveryManComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69)
-                        .addComponent(btnAssigndeliveryMan))
+                        .addGap(45, 45, 45)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(184, 184, 184)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(419, 419, 419)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(354, 354, 354)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(241, Short.MAX_VALUE))
+                        .addGap(113, 113, 113)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(162, 162, 162)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(deliveryManComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(69, 69, 69)
+                                .addComponent(btnAssigndeliveryMan)))))
+                .addContainerGap(312, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(32, 32, 32)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(8, 8, 8)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(deliveryManComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAssigndeliveryMan))
-                .addGap(38, 38, 38))
+                .addGap(114, 114, 114))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -287,14 +259,6 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        DeliveredMedicinesJPanel deliveredMedicines=new DeliveredMedicinesJPanel(userProcessContainer,enterprise,useraccount,system, request);
-        userProcessContainer.add("userReport", deliveredMedicines);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void btnAssigndeliveryManActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssigndeliveryManActionPerformed
         // TODO add your handling code here:
         int row = medicinesRequestedtable.getSelectedRow();
@@ -304,12 +268,10 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
         }
         else{
 //            Tests test = (Tests)testAssignedTable.getValueAt(row, 0);
-              Medicine med=(Medicine)medicinesRequestedtable.getValueAt(row, 0);
-              med.setOrderstatus("Delivery Man Assigned");
-//            TestRemarkResult testRemarkResult=new TestRemarkResult(userProcessContainer,enterprise,useraccount,system, test, request, tester);
-//            userProcessContainer.add("userReport", testRemarkResult);
-//            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-//            layout.next(userProcessContainer);
+              OrderMedicine med=(OrderMedicine)medicinesRequestedtable.getValueAt(row, 0);
+              med.setStatus("Assigned to DeliveryMan " + delMan);
+              med.setUser(request.getUser());
+              delMan.getOrderDirectory().addOrder(med);
         }
 
     }//GEN-LAST:event_btnAssigndeliveryManActionPerformed
@@ -319,7 +281,6 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
        lblPatientsName.setText(request.getUser().getFullName());
        lblContact.setText(request.getUser().getContactNumber());
        lblGender.setText(request.getUser().getGender());
-       lblDob.setText(request.getUser().getDob());
        lblAddress.setText(request.getUser().getAddress());
        
     } 
@@ -344,12 +305,12 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
       private void populateTable(){
         DefaultTableModel model = (DefaultTableModel) medicinesRequestedtable.getModel();
         model.setRowCount(0);
-        for (Medicine med : pharmacist.getMedicineDirectory().getMedicineList()){          
+        for (OrderMedicine med : request.getOrderDirectory().getMedicineList()){          
             Object[] row = new Object[4];
             row[0] = med;
-            row[1] = med.getMedicineQuantity();
-            row[2] = med.getDeliveryMan();
-            row[3] = med.getOrderstatus();
+            row[1] = med.getOrderDate();
+            row[2] = med.getStatus();
+            row[3] = med.getDeliveryman();
             model.addRow(row);
         }
        
@@ -357,6 +318,7 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
     
     private void deliveryManComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deliveryManComboBoxActionPerformed
         // TODO add your handling code here:
+        delMan = (DeliveryMan)deliveryManComboBox.getSelectedItem();
     }//GEN-LAST:event_deliveryManComboBoxActionPerformed
 
 
@@ -364,7 +326,6 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel Addresslabel;
     private javax.swing.JButton btnAssigndeliveryMan;
     private javax.swing.JComboBox<String> deliveryManComboBox;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
@@ -374,8 +335,6 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblContact;
     private javax.swing.JLabel lblContactNo;
-    private javax.swing.JLabel lblContactNo1;
-    private javax.swing.JLabel lblDob;
     private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblPatientsName;
     private javax.swing.JLabel lblRequestNumber;

@@ -74,26 +74,15 @@
                           <Component id="jPanel6" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jPanel5" alignment="0" max="32767" attributes="0"/>
-                          <Component id="doctorJpanel" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jPanel5" alignment="0" max="32767" attributes="0"/>
+                              <Component id="doctorJpanel" max="32767" attributes="0"/>
+                          </Group>
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="btnPres" max="32767" attributes="0"/>
-                                  <Component id="btnAssignToMe" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="btnAssignToDoctor" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="btnAssignToDoctor" max="32767" attributes="0"/>
-                                  <Component id="btnBed" min="-2" pref="107" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="btnTest" pref="107" max="32767" attributes="0"/>
-                                  <Component id="btnReportBacktoAM" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="19" max="32767" attributes="0"/>
+                              <Component id="btnAssignToNurse" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="178" max="32767" attributes="0"/>
@@ -113,17 +102,10 @@
                           <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnAssignToMe" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnAssignToDoctor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnReportBacktoAM" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAssignToNurse" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnPres" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnBed" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnTest" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                               <Component id="doctorJpanel" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -613,14 +595,6 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="btnAssignToMe">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Assign to Me"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAssignToMeActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="btnAssignToDoctor">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Assign a Doctor"/>
@@ -717,36 +691,12 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="btnPres">
+            <Component class="javax.swing.JButton" name="btnAssignToNurse">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Add Prescription"/>
+                <Property name="text" type="java.lang.String" value="Assign a Nurse"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPresActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnBed">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Assign Bed"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBedActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnTest">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Assign Test"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTestActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnReportBacktoAM">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Report to AM"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReportBacktoAMActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAssignToNurseActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

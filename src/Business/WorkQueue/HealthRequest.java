@@ -15,6 +15,7 @@ import Business.Organization.Organization;
 import static Business.Organization.Organization.Type.Doctor;
 import Business.PatientManager.PatientManager;
 import Business.Pharmacist.MedicineDirectory;
+import Business.RegisteredUser.DailyRepotDirectory;
 import Business.RegisteredUser.RegisteredUser;
 import Business.SanitizationPerson.SanitizationServiceType;
 import Business.SanitizationPerson.SanitizationServiceTypeDirectory;
@@ -51,6 +52,8 @@ public class HealthRequest {
     private FoodPackageDirectory foodPackageDirectory;
     private FoodPackageDirectory previousFoodPackageDirectory;
     private PrescriptionDirectory prescriptionDirectory;
+    private DailyRepotDirectory dailyReportDirectory;
+    private OrderDirectory orderDirectory;
     
 
     public HealthRequest(String status, RegisteredUser user, Doctor doctor, Nurse nurse, PatientManager patientManager, Organization organization, String fever, String cough, String bodyPain, String otherSymptoms, HospitalEnterprise hospital) {
@@ -287,8 +290,20 @@ public class HealthRequest {
         this.prescriptionDirectory = prescriptionDirectory;
     }
 
+    public DailyRepotDirectory getDailyReportDirectory() {
+        if(dailyReportDirectory == null){
+            dailyReportDirectory = new DailyRepotDirectory();
+        }
+        return dailyReportDirectory;
+    }
 
-    
+    public OrderDirectory getOrderDirectory() {
+        if(orderDirectory == null){
+            orderDirectory = new OrderDirectory();
+        }
+        return orderDirectory;
+    }
+
     
       @Override
     public String toString() {

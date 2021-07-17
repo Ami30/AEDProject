@@ -19,7 +19,7 @@ import Business.Organization.OrganizationDirectory;
 import Business.PatientManager.PatientManager;
 import Business.Role.FoodServiceRole;
 import Business.SanitizationPerson.SanitizationPerson;
-import Business.Validations.Validations;
+import Business.Validation.Validations;
 import java.awt.Component;
 import java.util.ArrayList;
 import java.util.Iterator;

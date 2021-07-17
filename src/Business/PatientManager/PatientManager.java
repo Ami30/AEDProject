@@ -5,6 +5,7 @@
  */
 package Business.PatientManager;
 
+import Business.Person.PersonalNotificationDirectory;
 import Business.Role.Role;
 import Business.WorkQueue.HealthRequestDirectory;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -17,6 +18,7 @@ public class PatientManager extends Business.Person.Person {
 private int id;
 private int currentPatients;
 private HealthRequestDirectory requestDirectory = new HealthRequestDirectory();
+private PersonalNotificationDirectory notificationDirectory = new PersonalNotificationDirectory();
 private static final AtomicInteger count = new AtomicInteger(0); 
 
     public PatientManager(String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email, String username,String password, Role role) {
@@ -51,7 +53,15 @@ private static final AtomicInteger count = new AtomicInteger(0);
     public void setRequestDirectory(HealthRequestDirectory requestDirectory) {
         this.requestDirectory = requestDirectory;
     }
+
+    public PersonalNotificationDirectory getNotificationDirectory() {
+        if(notificationDirectory == null){
+            notificationDirectory = new PersonalNotificationDirectory();
+        }
+        return notificationDirectory;
+    }
       
+    
          @Override
     public String toString() {
          return String.valueOf(id);

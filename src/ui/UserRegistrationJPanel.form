@@ -62,9 +62,6 @@
       <SubComponents>
         <Component class="javax.swing.JTextField" name="txtAddress">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Bradley Hand" size="14" style="0"/>
-            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                 <MatteColorBorder bottom="1" left="0" right="0" top="0"/>
@@ -85,9 +82,6 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="66" red="12" type="rgb"/>
             </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Bradley Hand" size="14" style="0"/>
-            </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
@@ -107,7 +101,7 @@
         <Component class="javax.swing.JLabel" name="lblContactNo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Bradley Hand" size="14" style="1"/>
+              <Font name=".SF NS Text" size="13" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="CONTACT NUMBER"/>
           </Properties>
@@ -120,7 +114,7 @@
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Bradley Hand" size="14" style="1"/>
+              <Font name=".SF NS Text" size="13" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="NAME"/>
           </Properties>
@@ -132,9 +126,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="nameJTextField">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Bradley Hand" size="14" style="0"/>
-            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                 <MatteColorBorder bottom="1" left="0" right="0" top="0"/>
@@ -149,9 +140,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtZipCode">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Bradley Hand" size="14" style="0"/>
-            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                 <MatteColorBorder bottom="1" left="0" right="0" top="0"/>
@@ -169,9 +157,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtEmail">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Bradley Hand" size="14" style="0"/>
-            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                 <MatteColorBorder bottom="1" left="0" right="0" top="0"/>
@@ -190,7 +175,7 @@
         <Component class="javax.swing.JLabel" name="lblAddress">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Bradley Hand" size="14" style="1"/>
+              <Font name=".SF NS Text" size="13" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="ADDRESS"/>
           </Properties>
@@ -203,7 +188,7 @@
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Bradley Hand" size="14" style="1"/>
+              <Font name=".SF NS Text" size="13" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="NEAREST CITY"/>
           </Properties>
@@ -233,7 +218,7 @@
         <Component class="javax.swing.JLabel" name="lblZipCode">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Bradley Hand" size="14" style="1"/>
+              <Font name=".SF NS Text" size="13" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="ZIP CODE"/>
           </Properties>
@@ -246,7 +231,7 @@
         <Component class="javax.swing.JLabel" name="lblEmail">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Bradley Hand" size="14" style="1"/>
+              <Font name=".SF NS Text" size="13" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="EMAIL"/>
           </Properties>
@@ -259,7 +244,7 @@
         <Component class="javax.swing.JLabel" name="lblGender">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Bradley Hand" size="14" style="1"/>
+              <Font name=".SF NS Text" size="13" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="GENDER"/>
           </Properties>
@@ -275,7 +260,7 @@
               <Color blue="99" green="66" red="12" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Bradley Hand" size="14" style="0"/>
+              <Font name=".SF NS Text" size="13" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -300,7 +285,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Bradley Hand" size="14" style="1"/>
+              <Font name=".SF NS Text" size="13" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="DATE OF BIRTH"/>
           </Properties>
@@ -356,17 +341,17 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="lblUsername" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="txtusername" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Component id="lblPwd" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="pwdfield" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="lblPwdconfirm" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="pwdfieldconfirm" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="79" max="32767" attributes="0"/>
+                      <EmptySpace pref="85" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -375,7 +360,7 @@
             <Component class="javax.swing.JLabel" name="lblUsername">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Bradley Hand" size="14" style="1"/>
+                  <Font name=".SF NS Text" size="13" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="USERNAME"/>
               </Properties>
@@ -383,16 +368,13 @@
             <Component class="javax.swing.JLabel" name="lblPwdconfirm">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Bradley Hand" size="14" style="1"/>
+                  <Font name=".SF NS Text" size="13" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="CONFIRM PASSWORD"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtusername">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Bradley Hand" size="14" style="0"/>
-                </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                     <MatteColorBorder bottom="1" left="0" right="0" top="0"/>
@@ -406,16 +388,13 @@
             <Component class="javax.swing.JLabel" name="lblPwd">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Bradley Hand" size="14" style="1"/>
+                  <Font name=".SF NS Text" size="13" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="PASSWORD"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JPasswordField" name="pwdfieldconfirm">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Bradley Hand" size="14" style="0"/>
-                </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                     <MatteColorBorder bottom="1" left="0" right="0" top="0"/>
@@ -425,9 +404,6 @@
             </Component>
             <Component class="javax.swing.JPasswordField" name="pwdfield">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Bradley Hand" size="14" style="0"/>
-                </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                     <MatteColorBorder bottom="1" left="0" right="0" top="0"/>
@@ -446,7 +422,7 @@
               <Color blue="99" green="66" red="12" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Bradley Hand" size="16" style="1"/>
+              <Font name=".SF NS Text" size="16" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
