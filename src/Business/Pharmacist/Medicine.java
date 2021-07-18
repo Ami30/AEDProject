@@ -14,14 +14,12 @@ import Business.UserAccount.UserAccount;
  */
 public class Medicine {
     private String medicineName;
-    private int medicineQuantity;
-    private DeliveryMan deliveryMan;
-    private String orderstatus;
-    
+    private String ExpiryDate;
+    private String quantity;
 
-    public Medicine(String medicineName, int medicineQuantity) {
+    public Medicine(String medicineName, String ExpiryDate) {
         this.medicineName = medicineName;
-        this.medicineQuantity = medicineQuantity;
+        this.ExpiryDate = ExpiryDate;
     }
 
     public String getMedicineName() {
@@ -32,29 +30,22 @@ public class Medicine {
         this.medicineName = medicineName;
     }
 
-    public int getMedicineQuantity() {
-        return medicineQuantity;
+    public String getExpiryDate() {
+        return ExpiryDate;
     }
 
-    public void setMedicineQuantity(int medicineQuantity) {
-        this.medicineQuantity = medicineQuantity;
+    public void setExpiryDate(String ExpiryDate) {
+        this.ExpiryDate = ExpiryDate;
     }
 
-    public DeliveryMan getDeliveryMan() {
-        return deliveryMan;
+    public String getQuantity() {
+        return quantity;
     }
 
-    public void setDeliveryMan(DeliveryMan deliveryMan) {
-        this.deliveryMan = deliveryMan;
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
     }
-
-    public String getOrderstatus() {
-        return orderstatus;
-    }
-
-    public void setOrderstatus(String orderstatus) {
-        this.orderstatus = orderstatus;
-    }
+    
     
     
         @Override

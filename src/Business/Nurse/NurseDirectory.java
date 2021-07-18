@@ -48,4 +48,14 @@ public class NurseDirectory {
     return false;
     
     }
+    
+      public Nurse findNurse(String username){
+        Nurse nurse = null;
+        for(Nurse d: nurseDirectory){
+            if(d.getUsername().equalsIgnoreCase(username)){
+            nurse=d;
+            }
+        }
+        return nurse;
+    }
 }

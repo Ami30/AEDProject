@@ -59,6 +59,7 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
         btnBookAmbulance = new javax.swing.JButton();
         btnSanitizationService = new javax.swing.JButton();
         btnAssignedRequests = new javax.swing.JButton();
+        btnAssignedRequests1 = new javax.swing.JButton();
         workAreaJPanel = new javax.swing.JPanel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -135,6 +136,16 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnAssignedRequests1.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnAssignedRequests1.setText("View Notifications");
+        btnAssignedRequests1.setBorder(null);
+        btnAssignedRequests1.setBorderPainted(false);
+        btnAssignedRequests1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAssignedRequests1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -148,7 +159,8 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
                     .addComponent(btnBookFoodService, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
                     .addComponent(btnBookAmbulance, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
                     .addComponent(btnSanitizationService, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                    .addComponent(btnAssignedRequests, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
+                    .addComponent(btnAssignedRequests, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                    .addComponent(btnAssignedRequests1, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -168,7 +180,9 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnSanitizationService, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAssignedRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(612, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAssignedRequests1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(575, Short.MAX_VALUE))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 880));
@@ -234,9 +248,14 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(workAreaJPanel);
     }//GEN-LAST:event_btnAssignedRequestsActionPerformed
 
+    private void btnAssignedRequests1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignedRequests1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAssignedRequests1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssignedRequests;
+    private javax.swing.JButton btnAssignedRequests1;
     private javax.swing.JButton btnBookAmbulance;
     private javax.swing.JButton btnBookFoodService;
     private javax.swing.JButton btnManageProfile;

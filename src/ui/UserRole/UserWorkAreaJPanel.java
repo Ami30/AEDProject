@@ -15,6 +15,7 @@ import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,6 +44,14 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
         this.org=org;
         this.system=system;
     }
+    
+    void setColor(JPanel panel){
+        panel.setBackground(new Color(130,175,203));
+    }
+    
+    void resetColor(JPanel panel){
+         panel.setBackground(new Color(18,102,153));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,127 +63,252 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnConsultDoctor = new javax.swing.JButton();
-        btnManageProfile = new javax.swing.JButton();
-        btnOrderMedicine = new javax.swing.JButton();
-        btnBookFoodService = new javax.swing.JButton();
-        btnBookAmbulance = new javax.swing.JButton();
-        btnSanitizationService = new javax.swing.JButton();
+        btnFoodService_JPanel = new javax.swing.JPanel();
+        btnFoodService = new javax.swing.JLabel();
+        btnProfile_Panel = new javax.swing.JPanel();
+        btnProfile = new javax.swing.JLabel();
+        btnCosultDoc_JPanel = new javax.swing.JPanel();
+        btnConsultDoc = new javax.swing.JLabel();
+        btnOrderMed_JPanel = new javax.swing.JPanel();
+        btnOrderMed = new javax.swing.JLabel();
+        btnSaniService_JPanel = new javax.swing.JPanel();
+        btnSaniService = new javax.swing.JLabel();
+        btnAmbulance_JPanel = new javax.swing.JPanel();
+        btnAmbulance = new javax.swing.JLabel();
         workAreaJPanel = new javax.swing.JPanel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(235, 227, 126));
+        jPanel1.setBackground(new java.awt.Color(18, 102, 153));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnConsultDoctor.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnConsultDoctor.setText("Consult Doctor");
-        btnConsultDoctor.setBorder(null);
-        btnConsultDoctor.setBorderPainted(false);
-        btnConsultDoctor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultDoctorActionPerformed(evt);
+        btnFoodService_JPanel.setBackground(new java.awt.Color(18, 102, 153));
+        btnFoodService_JPanel.setToolTipText("");
+
+        btnFoodService.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnFoodService.setForeground(new java.awt.Color(255, 255, 255));
+        btnFoodService.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnFoodService.setText("Book Food Service");
+        btnFoodService.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnFoodServiceMousePressed(evt);
             }
         });
 
-        btnManageProfile.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnManageProfile.setText("Manage Profile");
-        btnManageProfile.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(74, 126, 203), null, null));
-        btnManageProfile.setBorderPainted(false);
-        btnManageProfile.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageProfileActionPerformed(evt);
-            }
-        });
-
-        btnOrderMedicine.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnOrderMedicine.setText("Order Medicine");
-        btnOrderMedicine.setBorder(null);
-        btnOrderMedicine.setBorderPainted(false);
-        btnOrderMedicine.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrderMedicineActionPerformed(evt);
-            }
-        });
-
-        btnBookFoodService.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnBookFoodService.setText("Book Food Service");
-        btnBookFoodService.setBorder(null);
-        btnBookFoodService.setBorderPainted(false);
-        btnBookFoodService.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBookFoodServiceActionPerformed(evt);
-            }
-        });
-
-        btnBookAmbulance.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnBookAmbulance.setText("Book Ambulance");
-        btnBookAmbulance.setBorder(null);
-        btnBookAmbulance.setBorderPainted(false);
-        btnBookAmbulance.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBookAmbulanceActionPerformed(evt);
-            }
-        });
-
-        btnSanitizationService.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnSanitizationService.setText("Book Sanitization Service");
-        btnSanitizationService.setBorder(null);
-        btnSanitizationService.setBorderPainted(false);
-        btnSanitizationService.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSanitizationServiceActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout btnFoodService_JPanelLayout = new javax.swing.GroupLayout(btnFoodService_JPanel);
+        btnFoodService_JPanel.setLayout(btnFoodService_JPanelLayout);
+        btnFoodService_JPanelLayout.setHorizontalGroup(
+            btnFoodService_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnFoodService_JPanelLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(btnFoodService, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+        btnFoodService_JPanelLayout.setVerticalGroup(
+            btnFoodService_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnFoodService_JPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnConsultDoctor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnOrderMedicine, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                    .addComponent(btnManageProfile, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                    .addComponent(btnBookFoodService, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                    .addComponent(btnBookAmbulance, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                    .addComponent(btnSanitizationService, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE))
+                .addComponent(btnFoodService, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(btnManageProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnConsultDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnOrderMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnBookFoodService, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnBookAmbulance, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSanitizationService, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(649, Short.MAX_VALUE))
+
+        jPanel1.add(btnFoodService_JPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 250, 40));
+
+        btnProfile_Panel.setBackground(new java.awt.Color(130, 175, 203));
+        btnProfile_Panel.setToolTipText("");
+
+        btnProfile.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnProfile.setForeground(new java.awt.Color(255, 255, 255));
+        btnProfile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnProfile.setText("Manage Profile");
+        btnProfile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnProfileMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btnProfile_PanelLayout = new javax.swing.GroupLayout(btnProfile_Panel);
+        btnProfile_Panel.setLayout(btnProfile_PanelLayout);
+        btnProfile_PanelLayout.setHorizontalGroup(
+            btnProfile_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnProfile_PanelLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(btnProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(80, Short.MAX_VALUE))
         );
+        btnProfile_PanelLayout.setVerticalGroup(
+            btnProfile_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnProfile_PanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnProfile, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel1.add(btnProfile_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 250, 40));
+
+        btnCosultDoc_JPanel.setBackground(new java.awt.Color(18, 102, 153));
+        btnCosultDoc_JPanel.setToolTipText("");
+        btnCosultDoc_JPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnCosultDoc_JPanelMousePressed(evt);
+            }
+        });
+
+        btnConsultDoc.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnConsultDoc.setForeground(new java.awt.Color(255, 255, 255));
+        btnConsultDoc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnConsultDoc.setText("Consult Doctor");
+        btnConsultDoc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnConsultDocMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btnCosultDoc_JPanelLayout = new javax.swing.GroupLayout(btnCosultDoc_JPanel);
+        btnCosultDoc_JPanel.setLayout(btnCosultDoc_JPanelLayout);
+        btnCosultDoc_JPanelLayout.setHorizontalGroup(
+            btnCosultDoc_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnCosultDoc_JPanelLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(btnConsultDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(81, Short.MAX_VALUE))
+        );
+        btnCosultDoc_JPanelLayout.setVerticalGroup(
+            btnCosultDoc_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCosultDoc_JPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnConsultDoc, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel1.add(btnCosultDoc_JPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 250, 40));
+
+        btnOrderMed_JPanel.setBackground(new java.awt.Color(18, 102, 153));
+        btnOrderMed_JPanel.setToolTipText("");
+
+        btnOrderMed.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnOrderMed.setForeground(new java.awt.Color(255, 255, 255));
+        btnOrderMed.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnOrderMed.setText("Order Medicine");
+        btnOrderMed.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnOrderMedMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btnOrderMed_JPanelLayout = new javax.swing.GroupLayout(btnOrderMed_JPanel);
+        btnOrderMed_JPanel.setLayout(btnOrderMed_JPanelLayout);
+        btnOrderMed_JPanelLayout.setHorizontalGroup(
+            btnOrderMed_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnOrderMed_JPanelLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(btnOrderMed, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(76, Short.MAX_VALUE))
+        );
+        btnOrderMed_JPanelLayout.setVerticalGroup(
+            btnOrderMed_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnOrderMed_JPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnOrderMed, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel1.add(btnOrderMed_JPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 250, 40));
+
+        btnSaniService_JPanel.setBackground(new java.awt.Color(18, 102, 153));
+        btnSaniService_JPanel.setToolTipText("");
+
+        btnSaniService.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnSaniService.setForeground(new java.awt.Color(255, 255, 255));
+        btnSaniService.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnSaniService.setText("Book Sanitization Service");
+        btnSaniService.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnSaniServiceMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btnSaniService_JPanelLayout = new javax.swing.GroupLayout(btnSaniService_JPanel);
+        btnSaniService_JPanel.setLayout(btnSaniService_JPanelLayout);
+        btnSaniService_JPanelLayout.setHorizontalGroup(
+            btnSaniService_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnSaniService_JPanelLayout.createSequentialGroup()
+                .addContainerGap(51, Short.MAX_VALUE)
+                .addComponent(btnSaniService)
+                .addGap(17, 17, 17))
+        );
+        btnSaniService_JPanelLayout.setVerticalGroup(
+            btnSaniService_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnSaniService_JPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnSaniService, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel1.add(btnSaniService_JPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, -1, -1));
+
+        btnAmbulance_JPanel.setBackground(new java.awt.Color(18, 102, 153));
+        btnAmbulance_JPanel.setToolTipText("");
+
+        btnAmbulance.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnAmbulance.setForeground(new java.awt.Color(255, 255, 255));
+        btnAmbulance.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnAmbulance.setText("Book Ambulance");
+        btnAmbulance.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAmbulanceMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btnAmbulance_JPanelLayout = new javax.swing.GroupLayout(btnAmbulance_JPanel);
+        btnAmbulance_JPanel.setLayout(btnAmbulance_JPanelLayout);
+        btnAmbulance_JPanelLayout.setHorizontalGroup(
+            btnAmbulance_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnAmbulance_JPanelLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(btnAmbulance, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(72, Short.MAX_VALUE))
+        );
+        btnAmbulance_JPanelLayout.setVerticalGroup(
+            btnAmbulance_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAmbulance_JPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnAmbulance, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel1.add(btnAmbulance_JPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, -1, -1));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 880));
 
-        workAreaJPanel.setBackground(new java.awt.Color(74, 122, 193));
+        workAreaJPanel.setBackground(new java.awt.Color(255, 255, 255));
         workAreaJPanel.setLayout(new java.awt.CardLayout());
         add(workAreaJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 1180, 880));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnConsultDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultDoctorActionPerformed
+    private void btnFoodServiceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFoodServiceMousePressed
         // TODO add your handling code here:
-      RequestDoctorAppointmentJPanel requestDoctorAppointmentJPanel=new RequestDoctorAppointmentJPanel(workAreaJPanel,enterprise,useraccount,system);
-        workAreaJPanel.add("DoctorAppointmentJPanel", requestDoctorAppointmentJPanel);
+        setColor(btnFoodService_JPanel);
+        resetColor(btnProfile_Panel);
+        resetColor(btnAmbulance_JPanel);
+        resetColor(btnOrderMed_JPanel);
+        resetColor(btnSaniService_JPanel);
+        resetColor(btnCosultDoc_JPanel);
+        RequestFoodJPanel requestFoodJPanel=new RequestFoodJPanel(workAreaJPanel,enterprise,useraccount,system);
+        workAreaJPanel.add("FoodJPanel", requestFoodJPanel);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);
-    }//GEN-LAST:event_btnConsultDoctorActionPerformed
+        
+    }//GEN-LAST:event_btnFoodServiceMousePressed
 
-    private void btnManageProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProfileActionPerformed
+    private void btnProfileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProfileMousePressed
+        // TODO add your handling code here:
+        setColor(btnProfile_Panel);
+        resetColor(btnFoodService_JPanel);
+        resetColor(btnAmbulance_JPanel);
+        resetColor(btnOrderMed_JPanel);
+        resetColor(btnSaniService_JPanel);
+        resetColor(btnCosultDoc_JPanel);
         try {
             // TODO add your handling code here:
             ManageProfileJPanel manageuserProfileJPanel=new ManageProfileJPanel(workAreaJPanel,enterprise,useraccount,system);
@@ -184,48 +318,85 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
         } catch (ParseException ex) {
             Logger.getLogger(UserWorkAreaJPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_btnManageProfileActionPerformed
+    }//GEN-LAST:event_btnProfileMousePressed
 
-    private void btnOrderMedicineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderMedicineActionPerformed
+    private void btnConsultDocMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConsultDocMousePressed
         // TODO add your handling code here:
-        RequestMedicineJPanel requestMedicineJPanel=new RequestMedicineJPanel(workAreaJPanel,enterprise,useraccount,system);
+        setColor(btnCosultDoc_JPanel);
+        resetColor(btnFoodService_JPanel);
+        resetColor(btnAmbulance_JPanel);
+        resetColor(btnOrderMed_JPanel);
+        resetColor(btnSaniService_JPanel);
+        resetColor(btnProfile_Panel);
+        RequestDoctorAppointmentJPanel requestDoctorAppointmentJPanel=new RequestDoctorAppointmentJPanel(workAreaJPanel,enterprise,useraccount,system);
+        workAreaJPanel.add("DoctorAppointmentJPanel", requestDoctorAppointmentJPanel);
+        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+        layout.next(workAreaJPanel);
+        
+    }//GEN-LAST:event_btnConsultDocMousePressed
+
+    private void btnOrderMedMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOrderMedMousePressed
+        // TODO add your handling code here:
+        setColor(btnOrderMed_JPanel);
+        resetColor(btnFoodService_JPanel);
+        resetColor(btnAmbulance_JPanel);
+        resetColor(btnCosultDoc_JPanel);
+        resetColor(btnSaniService_JPanel);
+        resetColor(btnProfile_Panel);
+           RequestMedicineJPanel requestMedicineJPanel=new RequestMedicineJPanel(workAreaJPanel,enterprise,useraccount,system);
         workAreaJPanel.add("MedicineJPanel", requestMedicineJPanel);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);
-    }//GEN-LAST:event_btnOrderMedicineActionPerformed
+    }//GEN-LAST:event_btnOrderMedMousePressed
 
-    private void btnBookFoodServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookFoodServiceActionPerformed
+    private void btnSaniServiceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaniServiceMousePressed
         // TODO add your handling code here:
-        RequestFoodJPanel requestFoodJPanel=new RequestFoodJPanel(workAreaJPanel,enterprise,useraccount,system);
-        workAreaJPanel.add("FoodJPanel", requestFoodJPanel);
+        setColor(btnSaniService_JPanel);
+        resetColor(btnFoodService_JPanel);
+        resetColor(btnAmbulance_JPanel);
+        resetColor(btnCosultDoc_JPanel);
+        resetColor(btnOrderMed_JPanel);
+        resetColor(btnProfile_Panel);
+        RequestSanitizationJPanel requestsaniJPanel=new RequestSanitizationJPanel(workAreaJPanel,enterprise,useraccount,system);
+        workAreaJPanel.add("SaniJPanel", requestsaniJPanel);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);
-    }//GEN-LAST:event_btnBookFoodServiceActionPerformed
+    }//GEN-LAST:event_btnSaniServiceMousePressed
 
-    private void btnBookAmbulanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookAmbulanceActionPerformed
+    private void btnAmbulanceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAmbulanceMousePressed
         // TODO add your handling code here:
+        setColor(btnAmbulance_JPanel);
+        resetColor(btnFoodService_JPanel);
+        resetColor(btnSaniService_JPanel);
+        resetColor(btnCosultDoc_JPanel);
+        resetColor(btnOrderMed_JPanel);
+        resetColor(btnProfile_Panel);
         RequestAmbulanceJPanel requestAmbulanceJPanel=new RequestAmbulanceJPanel(workAreaJPanel,enterprise,useraccount,system);
         workAreaJPanel.add("AmbulanceJPanel", requestAmbulanceJPanel);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);
-    }//GEN-LAST:event_btnBookAmbulanceActionPerformed
+    }//GEN-LAST:event_btnAmbulanceMousePressed
 
-    private void btnSanitizationServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSanitizationServiceActionPerformed
+    private void btnCosultDoc_JPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCosultDoc_JPanelMousePressed
         // TODO add your handling code here:
-        RequestSanitizationJPanel requestSanitizationJPanel=new RequestSanitizationJPanel(workAreaJPanel,enterprise,useraccount,system);
-        workAreaJPanel.add("SanitizationJPanel", requestSanitizationJPanel);
-        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
-        layout.next(workAreaJPanel);
-    }//GEN-LAST:event_btnSanitizationServiceActionPerformed
+      
+        
+    }//GEN-LAST:event_btnCosultDoc_JPanelMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBookAmbulance;
-    private javax.swing.JButton btnBookFoodService;
-    private javax.swing.JButton btnConsultDoctor;
-    private javax.swing.JButton btnManageProfile;
-    private javax.swing.JButton btnOrderMedicine;
-    private javax.swing.JButton btnSanitizationService;
+    private javax.swing.JLabel btnAmbulance;
+    private javax.swing.JPanel btnAmbulance_JPanel;
+    private javax.swing.JLabel btnConsultDoc;
+    private javax.swing.JPanel btnCosultDoc_JPanel;
+    private javax.swing.JLabel btnFoodService;
+    private javax.swing.JPanel btnFoodService_JPanel;
+    private javax.swing.JLabel btnOrderMed;
+    private javax.swing.JPanel btnOrderMed_JPanel;
+    private javax.swing.JLabel btnProfile;
+    private javax.swing.JPanel btnProfile_Panel;
+    private javax.swing.JLabel btnSaniService;
+    private javax.swing.JPanel btnSaniService_JPanel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel workAreaJPanel;
     // End of variables declaration//GEN-END:variables

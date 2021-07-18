@@ -14,7 +14,7 @@ import Business.Organization.OrganizationDirectory;
 import Business.RegisteredUser.RegisteredUser;
 import Business.Role.PatientManagerRole;
 import Business.Role.PatientRole;
-import Business.Validations.Validations;
+import Business.Validation.Validations;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Period;
@@ -91,7 +91,6 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtAddress.setFont(new java.awt.Font("Bradley Hand", 0, 14)); // NOI18N
         txtAddress.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         txtAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,24 +100,21 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
         jPanel2.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 372, -1));
 
         cityJComboBox.setBackground(new java.awt.Color(18, 102, 153));
-        cityJComboBox.setFont(new java.awt.Font("Bradley Hand", 0, 14)); // NOI18N
         cityJComboBox.setForeground(new java.awt.Color(255, 255, 255));
         cityJComboBox.setBorder(null);
         jPanel2.add(cityJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 45, 372, -1));
 
-        lblContactNo.setFont(new java.awt.Font("Bradley Hand", 1, 14)); // NOI18N
+        lblContactNo.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblContactNo.setText("CONTACT NUMBER");
         jPanel2.add(lblContactNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 393, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Bradley Hand", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel2.setText("NAME");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 83, -1, -1));
 
-        nameJTextField.setFont(new java.awt.Font("Bradley Hand", 0, 14)); // NOI18N
         nameJTextField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         jPanel2.add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 105, 372, -1));
 
-        txtZipCode.setFont(new java.awt.Font("Bradley Hand", 0, 14)); // NOI18N
         txtZipCode.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         txtZipCode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,7 +123,6 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
         });
         jPanel2.add(txtZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 229, 372, -1));
 
-        txtEmail.setFont(new java.awt.Font("Bradley Hand", 0, 14)); // NOI18N
         txtEmail.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,11 +131,11 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
         });
         jPanel2.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 291, 372, -1));
 
-        lblAddress.setFont(new java.awt.Font("Bradley Hand", 1, 14)); // NOI18N
+        lblAddress.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblAddress.setText("ADDRESS");
         jPanel2.add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 145, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Bradley Hand", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel3.setText("NEAREST CITY");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 23, -1, -1));
 
@@ -152,20 +147,20 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
         });
         jPanel2.add(txtContactNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 416, 372, -1));
 
-        lblZipCode.setFont(new java.awt.Font("Bradley Hand", 1, 14)); // NOI18N
+        lblZipCode.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblZipCode.setText("ZIP CODE");
         jPanel2.add(lblZipCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 207, -1, -1));
 
-        lblEmail.setFont(new java.awt.Font("Bradley Hand", 1, 14)); // NOI18N
+        lblEmail.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblEmail.setText("EMAIL");
         jPanel2.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 269, -1, -1));
 
-        lblGender.setFont(new java.awt.Font("Bradley Hand", 1, 14)); // NOI18N
+        lblGender.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblGender.setText("GENDER");
         jPanel2.add(lblGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 331, -1, -1));
 
         GenderCombobox.setBackground(new java.awt.Color(18, 102, 153));
-        GenderCombobox.setFont(new java.awt.Font("Bradley Hand", 0, 14)); // NOI18N
+        GenderCombobox.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         GenderCombobox.setForeground(new java.awt.Color(255, 255, 255));
         GenderCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Male", "Female", "Others" }));
         GenderCombobox.addActionListener(new java.awt.event.ActionListener() {
@@ -175,7 +170,7 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
         });
         jPanel2.add(GenderCombobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 353, 372, -1));
 
-        jLabel1.setFont(new java.awt.Font("Bradley Hand", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel1.setText("DATE OF BIRTH");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 450, -1, -1));
 
@@ -184,13 +179,12 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        lblUsername.setFont(new java.awt.Font("Bradley Hand", 1, 14)); // NOI18N
+        lblUsername.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblUsername.setText("USERNAME");
 
-        lblPwdconfirm.setFont(new java.awt.Font("Bradley Hand", 1, 14)); // NOI18N
+        lblPwdconfirm.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblPwdconfirm.setText("CONFIRM PASSWORD");
 
-        txtusername.setFont(new java.awt.Font("Bradley Hand", 0, 14)); // NOI18N
         txtusername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         txtusername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,13 +192,11 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblPwd.setFont(new java.awt.Font("Bradley Hand", 1, 14)); // NOI18N
+        lblPwd.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblPwd.setText("PASSWORD");
 
-        pwdfieldconfirm.setFont(new java.awt.Font("Bradley Hand", 0, 14)); // NOI18N
         pwdfieldconfirm.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
 
-        pwdfield.setFont(new java.awt.Font("Bradley Hand", 0, 14)); // NOI18N
         pwdfield.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         pwdfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -233,23 +225,23 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(lblUsername)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(lblPwd)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addComponent(pwdfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(lblPwdconfirm)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pwdfieldconfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, -1, 250));
 
         addJButton.setBackground(new java.awt.Color(18, 102, 153));
-        addJButton.setFont(new java.awt.Font("Bradley Hand", 1, 16)); // NOI18N
+        addJButton.setFont(new java.awt.Font(".SF NS Text", 1, 16)); // NOI18N
         addJButton.setForeground(new java.awt.Color(255, 255, 255));
         addJButton.setText("REGISTER");
         addJButton.setBorder(new javax.swing.border.MatteBorder(null));

@@ -14,6 +14,7 @@ import Business.Network.Network;
 import Business.Organization.DoctorOrganization;
 import Business.Organization.Organization;
 import Business.PatientManager.PatientManager;
+import Business.Person.PersonalNotification;
 import Business.RegisteredUser.RegisteredUser;
 import Business.Role.PatientRole;
 import Business.UserAccount.UserAccount;
@@ -125,6 +126,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
         btnPres = new javax.swing.JButton();
         btnBed = new javax.swing.JButton();
         btnTest = new javax.swing.JButton();
+        btnReportBacktoAM = new javax.swing.JButton();
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Personal Details", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font(".SF NS Text", 1, 13))); // NOI18N
 
@@ -458,6 +460,13 @@ public class HealthRequestReport extends javax.swing.JPanel {
             }
         });
 
+        btnReportBacktoAM.setText("Report to AM");
+        btnReportBacktoAM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReportBacktoAMActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -481,7 +490,10 @@ public class HealthRequestReport extends javax.swing.JPanel {
                             .addComponent(btnAssignToDoctor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnBed, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(btnTest, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnTest, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                            .addComponent(btnReportBacktoAM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)))
                 .addContainerGap(178, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -497,7 +509,8 @@ public class HealthRequestReport extends javax.swing.JPanel {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnAssignToMe)
-                            .addComponent(btnAssignToDoctor))
+                            .addComponent(btnAssignToDoctor)
+                            .addComponent(btnReportBacktoAM))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnPres)
@@ -664,12 +677,26 @@ public class HealthRequestReport extends javax.swing.JPanel {
          layout.next(userProcessContainer);
     }//GEN-LAST:event_btnPresActionPerformed
 
+    private void btnReportBacktoAMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportBacktoAMActionPerformed
+        // TODO add your handling code here:
+        PatientManager patMan = request.getPatientManager();
+        Date date = new Date();
+        String nowDtae = formatter.format(date);
+        PersonalNotification notification = new PersonalNotification(
+        "Doctor has assigned this request back to you", nowDtae, request.getRequestNumber());
+        notification.setStatus("new");
+        patMan.getNotificationDirectory().addNotification(notification);
+        
+        request.setStatus("quarantined");
+    }//GEN-LAST:event_btnReportBacktoAMActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssignToDoctor;
     private javax.swing.JButton btnAssignToMe;
     private javax.swing.JButton btnBed;
     private javax.swing.JButton btnPres;
+    private javax.swing.JButton btnReportBacktoAM;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JButton btnTest;
     private javax.swing.JTable doctorJTable;

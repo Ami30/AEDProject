@@ -6,6 +6,7 @@
 package Business.DeliveryMan;
 
 import Business.Role.Role;
+import Business.WorkQueue.OrderDirectory;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -18,6 +19,7 @@ private int id;
 private static final AtomicInteger count = new AtomicInteger(0); 
 //ArrayList<Order> orders;
 private Boolean available;
+private OrderDirectory orderDirectory;
 
     public DeliveryMan( Boolean available, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username,String password ,Role role) {
         super(fullName, dob, gender, address, zipcode, contactNumber, email,username,password, role);
@@ -41,6 +43,14 @@ private Boolean available;
         this.available = available;
     }
 
+    public OrderDirectory getOrderDirectory() {
+        if(orderDirectory == null){
+            orderDirectory = new OrderDirectory();
+        }
+        return orderDirectory;
+    }
+
+    
         @Override
      public String toString() {
          return getName();

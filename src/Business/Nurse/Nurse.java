@@ -8,6 +8,7 @@ package Business.Nurse;
 import Business.Organization.Organization;
 import Business.RegisteredUser.RegisteredUser;
 import Business.Role.Role;
+import Business.WorkQueue.HealthRequestDirectory;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -25,6 +26,7 @@ private Organization orgType;
 private int id;
 private int patientNumber;
 private static final AtomicInteger count = new AtomicInteger(0); 
+private HealthRequestDirectory requestDirectory;
 
 ArrayList<RegisteredUser> patientAssigned;
 
@@ -112,7 +114,15 @@ ArrayList<RegisteredUser> patientAssigned;
     public void setOrgType(Organization orgType) {
         this.orgType = orgType;
     }
+
+    public HealthRequestDirectory getRequestDirectory() {
+        if(requestDirectory == null){
+            requestDirectory = new HealthRequestDirectory();
+        }
+        return requestDirectory;
+    }
  
+    
       @Override
     public String toString() {
          return String.valueOf(id);
