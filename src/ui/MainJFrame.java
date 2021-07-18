@@ -219,7 +219,7 @@ public class MainJFrame extends javax.swing.JFrame {
         exitJPanel.setPreferredSize(new java.awt.Dimension(1420, 80));
         exitJPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblWelcome.setFont(new java.awt.Font("Bradley Hand", 1, 24)); // NOI18N
+        lblWelcome.setFont(new java.awt.Font(".SF NS Text", 1, 22)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
         lblWelcome.setText("HELLO ADMIN");
         exitJPanel.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 480, 60));
