@@ -633,6 +633,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Book Ambulance"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBookAmbulanceActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

@@ -15,7 +15,7 @@ import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.Role.TestingServiceRole;
 import Business.SanitizationPerson.SanitizationPerson;
-import Business.SanitizationPerson.SanitizationServiceType;
+import Business.SanitizationPerson.SanitizationService;
 import Business.Tester.Tester;
 import Business.Tester.Tests;
 import Business.UserAccount.UserAccount;
@@ -74,7 +74,7 @@ public class AddSanitizationServiceType extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) saniTable.getModel();
         
         model.setRowCount(0);
-        for (SanitizationServiceType saniService : saniPerson.getSaniServiceTypeDirectory().getSanitizationServiceList()){          
+        for (SanitizationService saniService : saniPerson.getSaniServiceTypeDirectory().getSanitizationServiceList()){          
             Object[] row = new Object[2];
             row[0] = saniService;
             row[1] = saniService.getRequiredtime();
@@ -181,7 +181,7 @@ public class AddSanitizationServiceType extends javax.swing.JPanel {
 
         jLabel2.setText("Sanitization Type :");
 
-        addJButton.setText("Add Sanitization Type");
+        addJButton.setText("Add Sanitization Service");
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButtonActionPerformed(evt);
@@ -232,7 +232,7 @@ public class AddSanitizationServiceType extends javax.swing.JPanel {
         String type = txtName.getText();
         String duration=txtDuration.getText();
         
-        SanitizationServiceType saniService=new SanitizationServiceType(type,duration);
+        SanitizationService saniService=new SanitizationService(type,duration);
         saniPerson.getSaniServiceTypeDirectory().addSanitizationServiceList(saniService);
           populateTestTable();
         
@@ -254,7 +254,7 @@ public class AddSanitizationServiceType extends javax.swing.JPanel {
         }
         SanitizationPerson saniPer=(SanitizationPerson)saniTable.getValueAt(row, 0);
         
-         SanitizationServiceType saniServiceType=(SanitizationServiceType)saniTable.getValueAt(row, 0);
+         SanitizationService saniServiceType=(SanitizationService)saniTable.getValueAt(row, 0);
         saniPer.getSaniServiceTypeDirectory().removeSanitizationServiceList(saniServiceType);
         
         populateTestTable();

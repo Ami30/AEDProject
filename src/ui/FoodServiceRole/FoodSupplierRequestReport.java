@@ -11,7 +11,7 @@ import Business.Enterprise.Enterprise;
 import Business.FoodSupplier.FoodPackage;
 import Business.FoodSupplier.FoodSupplier;
 import Business.SanitizationPerson.SanitizationPerson;
-import Business.SanitizationPerson.SanitizationServiceType;
+import Business.SanitizationPerson.SanitizationService;
 import Business.Tester.Tester;
 import Business.Tester.Tests;
 import Business.UserAccount.UserAccount;

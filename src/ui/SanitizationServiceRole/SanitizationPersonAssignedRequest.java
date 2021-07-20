@@ -13,6 +13,7 @@ import Business.SanitizationPerson.SanitizationPerson;
 import Business.Tester.Tester;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HealthRequest;
+import Business.WorkQueue.ServiceRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
@@ -35,7 +36,7 @@ public class SanitizationPersonAssignedRequest extends javax.swing.JPanel {
        private Enterprise enterprise;
        private Organization organization;
        private JPanel userProcessContainer;
-       private HealthRequest req;
+       private ServiceRequest req;
        private SanitizationPerson sanitizationPerson;
     public SanitizationPersonAssignedRequest(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system, Organization organization) {
         initComponents();
@@ -66,12 +67,17 @@ public class SanitizationPersonAssignedRequest extends javax.swing.JPanel {
        for(Organization org : enterprise.getOrganizationDirectory().getOrgList()){
            if(org.getSaniPersonDir().findSaniPerson(useraccount.getUsername())!= null){
                sanitizationPer = org.getSaniPersonDir().findSaniPerson(useraccount.getUsername());
-              for(HealthRequest req : sanitizationPer.getRequestDirectory().getRequestList()){
-            Object[] row = new Object[4];
+              for(ServiceRequest req : sanitizationPer.getServiceRequestDirectory().getServiceRequestList()){
+            Object[] row = new Object[9];
             row[0] = req;
             row[1] = req.getUser().getName();
-            row[2] = req.getDoctor()==null?"Not Assigned": req.getDoctor().getName();
-            row[3] = req.getStatus();
+            row[2] = req.getUser().getContactNumber();
+            row[3] = req.getUser().getAddress();
+            row[4] = req.getUser().getZipcode();
+            row[5] = req.getStartDate();
+            row[6] = req.getEndDate();
+            row[7] = req.getRepeat();
+            row[8] = req.getStatus();
             model.addRow(row);
         }
            }
@@ -91,22 +97,22 @@ public class SanitizationPersonAssignedRequest extends javax.swing.JPanel {
         DoctorScrollPane = new javax.swing.JScrollPane();
         SubmittedrequestsJTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        viewDetails = new javax.swing.JButton();
-        btnManageProfile3 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         SubmittedrequestsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Request ID", "Requester's Name", "Doctor Assigned", "Request Status"
+                "Request ID", "Patient's Name", "Contact Number", "Address", "Zipcode", "Start Date", "End date", "Repeat", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, false, true
+                true, false, false, true, true, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -120,20 +126,17 @@ public class SanitizationPersonAssignedRequest extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         jLabel1.setText("User's Requests");
 
-        viewDetails.setText("View Details");
-        viewDetails.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("View details");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewDetailsActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        btnManageProfile3.setFont(new java.awt.Font(".SF NS Text", 0, 12)); // NOI18N
-        btnManageProfile3.setText("Manage completed Test");
-        btnManageProfile3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(74, 126, 203), null, null));
-        btnManageProfile3.setBorderPainted(false);
-        btnManageProfile3.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Accept");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageProfile3ActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -149,11 +152,11 @@ public class SanitizationPersonAssignedRequest extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(viewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnManageProfile3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(53, 53, 53)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -165,58 +168,48 @@ public class SanitizationPersonAssignedRequest extends javax.swing.JPanel {
                 .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(viewDetails)
-                    .addComponent(btnManageProfile3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(314, Short.MAX_VALUE))
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap(322, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void viewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDetailsActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-          int selectedRow = SubmittedrequestsJTable.getSelectedRow();
+         int selectedRow = SubmittedrequestsJTable.getSelectedRow();
          if (selectedRow < 0){
               JOptionPane.showMessageDialog(null, "Please select a row!");
             return;
          }
          else{
-                for(Organization org : enterprise.getOrganizationDirectory().getOrgList()){
-                if(org.getSaniPersonDir().findSaniPerson(useraccount.getUsername())!= null){
-                    sanitizationPerson=org.getSaniPersonDir().findSaniPerson(useraccount.getUsername());
-                   req = (HealthRequest)SubmittedrequestsJTable.getValueAt(selectedRow, 0);
-                  SanitizationPersonRequestReport saniRequests=new SanitizationPersonRequestReport(userProcessContainer,enterprise,useraccount,system, req, sanitizationPerson);
-                  userProcessContainer.add("SanitizationRequestJPanel", saniRequests);
+                  req = (ServiceRequest)SubmittedrequestsJTable.getValueAt(selectedRow, 0);
+                  SanitizationDetailsJPanel healthRequest=new SanitizationDetailsJPanel(userProcessContainer,enterprise,useraccount,system, organization, req);
+                  userProcessContainer.add("PatientManagerProfileJPanel", healthRequest);
                   CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                   layout.next(userProcessContainer);
-                }
-                }
-                  
          }
         
-    }//GEN-LAST:event_viewDetailsActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnManageProfile3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProfile3ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
-            int selectedRow = SubmittedrequestsJTable.getSelectedRow();
-         if (selectedRow < 0){
-              JOptionPane.showMessageDialog(null, "Please select a row!");
+        int row = SubmittedrequestsJTable.getSelectedRow();
+        if(row<0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
-         }
-         else{
-        req = (HealthRequest)SubmittedrequestsJTable.getValueAt(selectedRow, 0);
-        CompletedSanitizationReport completedSanitization=new CompletedSanitizationReport(userProcessContainer,enterprise,useraccount,system, req);
-        userProcessContainer.add("userReport", completedSanitization);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-         }
-    }//GEN-LAST:event_btnManageProfile3ActionPerformed
+        }
+        ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
+        serReq.setStatus("Accepted");
+        JOptionPane.showMessageDialog(null, "Service Request accepted");
+        populateRequestTable();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane DoctorScrollPane;
     private javax.swing.JTable SubmittedrequestsJTable;
-    private javax.swing.JButton btnManageProfile3;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton viewDetails;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,6 +8,8 @@ package Business.FoodSupplier;
 import Business.RegisteredUser.RegisteredUser;
 import Business.Role.Role;
 import Business.WorkQueue.HealthRequestDirectory;
+import Business.WorkQueue.ServiceRequest;
+import Business.WorkQueue.ServiceRequestDirectory;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -24,6 +26,7 @@ private static final AtomicInteger count = new AtomicInteger(0);
 private FoodPackageDirectory foodpackageDirectory;
 private FoodPackageDirectory completedfoodpackageDirectory;
 private HealthRequestDirectory requestDirectory;
+private ServiceRequestDirectory serviceRequestDirectory;
 
     public FoodSupplier(String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username,String password, Role role) {
         super(fullName, dob, gender, address, zipcode, contactNumber, email,username,password, role);
@@ -85,6 +88,13 @@ private HealthRequestDirectory requestDirectory;
 
     public void setRequestDirectory(HealthRequestDirectory requestDirectory) {
         this.requestDirectory = requestDirectory;
+    }
+
+    public ServiceRequestDirectory getServiceRequestDirectory() {
+        if(serviceRequestDirectory == null){
+            serviceRequestDirectory = new ServiceRequestDirectory();
+        }
+        return serviceRequestDirectory;
     }
     
     

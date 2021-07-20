@@ -377,6 +377,11 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
         });
 
         btnBookAmbulance.setText("Book Ambulance");
+        btnBookAmbulance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBookAmbulanceActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout doctorJpanelLayout = new javax.swing.GroupLayout(doctorJpanel);
         doctorJpanel.setLayout(doctorJpanelLayout);
@@ -483,6 +488,10 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
     private void btnOrderMedicineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderMedicineActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnOrderMedicineActionPerformed
+
+    private void btnBookAmbulanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookAmbulanceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBookAmbulanceActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

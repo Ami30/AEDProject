@@ -102,15 +102,14 @@ public class UserReport extends javax.swing.JPanel {
         txtAreaSurgeries = new javax.swing.JTextArea();
         lblHealthProfile = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(243, 243, 243));
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1535, 733));
 
-        jPanelLeft1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelLeft1.setBackground(new java.awt.Color(204, 204, 204));
 
-        jPanel5.setBackground(new java.awt.Color(243, 243, 243));
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
         lblDob3.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        lblDob3.setForeground(new java.awt.Color(153, 153, 153));
         lblDob3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDob3.setText("Blood Group");
 
@@ -140,15 +139,15 @@ public class UserReport extends javax.swing.JPanel {
                 .addGap(10, 10, 10))
         );
 
-        jPanel6.setBackground(new java.awt.Color(243, 243, 243));
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
+        txtHeight.setBackground(new java.awt.Color(255, 255, 255));
         txtHeight.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         txtHeight.setForeground(new java.awt.Color(51, 51, 51));
         txtHeight.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtHeight.setText("-");
 
         lblDob4.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        lblDob4.setForeground(new java.awt.Color(153, 153, 153));
         lblDob4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDob4.setText("Height (cms)");
 
@@ -173,7 +172,7 @@ public class UserReport extends javax.swing.JPanel {
                 .addGap(10, 10, 10))
         );
 
-        jPanel7.setBackground(new java.awt.Color(243, 243, 243));
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
         txtWeight.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         txtWeight.setForeground(new java.awt.Color(51, 51, 51));
@@ -181,7 +180,6 @@ public class UserReport extends javax.swing.JPanel {
         txtWeight.setText("-");
 
         lblWeight.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        lblWeight.setForeground(new java.awt.Color(153, 153, 153));
         lblWeight.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblWeight.setText("Weight (kg)");
 
@@ -206,8 +204,8 @@ public class UserReport extends javax.swing.JPanel {
                 .addGap(10, 10, 10))
         );
 
-        lblProfilePicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/patient.png"))); // NOI18N
-        lblProfilePicture.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        lblProfilePicture.setBackground(new java.awt.Color(204, 204, 204));
+        lblProfilePicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/userbig.png"))); // NOI18N
         lblProfilePicture.setMaximumSize(new java.awt.Dimension(120, 120));
         lblProfilePicture.setMinimumSize(new java.awt.Dimension(120, 120));
 
@@ -218,7 +216,6 @@ public class UserReport extends javax.swing.JPanel {
         txtMobileNumber.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         lblSsn.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        lblSsn.setForeground(new java.awt.Color(153, 153, 153));
         lblSsn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblSsn.setText("Mobile Number");
         lblSsn.setIconTextGap(10);
@@ -251,7 +248,6 @@ public class UserReport extends javax.swing.JPanel {
         txtEmail.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         lblSsn1.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        lblSsn1.setForeground(new java.awt.Color(153, 153, 153));
         lblSsn1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblSsn1.setText("E-mail Id");
         lblSsn1.setIconTextGap(10);
@@ -284,7 +280,6 @@ public class UserReport extends javax.swing.JPanel {
         txtAddress.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         lblAddress.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        lblAddress.setForeground(new java.awt.Color(153, 153, 153));
         lblAddress.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblAddress.setText("Address");
         lblAddress.setIconTextGap(10);
@@ -296,15 +291,16 @@ public class UserReport extends javax.swing.JPanel {
             .addGroup(jPanellbAddressLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanellbAddressLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanellbAddressLayout.setVerticalGroup(
             jPanellbAddressLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanellbAddressLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(lblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -317,7 +313,6 @@ public class UserReport extends javax.swing.JPanel {
         txtFoodPreference.setText("NA");
 
         lblFoodPreference.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        lblFoodPreference.setForeground(new java.awt.Color(153, 153, 153));
         lblFoodPreference.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblFoodPreference.setText("Food Preference");
         lblFoodPreference.setIconTextGap(10);
@@ -328,16 +323,19 @@ public class UserReport extends javax.swing.JPanel {
             jPanelFoodPreferenceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFoodPreferenceLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelFoodPreferenceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblFoodPreference, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFoodPreference, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtFoodPreference, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFoodPreferenceLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblFoodPreference, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanelFoodPreferenceLayout.setVerticalGroup(
             jPanelFoodPreferenceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFoodPreferenceLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(lblFoodPreference, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtFoodPreference, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -351,33 +349,32 @@ public class UserReport extends javax.swing.JPanel {
         jPanelLeft1Layout.setHorizontalGroup(
             jPanelLeft1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLeft1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addGroup(jPanelLeft1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelLeft1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanelLeft1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanelMobileNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanelLeft1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(jPanelLeft1Layout.createSequentialGroup()
-                                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(txtUserFullName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jPanelSsn, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanellbAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanelFoodPreference, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanelLeft1Layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(lblProfilePicture, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanelMobileNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelLeft1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanelLeft1Layout.createSequentialGroup()
+                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtUserFullName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanelSsn, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanellbAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelFoodPreference, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(27, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLeft1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblProfilePicture, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(115, 115, 115))
         );
         jPanelLeft1Layout.setVerticalGroup(
             jPanelLeft1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLeft1Layout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
+                .addGap(14, 14, 14)
                 .addComponent(lblProfilePicture, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(txtUserFullName)
                 .addGap(20, 20, 20)
                 .addGroup(jPanelLeft1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -390,15 +387,15 @@ public class UserReport extends javax.swing.JPanel {
                 .addComponent(jPanelSsn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanellbAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanelFoodPreference, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addComponent(jPanelFoodPreference, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setPreferredSize(new java.awt.Dimension(177, 80));
 
         lblDob.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        lblDob.setForeground(new java.awt.Color(153, 153, 153));
         lblDob.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblDob.setText("Birthday");
 
@@ -426,11 +423,10 @@ public class UserReport extends javax.swing.JPanel {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        jPanelMaritalStatus.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelMaritalStatus.setBackground(new java.awt.Color(204, 204, 204));
         jPanelMaritalStatus.setPreferredSize(new java.awt.Dimension(177, 80));
 
         lblMaritalStatus.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        lblMaritalStatus.setForeground(new java.awt.Color(153, 153, 153));
         lblMaritalStatus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblMaritalStatus.setText("Marital Status");
 
@@ -459,11 +455,10 @@ public class UserReport extends javax.swing.JPanel {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        jPanelGender.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelGender.setBackground(new java.awt.Color(204, 204, 204));
         jPanelGender.setPreferredSize(new java.awt.Dimension(177, 80));
 
         lblGender.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        lblGender.setForeground(new java.awt.Color(153, 153, 153));
         lblGender.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblGender.setText("Gender");
 
@@ -492,9 +487,10 @@ public class UserReport extends javax.swing.JPanel {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        jPanel1.setBackground(new java.awt.Color(244, 249, 249));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         lblHealthProfile2.setBackground(new java.awt.Color(255, 255, 255));
+        lblHealthProfile2.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblHealthProfile2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHealthProfile2.setText("Health Profile");
 
@@ -510,16 +506,15 @@ public class UserReport extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addContainerGap()
                 .addComponent(lblHealthProfile2, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(16, 16, 16))
         );
 
-        jPanelAlcoholConsumption1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelAlcoholConsumption1.setBackground(new java.awt.Color(204, 204, 204));
         jPanelAlcoholConsumption1.setPreferredSize(new java.awt.Dimension(177, 80));
 
         lblAlcoholConsumption1.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        lblAlcoholConsumption1.setForeground(new java.awt.Color(153, 153, 153));
         lblAlcoholConsumption1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblAlcoholConsumption1.setText("Alcohol Consumption");
 
@@ -548,11 +543,10 @@ public class UserReport extends javax.swing.JPanel {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        jPanelSmokingHabits.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelSmokingHabits.setBackground(new java.awt.Color(204, 204, 204));
         jPanelSmokingHabits.setPreferredSize(new java.awt.Dimension(177, 80));
 
         lblSmokingHabits.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        lblSmokingHabits.setForeground(new java.awt.Color(153, 153, 153));
         lblSmokingHabits.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblSmokingHabits.setText("Smoking Habits");
 
@@ -581,11 +575,10 @@ public class UserReport extends javax.swing.JPanel {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        jPanelSmokingHabits1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelSmokingHabits1.setBackground(new java.awt.Color(204, 204, 204));
         jPanelSmokingHabits1.setPreferredSize(new java.awt.Dimension(177, 80));
 
         lblSmokingHabits1.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        lblSmokingHabits1.setForeground(new java.awt.Color(153, 153, 153));
         lblSmokingHabits1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblSmokingHabits1.setText("Activity Level");
 
@@ -614,9 +607,10 @@ public class UserReport extends javax.swing.JPanel {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        jPanel3.setBackground(new java.awt.Color(244, 249, 249));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         lblHealthProfile1.setBackground(new java.awt.Color(255, 255, 255));
+        lblHealthProfile1.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblHealthProfile1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHealthProfile1.setText("Medical Conditions");
 
@@ -625,19 +619,15 @@ public class UserReport extends javax.swing.JPanel {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblHealthProfile1, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(86, Short.MAX_VALUE)
+                .addComponent(lblHealthProfile1, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblHealthProfile1, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(lblHealthProfile1, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
         );
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/back.png"))); // NOI18N
         btnBack.setText("Back");
         btnBack.setToolTipText("");
@@ -657,11 +647,10 @@ public class UserReport extends javax.swing.JPanel {
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanelAlcoholConsumption2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelAlcoholConsumption2.setBackground(new java.awt.Color(204, 204, 204));
         jPanelAlcoholConsumption2.setPreferredSize(new java.awt.Dimension(177, 80));
 
         lblAlcoholConsumption2.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        lblAlcoholConsumption2.setForeground(new java.awt.Color(153, 153, 153));
         lblAlcoholConsumption2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblAlcoholConsumption2.setText("Covid Vaccinated");
 
@@ -677,7 +666,7 @@ public class UserReport extends javax.swing.JPanel {
                 .addGap(14, 14, 14)
                 .addGroup(jPanelAlcoholConsumption2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtIsVaccinated, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblAlcoholConsumption2, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
+                    .addComponent(lblAlcoholConsumption2, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelAlcoholConsumption2Layout.setVerticalGroup(
@@ -690,11 +679,10 @@ public class UserReport extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanelAlcoholConsumption3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelAlcoholConsumption3.setBackground(new java.awt.Color(204, 204, 204));
         jPanelAlcoholConsumption3.setPreferredSize(new java.awt.Dimension(177, 80));
 
         lblAlcoholConsumption3.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        lblAlcoholConsumption3.setForeground(new java.awt.Color(153, 153, 153));
         lblAlcoholConsumption3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblAlcoholConsumption3.setText("Allergies");
 
@@ -710,7 +698,7 @@ public class UserReport extends javax.swing.JPanel {
                 .addGroup(jPanelAlcoholConsumption3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelAlcoholConsumption3Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(lblAlcoholConsumption3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblAlcoholConsumption3, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE))
                     .addGroup(jPanelAlcoholConsumption3Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)))
@@ -726,13 +714,12 @@ public class UserReport extends javax.swing.JPanel {
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
-        jPanelAlcoholConsumption4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelAlcoholConsumption4.setBackground(new java.awt.Color(204, 204, 204));
         jPanelAlcoholConsumption4.setPreferredSize(new java.awt.Dimension(177, 80));
 
         lblAlcoholConsumption4.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        lblAlcoholConsumption4.setForeground(new java.awt.Color(153, 153, 153));
         lblAlcoholConsumption4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblAlcoholConsumption4.setText("Surgeries");
+        lblAlcoholConsumption4.setText("    Surgeries");
 
         txtAreaSurgeries.setColumns(20);
         txtAreaSurgeries.setRows(5);
@@ -743,14 +730,10 @@ public class UserReport extends javax.swing.JPanel {
         jPanelAlcoholConsumption4Layout.setHorizontalGroup(
             jPanelAlcoholConsumption4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelAlcoholConsumption4Layout.createSequentialGroup()
-                .addGroup(jPanelAlcoholConsumption4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelAlcoholConsumption4Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(lblAlcoholConsumption4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanelAlcoholConsumption4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(lblAlcoholConsumption4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
         );
         jPanelAlcoholConsumption4Layout.setVerticalGroup(
             jPanelAlcoholConsumption4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -767,13 +750,13 @@ public class UserReport extends javax.swing.JPanel {
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(46, Short.MAX_VALUE)
                 .addComponent(jPanelAlcoholConsumption3, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanelAlcoholConsumption4, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanelAlcoholConsumption2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -784,10 +767,11 @@ public class UserReport extends javax.swing.JPanel {
                     .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jPanelAlcoholConsumption4, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jPanelAlcoholConsumption3, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(23, 23, 23))
+                .addGap(41, 41, 41))
         );
 
         lblHealthProfile.setBackground(new java.awt.Color(244, 249, 249));
+        lblHealthProfile.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblHealthProfile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHealthProfile.setText("Patient Details");
 
@@ -806,7 +790,6 @@ public class UserReport extends javax.swing.JPanel {
                         .addComponent(jPanelLeft1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblHealthProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
@@ -823,8 +806,11 @@ public class UserReport extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addComponent(jPanelSmokingHabits, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jPanelSmokingHabits1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(459, Short.MAX_VALUE))
+                                .addComponent(jPanelSmokingHabits1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(lblHealthProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(463, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -833,7 +819,7 @@ public class UserReport extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack)
                     .addComponent(lblHealthProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -852,7 +838,7 @@ public class UserReport extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanelLeft1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

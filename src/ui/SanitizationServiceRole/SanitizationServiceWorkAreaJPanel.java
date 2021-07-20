@@ -87,7 +87,7 @@ public class SanitizationServiceWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         btnManageProfile2.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnManageProfile2.setText("Add Sanitization Type");
+        btnManageProfile2.setText("Manage Service");
         btnManageProfile2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(74, 126, 203), null, null));
         btnManageProfile2.setBorderPainted(false);
         btnManageProfile2.addActionListener(new java.awt.event.ActionListener() {

@@ -44,6 +44,14 @@ public class CabDriverDirectory {
     return false;
     }
 
-    
+    public CabDriver findCabProvider(String username){
+        CabDriver cabProvider = null;
+        for(CabDriver d: cabdriverDirectory){
+            if(d.getUsername().equalsIgnoreCase(username)){
+            cabProvider=d;
+            }
+        }
+        return cabProvider;
+    }
     
 }
