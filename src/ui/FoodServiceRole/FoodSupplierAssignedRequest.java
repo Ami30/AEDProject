@@ -15,6 +15,7 @@ import Business.SanitizationPerson.SanitizationPerson;
 import Business.Tester.Tester;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HealthRequest;
+import Business.WorkQueue.ServiceRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
@@ -64,24 +65,21 @@ public class FoodSupplierAssignedRequest extends javax.swing.JPanel {
   public void populateRequestTable() {
         DefaultTableModel model = (DefaultTableModel) SubmittedrequestsJTable.getModel();
         model.setRowCount(0);
-
-        
-       FoodSupplier foodSupplier=null;
-       for(Organization org : enterprise.getOrganizationDirectory().getOrgList()){
-           if(org.getFoodSupplierDir().findFoodSupplier(useraccount.getUsername())!= null){
-               foodSupplier = org.getFoodSupplierDir().findFoodSupplier(useraccount.getUsername());
-              for(HealthRequest req : foodSupplier.getRequestDirectory().getRequestList()){
-            Object[] row = new Object[4];
-            row[0] = req;
-            row[1] = req.getUser().getName();
-            row[2] = req.getDoctor()==null?"Not Assigned": req.getDoctor().getName();
-            row[3] = req.getStatus();
-            model.addRow(row);
-        }
-           }
-       }
            
-   
+            FoodSupplier foodSupplier = organization.getFoodSupplierDir().findFoodSupplier(useraccount.getUsername());
+              for(ServiceRequest req : foodSupplier.getServiceRequestDirectory().getServiceRequestList()){
+                        Object[] row = new Object[4];
+                        row[0] = req;
+                        row[1] = req.getUser().getName();
+                        row[2] = req.getUser().getContactNumber();
+                        row[3] = req.getUser().getAddress();
+                        row[4] = req.getUser().getZipcode();
+                        row[5] = req.getServiceType();
+                        row[6] = req.getStartDate();
+                        row[7] = req.getEndDate();
+                        row[8] = req.getStatus();
+                        model.addRow(row);
+              }
     }
     /**
      * This method is called from within the constructor to initialize the form.

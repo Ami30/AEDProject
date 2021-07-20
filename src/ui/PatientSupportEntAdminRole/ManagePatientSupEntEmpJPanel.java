@@ -130,7 +130,10 @@ public class ManagePatientSupEntEmpJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         txtuserName = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         organizationPatientManagerJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -165,7 +168,8 @@ public class ManagePatientSupEntEmpJPanel extends javax.swing.JPanel {
         lblDoctorslist1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         lblDoctorslist1.setText("Patient Managers");
 
-        btnRemovePatientManager.setText("Remove Patient Manager");
+        btnRemovePatientManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/removePatmanbtn.png"))); // NOI18N
+        btnRemovePatientManager.setContentAreaFilled(false);
         btnRemovePatientManager.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemovePatientManagerActionPerformed(evt);
@@ -197,10 +201,12 @@ public class ManagePatientSupEntEmpJPanel extends javax.swing.JPanel {
                 .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnRemovePatientManager)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, -1, 280));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         txtAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,7 +220,8 @@ public class ManagePatientSupEntEmpJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Name");
 
-        addJButton.setText("Create Employee");
+        addJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/craetePatmanimg.png"))); // NOI18N
+        addJButton.setContentAreaFilled(false);
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButtonActionPerformed(evt);

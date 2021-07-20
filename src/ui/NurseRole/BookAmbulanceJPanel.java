@@ -55,6 +55,7 @@ public class BookAmbulanceJPanel extends javax.swing.JPanel {
     private Organization org;
     private AmbulanceDriver ambulance;
     private RegisteredUser user;
+    private Nurse nurse;
        
     public BookAmbulanceJPanel(JPanel userProcessContainer,Enterprise ent, UserAccount userAccount, EcoSystem system, Organization org) {
         initComponents();
@@ -64,7 +65,7 @@ public class BookAmbulanceJPanel extends javax.swing.JPanel {
         this.system = system;
         this.ent=ent;
         this.org = org;
-        foodProvider=org.getFoodSupplierDir().findFoodSupplier(userAccount.getUsername());
+        nurse=org.getNurDir().findNurse(userAccount.getUsername());
         UserComboBox();
         populateComboBox();
         
@@ -113,7 +114,10 @@ public class BookAmbulanceJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         userComboBox = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         lblDoctorslist1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         lblDoctorslist1.setText("Ambulance Service");
@@ -223,6 +227,7 @@ public class BookAmbulanceJPanel extends javax.swing.JPanel {
         AmbulanceService ambService=(AmbulanceService)serviceTable.getValueAt(row, 0);
         ServiceRequest serReq = new ServiceRequest(ambService.getServiceName(), ambService.getServiceType(), user, null, null,"New");
         ambulance.getServiceRequestDirectory().addRequest(serReq);
+        nurse.getServicerequestDirectory().addRequest(serReq);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -250,13 +255,15 @@ public class BookAmbulanceJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> userComboBox;
     // End of variables declaration//GEN-END:variables
     public void populateComboBox(){
+        if(org.getAmbulanceDriverDir().getambulanceDriverDirectory()!=null){
             for(AmbulanceDriver ad: org.getAmbulanceDriverDir().getambulanceDriverDirectory()){
                 ambulanceProviderComboBox.addItem(ad);
             }
+        }            
     }
     
      public void UserComboBox(){
-         Nurse nurse=org.getNurDir().findNurse(userAccount.getUsername());
+         
          ArrayList<HealthRequest> requestList = nurse.getRequestDirectory().getRequestList();
          for(HealthRequest req: requestList){
                 ambulanceProviderComboBox.addItem(req.getUser());

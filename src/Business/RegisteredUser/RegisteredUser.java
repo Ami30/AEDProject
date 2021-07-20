@@ -8,6 +8,7 @@ package Business.RegisteredUser;
 import Business.Network.Network;
 import Business.Role.Role;
 import Business.WorkQueue.HealthRequestDirectory;
+import Business.WorkQueue.ServiceRequestDirectory;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -38,6 +39,7 @@ private String weight;
 private String height;
 private static final AtomicInteger count = new AtomicInteger(0); 
 private HealthRequestDirectory HealthRequestDirectory = new HealthRequestDirectory();
+private ServiceRequestDirectory serviceRequestDirectory;
 
 
     public RegisteredUser(Network userNetwork, String bloodGroup, ArrayList<String> comorbid, String symptom, String foodpreference, String isVaccinated, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username,String password, Role role) {
@@ -213,6 +215,14 @@ private HealthRequestDirectory HealthRequestDirectory = new HealthRequestDirecto
         return HealthRequestDirectory;
     }
 
+    public ServiceRequestDirectory getServiceRequestDirectory() {
+        if(serviceRequestDirectory == null){
+            serviceRequestDirectory = new ServiceRequestDirectory();
+        }
+        return serviceRequestDirectory;
+    }
+
+    
     @Override
     public String toString() {
         return String.valueOf(id);

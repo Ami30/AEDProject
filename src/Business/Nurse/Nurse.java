@@ -9,6 +9,7 @@ import Business.Organization.Organization;
 import Business.RegisteredUser.RegisteredUser;
 import Business.Role.Role;
 import Business.WorkQueue.HealthRequestDirectory;
+import Business.WorkQueue.ServiceRequestDirectory;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -27,6 +28,7 @@ private int id;
 private int patientNumber;
 private static final AtomicInteger count = new AtomicInteger(0); 
 private HealthRequestDirectory requestDirectory;
+private ServiceRequestDirectory servicerequestDirectory;
 
 ArrayList<RegisteredUser> patientAssigned;
 
@@ -121,11 +123,18 @@ ArrayList<RegisteredUser> patientAssigned;
         }
         return requestDirectory;
     }
+
+    public ServiceRequestDirectory getServicerequestDirectory() {
+        if(servicerequestDirectory == null){
+            servicerequestDirectory = new ServiceRequestDirectory();
+        }
+        return servicerequestDirectory;
+    }
  
     
       @Override
     public String toString() {
-         return String.valueOf(id);
+         return getName();
     }
 
 }

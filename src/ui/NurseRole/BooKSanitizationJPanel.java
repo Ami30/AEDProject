@@ -60,6 +60,7 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
     private Organization org;
     private SanitizationPerson san;
     private RegisteredUser user;
+    private  Nurse nurse;
     DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
        
     public BooKSanitizationJPanel(JPanel userProcessContainer,Enterprise ent, UserAccount userAccount, EcoSystem system, Organization org) {
@@ -70,7 +71,7 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
         this.system = system;
         this.ent=ent;
         this.org = org;
-        foodProvider=org.getFoodSupplierDir().findFoodSupplier(userAccount.getUsername());
+        nurse=org.getNurDir().findNurse(userAccount.getUsername());
         UserComboBox();
         populateComboBox();
         
@@ -125,7 +126,10 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         txtRepeat = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         lblDoctorslist1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         lblDoctorslist1.setText("Sanitization Service");
@@ -196,8 +200,7 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
                             .addComponent(dateTo, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(181, 181, 181)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel2)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(userComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -271,7 +274,7 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
          serReq.setStartDate(fromDate);
         serReq.setEndDate(toDate);
         san.getServiceRequestDirectory().addRequest(serReq);
-        
+        nurse.getServicerequestDirectory().addRequest(serReq);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -311,7 +314,7 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
     }
     
      public void UserComboBox(){
-         Nurse nurse=org.getNurDir().findNurse(userAccount.getUsername());
+         
          ArrayList<HealthRequest> requestList = nurse.getRequestDirectory().getRequestList();
          for(HealthRequest req: requestList){
                 ambulanceProviderComboBox.addItem(req.getUser());

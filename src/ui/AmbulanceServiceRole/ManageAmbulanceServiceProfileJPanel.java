@@ -273,17 +273,17 @@ public class ManageAmbulanceServiceProfileJPanel extends javax.swing.JPanel {
     private void populateprofile() throws ParseException {
         String username = useraccount.getUsername();
        // Doctor doctor1= enterprise.getDocDir().findDoctor(username);
-        CabDriver cabDriver=null;
+        AmbulanceDriver ambulanceDriver=null;
        for(Organization org : enterprise.getOrganizationDirectory().getOrgList()){
-           if(org.getCabDriverDir().findCabProvider(username)!= null){
-               cabDriver = org.getCabDriverDir().findCabProvider(username);
-               nameJTextField.setText(cabDriver.getFullName());
-            txtAddress.setText(cabDriver.getAddress());
-            txtZipCode.setText(cabDriver.getZipcode());
-            txtContactNo.setText(cabDriver.getContactNumber());
-            GenderCombobox.setSelectedItem(cabDriver.getGender());  
-            txtEmail.setText(cabDriver.getEmail());       
-            String birthDate = cabDriver.getDob();   
+           if(org.getAmbulanceDriverDir().findAmbulanceProvider(username)!= null){
+               ambulanceDriver = org.getAmbulanceDriverDir().findAmbulanceProvider(username);
+               nameJTextField.setText(ambulanceDriver.getFullName());
+            txtAddress.setText(ambulanceDriver.getAddress());
+            txtZipCode.setText(ambulanceDriver.getZipcode());
+            txtContactNo.setText(ambulanceDriver.getContactNumber());
+            GenderCombobox.setSelectedItem(ambulanceDriver.getGender());  
+            txtEmail.setText(ambulanceDriver.getEmail());       
+            String birthDate = ambulanceDriver.getDob();   
            }
        }
     }
