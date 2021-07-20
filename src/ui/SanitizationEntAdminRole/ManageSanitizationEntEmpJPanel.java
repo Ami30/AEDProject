@@ -132,7 +132,10 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         txtpassword = new javax.swing.JPasswordField();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         organizationSanitizationJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -165,9 +168,10 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
         DoctorScrollPane.setViewportView(organizationSanitizationJTable);
 
         lblDoctorslist1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
-        lblDoctorslist1.setText("Sanitization Provider");
+        lblDoctorslist1.setText("Sanitization Providers");
 
-        btnRemoveSanitizationProvider.setText("Remove Sanitization Provider");
+        btnRemoveSanitizationProvider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/btnRemoveSaniProvider.png"))); // NOI18N
+        btnRemoveSanitizationProvider.setContentAreaFilled(false);
         btnRemoveSanitizationProvider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoveSanitizationProviderActionPerformed(evt);
@@ -199,10 +203,12 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
                 .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnRemoveSanitizationProvider)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, -1, 280));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         txtAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,7 +222,8 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Name");
 
-        addJButton.setText("Create Employee");
+        addJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/btnCreatesaniProvider.png"))); // NOI18N
+        addJButton.setContentAreaFilled(false);
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButtonActionPerformed(evt);
@@ -303,11 +310,7 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
                                         .addGap(0, 6, Short.MAX_VALUE))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(organizationEmpJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(97, 97, 97)
-                                .addComponent(addJButton)
-                                .addContainerGap())))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(371, 371, 371)
                         .addComponent(txtpassword))
@@ -318,6 +321,10 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel4)
                         .addContainerGap(264, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(addJButton)
+                .addGap(188, 188, 188))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -350,9 +357,9 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel1)
                     .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
                 .addComponent(addJButton)
-                .addGap(32, 32, 32))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, -1, 290));

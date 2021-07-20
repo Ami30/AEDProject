@@ -92,6 +92,8 @@ public class NotificationRequestJPanel extends javax.swing.JPanel {
         viewDetails = new javax.swing.JButton();
         btnMarkAsRead = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         notificationJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -111,7 +113,7 @@ public class NotificationRequestJPanel extends javax.swing.JPanel {
         }
 
         jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
-        jLabel1.setText("User's Requests");
+        jLabel1.setText("Notifications");
 
         viewDetails.setText("View Details");
         viewDetails.addActionListener(new java.awt.event.ActionListener() {

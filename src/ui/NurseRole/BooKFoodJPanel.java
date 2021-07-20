@@ -60,6 +60,7 @@ public class BooKFoodJPanel extends javax.swing.JPanel {
     private Organization org;
     private FoodSupplier foodSup;
     private RegisteredUser user;
+    private Nurse nurse;
     DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
        
     public BooKFoodJPanel(JPanel userProcessContainer,Enterprise ent, UserAccount userAccount, EcoSystem system, Organization org) {
@@ -70,7 +71,7 @@ public class BooKFoodJPanel extends javax.swing.JPanel {
         this.system = system;
         this.ent=ent;
         this.org = org;
-        foodProvider=org.getFoodSupplierDir().findFoodSupplier(userAccount.getUsername());
+        nurse=org.getNurDir().findNurse(userAccount.getUsername());
         UserComboBox();
         populateComboBox();
         
@@ -123,7 +124,10 @@ public class BooKFoodJPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         dateTo = new com.toedter.calendar.JDateChooser();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         lblDoctorslist1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         lblDoctorslist1.setText("Food Service");
@@ -257,6 +261,7 @@ public class BooKFoodJPanel extends javax.swing.JPanel {
         serReq.setStartDate(fromDate);
         serReq.setEndDate(toDate);
         foodSup.getServiceRequestDirectory().addRequest(serReq);
+        nurse.getServicerequestDirectory().addRequest(serReq);
         
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -295,7 +300,7 @@ public class BooKFoodJPanel extends javax.swing.JPanel {
     }
     
      public void UserComboBox(){
-         Nurse nurse=org.getNurDir().findNurse(userAccount.getUsername());
+         
          ArrayList<HealthRequest> requestList = nurse.getRequestDirectory().getRequestList();
          for(HealthRequest req: requestList){
                 ambulanceProviderComboBox.addItem(req.getUser());

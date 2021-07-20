@@ -5,6 +5,8 @@
  */
 package Business.Person;
 
+import Business.WorkQueue.HealthRequest;
+
 /**
  *
  * @author amishagupta
@@ -12,10 +14,10 @@ package Business.Person;
 public class PersonalNotification {
     private String message;
     private String date;
-    private String requestNumber;
+    private HealthRequest requestNumber;
     private String status;
 
-    public PersonalNotification(String message, String date, String requestNumber) {
+    public PersonalNotification(String message, String date, HealthRequest requestNumber) {
         this.message = message;
         this.date = date;
         this.requestNumber = requestNumber;
@@ -37,11 +39,11 @@ public class PersonalNotification {
         this.date = date;
     }
 
-    public String getRequestNumber() {
+    public HealthRequest getRequestNumber() {
         return requestNumber;
     }
 
-    public void setRequestNumber(String requestNumber) {
+    public void setRequestNumber(HealthRequest requestNumber) {
         this.requestNumber = requestNumber;
     }
 
@@ -52,6 +54,8 @@ public class PersonalNotification {
     public void setStatus(String status) {
         this.status = status;
     }
+
+  
  
       @Override
     public String toString() {

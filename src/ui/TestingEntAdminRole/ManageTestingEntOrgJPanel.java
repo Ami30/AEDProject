@@ -89,6 +89,8 @@ public class ManageTestingEntOrgJPanel extends javax.swing.JPanel {
         txtOrgName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -119,7 +121,7 @@ public class ManageTestingEntOrgJPanel extends javax.swing.JPanel {
         organizationJTable.setSelectionBackground(new java.awt.Color(235, 227, 126));
         jScrollPane1.setViewportView(organizationJTable);
 
-        addJButton.setText("Add Organization");
+        addJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/btnAddOrg.png"))); // NOI18N
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButtonActionPerformed(evt);
@@ -178,7 +180,7 @@ public class ManageTestingEntOrgJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel3))
                 .addGap(43, 43, 43)
                 .addComponent(addJButton)
-                .addContainerGap(234, Short.MAX_VALUE))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
