@@ -52,6 +52,7 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
     private JPanel userProcessContainer;
     private PatientManager patientManager;
     private String buttonFlag;
+    private Boolean docNurseTable = true;
     private Enterprise enterprise;
      DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
  
@@ -392,7 +393,7 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
                 {null, null, null, null}
             },
             new String [] {
-                "Doctor Name", "Qualification", "Experience", "Zipcode"
+                "Doctor/ Nurse Name", "Qualification", "Experience", "Zipcode"
             }
         ));
         jScrollPane1.setViewportView(doctorJTable);
@@ -554,16 +555,27 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
             return;
          }
          else{
-             if(request.getDoctor()==null){
+             if(docNurseTable){
+                  if(request.getDoctor()==null){
                  Doctor doc = (Doctor)doctorJTable.getValueAt(selectedRow, 0);
                   request.setStatus("Assigned to doctor-"+doc.getName());
                   request.setDoctor(doc);
                   doc.getRequestDirectory().addRequestList(request);
                   JOptionPane.showMessageDialog(null, "This request assigned to doctor "+doc.getName()+" Successfully!");
                   doctorJpanel.setVisible(true);
+             } else{
+                    if(request.getNurse()==null){
+                        Nurse nurse = (Nurse)doctorJTable.getValueAt(selectedRow, 0);
+                        request.setStatus("Assigned to Nurse-"+nurse.getName());
+                        request.setNurse(nurse);
+                        nurse.getRequestDirectory().addRequestList(request);
+                        JOptionPane.showMessageDialog(null, "This request assigned to Nurse "+nurse.getName()+" Successfully!");
+                        doctorJpanel.setVisible(true);
+                  }
              }
+            
              JOptionPane.showMessageDialog(null, "This request is already assigned to doctor "+request.getDoctor().getName());
-                  
+             }    
          }
     }//GEN-LAST:event_btnSubmitActionPerformed
 

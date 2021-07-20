@@ -61,6 +61,8 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
         btnBookAmbulance = new javax.swing.JButton();
         btnSanitizationService = new javax.swing.JButton();
         btnAssignedRequests = new javax.swing.JButton();
+        btnBookAmbulance1 = new javax.swing.JButton();
+        btnBookAmbulance2 = new javax.swing.JButton();
         workAreaJPanel = new javax.swing.JPanel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -117,6 +119,26 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnBookAmbulance1.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnBookAmbulance1.setText("Book Cab");
+        btnBookAmbulance1.setBorder(null);
+        btnBookAmbulance1.setBorderPainted(false);
+        btnBookAmbulance1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBookAmbulance1ActionPerformed(evt);
+            }
+        });
+
+        btnBookAmbulance2.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnBookAmbulance2.setText("Book Food Service");
+        btnBookAmbulance2.setBorder(null);
+        btnBookAmbulance2.setBorderPainted(false);
+        btnBookAmbulance2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBookAmbulance2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -128,7 +150,9 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
                     .addComponent(btnManageProfile, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
                     .addComponent(btnBookAmbulance, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
                     .addComponent(btnSanitizationService, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                    .addComponent(btnAssignedRequests, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
+                    .addComponent(btnAssignedRequests, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                    .addComponent(btnBookAmbulance1, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                    .addComponent(btnBookAmbulance2, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -144,7 +168,11 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnBookAmbulance, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSanitizationService, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(686, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBookAmbulance1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnBookAmbulance2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(607, Short.MAX_VALUE))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 880));
@@ -176,18 +204,18 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnBookAmbulanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookAmbulanceActionPerformed
         // TODO add your handling code here:
-//        RequestAmbulanceJPanel requestAmbulanceJPanel=new RequestAmbulanceJPanel(workAreaJPanel,enterprise,useraccount,system);
-//        workAreaJPanel.add("AmbulanceJPanel", requestAmbulanceJPanel);
-//        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
-//        layout.next(workAreaJPanel);
+        BookAmbulanceJPanel bookAmbulanceJPanel=new BookAmbulanceJPanel(workAreaJPanel,enterprise,useraccount,system,org);
+        workAreaJPanel.add("bookAmbulanceForPatients", bookAmbulanceJPanel);
+        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+        layout.next(workAreaJPanel);
     }//GEN-LAST:event_btnBookAmbulanceActionPerformed
 
     private void btnSanitizationServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSanitizationServiceActionPerformed
         // TODO add your handling code here:
-//        RequestSanitizationJPanel requestSanitizationJPanel=new RequestSanitizationJPanel(workAreaJPanel,enterprise,useraccount,system);
-//        workAreaJPanel.add("SanitizationJPanel", requestSanitizationJPanel);
-//        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
-//        layout.next(workAreaJPanel);
+        BooKSanitizationJPanel bookSanitization=new BooKSanitizationJPanel(workAreaJPanel,enterprise,useraccount,system,org);
+        workAreaJPanel.add("bookSanitizationService", bookSanitization);
+        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+        layout.next(workAreaJPanel);
     }//GEN-LAST:event_btnSanitizationServiceActionPerformed
 
     private void btnAssignedRequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignedRequestsActionPerformed
@@ -198,10 +226,28 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(workAreaJPanel);
     }//GEN-LAST:event_btnAssignedRequestsActionPerformed
 
+    private void btnBookAmbulance1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookAmbulance1ActionPerformed
+        // TODO add your handling code here:
+        BookCabJPanel bookCabPanel=new BookCabJPanel(workAreaJPanel,enterprise,useraccount,system, org);
+        workAreaJPanel.add("bookCabForNurse", bookCabPanel);
+        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+        layout.next(workAreaJPanel);
+    }//GEN-LAST:event_btnBookAmbulance1ActionPerformed
+
+    private void btnBookAmbulance2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookAmbulance2ActionPerformed
+        // TODO add your handling code here:
+         BooKFoodJPanel bookFood=new BooKFoodJPanel(workAreaJPanel,enterprise,useraccount,system, org);
+        workAreaJPanel.add("bookFoodForPatients", bookFood);
+        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+        layout.next(workAreaJPanel);
+    }//GEN-LAST:event_btnBookAmbulance2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssignedRequests;
     private javax.swing.JButton btnBookAmbulance;
+    private javax.swing.JButton btnBookAmbulance1;
+    private javax.swing.JButton btnBookAmbulance2;
     private javax.swing.JButton btnManageProfile;
     private javax.swing.JButton btnOrderMedicine;
     private javax.swing.JButton btnSanitizationService;

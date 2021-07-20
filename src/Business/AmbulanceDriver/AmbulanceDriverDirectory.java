@@ -48,6 +48,15 @@ public class AmbulanceDriverDirectory {
     return false;
     }
 
+      public AmbulanceDriver findAmbulanceProvider(String username){
+        AmbulanceDriver ambProvider = null;
+        for(AmbulanceDriver d: ambulancedriverDirectory){
+            if(d.getUsername().equalsIgnoreCase(username)){
+            ambProvider=d;
+            }
+        }
+        return ambProvider;
+    }
     
     
 }

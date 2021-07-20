@@ -41,6 +41,8 @@
                       <Component id="btnBookAmbulance" alignment="1" pref="238" max="32767" attributes="0"/>
                       <Component id="btnSanitizationService" alignment="0" pref="230" max="32767" attributes="0"/>
                       <Component id="btnAssignedRequests" alignment="0" pref="230" max="32767" attributes="0"/>
+                      <Component id="btnBookAmbulance1" alignment="0" pref="230" max="32767" attributes="0"/>
+                      <Component id="btnBookAmbulance2" alignment="0" pref="230" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -59,7 +61,11 @@
                   <Component id="btnBookAmbulance" min="-2" pref="31" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnSanitizationService" min="-2" pref="31" max="-2" attributes="0"/>
-                  <EmptySpace pref="686" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btnBookAmbulance1" min="-2" pref="31" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="btnBookAmbulance2" min="-2" pref="31" max="-2" attributes="0"/>
+                  <EmptySpace pref="607" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -146,6 +152,36 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAssignedRequestsActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnBookAmbulance1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name=".SF NS Text" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Book Cab"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBookAmbulance1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnBookAmbulance2">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name=".SF NS Text" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Book Food Service"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBookAmbulance2ActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

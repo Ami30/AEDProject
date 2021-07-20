@@ -17,8 +17,8 @@ import Business.PatientManager.PatientManager;
 import Business.Pharmacist.MedicineDirectory;
 import Business.RegisteredUser.DailyRepotDirectory;
 import Business.RegisteredUser.RegisteredUser;
-import Business.SanitizationPerson.SanitizationServiceType;
-import Business.SanitizationPerson.SanitizationServiceTypeDirectory;
+import Business.SanitizationPerson.SanitizationService;
+import Business.SanitizationPerson.SanitizationServiceDirectory;
 import Business.Tester.TestsDirectory;
 import com.db4o.User;
 import java.util.Random;
@@ -47,8 +47,8 @@ public class HealthRequest {
     private MedicineDirectory previousmedicineDirectory;
     private ItemsDirectory itemsDirectory;
     private ItemsDirectory previousitemsDirectory;
-    private SanitizationServiceTypeDirectory saniServiceTypeDir;
-    private SanitizationServiceTypeDirectory previousSaniServiceTypeDir;
+    private SanitizationServiceDirectory saniServiceTypeDir;
+    private SanitizationServiceDirectory previousSaniServiceTypeDir;
     private FoodPackageDirectory foodPackageDirectory;
     private FoodPackageDirectory previousFoodPackageDirectory;
     private PrescriptionDirectory prescriptionDirectory;
@@ -226,25 +226,25 @@ public class HealthRequest {
         return previousitemsDirectory;
     }
 
-    public SanitizationServiceTypeDirectory getSaniServiceTypeDir() {
+    public SanitizationServiceDirectory getSaniServiceTypeDir() {
         if(saniServiceTypeDir==null){
-            saniServiceTypeDir=new SanitizationServiceTypeDirectory();
+            saniServiceTypeDir=new SanitizationServiceDirectory();
         }
         return saniServiceTypeDir;
     }
 
-    public void setSaniServiceTypeDir(SanitizationServiceTypeDirectory saniServiceTypeDir) {
+    public void setSaniServiceTypeDir(SanitizationServiceDirectory saniServiceTypeDir) {
         this.saniServiceTypeDir = saniServiceTypeDir;
     }
 
-    public SanitizationServiceTypeDirectory getPreviousSaniServiceTypeDir() {
+    public SanitizationServiceDirectory getPreviousSaniServiceTypeDir() {
         if(previousSaniServiceTypeDir==null){
-            previousSaniServiceTypeDir=new SanitizationServiceTypeDirectory();
+            previousSaniServiceTypeDir=new SanitizationServiceDirectory();
         }
         return previousSaniServiceTypeDir;
     }
 
-    public void setPreviousSaniServiceTypeDir(SanitizationServiceTypeDirectory previousSaniServiceTypeDir) {
+    public void setPreviousSaniServiceTypeDir(SanitizationServiceDirectory previousSaniServiceTypeDir) {
         this.previousSaniServiceTypeDir = previousSaniServiceTypeDir;
     }
     

@@ -65,15 +65,21 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         btnFoodService_JPanel = new javax.swing.JPanel();
         btnFoodService = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         btnProfile_Panel = new javax.swing.JPanel();
         btnProfile = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         btnCosultDoc_JPanel = new javax.swing.JPanel();
         btnConsultDoc = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         btnOrderMed_JPanel = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         btnOrderMed = new javax.swing.JLabel();
         btnSaniService_JPanel = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
         btnSaniService = new javax.swing.JLabel();
         btnAmbulance_JPanel = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
         btnAmbulance = new javax.swing.JLabel();
         workAreaJPanel = new javax.swing.JPanel();
 
@@ -95,20 +101,28 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/rest.png"))); // NOI18N
+
         javax.swing.GroupLayout btnFoodService_JPanelLayout = new javax.swing.GroupLayout(btnFoodService_JPanel);
         btnFoodService_JPanel.setLayout(btnFoodService_JPanelLayout);
         btnFoodService_JPanelLayout.setHorizontalGroup(
             btnFoodService_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnFoodService_JPanelLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addGap(9, 9, 9)
                 .addComponent(btnFoodService, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(59, Short.MAX_VALUE))
         );
         btnFoodService_JPanelLayout.setVerticalGroup(
             btnFoodService_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnFoodService_JPanelLayout.createSequentialGroup()
+            .addGroup(btnFoodService_JPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnFoodService, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addGroup(btnFoodService_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(btnFoodService_JPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btnFoodService, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -127,21 +141,26 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/userp.png"))); // NOI18N
+
         javax.swing.GroupLayout btnProfile_PanelLayout = new javax.swing.GroupLayout(btnProfile_Panel);
         btnProfile_Panel.setLayout(btnProfile_PanelLayout);
         btnProfile_PanelLayout.setHorizontalGroup(
             btnProfile_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnProfile_PanelLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         btnProfile_PanelLayout.setVerticalGroup(
             btnProfile_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnProfile_PanelLayout.createSequentialGroup()
+            .addGroup(btnProfile_PanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnProfile, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel1.add(btnProfile_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 250, 40));
@@ -164,12 +183,16 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/doc1.png"))); // NOI18N
+
         javax.swing.GroupLayout btnCosultDoc_JPanelLayout = new javax.swing.GroupLayout(btnCosultDoc_JPanel);
         btnCosultDoc_JPanel.setLayout(btnCosultDoc_JPanelLayout);
         btnCosultDoc_JPanelLayout.setHorizontalGroup(
             btnCosultDoc_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnCosultDoc_JPanelLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnConsultDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(81, Short.MAX_VALUE))
         );
@@ -177,7 +200,9 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
             btnCosultDoc_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCosultDoc_JPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnConsultDoc, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addGroup(btnCosultDoc_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnConsultDoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -186,10 +211,12 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
         btnOrderMed_JPanel.setBackground(new java.awt.Color(18, 102, 153));
         btnOrderMed_JPanel.setToolTipText("");
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/medicine.png"))); // NOI18N
+
         btnOrderMed.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnOrderMed.setForeground(new java.awt.Color(255, 255, 255));
         btnOrderMed.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnOrderMed.setText("Order Medicine");
+        btnOrderMed.setText(" Order Medicine");
         btnOrderMed.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnOrderMedMousePressed(evt);
@@ -201,22 +228,28 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
         btnOrderMed_JPanelLayout.setHorizontalGroup(
             btnOrderMed_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnOrderMed_JPanelLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(btnOrderMed, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addGap(8, 8, 8)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnOrderMed, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         btnOrderMed_JPanelLayout.setVerticalGroup(
             btnOrderMed_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnOrderMed_JPanelLayout.createSequentialGroup()
+            .addGroup(btnOrderMed_JPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnOrderMed, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(btnOrderMed_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnOrderMed, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(btnOrderMed_JPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 250, 40));
 
         btnSaniService_JPanel.setBackground(new java.awt.Color(18, 102, 153));
         btnSaniService_JPanel.setToolTipText("");
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/spray1.png"))); // NOI18N
 
         btnSaniService.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnSaniService.setForeground(new java.awt.Color(255, 255, 255));
@@ -232,23 +265,29 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
         btnSaniService_JPanel.setLayout(btnSaniService_JPanelLayout);
         btnSaniService_JPanelLayout.setHorizontalGroup(
             btnSaniService_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnSaniService_JPanelLayout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
+            .addGroup(btnSaniService_JPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addGap(18, 18, 18)
                 .addComponent(btnSaniService)
-                .addGap(17, 17, 17))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         btnSaniService_JPanelLayout.setVerticalGroup(
             btnSaniService_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnSaniService_JPanelLayout.createSequentialGroup()
+            .addGroup(btnSaniService_JPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnSaniService, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(btnSaniService_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSaniService, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(btnSaniService_JPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, -1, -1));
 
         btnAmbulance_JPanel.setBackground(new java.awt.Color(18, 102, 153));
         btnAmbulance_JPanel.setToolTipText("");
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/ambulance.png"))); // NOI18N
 
         btnAmbulance.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnAmbulance.setForeground(new java.awt.Color(255, 255, 255));
@@ -265,16 +304,20 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
         btnAmbulance_JPanelLayout.setHorizontalGroup(
             btnAmbulance_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnAmbulance_JPanelLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAmbulance, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         btnAmbulance_JPanelLayout.setVerticalGroup(
             btnAmbulance_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAmbulance_JPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnAmbulance, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(btnAmbulance_JPanelLayout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addGroup(btnAmbulance_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAmbulance, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(btnAmbulance_JPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, -1, -1));
@@ -397,6 +440,12 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel btnProfile_Panel;
     private javax.swing.JLabel btnSaniService;
     private javax.swing.JPanel btnSaniService_JPanel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel workAreaJPanel;
     // End of variables declaration//GEN-END:variables

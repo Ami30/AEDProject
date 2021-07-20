@@ -106,7 +106,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        networkJTable.setSelectionBackground(new java.awt.Color(219, 176, 74));
+        networkJTable.setSelectionBackground(new java.awt.Color(153, 153, 153));
         jScrollPane1.setViewportView(networkJTable);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 85, 672, 148));

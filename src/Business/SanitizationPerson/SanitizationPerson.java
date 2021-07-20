@@ -8,6 +8,7 @@ package Business.SanitizationPerson;
 import Business.RegisteredUser.RegisteredUser;
 import Business.Role.Role;
 import Business.WorkQueue.HealthRequestDirectory;
+import Business.WorkQueue.ServiceRequestDirectory;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -20,9 +21,11 @@ public class SanitizationPerson extends Business.Person.Person{
 private String sanitizationServicename;
 ArrayList<RegisteredUser> patients;
 private static final AtomicInteger count = new AtomicInteger(0); 
-private SanitizationServiceTypeDirectory saniServiceTypeDirectory;
-private SanitizationServiceTypeDirectory completedsaniServiceTypeDirectory;
+private SanitizationServiceDirectory saniServiceTypeDirectory;
+private SanitizationServiceDirectory completedsaniServiceTypeDirectory;
 private HealthRequestDirectory requestDirectory;
+private ServiceRequestDirectory serviceRequestDirectory;
+
 
 
     public SanitizationPerson(String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username,String password, Role role) {
@@ -47,14 +50,14 @@ private HealthRequestDirectory requestDirectory;
         this.sanitizationServicename = sanitizationServicename;
     }
 
-    public SanitizationServiceTypeDirectory getSaniServiceTypeDirectory() {
+    public SanitizationServiceDirectory getSaniServiceTypeDirectory() {
         if(saniServiceTypeDirectory==null){
-            saniServiceTypeDirectory=new SanitizationServiceTypeDirectory();
+            saniServiceTypeDirectory=new SanitizationServiceDirectory();
         }
         return saniServiceTypeDirectory;
     }
 
-    public void setSaniServiceTypeDirectory(SanitizationServiceTypeDirectory saniServiceTypeDirectory) {
+    public void setSaniServiceTypeDirectory(SanitizationServiceDirectory saniServiceTypeDirectory) {
         this.saniServiceTypeDirectory = saniServiceTypeDirectory;
     }
 
@@ -69,14 +72,14 @@ private HealthRequestDirectory requestDirectory;
         this.requestDirectory = requestDirectory;
     }
 
-    public SanitizationServiceTypeDirectory getCompletedsaniServiceTypeDirectory() {
+    public SanitizationServiceDirectory getCompletedsaniServiceTypeDirectory() {
         if(completedsaniServiceTypeDirectory==null){
-            completedsaniServiceTypeDirectory=new SanitizationServiceTypeDirectory();
+            completedsaniServiceTypeDirectory=new SanitizationServiceDirectory();
         }
         return completedsaniServiceTypeDirectory;
     }
 
-    public void setCompletedsaniServiceTypeDirectory(SanitizationServiceTypeDirectory completedsaniServiceTypeDirectory) {
+    public void setCompletedsaniServiceTypeDirectory(SanitizationServiceDirectory completedsaniServiceTypeDirectory) {
         this.completedsaniServiceTypeDirectory = completedsaniServiceTypeDirectory;
     }
     
@@ -90,7 +93,12 @@ private HealthRequestDirectory requestDirectory;
         this.patients = patients;
     }
     
-    
+     public ServiceRequestDirectory getServiceRequestDirectory() {
+        if(serviceRequestDirectory == null){
+            serviceRequestDirectory = new ServiceRequestDirectory();
+        }
+        return serviceRequestDirectory;
+    }
 
      @Override
     public String toString() {

@@ -5,26 +5,51 @@
  */
 package ui.AmbulanceServiceRole;
 
+import ui.FoodServiceRole.*;
+import ui.SanitizationServiceRole.*;
+import ui.TestingServiceRole.*;
+import ui.DoctorRole.*;
+import ui.UserRole.*;
+import ui.TestingEntAdminRole.*;
+import ui.FoodSupplyEntAdminRole.*;
+import ui.SanitizationEntAdminRole.*;
+import ui.PatientSupportEntAdminRole.*;
+import ui.HospitalEntAdminRole.*;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
+import ui.CabServiceRole.CabServiceAssignedRequestJPanel;
+import ui.CabServiceRole.ManageCabServiceProfileJPanel;
 
 /**
  *
  * @author amishagupta
  */
+
 public class AmbulanceServiceWorkAreaJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form AmbulanceServiceWorkArea
+     * Creates new form HospitalEntAdminWorkAreaJPanel
      */
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    UserAccount useraccount;
+    Organization org;
+    EcoSystem system;
     public AmbulanceServiceWorkAreaJPanel(JPanel userProcessContainer, UserAccount useraccount, Organization org, Enterprise enterprise, EcoSystem system) {
         initComponents();
+        this.userProcessContainer=userProcessContainer;
+        this.enterprise=enterprise;
+        this.useraccount=useraccount;
+        this.org=org;
+        this.system=system;
     }
-
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,19 +60,111 @@ public class AmbulanceServiceWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        jPanel1 = new javax.swing.JPanel();
+        btnManageProfileTester = new javax.swing.JButton();
+        btnManageProfile1 = new javax.swing.JButton();
+        btnManageProfile2 = new javax.swing.JButton();
+        workAreaJPanel = new javax.swing.JPanel();
+
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(235, 227, 126));
+
+        btnManageProfileTester.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnManageProfileTester.setText("Manage Profile");
+        btnManageProfileTester.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(74, 126, 203), null, null));
+        btnManageProfileTester.setBorderPainted(false);
+        btnManageProfileTester.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageProfileTesterActionPerformed(evt);
+            }
+        });
+
+        btnManageProfile1.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnManageProfile1.setText("Manage Requests");
+        btnManageProfile1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(74, 126, 203), null, null));
+        btnManageProfile1.setBorderPainted(false);
+        btnManageProfile1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageProfile1ActionPerformed(evt);
+            }
+        });
+
+        btnManageProfile2.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnManageProfile2.setText("Add Services");
+        btnManageProfile2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(74, 126, 203), null, null));
+        btnManageProfile2.setBorderPainted(false);
+        btnManageProfile2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageProfile2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnManageProfileTester, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                    .addComponent(btnManageProfile1, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                    .addComponent(btnManageProfile2, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
+                .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(btnManageProfileTester, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnManageProfile1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnManageProfile2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(755, Short.MAX_VALUE))
         );
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 880));
+
+        workAreaJPanel.setBackground(new java.awt.Color(74, 122, 193));
+        workAreaJPanel.setLayout(new java.awt.CardLayout());
+        add(workAreaJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 1180, 880));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnManageProfileTesterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProfileTesterActionPerformed
+        try {
+            // TODO add your handling code here:
+            ManageCabServiceProfileJPanel manageCabProfile=new ManageCabServiceProfileJPanel(workAreaJPanel,enterprise,useraccount,system);
+            workAreaJPanel.add("manageCabProfile", manageCabProfile);
+            CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+            layout.next(workAreaJPanel);
+        } catch (ParseException ex) {
+            Logger.getLogger(AmbulanceServiceWorkAreaJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnManageProfileTesterActionPerformed
+
+    private void btnManageProfile1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProfile1ActionPerformed
+        // TODO add your handling code here:
+        CabServiceAssignedRequestJPanel cabRequestAssigned=new CabServiceAssignedRequestJPanel(workAreaJPanel,enterprise,useraccount,system, org);
+        workAreaJPanel.add("cabRequestAssigned", cabRequestAssigned);
+        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+        layout.next(workAreaJPanel);
+    }//GEN-LAST:event_btnManageProfile1ActionPerformed
+
+    private void btnManageProfile2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProfile2ActionPerformed
+        // TODO add your handling code here:
+        AddServicesJAreaPanel cabServiceRequest=new AddServicesJAreaPanel(workAreaJPanel,enterprise,useraccount,system,org);
+        workAreaJPanel.add("cabServiceRequest", cabServiceRequest);
+        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+        layout.next(workAreaJPanel);
+    }//GEN-LAST:event_btnManageProfile2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnManageProfile1;
+    private javax.swing.JButton btnManageProfile2;
+    private javax.swing.JButton btnManageProfileTester;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel workAreaJPanel;
     // End of variables declaration//GEN-END:variables
 }

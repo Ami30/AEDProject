@@ -17,7 +17,7 @@ import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.Role.TestingServiceRole;
 import Business.SanitizationPerson.SanitizationPerson;
-import Business.SanitizationPerson.SanitizationServiceType;
+import Business.SanitizationPerson.SanitizationService;
 import Business.Tester.Tester;
 import Business.Tester.Tests;
 import Business.UserAccount.UserAccount;
