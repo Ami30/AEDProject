@@ -19,6 +19,7 @@ import ui.TestingEntAdminRole.*;
 import Business.Enterprise.Enterprise;
 import Business.FoodSupplier.FoodSupplier;
 import Business.FoodSupplier.FoodPackage;
+import Business.Network.Network;
 import Business.Nurse.Nurse;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
@@ -126,10 +127,7 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         txtRepeat = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         lblDoctorslist1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         lblDoctorslist1.setText("Sanitization Service");
@@ -200,7 +198,8 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
                             .addComponent(dateTo, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(181, 181, 181)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                     .addComponent(jLabel2)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(userComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -308,7 +307,18 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> userComboBox;
     // End of variables declaration//GEN-END:variables
     public void populateComboBox(){
-            for(SanitizationPerson ad: org.getSaniPersonDir().getsanitizationPersonDirectory()){
+        Organization orgnization = null;
+        for(Network net: system.getNetworkList()){
+         for(Enterprise ent: net.getEnterpriseDir().getEnterpriseList()){
+             for(Organization org: ent.getOrganizationDirectory().getOrgList()){
+                if(org.getType().getValue().equalsIgnoreCase("Sanitization Provider Organization")){
+                    orgnization = org;
+                }
+            }
+         }
+    }
+        
+            for(SanitizationPerson ad: orgnization.getSaniPersonDir().getsanitizationPersonDirectory()){
                 ambulanceProviderComboBox.addItem(ad);
             }
     }

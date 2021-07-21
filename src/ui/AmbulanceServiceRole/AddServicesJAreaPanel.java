@@ -108,7 +108,10 @@ public class AddServicesJAreaPanel extends javax.swing.JPanel {
         lblAddress = new javax.swing.JLabel();
         ambulanceTypeCombobox = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         ServiceTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -177,6 +180,8 @@ public class AddServicesJAreaPanel extends javax.swing.JPanel {
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, -1, 280));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setText("Service Name");
 

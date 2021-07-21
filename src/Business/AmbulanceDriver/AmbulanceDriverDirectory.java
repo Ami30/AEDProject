@@ -16,6 +16,9 @@ public class AmbulanceDriverDirectory {
     ArrayList<AmbulanceDriver> ambulancedriverDirectory;
 
     public ArrayList<AmbulanceDriver> getambulanceDriverDirectory() {
+        if(ambulancedriverDirectory == null){
+        ambulancedriverDirectory = new ArrayList<>();
+        }
        
         return ambulancedriverDirectory;
     }

@@ -19,6 +19,7 @@ import ui.TestingEntAdminRole.*;
 import Business.Enterprise.Enterprise;
 import Business.FoodSupplier.FoodSupplier;
 import Business.FoodSupplier.FoodPackage;
+import Business.Network.Network;
 import Business.Nurse.Nurse;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
@@ -124,10 +125,7 @@ public class BooKFoodJPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         dateTo = new com.toedter.calendar.JDateChooser();
 
-        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         lblDoctorslist1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         lblDoctorslist1.setText("Food Service");
@@ -294,7 +292,18 @@ public class BooKFoodJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> userComboBox;
     // End of variables declaration//GEN-END:variables
     public void populateComboBox(){
-            for(FoodSupplier ad: org.getFoodSupplierDir().getfoodSupplierDirectory()){
+        
+         Organization orgnization = null;
+        for(Network net: system.getNetworkList()){
+         for(Enterprise ent: net.getEnterpriseDir().getEnterpriseList()){
+             for(Organization org: ent.getOrganizationDirectory().getOrgList()){
+                if(org.getType().getValue().equalsIgnoreCase("Food Provider Organization")){
+                    orgnization = org;
+                }
+            }
+         }
+    }
+            for(FoodSupplier ad: orgnization.getFoodSupplierDir().getfoodSupplierDirectory()){
                 ambulanceProviderComboBox.addItem(ad);
             }
     }
