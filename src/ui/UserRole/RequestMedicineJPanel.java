@@ -48,6 +48,10 @@ public class RequestMedicineJPanel extends javax.swing.JPanel {
         DoctorScrollPane = new javax.swing.JScrollPane();
         SubmittedmedicinerequestsJTable = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         SubmittedmedicinerequestsJTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},

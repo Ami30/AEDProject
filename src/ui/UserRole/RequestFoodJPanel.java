@@ -47,8 +47,12 @@ public class RequestFoodJPanel extends javax.swing.JPanel {
         lblFever = new javax.swing.JLabel();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         jLabel1.setText("REQUEST FOOD SERVICE");
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         SubmittedfoodservicerequestsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

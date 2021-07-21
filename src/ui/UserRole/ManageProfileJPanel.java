@@ -103,6 +103,10 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         addJButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Medical Details", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font(".SF NS Text", 1, 13))); // NOI18N
 
         lblBloodgroup3.setText("Surgery (if any)");

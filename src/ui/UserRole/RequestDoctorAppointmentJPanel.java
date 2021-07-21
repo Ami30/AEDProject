@@ -154,6 +154,8 @@ public class RequestDoctorAppointmentJPanel extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         lblSubmittedrqsts = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         jLabel1.setText("REQUEST DOCTOR");
 

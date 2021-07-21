@@ -254,11 +254,8 @@ public class AddServicesJAreaPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        FoodSupplier foodSupplier=(FoodSupplier)ServiceTable.getValueAt(row, 0);
-        
-        FoodPackage foodPackage=(FoodPackage)ServiceTable.getValueAt(row, 0);
-        foodSupplier.getFoodpackageDirectory().removeFoodTypeList(foodPackage);
-        
+        AmbulanceService ambulanceService=(AmbulanceService)ServiceTable.getValueAt(row, 0);
+        ambulanceProvider.getAmbulanceServiceDirectory().removeService(ambulanceService);
         populateTestTable();
     }//GEN-LAST:event_btnRemoveFoodSuppplierActionPerformed
 

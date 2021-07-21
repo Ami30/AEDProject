@@ -70,7 +70,7 @@ public class ManageSanitizationPMJPanel extends javax.swing.JPanel {
        for(Organization org : enterprise.getOrganizationDirectory().getOrgList()){
            if(org.getpManagerDir().findPatientManager(useraccount.getUsername())!= null){
                pMan = org.getpManagerDir().findPatientManager(useraccount.getUsername());
-              for(ServiceRequest req : pMan.getServicerequestDirectory().getServiceRequestList()){
+              for(ServiceRequest req : pMan.getServicerequestDirectorySan().getServiceRequestList()){
             Object[] row = new Object[9];
             row[0] = req;
             row[1] = req.getUser().getName();
@@ -101,6 +101,7 @@ public class ManageSanitizationPMJPanel extends javax.swing.JPanel {
         SubmittedrequestsJTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -137,6 +138,13 @@ public class ManageSanitizationPMJPanel extends javax.swing.JPanel {
             }
         });
 
+        jButton3.setText("Remove request");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -145,9 +153,12 @@ public class ManageSanitizationPMJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton3))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(460, 460, 460)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -161,7 +172,9 @@ public class ManageSanitizationPMJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
                 .addContainerGap(322, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -174,11 +187,25 @@ public class ManageSanitizationPMJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        PatientManager pMan = organization.getpManagerDir().findPatientManager(useraccount.getUsername());
+        int row = SubmittedrequestsJTable.getSelectedRow();
+        if(row<0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        ServiceRequest serviceSheet=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
+        pMan.getServicerequestDirectorySan().removeRequest(serviceSheet);
+        populateRequestTable();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane DoctorScrollPane;
     private javax.swing.JTable SubmittedrequestsJTable;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

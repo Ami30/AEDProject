@@ -11,6 +11,8 @@ import ui.TestingServiceRole.*;
 import Business.EcoSystem;
 import ui.TestingEntAdminRole.*;
 import Business.Enterprise.Enterprise;
+import Business.FoodSupplier.FoodPackage;
+import Business.FoodSupplier.FoodPackageDailyForm;
 import Business.FoodSupplier.FoodSupplier;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
@@ -65,8 +67,8 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
         populateDate();
         populateTestTable();
         addServicePanel.setVisible(false);
-        saniTable.setRowHeight(25);
-        saniTable.getTableHeader().setDefaultRenderer(new HeaderColor());
+        foodTable.setRowHeight(25);
+        foodTable.getTableHeader().setDefaultRenderer(new HeaderColor());
         
     }
      public class HeaderColor extends DefaultTableCellRenderer {
@@ -82,13 +84,14 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
     }
 
     private void populateTestTable(){
-        DefaultTableModel model = (DefaultTableModel) saniTable.getModel();
+        DefaultTableModel model = (DefaultTableModel) foodTable.getModel();
         
         model.setRowCount(0);
-        for (SanitizationServiceForm saniService : req.getSanitizationServiceFormDirectory().getSanFormList()){          
-            Object[] row = new Object[2];
-            row[0] = saniService;
-            row[1] = saniService.getStatus();
+        for (FoodPackageDailyForm foodFormService : req.getFoodPackageDailyFormDirectory().getDailyFoodFormList()){          
+            Object[] row = new Object[3];
+            row[0] = foodFormService;
+            row[1] = foodFormService.getMealtype();
+            row[3] = foodFormService.getFoodDate();
             model.addRow(row);
         }
     }
@@ -104,7 +107,7 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         DoctorScrollPane = new javax.swing.JScrollPane();
-        saniTable = new javax.swing.JTable();
+        foodTable = new javax.swing.JTable();
         lblDoctorslist1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
@@ -122,13 +125,11 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        saniTable.setModel(new javax.swing.table.DefaultTableModel(
+        foodTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -154,9 +155,9 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        saniTable.setRequestFocusEnabled(false);
-        saniTable.setSelectionBackground(new java.awt.Color(235, 227, 126));
-        DoctorScrollPane.setViewportView(saniTable);
+        foodTable.setRequestFocusEnabled(false);
+        foodTable.setSelectionBackground(new java.awt.Color(235, 227, 126));
+        DoctorScrollPane.setViewportView(foodTable);
 
         lblDoctorslist1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         lblDoctorslist1.setText("FoodService Service");
@@ -218,8 +219,6 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, 620, 280));
-
-        addServicePanel.setBackground(new java.awt.Color(255, 255, 255));
 
         addJButton.setText("Submit");
         addJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -305,6 +304,14 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
             }
         });
         add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 110, -1));
+
+        jButton5.setText("Remove ");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
@@ -313,8 +320,8 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
         String sanDate = formatter.format(tDate);
         String duration=mealTypeComboBox.getSelectedItem().toString();
         
-        SanitizationServiceForm saniService=new SanitizationServiceForm(sanDate,duration);
-        req.getSanitizationServiceFormDirectory().addFormList(saniService);
+        FoodPackageDailyForm foodService=new FoodPackageDailyForm(sanDate,duration, req.getServiceName());
+        req.getFoodPackageDailyFormDirectory().addFormList(foodService);
           populateTestTable();
           addServicePanel.setVisible(false);
         
@@ -343,15 +350,30 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
         req.setStatus("Declined");
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        
+        int row = foodTable.getSelectedRow();
+        if(row<0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        FoodPackageDailyForm foodPackage=(FoodPackageDailyForm)foodTable.getValueAt(row, 0);
+        req.getFoodPackageDailyFormDirectory().removeFormList(foodPackage);
+        populateTestTable();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane DoctorScrollPane;
     private javax.swing.JButton addJButton;
     private javax.swing.JPanel addServicePanel;
+    private javax.swing.JTable foodTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -363,7 +385,6 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblStartDate;
     private javax.swing.JComboBox<String> mealTypeComboBox;
-    private javax.swing.JTable saniTable;
     private com.toedter.calendar.JDateChooser sanitizationDate;
     // End of variables declaration//GEN-END:variables
         public void populateDate(){

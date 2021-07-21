@@ -82,8 +82,6 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
         medicinesRequestedtable = new javax.swing.JTable();
         deliveryManComboBox = new javax.swing.JComboBox<>();
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-
         jPanel4.setBackground(new java.awt.Color(204, 255, 255));
 
         jLabel2.setText("Request Number:");
@@ -307,7 +305,7 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
       private void populateTable(){
         DefaultTableModel model = (DefaultTableModel) medicinesRequestedtable.getModel();
         model.setRowCount(0);
-        for (OrderMedicine med : request.getOrderDirectory().getMedicineList()){          
+        for (OrderMedicine med : request.getOrderDirectoryMed().getMedicineList()){          
             Object[] row = new Object[4];
             row[0] = med;
             row[1] = med.getOrderDate();

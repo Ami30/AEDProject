@@ -121,11 +121,11 @@ public class BooKFoodPMJPanel extends javax.swing.JPanel {
         serviceTable = new javax.swing.JTable();
         ambulanceProviderComboBox = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
-        userComboBox = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         dateFrom = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
         dateTo = new com.toedter.calendar.JDateChooser();
+        userComboBox = new javax.swing.JComboBox();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -164,15 +164,15 @@ public class BooKFoodPMJPanel extends javax.swing.JPanel {
 
         jLabel3.setText("Select a Patient first");
 
+        jLabel4.setText("Select From Date");
+
+        jLabel5.setText("Select to Date");
+
         userComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userComboBoxActionPerformed(evt);
             }
         });
-
-        jLabel4.setText("Select From Date");
-
-        jLabel5.setText("Select to Date");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -180,26 +180,32 @@ public class BooKFoodPMJPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2)
-                    .addComponent(userComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ambulanceProviderComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblDoctorslist1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(dateFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(dateTo, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2)
+                            .addComponent(ambulanceProviderComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(29, 29, 29)
+                                .addComponent(dateFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(dateTo, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(175, 175, 175)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblDoctorslist1, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)))
                 .addGap(26, 26, 26))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(191, 191, 191)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(userComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -209,9 +215,9 @@ public class BooKFoodPMJPanel extends javax.swing.JPanel {
                 .addComponent(lblDoctorslist1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(userComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(13, 13, 13)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ambulanceProviderComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -227,7 +233,7 @@ public class BooKFoodPMJPanel extends javax.swing.JPanel {
                     .addComponent(dateFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addComponent(jButton1)
-                .addGap(157, 157, 157))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, 410));
@@ -261,18 +267,20 @@ public class BooKFoodPMJPanel extends javax.swing.JPanel {
         serReq.setStartDate(fromDate);
         serReq.setEndDate(toDate);
         foodSup.getServiceRequestDirectory().addRequest(serReq);
-        pMan.getServicerequestDirectory().addRequest(serReq);
+        pMan.getServicerequestDirectoryFood().addRequest(serReq);
+        user.getServiceRequestDirectoryFood().addRequest(serReq);
         
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void userComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userComboBoxActionPerformed
         // TODO add your handling code here:
-         userComboBox.removeAllItems();
+        userComboBox.removeAllItems();
         if(userComboBox.getItemCount()==0){
-            populateComboBox();
+            UserComboBox();
             userComboBox.setSelectedIndex(0);
             user = (RegisteredUser)userComboBox.getSelectedItem();
+//            populateServiceTable();
         }
     }//GEN-LAST:event_userComboBoxActionPerformed
 
@@ -291,7 +299,7 @@ public class BooKFoodPMJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblDoctorslist1;
     private javax.swing.JTable serviceTable;
-    private javax.swing.JComboBox<String> userComboBox;
+    private javax.swing.JComboBox userComboBox;
     // End of variables declaration//GEN-END:variables
     public void populateComboBox(){
         
@@ -315,7 +323,7 @@ public class BooKFoodPMJPanel extends javax.swing.JPanel {
          
          ArrayList<HealthRequest> requestList = pMan.getRequestDirectory().getRequestList();
          for(HealthRequest req: requestList){
-                ambulanceProviderComboBox.addItem(req.getUser());
+                userComboBox.addItem(req.getUser());
             }
     }
 }

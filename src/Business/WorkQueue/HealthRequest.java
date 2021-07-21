@@ -53,7 +53,7 @@ public class HealthRequest {
     private FoodPackageDirectory previousFoodPackageDirectory;
     private PrescriptionDirectory prescriptionDirectory;
     private DailyRepotDirectory dailyReportDirectory;
-    private OrderDirectory orderDirectory;
+    private OrderDirectory orderDirectoryMed;
     
 
     public HealthRequest(String status, RegisteredUser user, Doctor doctor, Nurse nurse, PatientManager patientManager, Organization organization, String fever, String cough, String bodyPain, String otherSymptoms, HospitalEnterprise hospital) {
@@ -297,11 +297,11 @@ public class HealthRequest {
         return dailyReportDirectory;
     }
 
-    public OrderDirectory getOrderDirectory() {
-        if(orderDirectory == null){
-            orderDirectory = new OrderDirectory();
+    public OrderDirectory getOrderDirectoryMed() {
+        if(orderDirectoryMed == null){
+            orderDirectoryMed = new OrderDirectory();
         }
-        return orderDirectory;
+        return orderDirectoryMed;
     }
 
     

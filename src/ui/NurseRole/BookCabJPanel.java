@@ -231,7 +231,7 @@ public class BookCabJPanel extends javax.swing.JPanel {
         CabService ambService=(CabService)serviceTable.getValueAt(row, 0);
         ServiceRequest serReq = new ServiceRequest(ambService.getServiceName(), ambService.getServiceType(), user, null, nurse,"New");
         cab.getServiceRequestDirectory().addRequest(serReq);
-        nurse.getServicerequestDirectory().addRequest(serReq);
+        nurse.getServicerequestDirectoryCab().addRequest(serReq);
         
 
     }//GEN-LAST:event_jButton1ActionPerformed

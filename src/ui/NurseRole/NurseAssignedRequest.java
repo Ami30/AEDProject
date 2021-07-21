@@ -177,7 +177,7 @@ public class NurseAssignedRequest extends javax.swing.JPanel {
          }
          else{
                   req = (HealthRequest)SubmittedrequestsJTable.getValueAt(selectedRow, 0);
-                  NurseReportActionPanel healthRequest=new NurseReportActionPanel(userProcessContainer,enterprise,useraccount,system, req);
+                  NurseReportActionPanel healthRequest=new NurseReportActionPanel(userProcessContainer,enterprise,useraccount,system, req, organization);
                   userProcessContainer.add("PatientManagerProfileJPanel", healthRequest);
                   CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                   layout.next(userProcessContainer);

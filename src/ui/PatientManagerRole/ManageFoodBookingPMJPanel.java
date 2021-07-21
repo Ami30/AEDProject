@@ -70,8 +70,8 @@ public class ManageFoodBookingPMJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) SubmittedrequestsJTable.getModel();
         model.setRowCount(0);
            PatientManager pMan = organization.getpManagerDir().findPatientManager(useraccount.getUsername());
-              for(ServiceRequest req : pMan.getServicerequestDirectory().getServiceRequestList()){
-            Object[] row = new Object[4];
+              for(ServiceRequest req : pMan.getServicerequestDirectoryFood().getServiceRequestList()){
+            Object[] row = new Object[9];
             row[0] = req;
             row[1] = req.getUser().getName();
             row[2] = req.getUser().getContactNumber();
@@ -100,6 +100,7 @@ public class ManageFoodBookingPMJPanel extends javax.swing.JPanel {
         SubmittedrequestsJTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -136,6 +137,13 @@ public class ManageFoodBookingPMJPanel extends javax.swing.JPanel {
             }
         });
 
+        jButton2.setText("Remove request");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -144,9 +152,12 @@ public class ManageFoodBookingPMJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(460, 460, 460)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -160,7 +171,9 @@ public class ManageFoodBookingPMJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addContainerGap(322, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -173,11 +186,25 @@ public class ManageFoodBookingPMJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        PatientManager pMan = organization.getpManagerDir().findPatientManager(useraccount.getUsername());
+        int row = SubmittedrequestsJTable.getSelectedRow();
+        if(row<0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        ServiceRequest serviceSheet=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
+        pMan.getServicerequestDirectoryFood().removeRequest(serviceSheet);
+        populateRequestTable();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane DoctorScrollPane;
     private javax.swing.JTable SubmittedrequestsJTable;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

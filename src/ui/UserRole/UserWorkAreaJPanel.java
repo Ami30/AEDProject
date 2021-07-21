@@ -414,7 +414,7 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
         resetColor(btnCosultDoc_JPanel);
         resetColor(btnOrderMed_JPanel);
         resetColor(btnProfile_Panel);
-        RequestAmbulanceJPanel requestAmbulanceJPanel=new RequestAmbulanceJPanel(workAreaJPanel,enterprise,useraccount,system);
+        ManageAmbulanceBookingUserJPanel requestAmbulanceJPanel=new ManageAmbulanceBookingUserJPanel(workAreaJPanel,enterprise,useraccount,system,org);
         workAreaJPanel.add("AmbulanceJPanel", requestAmbulanceJPanel);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);

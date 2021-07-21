@@ -43,6 +43,10 @@ public class RequestSanitizationJPanel extends javax.swing.JPanel {
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         lblCough.setText("Required Date");
 
         jButton1.setText("Submit");

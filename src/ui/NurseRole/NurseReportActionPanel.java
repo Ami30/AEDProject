@@ -11,6 +11,7 @@ import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Enterprise.HospitalEnterprise;
 import Business.Network.Network;
+import Business.Organization.Organization;
 import Business.PatientManager.PatientManager;
 import Business.RegisteredUser.RegisteredUser;
 import Business.UserAccount.UserAccount;
@@ -41,15 +42,17 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
     private PatientManager patientManager;
     private String buttonFlag;
     private Enterprise enterprise;
+    private Organization organization;
      DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
  
-    public NurseReportActionPanel(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system, HealthRequest request) {
+    public NurseReportActionPanel(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system, HealthRequest request, Organization organization) {
         initComponents();
         this.useraccount=account;
         this.system = system;
         this.request = request;
         this.enterprise = enterprise;
         this.userProcessContainer = userProcessContainer;
+        this.organization = organization;
         this.patientManager = patientManager;
         this.buttonFlag = buttonFlag;
         populateprofile();
@@ -365,8 +368,6 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
                 .addGap(28, 28, 28))
         );
 
-        doctorJpanel.setBackground(new java.awt.Color(255, 255, 255));
-
         btnDailyReport.setText("Manage Daily Reports");
         btnDailyReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -492,6 +493,10 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
 
     private void btnOrderMedicineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderMedicineActionPerformed
         // TODO add your handling code here:
+        OrderMedicineReport orderMedicine=new OrderMedicineReport(userProcessContainer,enterprise,useraccount,system,request, organization);
+                  userProcessContainer.add("orderMedicine", orderMedicine);
+                  CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                  layout.next(userProcessContainer);
     }//GEN-LAST:event_btnOrderMedicineActionPerformed
 
     private void btnBookAmbulanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookAmbulanceActionPerformed
