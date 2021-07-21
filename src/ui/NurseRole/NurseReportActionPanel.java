@@ -365,6 +365,8 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
                 .addGap(28, 28, 28))
         );
 
+        doctorJpanel.setBackground(new java.awt.Color(255, 255, 255));
+
         btnDailyReport.setText("Manage Daily Reports");
         btnDailyReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

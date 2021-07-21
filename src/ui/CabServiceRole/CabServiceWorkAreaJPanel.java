@@ -69,9 +69,6 @@ public class CabServiceWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnManageProfileTester = new javax.swing.JButton();
-        btnManageProfile1 = new javax.swing.JButton();
-        btnManageProfile2 = new javax.swing.JButton();
         btnProfile_Panel = new javax.swing.JPanel();
         btnProfile = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -86,36 +83,6 @@ public class CabServiceWorkAreaJPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(18, 102, 153));
-
-        btnManageProfileTester.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnManageProfileTester.setText("Manage Profile");
-        btnManageProfileTester.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(74, 126, 203), null, null));
-        btnManageProfileTester.setBorderPainted(false);
-        btnManageProfileTester.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageProfileTesterActionPerformed(evt);
-            }
-        });
-
-        btnManageProfile1.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnManageProfile1.setText("Manage Requests");
-        btnManageProfile1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(74, 126, 203), null, null));
-        btnManageProfile1.setBorderPainted(false);
-        btnManageProfile1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageProfile1ActionPerformed(evt);
-            }
-        });
-
-        btnManageProfile2.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnManageProfile2.setText("Add Services");
-        btnManageProfile2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(74, 126, 203), null, null));
-        btnManageProfile2.setBorderPainted(false);
-        btnManageProfile2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageProfile2ActionPerformed(evt);
-            }
-        });
 
         btnProfile_Panel.setBackground(new java.awt.Color(130, 175, 203));
         btnProfile_Panel.setToolTipText("");
@@ -233,13 +200,6 @@ public class CabServiceWorkAreaJPanel extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnManageProfileTester, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnManageProfile1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnManageProfile2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,19 +210,13 @@ public class CabServiceWorkAreaJPanel extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(btnManageProfileTester, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnManageProfile1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageProfile2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(114, 114, 114)
+                .addGap(40, 40, 40)
                 .addComponent(btnProfile_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnAddServices_JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnAssignedReq_JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(520, Short.MAX_VALUE))
+                .addContainerGap(720, Short.MAX_VALUE))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 880));
@@ -272,7 +226,11 @@ public class CabServiceWorkAreaJPanel extends javax.swing.JPanel {
         add(workAreaJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 1180, 880));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnManageProfileTesterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProfileTesterActionPerformed
+    private void btnProfileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProfileMousePressed
+        // TODO add your handling code here:
+        setColor(btnProfile_Panel);
+        resetColor(btnAddServices_JPanel);
+        resetColor(btnAssignedReq_JPanel);
         try {
             // TODO add your handling code here:
             ManageAmbulanceServiceProfileJPanel manageAmbulanceProfile=new ManageAmbulanceServiceProfileJPanel(workAreaJPanel,enterprise,useraccount,system);
@@ -281,38 +239,6 @@ public class CabServiceWorkAreaJPanel extends javax.swing.JPanel {
             layout.next(workAreaJPanel);
         } catch (ParseException ex) {
             Logger.getLogger(CabServiceWorkAreaJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnManageProfileTesterActionPerformed
-
-    private void btnManageProfile1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProfile1ActionPerformed
-        // TODO add your handling code here:
-        AmbulanceServiceAssignedRequestJPanel ambulanceRequestAssigned=new AmbulanceServiceAssignedRequestJPanel(workAreaJPanel,enterprise,useraccount,system, org);
-        workAreaJPanel.add("ambulanceRequestAssigned", ambulanceRequestAssigned);
-        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
-        layout.next(workAreaJPanel);
-    }//GEN-LAST:event_btnManageProfile1ActionPerformed
-
-    private void btnManageProfile2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProfile2ActionPerformed
-        // TODO add your handling code here:
-        AddServicesJAreaPanel ambulanceServiceRequest=new AddServicesJAreaPanel(workAreaJPanel,enterprise,useraccount,system,org);
-        workAreaJPanel.add("ambulanceServiceRequest", ambulanceServiceRequest);
-        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
-        layout.next(workAreaJPanel);
-    }//GEN-LAST:event_btnManageProfile2ActionPerformed
-
-    private void btnProfileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProfileMousePressed
-        // TODO add your handling code here:
-        setColor(btnProfile_Panel);
-        resetColor(btnAddServices_JPanel);
-        resetColor(btnAssignedReq_JPanel);
-        try {
-            // TODO add your handling code here:
-            ManageAmbulanceServiceProfileJPanel manageAmbProfile=new ManageAmbulanceServiceProfileJPanel(workAreaJPanel,enterprise,useraccount,system);
-            workAreaJPanel.add("manageAmbProfile", manageAmbProfile);
-            CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
-            layout.next(workAreaJPanel);
-        } catch (ParseException ex) {
-            Logger.getLogger(AmbulanceServiceWorkAreaJPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnProfileMousePressed
 
@@ -337,7 +263,7 @@ public class CabServiceWorkAreaJPanel extends javax.swing.JPanel {
         resetColor(btnAssignedReq_JPanel);
         resetColor(btnProfile_Panel);
         AddServicesJAreaPanel ambulanceServiceRequest=new AddServicesJAreaPanel(workAreaJPanel,enterprise,useraccount,system,org);
-        workAreaJPanel.add("cabServiceRequest", ambulanceServiceRequest);
+        workAreaJPanel.add("ambulanceServiceRequest", ambulanceServiceRequest);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);
     }//GEN-LAST:event_btnAddServicesMousePressed
@@ -347,9 +273,6 @@ public class CabServiceWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel btnAddServices;
     private javax.swing.JPanel btnAddServices_JPanel;
     private javax.swing.JPanel btnAssignedReq_JPanel;
-    private javax.swing.JButton btnManageProfile1;
-    private javax.swing.JButton btnManageProfile2;
-    private javax.swing.JButton btnManageProfileTester;
     private javax.swing.JLabel btnProfile;
     private javax.swing.JPanel btnProfile_Panel;
     private javax.swing.JLabel btnassignedRequests;

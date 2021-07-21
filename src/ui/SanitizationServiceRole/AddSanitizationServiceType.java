@@ -103,7 +103,10 @@ public class AddSanitizationServiceType extends javax.swing.JPanel {
         txtName = new javax.swing.JTextField();
         lblAddress = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         saniTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -172,6 +175,8 @@ public class AddSanitizationServiceType extends javax.swing.JPanel {
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, -1, 280));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         txtDuration.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

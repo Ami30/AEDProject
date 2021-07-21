@@ -82,6 +82,8 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
         medicinesRequestedtable = new javax.swing.JTable();
         deliveryManComboBox = new javax.swing.JComboBox<>();
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
         jPanel4.setBackground(new java.awt.Color(204, 255, 255));
 
         jLabel2.setText("Request Number:");

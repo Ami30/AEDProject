@@ -115,7 +115,10 @@ public class BookAmbulanceJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         userComboBox = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         lblDoctorslist1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         lblDoctorslist1.setText("Ambulance Service");

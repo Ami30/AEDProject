@@ -123,7 +123,10 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         saniTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -215,6 +218,8 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, 620, 280));
+
+        addServicePanel.setBackground(new java.awt.Color(255, 255, 255));
 
         addJButton.setText("Submit");
         addJButton.addActionListener(new java.awt.event.ActionListener() {
