@@ -119,11 +119,11 @@ public class CabServiceAssignedRequestJPanel extends javax.swing.JPanel {
         DoctorScrollPane = new javax.swing.JScrollPane();
         SubmittedrequestsJTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        Approved = new javax.swing.JButton();
-        completed = new javax.swing.JButton();
-        decline = new javax.swing.JButton();
-        Approved1 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnApproved = new javax.swing.JButton();
+        btnCompleted = new javax.swing.JButton();
+        btnDecline = new javax.swing.JButton();
+        btnArrived = new javax.swing.JButton();
+        btnRiding = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -153,38 +153,38 @@ public class CabServiceAssignedRequestJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         jLabel1.setText("User's Requests");
 
-        Approved.setText("Accepted");
-        Approved.addActionListener(new java.awt.event.ActionListener() {
+        btnApproved.setText("Accepted");
+        btnApproved.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ApprovedActionPerformed(evt);
+                btnApprovedActionPerformed(evt);
             }
         });
 
-        completed.setText("Completed");
-        completed.addActionListener(new java.awt.event.ActionListener() {
+        btnCompleted.setText("Completed");
+        btnCompleted.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                completedActionPerformed(evt);
+                btnCompletedActionPerformed(evt);
             }
         });
 
-        decline.setText("Decline");
-        decline.addActionListener(new java.awt.event.ActionListener() {
+        btnDecline.setText("Decline");
+        btnDecline.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                declineActionPerformed(evt);
+                btnDeclineActionPerformed(evt);
             }
         });
 
-        Approved1.setText("Arrived");
-        Approved1.addActionListener(new java.awt.event.ActionListener() {
+        btnArrived.setText("Arrived");
+        btnArrived.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Approved1ActionPerformed(evt);
+                btnArrivedActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Riding");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnRiding.setText("Riding");
+        btnRiding.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnRidingActionPerformed(evt);
             }
         });
 
@@ -202,15 +202,15 @@ public class CabServiceAssignedRequestJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(Approved, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnApproved, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(Approved1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnArrived, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnRiding, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(completed, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnCompleted, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(decline, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(btnDecline, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -222,16 +222,16 @@ public class CabServiceAssignedRequestJPanel extends javax.swing.JPanel {
                 .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Approved)
-                    .addComponent(completed)
-                    .addComponent(decline)
-                    .addComponent(Approved1)
-                    .addComponent(jButton1))
+                    .addComponent(btnApproved)
+                    .addComponent(btnCompleted)
+                    .addComponent(btnDecline)
+                    .addComponent(btnArrived)
+                    .addComponent(btnRiding))
                 .addContainerGap(322, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ApprovedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApprovedActionPerformed
+    private void btnApprovedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApprovedActionPerformed
         // TODO add your handling code here:
         int row = SubmittedrequestsJTable.getSelectedRow();
         if(row<0) {
@@ -239,13 +239,18 @@ public class CabServiceAssignedRequestJPanel extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
+        if(serReq.getStatus().equalsIgnoreCase("Accepted") || serReq.getStatus().equalsIgnoreCase("completed") || serReq.getStatus().equalsIgnoreCase("arrived") || serReq.getStatus().equalsIgnoreCase("riding") || serReq.getStatus().equalsIgnoreCase("declined")){
+        JOptionPane.showMessageDialog(null, "Cab is already marked "+serReq.getStatus());
+        }else{
         serReq.setStatus("Accepted");
         JOptionPane.showMessageDialog(null, "Cab marked accepted");
         populateRequestTable();
+        }
+        
 
-    }//GEN-LAST:event_ApprovedActionPerformed
+    }//GEN-LAST:event_btnApprovedActionPerformed
 
-    private void completedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completedActionPerformed
+    private void btnCompletedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompletedActionPerformed
         // TODO add your handling code here:
         int row = SubmittedrequestsJTable.getSelectedRow();
         if(row<0) {
@@ -253,13 +258,18 @@ public class CabServiceAssignedRequestJPanel extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
+        if(serReq.getStatus().equalsIgnoreCase("Accepted") || serReq.getStatus().equalsIgnoreCase("completed") || serReq.getStatus().equalsIgnoreCase("arrived") || serReq.getStatus().equalsIgnoreCase("declined")){
+        JOptionPane.showMessageDialog(null, "Cab is already marked "+serReq.getStatus());
+        }else{
         serReq.setStatus("Completed");
         JOptionPane.showMessageDialog(null, "Cab request marked completed");
         populateRequestTable();
+        }
+        
 
-    }//GEN-LAST:event_completedActionPerformed
+    }//GEN-LAST:event_btnCompletedActionPerformed
 
-    private void declineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_declineActionPerformed
+    private void btnDeclineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeclineActionPerformed
         // TODO add your handling code here:
         int row = SubmittedrequestsJTable.getSelectedRow();
         if(row<0) {
@@ -267,12 +277,12 @@ public class CabServiceAssignedRequestJPanel extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
-        serReq.setStatus("Request Declined");
+        serReq.setStatus("Declined");
         JOptionPane.showMessageDialog(null, "Cab request declined");
         populateRequestTable();
-    }//GEN-LAST:event_declineActionPerformed
+    }//GEN-LAST:event_btnDeclineActionPerformed
 
-    private void Approved1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Approved1ActionPerformed
+    private void btnArrivedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArrivedActionPerformed
         // TODO add your handling code here:
         int row = SubmittedrequestsJTable.getSelectedRow();
         if(row<0) {
@@ -280,12 +290,17 @@ public class CabServiceAssignedRequestJPanel extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
+        if(serReq.getStatus().equalsIgnoreCase("declined") || serReq.getStatus().equalsIgnoreCase("completed") || serReq.getStatus().equalsIgnoreCase("arrived") || serReq.getStatus().equalsIgnoreCase("riding")){
+        JOptionPane.showMessageDialog(null, "Cab is already marked "+serReq.getStatus());
+        }else{
         serReq.setStatus("Arrived");
         JOptionPane.showMessageDialog(null, "Cab request marked Arrived");
         populateRequestTable();
-    }//GEN-LAST:event_Approved1ActionPerformed
+        }
+        
+    }//GEN-LAST:event_btnArrivedActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnRidingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRidingActionPerformed
         // TODO add your handling code here:
         int row = SubmittedrequestsJTable.getSelectedRow();
         if(row<0) {
@@ -293,20 +308,26 @@ public class CabServiceAssignedRequestJPanel extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
-        serReq.setStatus("Riding");
+        if(serReq.getStatus().equalsIgnoreCase("declined") || serReq.getStatus().equalsIgnoreCase("completed") || serReq.getStatus().equalsIgnoreCase("accepted") || serReq.getStatus().equalsIgnoreCase("riding")){
+        JOptionPane.showMessageDialog(null, "Cab is already marked "+serReq.getStatus());
+        } else{
+         serReq.setStatus("Riding");
         JOptionPane.showMessageDialog(null, "Cab request marked riding");
         populateRequestTable();
-    }//GEN-LAST:event_jButton1ActionPerformed
+        }
+       
+    }//GEN-LAST:event_btnRidingActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Approved;
-    private javax.swing.JButton Approved1;
     private javax.swing.JScrollPane DoctorScrollPane;
     private javax.swing.JTable SubmittedrequestsJTable;
-    private javax.swing.JButton completed;
-    private javax.swing.JButton decline;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnApproved;
+    private javax.swing.JButton btnArrived;
+    private javax.swing.JButton btnCompleted;
+    private javax.swing.JButton btnDecline;
+    private javax.swing.JButton btnRiding;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+
 }

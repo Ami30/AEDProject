@@ -32,6 +32,7 @@ import Business.Tester.Tests;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HealthRequest;
 import Business.WorkQueue.ServiceRequest;
+import java.awt.CardLayout;
 import java.awt.Component;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -126,6 +127,7 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         txtRepeat = new javax.swing.JTextField();
         userComboBox = new javax.swing.JComboBox();
+        jButton3 = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -176,11 +178,18 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
             }
         });
 
+        jButton3.setText("Back");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,11 +217,15 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
                         .addComponent(lblDoctorslist1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(26, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(jButton3)
+                .addGap(17, 17, 17)
                 .addComponent(lblDoctorslist1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
@@ -257,6 +270,7 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
         Date dateE = dateTo.getDate();
         String toDate = formatter.format(dateE);
         int row = serviceTable.getSelectedRow();
+        String repeat = txtRepeat.getText();
         if(row<0) {
             JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
@@ -266,6 +280,7 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
         ServiceRequest serReq = new ServiceRequest(sanService.getRequiredtime(),sanService.getSanitizationType(), user, null, null,"New");
          serReq.setStartDate(fromDate);
         serReq.setEndDate(toDate);
+        serReq.setRepeat(repeat);
         san.getServiceRequestDirectory().addRequest(serReq);
         nurse.getServicerequestDirectorySan().addRequest(serReq);
         user.getServiceRequestDirectorySan().addRequest(serReq);
@@ -278,12 +293,20 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
         user = (RegisteredUser)userComboBox.getSelectedItem();
     }//GEN-LAST:event_userComboBoxActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox ambulanceProviderComboBox;
     private com.toedter.calendar.JDateChooser dateFrom;
     private com.toedter.calendar.JDateChooser dateTo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

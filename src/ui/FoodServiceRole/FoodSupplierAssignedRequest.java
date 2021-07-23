@@ -38,7 +38,7 @@ public class FoodSupplierAssignedRequest extends javax.swing.JPanel {
        private Enterprise enterprise;
        private Organization organization;
        private JPanel userProcessContainer;
-       private HealthRequest req;
+       private ServiceRequest req;
        private FoodSupplier foodSupplier;
     public FoodSupplierAssignedRequest(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system, Organization organization) {
         initComponents();
@@ -100,17 +100,17 @@ public class FoodSupplierAssignedRequest extends javax.swing.JPanel {
 
         SubmittedrequestsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Request ID", "Patient's Name", "Contact Number", "Address", "Zipcode", "FoodType", "StartDate", "EndDate"
+                "Request ID", "Patient's Name", "Contact Number", "Address", "Zipcode", "FoodType", "StartDate", "EndDate", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, false, true, true, true, true, true
+                true, false, false, true, true, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -132,6 +132,11 @@ public class FoodSupplierAssignedRequest extends javax.swing.JPanel {
         });
 
         jButton1.setText("Accept");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -178,8 +183,8 @@ public class FoodSupplierAssignedRequest extends javax.swing.JPanel {
                 for(Organization org : enterprise.getOrganizationDirectory().getOrgList()){
                   if(org.getFoodSupplierDir().findFoodSupplier(useraccount.getUsername())!= null){
                foodSupplier = org.getFoodSupplierDir().findFoodSupplier(useraccount.getUsername());
-                   req = (HealthRequest)SubmittedrequestsJTable.getValueAt(selectedRow, 0);
-                  FoodSupplierRequestReport foodSupplierRequests=new FoodSupplierRequestReport(userProcessContainer,enterprise,useraccount,system, req, foodSupplier);
+                   req = (ServiceRequest)SubmittedrequestsJTable.getValueAt(selectedRow, 0);
+                  FoodDetailsJPanel foodSupplierRequests=new FoodDetailsJPanel(userProcessContainer,enterprise,useraccount,system, org,req);
                   userProcessContainer.add("SanitizationRequestJPanel", foodSupplierRequests);
                   CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                   layout.next(userProcessContainer);
@@ -189,6 +194,27 @@ public class FoodSupplierAssignedRequest extends javax.swing.JPanel {
          }
         
     }//GEN-LAST:event_viewDetailsActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         int row = SubmittedrequestsJTable.getSelectedRow();
+        if(row<0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
+         if(serReq.getStatus().equalsIgnoreCase("Declined") || serReq.getStatus().equalsIgnoreCase("Completed") || serReq.getStatus().equalsIgnoreCase("Accepted")){
+         JOptionPane.showMessageDialog(null, "Food Service Request is already " + serReq.getStatus()+ " , please choose another request");
+            
+         }else{
+          serReq.setStatus("Accepted");
+        JOptionPane.showMessageDialog(null, "Food Service Request accepted successfully!");
+        populateRequestTable();
+         }
+      
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -240,6 +240,7 @@ public class AddSanitizationServiceType extends javax.swing.JPanel {
         SanitizationService saniService=new SanitizationService(type,duration);
         saniPerson.getSaniServiceTypeDirectory().addSanitizationServiceList(saniService);
           populateTestTable();
+          JOptionPane.showMessageDialog(null, "Sanitization Service added successfully!");
         
        
         
@@ -257,10 +258,10 @@ public class AddSanitizationServiceType extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        SanitizationPerson saniPer=(SanitizationPerson)saniTable.getValueAt(row, 0);
         
          SanitizationService saniServiceType=(SanitizationService)saniTable.getValueAt(row, 0);
-        saniPer.getSaniServiceTypeDirectory().removeSanitizationServiceList(saniServiceType);
+        saniPerson.getSaniServiceTypeDirectory().removeSanitizationServiceList(saniServiceType);
+        JOptionPane.showMessageDialog(null, "Sanitization Service removed successfully!");
         
         populateTestTable();
     }//GEN-LAST:event_btnRemoveFoodSuppplierActionPerformed

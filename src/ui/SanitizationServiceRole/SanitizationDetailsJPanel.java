@@ -21,6 +21,7 @@ import Business.Tester.Tester;
 import Business.Tester.Tests;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.ServiceRequest;
+import java.awt.CardLayout;
 import java.awt.Component;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -111,6 +112,7 @@ public class SanitizationDetailsJPanel extends javax.swing.JPanel {
         lblStartDate = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         lblEndDate = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         addServicePanel = new javax.swing.JPanel();
         addJButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -118,9 +120,9 @@ public class SanitizationDetailsJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         txtStatus = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnNextService = new javax.swing.JButton();
+        btnCompleted = new javax.swing.JButton();
+        btnDeclined = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -172,12 +174,20 @@ public class SanitizationDetailsJPanel extends javax.swing.JPanel {
 
         lblEndDate.setText("jLabel6");
 
+        jButton3.setText("Back");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblDoctorslist1)
                 .addGap(190, 190, 190))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -200,8 +210,10 @@ public class SanitizationDetailsJPanel extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(lblDoctorslist1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDoctorslist1)
+                    .addComponent(jButton3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 25, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -230,8 +242,6 @@ public class SanitizationDetailsJPanel extends javax.swing.JPanel {
         jLabel1.setText("Date");
 
         jLabel3.setText("Status:");
-
-        txtStatus.setText("jTextField1");
 
         jButton4.setText("Close");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -281,29 +291,29 @@ public class SanitizationDetailsJPanel extends javax.swing.JPanel {
 
         add(addServicePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 620, 150));
 
-        jButton1.setText("Add Next Service");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnNextService.setText("Add Next Service");
+        btnNextService.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnNextServiceActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 140, -1));
+        add(btnNextService, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 140, -1));
 
-        jButton2.setText("completed");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnCompleted.setText("completed");
+        btnCompleted.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnCompletedActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 120, -1));
+        add(btnCompleted, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 120, -1));
 
-        jButton3.setText("Declined");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnDeclined.setText("Declined");
+        btnDeclined.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnDeclinedActionPerformed(evt);
             }
         });
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 110, -1));
+        add(btnDeclined, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 110, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
@@ -322,24 +332,39 @@ public class SanitizationDetailsJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_addJButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnNextServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextServiceActionPerformed
         // TODO add your handling code here:
         addServicePanel.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnNextServiceActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         addServicePanel.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnCompletedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompletedActionPerformed
         // TODO add your handling code here:
         req.setStatus("Completed");
-    }//GEN-LAST:event_jButton2ActionPerformed
+        btnCompleted.setVisible(false);
+        btnDeclined.setVisible(false);
+        btnNextService.setVisible(false);
+        JOptionPane.showMessageDialog(null, "Request completed Successfully");
+    }//GEN-LAST:event_btnCompletedActionPerformed
+
+    private void btnDeclinedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeclinedActionPerformed
+        // TODO add your handling code here:
+        req.setStatus("Declined");
+        btnCompleted.setVisible(false);
+        btnDeclined.setVisible(false);
+        btnNextService.setVisible(false);
+        JOptionPane.showMessageDialog(null, "Request declined Successfully");
+    }//GEN-LAST:event_btnDeclinedActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        req.setStatus("Declined");
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
@@ -347,8 +372,9 @@ public class SanitizationDetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane DoctorScrollPane;
     private javax.swing.JButton addJButton;
     private javax.swing.JPanel addServicePanel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnCompleted;
+    private javax.swing.JButton btnDeclined;
+    private javax.swing.JButton btnNextService;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;

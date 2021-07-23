@@ -33,6 +33,7 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import ui.UserRole.HealthRequestReport;
 
 /**
  *
@@ -66,7 +67,6 @@ public class AddPrescriptionDetailsJPanel extends javax.swing.JPanel {
         this.presc = presc;
         txtComment.setEditable(false);
         txtPrescription.setEditable(false);
-        nextConsultationComboBox.setEditable(false);
         nextConsultationDate.setEnabled(false);
         populateDetails();
         
@@ -106,10 +106,10 @@ public class AddPrescriptionDetailsJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         txtPrescription = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        nextConsultationComboBox = new javax.swing.JComboBox<>();
         datePanel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         nextConsultationDate = new com.toedter.calendar.JDateChooser();
+        lblNextConsultation = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -121,7 +121,7 @@ public class AddPrescriptionDetailsJPanel extends javax.swing.JPanel {
 
         lblAddress.setText("Request Number:");
 
-        addJButton.setText("Submit");
+        addJButton.setText("Close");
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButtonActionPerformed(evt);
@@ -137,13 +137,6 @@ public class AddPrescriptionDetailsJPanel extends javax.swing.JPanel {
         jLabel3.setText("Prescription:");
 
         jLabel4.setText("Next Consultation?");
-
-        nextConsultationComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No", "Yes" }));
-        nextConsultationComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nextConsultationComboBoxActionPerformed(evt);
-            }
-        });
 
         datePanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -169,6 +162,8 @@ public class AddPrescriptionDetailsJPanel extends javax.swing.JPanel {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
+        lblNextConsultation.setText("jLabel7");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -192,7 +187,7 @@ public class AddPrescriptionDetailsJPanel extends javax.swing.JPanel {
                                 .addComponent(lblRequestNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtComment)
                             .addComponent(txtPrescription)
-                            .addComponent(nextConsultationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblNextConsultation, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addContainerGap()
@@ -225,51 +220,47 @@ public class AddPrescriptionDetailsJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(nextConsultationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblNextConsultation))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(datePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(addJButton)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, 340));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setText("                      Test Reporting");
+        jLabel5.setText("                      View Prescription");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 270, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
 
-        String comment = txtComment.getText();
-        String prescription = txtPrescription.getText();
-        if(ifConsultationRequired.equalsIgnoreCase("yes")){
-            datePanel.setVisible(true);
-            Date date = nextConsultationDate.getDate();
-            String nextDate = formatter.format(date);
-            Prescription pres = new Prescription(comment, prescription, ifConsultationRequired, nextDate);
-            request.getPrescriptionDirectory().addPrescriptionList(pres);
-            
-        }else{
-            String nextDate = "Not Applicable";
-            Prescription pres = new Prescription(comment, prescription, ifConsultationRequired, nextDate);
-            request.getPrescriptionDirectory().addPrescriptionList(pres);
-        }
-        JOptionPane.showMessageDialog(null, "Prescription Added Successfully");
+//        String comment = txtComment.getText();
+//        String prescription = txtPrescription.getText();
+//        if(ifConsultationRequired.equalsIgnoreCase("yes")){
+//            datePanel.setVisible(true);
+//            Date date = nextConsultationDate.getDate();
+//            String nextDate = formatter.format(date);
+//            Prescription pres = new Prescription(comment, prescription, ifConsultationRequired, nextDate);
+//            request.getPrescriptionDirectory().addPrescriptionList(pres);
+//            
+//        }else{
+//            String nextDate = "Not Applicable";
+//            Prescription pres = new Prescription(comment, prescription, ifConsultationRequired, nextDate);
+//            request.getPrescriptionDirectory().addPrescriptionList(pres);
+//        }
+//        JOptionPane.showMessageDialog(null, "Prescription Added Successfully");
+//        userProcessContainer.remove(this);
+//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+//        layout.previous(userProcessContainer);
+        
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
         
-        
     }//GEN-LAST:event_addJButtonActionPerformed
-
-    private void nextConsultationComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextConsultationComboBoxActionPerformed
-        // TODO add your handling code here:
-       ifConsultationRequired= nextConsultationComboBox.getSelectedItem().toString();
-       if(ifConsultationRequired.equalsIgnoreCase("yes")){
-       }
-    }//GEN-LAST:event_nextConsultationComboBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -283,9 +274,9 @@ public class AddPrescriptionDetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAddress;
+    private javax.swing.JLabel lblNextConsultation;
     private javax.swing.JLabel lblPatientName;
     private javax.swing.JLabel lblRequestNumber;
-    private javax.swing.JComboBox<String> nextConsultationComboBox;
     private com.toedter.calendar.JDateChooser nextConsultationDate;
     private javax.swing.JTextField txtComment;
     private javax.swing.JTextField txtPrescription;
@@ -296,7 +287,7 @@ public class AddPrescriptionDetailsJPanel extends javax.swing.JPanel {
         lblRequestNumber.setText(request.getRequestNumber());
         txtComment.setText(presc.getComment());
         txtPrescription.setText(presc.getPrescription());
-        nextConsultationComboBox.setSelectedItem(presc.getNextConsultationRequired());
+        lblNextConsultation.setText(presc.getNextConsultationRequired());
         try {
             nextConsultationDate.setDate(formatter.parse(presc.getDate()));
         } catch (ParseException ex) {
