@@ -74,6 +74,8 @@ public class ManageTransportEntUserJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         passwordJTextField = new javax.swing.JPasswordField();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel2.setText("Password");
 
         userJTable.setModel(new javax.swing.table.DefaultTableModel(

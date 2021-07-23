@@ -76,7 +76,7 @@ private ServiceRequestDirectory serviceRequestDirectory;
 
     @Override
     public String toString() {
-       return String.valueOf(id);
+       return getName();
     }
 
     public CabServiceDirectory getCabServiceDirectory() {

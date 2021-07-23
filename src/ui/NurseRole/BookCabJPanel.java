@@ -19,6 +19,7 @@ import ui.TestingEntAdminRole.*;
 import Business.Enterprise.Enterprise;
 import Business.FoodSupplier.FoodSupplier;
 import Business.FoodSupplier.FoodPackage;
+import Business.Network.Network;
 import Business.Nurse.Nurse;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
@@ -210,13 +211,8 @@ public class BookCabJPanel extends javax.swing.JPanel {
 
     private void ambulanceProviderComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ambulanceProviderComboBoxActionPerformed
         // TODO add your handling code here:
-          ambulanceProviderComboBox.removeAllItems();
-        if(ambulanceProviderComboBox.getItemCount()==0){
-            populateComboBox();
-            ambulanceProviderComboBox.setSelectedIndex(0);
-            cab = (CabDriver)ambulanceProviderComboBox.getSelectedItem();
+        cab = (CabDriver)ambulanceProviderComboBox.getSelectedItem();
             populateServiceTable();
-        }
     }//GEN-LAST:event_ambulanceProviderComboBoxActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -230,19 +226,15 @@ public class BookCabJPanel extends javax.swing.JPanel {
         CabService ambService=(CabService)serviceTable.getValueAt(row, 0);
         ServiceRequest serReq = new ServiceRequest(ambService.getServiceName(), ambService.getServiceType(), user, null, nurse,"New");
         cab.getServiceRequestDirectory().addRequest(serReq);
-        nurse.getServicerequestDirectory().addRequest(serReq);
+        nurse.getServicerequestDirectoryCab().addRequest(serReq);
+        JOptionPane.showMessageDialog(null, "Cab Service booked Successfully");
         
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void userComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userComboBoxActionPerformed
         // TODO add your handling code here:
-         userComboBox.removeAllItems();
-        if(userComboBox.getItemCount()==0){
-            populateComboBox();
-            userComboBox.setSelectedIndex(0);
-            user = (RegisteredUser)userComboBox.getSelectedItem();
-        }
+       user = (RegisteredUser)userComboBox.getSelectedItem();
     }//GEN-LAST:event_userComboBoxActionPerformed
 
 
@@ -259,7 +251,20 @@ public class BookCabJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> userComboBox;
     // End of variables declaration//GEN-END:variables
     public void populateComboBox(){
-            for(CabDriver ad: org.getCabDriverDir().getCabDriverDirectory()){
+        
+        Organization orgnization = null;
+        for(Network net: system.getNetworkList()){
+         for(Enterprise ent: net.getEnterpriseDir().getEnterpriseList()){
+             for(Organization org: ent.getOrganizationDirectory().getOrgList()){
+                if(org.getType().getValue().equalsIgnoreCase("Cab Provider Organization")){
+                    orgnization = org;
+                }
+            }
+         }
+    }
+        
+        
+            for(CabDriver ad: orgnization.getCabDriverDir().getCabDriverDirectory()){
                 ambulanceProviderComboBox.addItem(ad);
             }
     }

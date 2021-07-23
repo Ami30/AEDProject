@@ -70,6 +70,7 @@ public class OrderDetailsJPanel extends javax.swing.JPanel {
         this.request = request;
         this.ordMed = ordMed;
         populateDetails();
+        populateOrderTabletTable();
     }
      public class HeaderColor extends DefaultTableCellRenderer {
         public HeaderColor() {

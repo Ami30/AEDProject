@@ -32,6 +32,8 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import ui.DoctorRole.AddPrescription;
 import ui.DoctorRole.AssignHospitalToRequest;
+import ui.DoctorRole.ViewPrescriptionJPanel;
+import ui.TestingServiceRole.CompletedTestReport;
 
 /**
  *
@@ -66,6 +68,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
         btnBed.setVisible(false);
         btnTest.setVisible(false);
         doctorJpanel.setVisible(false);
+        toggleActionButtons();
         toggleButton();
         populateprofile();
         this.comorbid=new ArrayList<>();
@@ -97,6 +100,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
         lblGender = new javax.swing.JLabel();
         lblDob = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        viewAvailableTest = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         lblZipCode1 = new javax.swing.JLabel();
@@ -108,6 +112,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
         lblNursesName = new javax.swing.JLabel();
         lblHospitalsName = new javax.swing.JLabel();
         lblStatus = new javax.swing.JLabel();
+        btnViewPresc = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         lblZipCode2 = new javax.swing.JLabel();
@@ -127,7 +132,11 @@ public class HealthRequestReport extends javax.swing.JPanel {
         btnBed = new javax.swing.JButton();
         btnTest = new javax.swing.JButton();
         btnReportBacktoAM = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Personal Details", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font(".SF NS Text", 1, 13))); // NOI18N
 
         jPanel4.setBackground(new java.awt.Color(204, 255, 255));
@@ -177,6 +186,13 @@ public class HealthRequestReport extends javax.swing.JPanel {
             }
         });
 
+        viewAvailableTest.setText("View Available tests");
+        viewAvailableTest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewAvailableTestActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -198,7 +214,9 @@ public class HealthRequestReport extends javax.swing.JPanel {
                     .addComponent(lblDob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(79, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(viewAvailableTest)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -225,7 +243,9 @@ public class HealthRequestReport extends javax.swing.JPanel {
                     .addComponent(lblDob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblContactNo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(5, 5, 5)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewAvailableTest)))
         );
 
         jPanel5.setBackground(new java.awt.Color(204, 255, 204));
@@ -265,6 +285,13 @@ public class HealthRequestReport extends javax.swing.JPanel {
         lblStatus.setMinimumSize(new java.awt.Dimension(6, 20));
         lblStatus.setPreferredSize(new java.awt.Dimension(6, 20));
 
+        btnViewPresc.setText("View Prescription");
+        btnViewPresc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewPrescActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -284,7 +311,11 @@ public class HealthRequestReport extends javax.swing.JPanel {
                     .addComponent(lblNursesName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblHospitalsName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnViewPresc)
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,7 +340,8 @@ public class HealthRequestReport extends javax.swing.JPanel {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblContactNo3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(28, 28, 28))
+                .addGap(5, 5, 5)
+                .addComponent(btnViewPresc))
         );
 
         jPanel6.setBackground(new java.awt.Color(204, 255, 204));
@@ -397,6 +429,8 @@ public class HealthRequestReport extends javax.swing.JPanel {
             }
         });
 
+        doctorJpanel.setBackground(new java.awt.Color(255, 255, 255));
+
         doctorJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -467,6 +501,13 @@ public class HealthRequestReport extends javax.swing.JPanel {
             }
         });
 
+        jButton2.setText("Back");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -474,32 +515,37 @@ public class HealthRequestReport extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(doctorJpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnPres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAssignToMe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnAssignToDoctor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnBed, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnTest, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                            .addComponent(btnReportBacktoAM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)))
+                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(doctorJpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnPres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnAssignToMe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnAssignToDoctor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnBed, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnTest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnReportBacktoAM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)))))
                 .addContainerGap(178, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addContainerGap()
+                .addComponent(jButton2)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -549,7 +595,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -565,8 +611,15 @@ public class HealthRequestReport extends javax.swing.JPanel {
     public void toggleButton(){
         if(buttonFlag.equalsIgnoreCase("patManAllReq")){
             btnAssignToDoctor.setVisible(false);
+            btnReportBacktoAM.setVisible(false);
+            btnViewPresc.setVisible(false);
+            viewAvailableTest.setVisible(false);
         }else if(buttonFlag.equalsIgnoreCase("patManAssignedReq")){
             btnAssignToMe.setVisible(false);
+            btnReportBacktoAM.setVisible(false);
+            btnViewPresc.setVisible(false);
+            viewAvailableTest.setVisible(false);
+
         }else if(buttonFlag.equalsIgnoreCase("doctor")){
             btnAssignToDoctor.setVisible(false);
             btnAssignToMe.setVisible(false);
@@ -580,6 +633,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
             btnBed.setVisible(false);
             btnTest.setVisible(false);
             doctorJpanel.setVisible(false);
+            btnReportBacktoAM.setVisible(false);
         }
     }
     private void btnAssignToMeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignToMeActionPerformed
@@ -587,6 +641,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
 
         if(request.getPatientManager()==null){
          request.setPatientManager(patientManager);
+         request.setStatus("Assigned to Patient Manager" + patientManager.getName());
         patientManager.getRequestDirectory().addRequestList(request);
         populateprofile();
         JOptionPane.showMessageDialog(null, "This Request has been assigned to you successfuuly");
@@ -646,8 +701,9 @@ public class HealthRequestReport extends javax.swing.JPanel {
                   doc.getRequestDirectory().addRequestList(request);
                   JOptionPane.showMessageDialog(null, "This request assigned to doctor "+doc.getName()+" Successfully!");
                   doctorJpanel.setVisible(true);
+             } else{
+                 JOptionPane.showMessageDialog(null, "This request is already assigned to doctor "+request.getDoctor().getName());
              }
-             JOptionPane.showMessageDialog(null, "This request is already assigned to doctor "+request.getDoctor().getName());
                   
          }
     }//GEN-LAST:event_btnSubmitActionPerformed
@@ -690,6 +746,29 @@ public class HealthRequestReport extends javax.swing.JPanel {
         request.setStatus("quarantined");
     }//GEN-LAST:event_btnReportBacktoAMActionPerformed
 
+    private void btnViewPrescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPrescActionPerformed
+        // TODO add your handling code here:
+         ViewPrescriptionJPanel  viewPrescription=new ViewPrescriptionJPanel(userProcessContainer,enterprise,useraccount,system,request);
+         userProcessContainer.add("viewPrescriptionPanel", viewPrescription);
+         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+         layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnViewPrescActionPerformed
+
+    private void viewAvailableTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAvailableTestActionPerformed
+        // TODO add your handling code here:
+        CompletedTestReport completedTestResult=new CompletedTestReport(userProcessContainer,enterprise,useraccount,system, request);
+        userProcessContainer.add("userReport", completedTestResult);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_viewAvailableTestActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssignToDoctor;
@@ -699,9 +778,11 @@ public class HealthRequestReport extends javax.swing.JPanel {
     private javax.swing.JButton btnReportBacktoAM;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JButton btnTest;
+    private javax.swing.JButton btnViewPresc;
     private javax.swing.JTable doctorJTable;
     private javax.swing.JPanel doctorJpanel;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -736,6 +817,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
     private javax.swing.JLabel lblZipCode;
     private javax.swing.JLabel lblZipCode1;
     private javax.swing.JLabel lblZipCode2;
+    private javax.swing.JButton viewAvailableTest;
     // End of variables declaration//GEN-END:variables
 
     private void populateprofile() {
@@ -754,5 +836,10 @@ public class HealthRequestReport extends javax.swing.JPanel {
        lblBodyPain.setText(request.getBodyPain());
        lblOtherSymptoms.setText(request.getOtherSymptoms());
        
-    }     
+    }
+    private void toggleActionButtons(){
+        if(request.getPatientManager()!=null){
+            btnAssignToMe.setVisible(false);
+        }
+    }
 }

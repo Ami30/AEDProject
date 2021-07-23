@@ -21,6 +21,7 @@ private String PharmacyAddress;
 private String PharmacyZipCode;
 private MedicineDirectory medicineDirectory;
 private HealthRequestDirectory requestDirectory;
+private OrderDirectory orderDirectoryMed;
 //ArrayList<Order> orders;
 private int id;
 private static final AtomicInteger count = new AtomicInteger(0); 
@@ -85,6 +86,13 @@ private static final AtomicInteger count = new AtomicInteger(0);
 
     public void setPharmacyZipCode(String PharmacyZipCode) {
         this.PharmacyZipCode = PharmacyZipCode;
+    }
+
+    public OrderDirectory getOrderDirectoryMed() {
+        if(orderDirectoryMed == null){
+            orderDirectoryMed = new OrderDirectory();
+        }
+        return orderDirectoryMed;
     }
     
     

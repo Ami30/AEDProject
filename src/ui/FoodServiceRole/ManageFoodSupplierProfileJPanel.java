@@ -74,6 +74,10 @@ public class ManageFoodSupplierProfileJPanel extends javax.swing.JPanel {
         txtContactNo = new javax.swing.JTextField();
         addJButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel2.setText("Name");
 
         GenderCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Male", "Female", "Others" }));

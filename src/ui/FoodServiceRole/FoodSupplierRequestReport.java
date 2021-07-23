@@ -95,6 +95,10 @@ public class FoodSupplierRequestReport extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
         jPanel4.setBackground(new java.awt.Color(204, 255, 255));
 
         jLabel2.setText("Request Number:");

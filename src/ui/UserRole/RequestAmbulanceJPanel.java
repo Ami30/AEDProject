@@ -34,6 +34,8 @@ public class RequestAmbulanceJPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         jLabel1.setText("Book Ambulance ");
 

@@ -253,10 +253,8 @@ public class AddFoodServicesTypesJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        FoodSupplier foodSupplier=(FoodSupplier)foodTypesTable.getValueAt(row, 0);
-        
         FoodPackage foodPackage=(FoodPackage)foodTypesTable.getValueAt(row, 0);
-        foodSupplier.getFoodpackageDirectory().removeFoodTypeList(foodPackage);
+        foodProvider.getFoodpackageDirectory().removeFoodTypeList(foodPackage);
         
         populateTestTable();
     }//GEN-LAST:event_btnRemoveFoodSuppplierActionPerformed

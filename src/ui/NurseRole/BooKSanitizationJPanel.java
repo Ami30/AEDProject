@@ -19,6 +19,7 @@ import ui.TestingEntAdminRole.*;
 import Business.Enterprise.Enterprise;
 import Business.FoodSupplier.FoodSupplier;
 import Business.FoodSupplier.FoodPackage;
+import Business.Network.Network;
 import Business.Nurse.Nurse;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
@@ -118,18 +119,15 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
         serviceTable = new javax.swing.JTable();
         ambulanceProviderComboBox = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
-        userComboBox = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         dateFrom = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
         dateTo = new com.toedter.calendar.JDateChooser();
         jLabel6 = new javax.swing.JLabel();
         txtRepeat = new javax.swing.JTextField();
+        userComboBox = new javax.swing.JComboBox();
 
-        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         lblDoctorslist1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         lblDoctorslist1.setText("Sanitization Service");
@@ -166,17 +164,17 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
 
         jLabel3.setText("Select a Patient first");
 
-        userComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userComboBoxActionPerformed(evt);
-            }
-        });
-
         jLabel4.setText("Select From Date");
 
         jLabel5.setText("Select to Date");
 
         jLabel6.setText("No. of repetitions:");
+
+        userComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userComboBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -202,14 +200,14 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
                             .addGap(181, 181, 181)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel2)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(userComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ambulanceProviderComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblDoctorslist1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,9 +216,9 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
                 .addComponent(lblDoctorslist1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(userComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(userComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ambulanceProviderComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -248,13 +246,8 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
 
     private void ambulanceProviderComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ambulanceProviderComboBoxActionPerformed
         // TODO add your handling code here:
-          ambulanceProviderComboBox.removeAllItems();
-        if(ambulanceProviderComboBox.getItemCount()==0){
-            populateComboBox();
-            ambulanceProviderComboBox.setSelectedIndex(0);
-            san = (SanitizationPerson)ambulanceProviderComboBox.getSelectedItem();
+       san = (SanitizationPerson)ambulanceProviderComboBox.getSelectedItem();
             populateServiceTable();
-        }
     }//GEN-LAST:event_ambulanceProviderComboBoxActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -274,18 +267,15 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
          serReq.setStartDate(fromDate);
         serReq.setEndDate(toDate);
         san.getServiceRequestDirectory().addRequest(serReq);
-        nurse.getServicerequestDirectory().addRequest(serReq);
+        nurse.getServicerequestDirectorySan().addRequest(serReq);
+        user.getServiceRequestDirectorySan().addRequest(serReq);
+        JOptionPane.showMessageDialog(null, "Sanitization Service booked Successfully");
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void userComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userComboBoxActionPerformed
         // TODO add your handling code here:
-         userComboBox.removeAllItems();
-        if(userComboBox.getItemCount()==0){
-            populateComboBox();
-            userComboBox.setSelectedIndex(0);
-            user = (RegisteredUser)userComboBox.getSelectedItem();
-        }
+        user = (RegisteredUser)userComboBox.getSelectedItem();
     }//GEN-LAST:event_userComboBoxActionPerformed
 
 
@@ -305,10 +295,21 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblDoctorslist1;
     private javax.swing.JTable serviceTable;
     private javax.swing.JTextField txtRepeat;
-    private javax.swing.JComboBox<String> userComboBox;
+    private javax.swing.JComboBox userComboBox;
     // End of variables declaration//GEN-END:variables
     public void populateComboBox(){
-            for(SanitizationPerson ad: org.getSaniPersonDir().getsanitizationPersonDirectory()){
+        Organization orgnization = null;
+        for(Network net: system.getNetworkList()){
+         for(Enterprise ent: net.getEnterpriseDir().getEnterpriseList()){
+             for(Organization org: ent.getOrganizationDirectory().getOrgList()){
+                if(org.getType().getValue().equalsIgnoreCase("Sanitization Provider Organization")){
+                    orgnization = org;
+                }
+            }
+         }
+    }
+        
+            for(SanitizationPerson ad: orgnization.getSaniPersonDir().getsanitizationPersonDirectory()){
                 ambulanceProviderComboBox.addItem(ad);
             }
     }
@@ -317,7 +318,7 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
          
          ArrayList<HealthRequest> requestList = nurse.getRequestDirectory().getRequestList();
          for(HealthRequest req: requestList){
-                ambulanceProviderComboBox.addItem(req.getUser());
+                userComboBox.addItem(req.getUser());
             }
     }
 }

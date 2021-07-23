@@ -98,6 +98,10 @@ public class AddItemsJPanel extends javax.swing.JPanel {
         txtName = new javax.swing.JTextField();
         lblAddress = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         itemsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -162,6 +166,8 @@ public class AddItemsJPanel extends javax.swing.JPanel {
                 .addComponent(btnRemoveFoodSuppplier)
                 .addContainerGap(27, Short.MAX_VALUE))
         );
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         txtQuantity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

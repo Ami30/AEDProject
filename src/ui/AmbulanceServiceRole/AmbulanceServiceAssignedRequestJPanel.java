@@ -101,6 +101,8 @@ public class AmbulanceServiceAssignedRequestJPanel extends javax.swing.JPanel {
         inqueue = new javax.swing.JButton();
         decline = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         SubmittedrequestsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},

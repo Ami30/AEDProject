@@ -19,6 +19,7 @@ import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -47,6 +48,13 @@ public class FoodServiceWorkAreaJPanel extends javax.swing.JPanel {
         this.org=org;
         this.system=system;
     }
+    void setColor(JPanel panel){
+        panel.setBackground(new Color(130,175,203));
+    }
+    
+    void resetColor(JPanel panel){
+         panel.setBackground(new Color(18,102,153));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -58,77 +66,168 @@ public class FoodServiceWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnManageProfileTester = new javax.swing.JButton();
-        btnManageProfile1 = new javax.swing.JButton();
-        btnManageProfile2 = new javax.swing.JButton();
+        btnProfile_Panel = new javax.swing.JPanel();
+        btnProfile = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        btnAddFoodPackage_JPanel = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        btnAddFoodPackage = new javax.swing.JLabel();
+        btnAssignedReq_JPanel = new javax.swing.JPanel();
+        btnmanageRequests = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         workAreaJPanel = new javax.swing.JPanel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(235, 227, 126));
+        jPanel1.setBackground(new java.awt.Color(18, 102, 153));
 
-        btnManageProfileTester.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnManageProfileTester.setText("Manage Profile");
-        btnManageProfileTester.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(74, 126, 203), null, null));
-        btnManageProfileTester.setBorderPainted(false);
-        btnManageProfileTester.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageProfileTesterActionPerformed(evt);
+        btnProfile_Panel.setBackground(new java.awt.Color(130, 175, 203));
+        btnProfile_Panel.setToolTipText("");
+
+        btnProfile.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnProfile.setForeground(new java.awt.Color(255, 255, 255));
+        btnProfile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnProfile.setText("Manage Profile");
+        btnProfile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnProfileMousePressed(evt);
             }
         });
 
-        btnManageProfile1.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnManageProfile1.setText("Manage Requests");
-        btnManageProfile1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(74, 126, 203), null, null));
-        btnManageProfile1.setBorderPainted(false);
-        btnManageProfile1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageProfile1ActionPerformed(evt);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/userp.png"))); // NOI18N
+
+        javax.swing.GroupLayout btnProfile_PanelLayout = new javax.swing.GroupLayout(btnProfile_Panel);
+        btnProfile_Panel.setLayout(btnProfile_PanelLayout);
+        btnProfile_PanelLayout.setHorizontalGroup(
+            btnProfile_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnProfile_PanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btnProfile_PanelLayout.setVerticalGroup(
+            btnProfile_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnProfile_PanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnProfile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        btnAddFoodPackage_JPanel.setBackground(new java.awt.Color(18, 102, 153));
+        btnAddFoodPackage_JPanel.setToolTipText("");
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/rest.png"))); // NOI18N
+
+        btnAddFoodPackage.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnAddFoodPackage.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddFoodPackage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnAddFoodPackage.setText("Add Food Package");
+        btnAddFoodPackage.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAddFoodPackageMousePressed(evt);
             }
         });
 
-        btnManageProfile2.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnManageProfile2.setText("Add Food Package");
-        btnManageProfile2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(74, 126, 203), null, null));
-        btnManageProfile2.setBorderPainted(false);
-        btnManageProfile2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageProfile2ActionPerformed(evt);
+        javax.swing.GroupLayout btnAddFoodPackage_JPanelLayout = new javax.swing.GroupLayout(btnAddFoodPackage_JPanel);
+        btnAddFoodPackage_JPanel.setLayout(btnAddFoodPackage_JPanelLayout);
+        btnAddFoodPackage_JPanelLayout.setHorizontalGroup(
+            btnAddFoodPackage_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnAddFoodPackage_JPanelLayout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAddFoodPackage, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(62, Short.MAX_VALUE))
+        );
+        btnAddFoodPackage_JPanelLayout.setVerticalGroup(
+            btnAddFoodPackage_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnAddFoodPackage_JPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(btnAddFoodPackage_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnAddFoodPackage, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        btnAssignedReq_JPanel.setBackground(new java.awt.Color(18, 102, 153));
+        btnAssignedReq_JPanel.setToolTipText("");
+        btnAssignedReq_JPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAssignedReq_JPanelMousePressed(evt);
             }
         });
+
+        btnmanageRequests.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnmanageRequests.setForeground(new java.awt.Color(255, 255, 255));
+        btnmanageRequests.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnmanageRequests.setText("Manage Requests");
+        btnmanageRequests.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnmanageRequestsMousePressed(evt);
+            }
+        });
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/requests.png"))); // NOI18N
+
+        javax.swing.GroupLayout btnAssignedReq_JPanelLayout = new javax.swing.GroupLayout(btnAssignedReq_JPanel);
+        btnAssignedReq_JPanel.setLayout(btnAssignedReq_JPanelLayout);
+        btnAssignedReq_JPanelLayout.setHorizontalGroup(
+            btnAssignedReq_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnAssignedReq_JPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnmanageRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btnAssignedReq_JPanelLayout.setVerticalGroup(
+            btnAssignedReq_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAssignedReq_JPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(btnAssignedReq_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnmanageRequests, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnManageProfileTester, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                    .addComponent(btnManageProfile1, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                    .addComponent(btnManageProfile2, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(btnProfile_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAddFoodPackage_JPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAssignedReq_JPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(btnManageProfileTester, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnManageProfile1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageProfile2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(755, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addComponent(btnProfile_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(btnAddFoodPackage_JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(btnAssignedReq_JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(717, Short.MAX_VALUE))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 880));
 
-        workAreaJPanel.setBackground(new java.awt.Color(74, 122, 193));
+        workAreaJPanel.setBackground(new java.awt.Color(255, 255, 255));
         workAreaJPanel.setLayout(new java.awt.CardLayout());
         add(workAreaJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 1180, 880));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnManageProfileTesterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProfileTesterActionPerformed
+    private void btnProfileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProfileMousePressed
+        // TODO add your handling code here:
+        setColor(btnProfile_Panel);
+        resetColor(btnAddFoodPackage_JPanel);
+        resetColor(btnAssignedReq_JPanel);
         try {
             // TODO add your handling code here:
             ManageFoodSupplierProfileJPanel manageTesterProfile=new ManageFoodSupplierProfileJPanel(workAreaJPanel,enterprise,useraccount,system);
@@ -138,29 +237,45 @@ public class FoodServiceWorkAreaJPanel extends javax.swing.JPanel {
         } catch (ParseException ex) {
             Logger.getLogger(FoodServiceWorkAreaJPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_btnManageProfileTesterActionPerformed
+    }//GEN-LAST:event_btnProfileMousePressed
 
-    private void btnManageProfile1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProfile1ActionPerformed
+    private void btnAddFoodPackageMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddFoodPackageMousePressed
         // TODO add your handling code here:
-        FoodSupplierAssignedRequest testerAssignedRequests=new FoodSupplierAssignedRequest(workAreaJPanel,enterprise,useraccount,system, org);
-        workAreaJPanel.add("viewAllRequestJPanel", testerAssignedRequests);
-        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
-        layout.next(workAreaJPanel);
-    }//GEN-LAST:event_btnManageProfile1ActionPerformed
-
-    private void btnManageProfile2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProfile2ActionPerformed
-        // TODO add your handling code here:
+        setColor(btnAddFoodPackage_JPanel);
+        resetColor(btnAssignedReq_JPanel);
+        resetColor(btnProfile_Panel);
         AddFoodServicesTypesJPanel manageTest=new AddFoodServicesTypesJPanel(workAreaJPanel,enterprise,useraccount,system,org);
         workAreaJPanel.add("UserProfileJPanel", manageTest);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);
-    }//GEN-LAST:event_btnManageProfile2ActionPerformed
+    }//GEN-LAST:event_btnAddFoodPackageMousePressed
+
+    private void btnmanageRequestsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmanageRequestsMousePressed
+        // TODO add your handling code here:
+        setColor(btnAssignedReq_JPanel);
+        resetColor(btnAddFoodPackage_JPanel);
+        resetColor(btnProfile_Panel);
+       FoodSupplierAssignedRequest testerAssignedRequests=new FoodSupplierAssignedRequest(workAreaJPanel,enterprise,useraccount,system, org);
+        workAreaJPanel.add("viewAllRequestJPanel", testerAssignedRequests);
+        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+        layout.next(workAreaJPanel);
+    }//GEN-LAST:event_btnmanageRequestsMousePressed
+
+    private void btnAssignedReq_JPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAssignedReq_JPanelMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAssignedReq_JPanelMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnManageProfile1;
-    private javax.swing.JButton btnManageProfile2;
-    private javax.swing.JButton btnManageProfileTester;
+    private javax.swing.JLabel btnAddFoodPackage;
+    private javax.swing.JPanel btnAddFoodPackage_JPanel;
+    private javax.swing.JPanel btnAssignedReq_JPanel;
+    private javax.swing.JLabel btnProfile;
+    private javax.swing.JPanel btnProfile_Panel;
+    private javax.swing.JLabel btnmanageRequests;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel workAreaJPanel;
     // End of variables declaration//GEN-END:variables

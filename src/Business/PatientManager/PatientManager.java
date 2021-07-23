@@ -21,7 +21,10 @@ private int currentPatients;
 private HealthRequestDirectory requestDirectory = new HealthRequestDirectory();
 private PersonalNotificationDirectory notificationDirectory = new PersonalNotificationDirectory();
 private static final AtomicInteger count = new AtomicInteger(0); 
-private ServiceRequestDirectory servicerequestDirectory;
+private ServiceRequestDirectory servicerequestDirectoryFood;
+private ServiceRequestDirectory servicerequestDirectoryAmb;
+private ServiceRequestDirectory servicerequestDirectorySan;
+private ServiceRequestDirectory servicerequestDirectoryCab;
 
     public PatientManager(String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email, String username,String password, Role role) {
         super(fullName, dob, gender, address, zipcode, contactNumber, email, username,password, role);
@@ -63,12 +66,34 @@ private ServiceRequestDirectory servicerequestDirectory;
         return notificationDirectory;
     }
       
-       public ServiceRequestDirectory getServicerequestDirectory() {
-        if(servicerequestDirectory == null){
-            servicerequestDirectory = new ServiceRequestDirectory();
+    public ServiceRequestDirectory getServicerequestDirectoryFood() {
+        if(servicerequestDirectoryFood == null){
+            servicerequestDirectoryFood = new ServiceRequestDirectory();
         }
-        return servicerequestDirectory;
+        return servicerequestDirectoryFood;
     }
+
+    public ServiceRequestDirectory getServicerequestDirectoryAmb() {
+        if(servicerequestDirectoryAmb == null){
+            servicerequestDirectoryAmb = new ServiceRequestDirectory();
+        }
+        return servicerequestDirectoryAmb;
+    }
+
+    public ServiceRequestDirectory getServicerequestDirectorySan() {
+        if(servicerequestDirectorySan == null){
+            servicerequestDirectorySan = new ServiceRequestDirectory();
+        }
+        return servicerequestDirectorySan;
+    }
+
+    public ServiceRequestDirectory getServicerequestDirectoryCab() {
+        if(servicerequestDirectoryCab == null){
+            servicerequestDirectoryCab = new ServiceRequestDirectory();
+        }
+        return servicerequestDirectoryCab;
+    }
+    
          @Override
     public String toString() {
          return String.valueOf(id);

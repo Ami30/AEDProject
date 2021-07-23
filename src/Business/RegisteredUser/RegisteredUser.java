@@ -39,7 +39,9 @@ private String weight;
 private String height;
 private static final AtomicInteger count = new AtomicInteger(0); 
 private HealthRequestDirectory HealthRequestDirectory = new HealthRequestDirectory();
-private ServiceRequestDirectory serviceRequestDirectory;
+private ServiceRequestDirectory serviceRequestDirectoryFood;
+private ServiceRequestDirectory serviceRequestDirectorySan;
+private ServiceRequestDirectory serviceRequestDirectoryAmb;
 
 
     public RegisteredUser(Network userNetwork, String bloodGroup, ArrayList<String> comorbid, String symptom, String foodpreference, String isVaccinated, String fullName, String dob, String gender, String address, String zipcode, String contactNumber, String email,String username,String password, Role role) {
@@ -215,17 +217,32 @@ private ServiceRequestDirectory serviceRequestDirectory;
         return HealthRequestDirectory;
     }
 
-    public ServiceRequestDirectory getServiceRequestDirectory() {
-        if(serviceRequestDirectory == null){
-            serviceRequestDirectory = new ServiceRequestDirectory();
+    public ServiceRequestDirectory getServiceRequestDirectoryFood() {
+        if(serviceRequestDirectoryFood == null){
+            serviceRequestDirectoryFood = new ServiceRequestDirectory();
         }
-        return serviceRequestDirectory;
+        return serviceRequestDirectoryFood;
     }
+
+    public ServiceRequestDirectory getServiceRequestDirectorySan() {
+        if(serviceRequestDirectorySan == null){
+            serviceRequestDirectorySan = new ServiceRequestDirectory();
+        }
+        return serviceRequestDirectorySan;
+    }
+
+    public ServiceRequestDirectory getServiceRequestDirectoryAmb() {
+        if(serviceRequestDirectoryAmb == null){
+            serviceRequestDirectoryAmb = new ServiceRequestDirectory();
+        }
+        return serviceRequestDirectoryAmb;
+    }
+
 
     
     @Override
     public String toString() {
-        return String.valueOf(id);
+        return getName();
     }
 
    

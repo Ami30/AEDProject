@@ -22,9 +22,12 @@ import Business.WorkQueue.HealthRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -35,7 +38,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author amishagupta
  */
-public class AddPrescription extends javax.swing.JPanel {
+public class AddPrescriptionDetailsJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageEmpJPanel
@@ -50,17 +53,22 @@ public class AddPrescription extends javax.swing.JPanel {
     private Tests test;
     private HealthRequest request;
     String ifConsultationRequired;
+    private Prescription presc;
     DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
        
-    public AddPrescription(JPanel userProcessContainer,Enterprise ent, UserAccount userAccount, EcoSystem system, HealthRequest request) {
+    public AddPrescriptionDetailsJPanel(JPanel userProcessContainer,Enterprise ent, UserAccount userAccount, EcoSystem system, HealthRequest request, Prescription presc) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = userAccount;
         this.system = system;
         this.ent=ent;
         this.request = request;
+        this.presc = presc;
+        txtComment.setEditable(false);
+        txtPrescription.setEditable(false);
+        nextConsultationComboBox.setEditable(false);
+        nextConsultationDate.setEnabled(false);
         populateDetails();
-        datePanel.setVisible(false);
         
 
         
@@ -260,7 +268,6 @@ public class AddPrescription extends javax.swing.JPanel {
         // TODO add your handling code here:
        ifConsultationRequired= nextConsultationComboBox.getSelectedItem().toString();
        if(ifConsultationRequired.equalsIgnoreCase("yes")){
-           datePanel.setVisible(true);
        }
     }//GEN-LAST:event_nextConsultationComboBoxActionPerformed
 
@@ -287,5 +294,13 @@ public class AddPrescription extends javax.swing.JPanel {
     private void populateDetails(){
         lblPatientName.setText(request.getUser().getName());
         lblRequestNumber.setText(request.getRequestNumber());
-    }
+        txtComment.setText(presc.getComment());
+        txtPrescription.setText(presc.getPrescription());
+        nextConsultationComboBox.setSelectedItem(presc.getNextConsultationRequired());
+        try {
+            nextConsultationDate.setDate(formatter.parse(presc.getDate()));
+        } catch (ParseException ex) {
+            Logger.getLogger(AddPrescriptionDetailsJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+   }
 }

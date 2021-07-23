@@ -9,6 +9,7 @@ import Business.Organization.Organization;
 import Business.RegisteredUser.RegisteredUser;
 import Business.Role.Role;
 import Business.WorkQueue.HealthRequestDirectory;
+import Business.WorkQueue.OrderDirectory;
 import Business.WorkQueue.ServiceRequestDirectory;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -28,7 +29,11 @@ private int id;
 private int patientNumber;
 private static final AtomicInteger count = new AtomicInteger(0); 
 private HealthRequestDirectory requestDirectory;
-private ServiceRequestDirectory servicerequestDirectory;
+private ServiceRequestDirectory servicerequestDirectoryFood;
+private ServiceRequestDirectory servicerequestDirectoryAmb;
+private ServiceRequestDirectory servicerequestDirectorySan;
+private ServiceRequestDirectory servicerequestDirectoryCab;
+private OrderDirectory orderDirectoryMed;
 
 ArrayList<RegisteredUser> patientAssigned;
 
@@ -124,11 +129,39 @@ ArrayList<RegisteredUser> patientAssigned;
         return requestDirectory;
     }
 
-    public ServiceRequestDirectory getServicerequestDirectory() {
-        if(servicerequestDirectory == null){
-            servicerequestDirectory = new ServiceRequestDirectory();
+    public ServiceRequestDirectory getServicerequestDirectoryFood() {
+        if(servicerequestDirectoryFood == null){
+            servicerequestDirectoryFood = new ServiceRequestDirectory();
         }
-        return servicerequestDirectory;
+        return servicerequestDirectoryFood;
+    }
+
+    public ServiceRequestDirectory getServicerequestDirectoryAmb() {
+        if(servicerequestDirectoryAmb == null){
+            servicerequestDirectoryAmb = new ServiceRequestDirectory();
+        }
+        return servicerequestDirectoryAmb;
+    }
+
+    public ServiceRequestDirectory getServicerequestDirectorySan() {
+        if(servicerequestDirectorySan == null){
+            servicerequestDirectorySan = new ServiceRequestDirectory();
+        }
+        return servicerequestDirectorySan;
+    }
+
+    public ServiceRequestDirectory getServicerequestDirectoryCab() {
+        if(servicerequestDirectoryCab == null){
+            servicerequestDirectoryCab = new ServiceRequestDirectory();
+        }
+        return servicerequestDirectoryCab;
+    }
+
+   public OrderDirectory getOrderDirectoryMed() {
+        if(orderDirectoryMed == null){
+            orderDirectoryMed = new OrderDirectory();
+        }
+        return orderDirectoryMed;
     }
  
     

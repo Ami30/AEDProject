@@ -74,7 +74,7 @@ public class ManageCabBookingJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
        
             Nurse nurse = organization.getNurDir().findNurse(useraccount.getUsername());
-           for(ServiceRequest serReq : nurse.getServicerequestDirectory().getServiceRequestList()){
+           for(ServiceRequest serReq : nurse.getServicerequestDirectoryCab().getServiceRequestList()){
             Object[] row = new Object[9];
                RegisteredUser user = serReq.getUser();
                         row[0] = serReq;
@@ -104,6 +104,7 @@ public class ManageCabBookingJPanel extends javax.swing.JPanel {
         SubmittedrequestsJTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         Approved = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -140,6 +141,13 @@ public class ManageCabBookingJPanel extends javax.swing.JPanel {
             }
         });
 
+        jButton1.setText("Remove request");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -151,9 +159,12 @@ public class ManageCabBookingJPanel extends javax.swing.JPanel {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Approved, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Approved, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1)))))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -164,7 +175,9 @@ public class ManageCabBookingJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(Approved)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Approved)
+                    .addComponent(jButton1))
                 .addContainerGap(322, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -178,11 +191,25 @@ public class ManageCabBookingJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_ApprovedActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Nurse nurse = organization.getNurDir().findNurse(useraccount.getUsername());
+        int row = SubmittedrequestsJTable.getSelectedRow();
+        if(row<0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        ServiceRequest serviceSheet=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
+        nurse.getServicerequestDirectoryCab().removeRequest(serviceSheet);
+        populateRequestTable();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Approved;
     private javax.swing.JScrollPane DoctorScrollPane;
     private javax.swing.JTable SubmittedrequestsJTable;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

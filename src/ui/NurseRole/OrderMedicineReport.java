@@ -14,6 +14,7 @@ import ui.TestingEntAdminRole.*;
 import Business.Enterprise.Enterprise;
 import Business.FoodSupplier.FoodSupplier;
 import Business.Network.Network;
+import Business.Nurse.Nurse;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.Person.PersonalNotification;
@@ -53,20 +54,23 @@ public class OrderMedicineReport extends javax.swing.JPanel {
     private UserAccount userAccount;
     private EcoSystem system;
     private Pharmacist pharmacy;
-    private Organization org;
     private Tests test;
     private HealthRequest request;
+    private Nurse nurse;
+    private Organization organization;
     String ifConsultationRequired;
     private ArrayList<Medicine> medicineList = new ArrayList<>();
     DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
        
-    public OrderMedicineReport(JPanel userProcessContainer,Enterprise ent, UserAccount userAccount, EcoSystem system, HealthRequest request) {
+    public OrderMedicineReport(JPanel userProcessContainer,Enterprise ent, UserAccount userAccount, EcoSystem system, HealthRequest request, Organization organization) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = userAccount;
         this.system = system;
         this.ent=ent;
         this.request = request;
+        this.organization = organization;
+        nurse=organization.getNurDir().findNurse(userAccount.getUsername());
         populateDetails();
         populateOrderTable();
         populateComboBox();
@@ -210,20 +214,6 @@ public class OrderMedicineReport extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(pharmacyComboBox, 0, 193, Short.MAX_VALUE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(258, 258, 258)
-                                .addComponent(jLabel11)
-                                .addContainerGap(258, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnViewDetails)
-                                .addGap(31, 31, 31))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -246,28 +236,40 @@ public class OrderMedicineReport extends javax.swing.JPanel {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnSubmit)
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(pharmacyComboBox, 0, 193, Short.MAX_VALUE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(258, 258, 258)
+                                .addComponent(jLabel11)
+                                .addContainerGap(258, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnViewDetails)
+                                .addGap(30, 30, 30))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(lblAddress)
+                    .addComponent(lblPatientName)
+                    .addComponent(lblRequestNumber))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(lblAddress)
-                            .addComponent(lblPatientName)
-                            .addComponent(lblRequestNumber))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                        .addComponent(jLabel9))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnViewDetails)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pharmacyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pharmacyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnViewDetails))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel10)
@@ -305,8 +307,9 @@ public class OrderMedicineReport extends javax.swing.JPanel {
         for(Medicine med : medicineList){
             ordMed.getMedicineDirectory().addMedicineList(med);
         }
-        
+        request.getOrderDirectoryMed().addOrder(ordMed);
        medicineList.clear();
+       populateOrderTable();
         
     }//GEN-LAST:event_btnSubmitActionPerformed
 
@@ -341,13 +344,13 @@ public class OrderMedicineReport extends javax.swing.JPanel {
 
     private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailsActionPerformed
         // TODO add your handling code here:
-         int selectedRow = medicineAvailableTable.getSelectedRow();
+         int selectedRow = completeOrderTable.getSelectedRow();
          if (selectedRow < 0){
               JOptionPane.showMessageDialog(null, "Please select a row!");
             return;
          }
          else{
-         OrderMedicine ordMed = (OrderMedicine)medicineAvailableTable.getValueAt(selectedRow, 0);
+         OrderMedicine ordMed = (OrderMedicine)completeOrderTable.getValueAt(selectedRow, 0);
          OrderDetailsJPanel orderDetails=new OrderDetailsJPanel(userProcessContainer,ent,userAccount,system, request,ordMed);
             userProcessContainer.add("PatientManagerProfileJPanel", orderDetails);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -388,7 +391,7 @@ public class OrderMedicineReport extends javax.swing.JPanel {
     public void populateOrderTable() {
         DefaultTableModel model = (DefaultTableModel) completeOrderTable.getModel();
         model.setRowCount(0);
-           for(OrderMedicine om : request.getOrderDirectory().getMedicineList()){
+           for(OrderMedicine om : request.getOrderDirectoryMed().getMedicineList()){
             Object[] row = new Object[5];
             row[0] = om;
             row[1] = om.getPharmacyName();
@@ -414,7 +417,7 @@ public class OrderMedicineReport extends javax.swing.JPanel {
          DefaultTableModel model = (DefaultTableModel) cartTable.getModel();
         model.setRowCount(0);
         for(Medicine med : medicineList){
-            Object[] row = new Object[2];
+            Object[] row = new Object[3];
             row[0] = med;
             row[1] = med.getExpiryDate();
             row[2] = med.getQuantity();

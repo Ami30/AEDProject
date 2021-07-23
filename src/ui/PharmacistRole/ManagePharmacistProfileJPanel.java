@@ -73,6 +73,10 @@ public class ManagePharmacistProfileJPanel extends javax.swing.JPanel {
         addJButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel2.setText("Name");
 
         jDateChooser1.setDateFormatString("dd-MM-yyyy");

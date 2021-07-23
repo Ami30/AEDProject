@@ -99,6 +99,10 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
         lblAddress = new javax.swing.JLabel();
         expiryDateChooser = new com.toedter.calendar.JDateChooser();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         medicineTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -164,6 +168,8 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
                 .addComponent(btnRemovemedicine)
                 .addContainerGap(27, Short.MAX_VALUE))
         );
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setText("Medicine Name");
 

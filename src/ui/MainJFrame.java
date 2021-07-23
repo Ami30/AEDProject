@@ -224,7 +224,7 @@ public class MainJFrame extends javax.swing.JFrame {
         lblWelcome.setText("HELLO ADMIN");
         exitJPanel.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 480, 60));
 
-        btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/exit1.gif"))); // NOI18N
+        btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/logouticon.png"))); // NOI18N
         btnLogout.setBorder(null);
         btnLogout.setContentAreaFilled(false);
         btnLogout.addActionListener(new java.awt.event.ActionListener() {

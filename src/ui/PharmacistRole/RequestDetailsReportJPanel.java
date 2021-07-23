@@ -305,7 +305,7 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
       private void populateTable(){
         DefaultTableModel model = (DefaultTableModel) medicinesRequestedtable.getModel();
         model.setRowCount(0);
-        for (OrderMedicine med : request.getOrderDirectory().getMedicineList()){          
+        for (OrderMedicine med : request.getOrderDirectoryMed().getMedicineList()){          
             Object[] row = new Object[4];
             row[0] = med;
             row[1] = med.getOrderDate();
