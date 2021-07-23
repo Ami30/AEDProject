@@ -34,6 +34,7 @@ import Business.Tester.Tests;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HealthRequest;
 import Business.WorkQueue.ServiceRequest;
+import java.awt.CardLayout;
 import java.awt.Component;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -126,6 +127,7 @@ public class BooKFoodPMJPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         dateTo = new com.toedter.calendar.JDateChooser();
         userComboBox = new javax.swing.JComboBox();
+        jButton3 = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -197,8 +199,7 @@ public class BooKFoodPMJPanel extends javax.swing.JPanel {
                                 .addComponent(dateTo, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(175, 175, 175)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblDoctorslist1, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)))
@@ -236,18 +237,21 @@ public class BooKFoodPMJPanel extends javax.swing.JPanel {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, 410));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, 410));
+
+        jButton3.setText("Back");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void ambulanceProviderComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ambulanceProviderComboBoxActionPerformed
         // TODO add your handling code here:
-          ambulanceProviderComboBox.removeAllItems();
-        if(ambulanceProviderComboBox.getItemCount()==0){
-            populateComboBox();
-            ambulanceProviderComboBox.setSelectedIndex(0);
-            foodSup = (FoodSupplier)ambulanceProviderComboBox.getSelectedItem();
-            populateServiceTable();
-        }
+        foodSup = (FoodSupplier)ambulanceProviderComboBox.getSelectedItem();
+        populateServiceTable();
     }//GEN-LAST:event_ambulanceProviderComboBoxActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -269,20 +273,25 @@ public class BooKFoodPMJPanel extends javax.swing.JPanel {
         foodSup.getServiceRequestDirectory().addRequest(serReq);
         pMan.getServicerequestDirectoryFood().addRequest(serReq);
         user.getServiceRequestDirectoryFood().addRequest(serReq);
+        JOptionPane.showMessageDialog(null, "Food booked Successfully");
+
         
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void userComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userComboBoxActionPerformed
         // TODO add your handling code here:
-        userComboBox.removeAllItems();
-        if(userComboBox.getItemCount()==0){
-            UserComboBox();
-            userComboBox.setSelectedIndex(0);
             user = (RegisteredUser)userComboBox.getSelectedItem();
-//            populateServiceTable();
-        }
+            
+
     }//GEN-LAST:event_userComboBoxActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+         userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -290,6 +299,7 @@ public class BooKFoodPMJPanel extends javax.swing.JPanel {
     private com.toedter.calendar.JDateChooser dateFrom;
     private com.toedter.calendar.JDateChooser dateTo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -321,8 +331,8 @@ public class BooKFoodPMJPanel extends javax.swing.JPanel {
     
      public void UserComboBox(){
          
-         ArrayList<HealthRequest> requestList = pMan.getRequestDirectory().getRequestList();
-         for(HealthRequest req: requestList){
+//         ArrayList<HealthRequest> requestList = pMan.getRequestDirectory().getRequestList();
+         for(HealthRequest req: pMan.getRequestDirectory().getRequestList()){
                 userComboBox.addItem(req.getUser());
             }
     }

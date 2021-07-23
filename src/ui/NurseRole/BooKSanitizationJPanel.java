@@ -246,13 +246,8 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
 
     private void ambulanceProviderComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ambulanceProviderComboBoxActionPerformed
         // TODO add your handling code here:
-          ambulanceProviderComboBox.removeAllItems();
-        if(ambulanceProviderComboBox.getItemCount()==0){
-            populateComboBox();
-            ambulanceProviderComboBox.setSelectedIndex(0);
-            san = (SanitizationPerson)ambulanceProviderComboBox.getSelectedItem();
+       san = (SanitizationPerson)ambulanceProviderComboBox.getSelectedItem();
             populateServiceTable();
-        }
     }//GEN-LAST:event_ambulanceProviderComboBoxActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -274,18 +269,13 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
         san.getServiceRequestDirectory().addRequest(serReq);
         nurse.getServicerequestDirectorySan().addRequest(serReq);
         user.getServiceRequestDirectorySan().addRequest(serReq);
+        JOptionPane.showMessageDialog(null, "Sanitization Service booked Successfully");
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void userComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userComboBoxActionPerformed
         // TODO add your handling code here:
-        userComboBox.removeAllItems();
-        if(userComboBox.getItemCount()==0){
-            UserComboBox();
-            userComboBox.setSelectedIndex(0);
-            user = (RegisteredUser)userComboBox.getSelectedItem();
-//            populateServiceTable();
-        }
+        user = (RegisteredUser)userComboBox.getSelectedItem();
     }//GEN-LAST:event_userComboBoxActionPerformed
 
 

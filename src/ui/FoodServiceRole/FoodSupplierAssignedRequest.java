@@ -68,7 +68,7 @@ public class FoodSupplierAssignedRequest extends javax.swing.JPanel {
            
             FoodSupplier foodSupplier = organization.getFoodSupplierDir().findFoodSupplier(useraccount.getUsername());
               for(ServiceRequest req : foodSupplier.getServiceRequestDirectory().getServiceRequestList()){
-                        Object[] row = new Object[4];
+                        Object[] row = new Object[9];
                         row[0] = req;
                         row[1] = req.getUser().getName();
                         row[2] = req.getUser().getContactNumber();

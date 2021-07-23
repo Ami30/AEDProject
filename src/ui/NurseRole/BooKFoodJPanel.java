@@ -234,13 +234,8 @@ public class BooKFoodJPanel extends javax.swing.JPanel {
 
     private void ambulanceProviderComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ambulanceProviderComboBoxActionPerformed
         // TODO add your handling code here:
-          ambulanceProviderComboBox.removeAllItems();
-        if(ambulanceProviderComboBox.getItemCount()==0){
-            populateComboBox();
-            ambulanceProviderComboBox.setSelectedIndex(0);
-            foodSup = (FoodSupplier)ambulanceProviderComboBox.getSelectedItem();
+       foodSup = (FoodSupplier)ambulanceProviderComboBox.getSelectedItem();
             populateServiceTable();
-        }
     }//GEN-LAST:event_ambulanceProviderComboBoxActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -262,19 +257,14 @@ public class BooKFoodJPanel extends javax.swing.JPanel {
         foodSup.getServiceRequestDirectory().addRequest(serReq);
         nurse.getServicerequestDirectoryFood().addRequest(serReq);
         user.getServiceRequestDirectoryFood().addRequest(serReq);
+        JOptionPane.showMessageDialog(null, "Food Service booked Successfully");
         
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void userComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userComboBoxActionPerformed
         // TODO add your handling code here:
-         userComboBox.removeAllItems();
-        if(userComboBox.getItemCount()==0){
-            UserComboBox();
-            userComboBox.setSelectedIndex(0);
-            user = (RegisteredUser)userComboBox.getSelectedItem();
-//            populateServiceTable();
-        }
+         user = (RegisteredUser)userComboBox.getSelectedItem();
     }//GEN-LAST:event_userComboBoxActionPerformed
 
 

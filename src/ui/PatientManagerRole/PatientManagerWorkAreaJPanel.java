@@ -162,7 +162,7 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(btnProfile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         btnAllRequest_JPanel.setBackground(new java.awt.Color(18, 102, 153));
@@ -360,7 +360,7 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
         btnAssignedRequest.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnAssignedRequest.setForeground(new java.awt.Color(255, 255, 255));
         btnAssignedRequest.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnAssignedRequest.setText("View Assigned Requests");
+        btnAssignedRequest.setText("Assign Doctor Requests");
         btnAssignedRequest.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnAssignedRequestMousePressed(evt);
@@ -376,7 +376,7 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAssignedRequest)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         btnAssignedRequest_JPanelLayout.setVerticalGroup(
             btnAssignedRequest_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -396,7 +396,7 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
         btnNotification.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnNotification.setForeground(new java.awt.Color(255, 255, 255));
         btnNotification.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnNotification.setText("View Notifications");
+        btnNotification.setText("Assign Nurse Requests");
         btnNotification.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnNotificationMousePressed(evt);
