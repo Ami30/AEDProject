@@ -201,9 +201,17 @@ public class SanitizationPersonAssignedRequest extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
+        if(serReq.getStatus().equalsIgnoreCase("declined") || serReq.getStatus().equalsIgnoreCase("completed") || serReq.getStatus().equalsIgnoreCase("accepted")){
+        JOptionPane.showMessageDialog(null, "The Request is already " + serReq.getStatus()+" , please choose another request!");
+            
+        }else {
         serReq.setStatus("Accepted");
-        JOptionPane.showMessageDialog(null, "Service Request accepted");
+        JOptionPane.showMessageDialog(null, "Sanitization Service Request accepted successfully!");
         populateRequestTable();
+        }
+        
+        
+       
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

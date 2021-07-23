@@ -247,8 +247,8 @@ public class CabServiceWorkAreaJPanel extends javax.swing.JPanel {
         setColor(btnAssignedReq_JPanel);
         resetColor(btnAddServices_JPanel);
         resetColor(btnProfile_Panel);
-        AmbulanceServiceAssignedRequestJPanel ambulanceRequestAssigned=new AmbulanceServiceAssignedRequestJPanel(workAreaJPanel,enterprise,useraccount,system, org);
-        workAreaJPanel.add("ambulanceRequestAssigned", ambulanceRequestAssigned);
+        CabServiceAssignedRequestJPanel cabAssignedRequest=new CabServiceAssignedRequestJPanel(workAreaJPanel,enterprise,useraccount,system, org);
+        workAreaJPanel.add("cabAssignedRequest", cabAssignedRequest);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);
     }//GEN-LAST:event_btnassignedRequestsMousePressed
@@ -262,8 +262,8 @@ public class CabServiceWorkAreaJPanel extends javax.swing.JPanel {
         setColor(btnAddServices_JPanel);
         resetColor(btnAssignedReq_JPanel);
         resetColor(btnProfile_Panel);
-        AddServicesJAreaPanel ambulanceServiceRequest=new AddServicesJAreaPanel(workAreaJPanel,enterprise,useraccount,system,org);
-        workAreaJPanel.add("ambulanceServiceRequest", ambulanceServiceRequest);
+        AddCabServicesJAreaPanel addCabService=new AddCabServicesJAreaPanel(workAreaJPanel,enterprise,useraccount,system,org);
+        workAreaJPanel.add("addCabService", addCabService);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);
     }//GEN-LAST:event_btnAddServicesMousePressed

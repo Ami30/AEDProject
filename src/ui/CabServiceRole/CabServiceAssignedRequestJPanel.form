@@ -32,15 +32,15 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="DoctorScrollPane" min="-2" pref="939" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="Approved" min="-2" pref="125" max="-2" attributes="0"/>
+                              <Component id="btnApproved" min="-2" pref="125" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="Approved1" min="-2" pref="125" max="-2" attributes="0"/>
+                              <Component id="btnArrived" min="-2" pref="125" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" pref="96" max="-2" attributes="0"/>
+                              <Component id="btnRiding" min="-2" pref="96" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="completed" min="-2" pref="125" max="-2" attributes="0"/>
+                              <Component id="btnCompleted" min="-2" pref="125" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="decline" min="-2" pref="125" max="-2" attributes="0"/>
+                              <Component id="btnDecline" min="-2" pref="125" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -58,11 +58,11 @@
               <Component id="DoctorScrollPane" min="-2" pref="185" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="Approved" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="completed" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="decline" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Approved1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnApproved" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnCompleted" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnDecline" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnArrived" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRiding" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="322" max="32767" attributes="0"/>
           </Group>
@@ -160,44 +160,44 @@
         <Property name="text" type="java.lang.String" value="User&apos;s Requests"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="Approved">
+    <Component class="javax.swing.JButton" name="btnApproved">
       <Properties>
         <Property name="text" type="java.lang.String" value="Accepted"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ApprovedActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnApprovedActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="completed">
+    <Component class="javax.swing.JButton" name="btnCompleted">
       <Properties>
         <Property name="text" type="java.lang.String" value="Completed"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="completedActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCompletedActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="decline">
+    <Component class="javax.swing.JButton" name="btnDecline">
       <Properties>
         <Property name="text" type="java.lang.String" value="Decline"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="declineActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeclineActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Approved1">
+    <Component class="javax.swing.JButton" name="btnArrived">
       <Properties>
         <Property name="text" type="java.lang.String" value="Arrived"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Approved1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnArrivedActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnRiding">
       <Properties>
         <Property name="text" type="java.lang.String" value="Riding"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRidingActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

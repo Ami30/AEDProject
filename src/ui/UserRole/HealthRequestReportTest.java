@@ -622,13 +622,10 @@ public class HealthRequestReportTest extends javax.swing.JPanel {
 
     private void testProviderComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testProviderComboBoxActionPerformed
         // TODO add your handling code here:
-        testProviderComboBox.removeAllItems();
-        if(testProviderComboBox.getItemCount()==0){
-            populateComboBox();
-            testProviderComboBox.setSelectedIndex(0);
+           
             tester = (Tester)testProviderComboBox.getSelectedItem();
             populateTestsTable();
-        }
+       
     }//GEN-LAST:event_testProviderComboBoxActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -645,6 +642,7 @@ public class HealthRequestReportTest extends javax.swing.JPanel {
                      JOptionPane.showMessageDialog(null, "Test already selected");
                  }else{
                      testSelectedList.add(test);
+                     JOptionPane.showMessageDialog(null, test.getTestName() +" added to the cart");
                      populateSelectedTable();
                      
                  }  

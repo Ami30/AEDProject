@@ -205,9 +205,14 @@ public class AmbulanceServiceAssignedRequestJPanel extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
-        serReq.setStatus("On the way");
+        if(serReq.getStatus().equalsIgnoreCase("On the way") || serReq.getStatus().equalsIgnoreCase("completed") || serReq.getStatus().equalsIgnoreCase("in waiting list") || serReq.getStatus().equalsIgnoreCase("Declined")){
+         JOptionPane.showMessageDialog(null, "Ambulance already marked "+ serReq.getStatus());
+        }else{
+            serReq.setStatus("On the way");
         JOptionPane.showMessageDialog(null, "Ambulance marked on the way");
         populateRequestTable();
+        }
+        
 
     }//GEN-LAST:event_ApprovedActionPerformed
 
@@ -219,10 +224,15 @@ public class AmbulanceServiceAssignedRequestJPanel extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
+        if(serReq.getStatus().equalsIgnoreCase("completed") || serReq.getStatus().equalsIgnoreCase("in waiting list") || serReq.getStatus().equalsIgnoreCase("Declined")){
+            JOptionPane.showMessageDialog(null, "Ambulance already marked "+ serReq.getStatus());
+        }else{
         serReq.setStatus("Completed");
         JOptionPane.showMessageDialog(null, "Ambulance request marked completed");
         populateRequestTable();
 
+        }
+        
     }//GEN-LAST:event_completedActionPerformed
 
     private void inqueueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inqueueActionPerformed
@@ -233,9 +243,14 @@ public class AmbulanceServiceAssignedRequestJPanel extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
-        serReq.setStatus("in waiting list");
+        if(serReq.getStatus().equalsIgnoreCase("On the way") || serReq.getStatus().equalsIgnoreCase("in waiting list") || serReq.getStatus().equalsIgnoreCase("Declined")){
+        JOptionPane.showMessageDialog(null, "Ambulance already marked "+ serReq.getStatus());
+        } else{
+         serReq.setStatus("in waiting list");
         JOptionPane.showMessageDialog(null, "Ambulance request is i wait list");
         populateRequestTable();
+        }
+       
     }//GEN-LAST:event_inqueueActionPerformed
 
     private void declineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_declineActionPerformed
@@ -246,7 +261,7 @@ public class AmbulanceServiceAssignedRequestJPanel extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
-        serReq.setStatus("Request Declined");
+        serReq.setStatus("Declined");
         JOptionPane.showMessageDialog(null, "Ambulance request declined");
         populateRequestTable();
     }//GEN-LAST:event_declineActionPerformed

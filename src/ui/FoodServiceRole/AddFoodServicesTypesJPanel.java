@@ -239,11 +239,8 @@ public class AddFoodServicesTypesJPanel extends javax.swing.JPanel {
         
         FoodPackage foodPackage=new FoodPackage(packageName,packageDetails);
         foodProvider.getFoodpackageDirectory().addFoodTypeList(foodPackage);
-          populateTestTable();
-        
-       
-        
-
+        JOptionPane.showMessageDialog(null, "Food Package added successfully!");
+        populateTestTable();
     }//GEN-LAST:event_addJButtonActionPerformed
 
     private void btnRemoveFoodSuppplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveFoodSuppplierActionPerformed
@@ -255,7 +252,7 @@ public class AddFoodServicesTypesJPanel extends javax.swing.JPanel {
         }
         FoodPackage foodPackage=(FoodPackage)foodTypesTable.getValueAt(row, 0);
         foodProvider.getFoodpackageDirectory().removeFoodTypeList(foodPackage);
-        
+        JOptionPane.showMessageDialog(null, "Food Package removed successfully!");
         populateTestTable();
     }//GEN-LAST:event_btnRemoveFoodSuppplierActionPerformed
 

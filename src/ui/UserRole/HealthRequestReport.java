@@ -69,7 +69,9 @@ public class HealthRequestReport extends javax.swing.JPanel {
         btnTest.setVisible(false);
         doctorJpanel.setVisible(false);
         toggleActionButtons();
+        togglePrescriptionButton();
         toggleButton();
+        toggleDoctorButton();
         populateprofile();
         this.comorbid=new ArrayList<>();
         
@@ -494,7 +496,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
             }
         });
 
-        btnReportBacktoAM.setText("Report to AM");
+        btnReportBacktoAM.setText("Report to Patient Manager");
         btnReportBacktoAM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReportBacktoAMActionPerformed(evt);
@@ -588,7 +590,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -619,6 +621,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
             btnReportBacktoAM.setVisible(false);
             btnViewPresc.setVisible(false);
             viewAvailableTest.setVisible(false);
+            
 
         }else if(buttonFlag.equalsIgnoreCase("doctor")){
             btnAssignToDoctor.setVisible(false);
@@ -744,6 +747,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
 //        notification.setRequest(request);
         patMan.getNotificationDirectory().addNotification(notification);
         request.setStatus("quarantined");
+        JOptionPane.showMessageDialog(null, "This patient has been marked as quarntined ");
     }//GEN-LAST:event_btnReportBacktoAMActionPerformed
 
     private void btnViewPrescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPrescActionPerformed
@@ -840,6 +844,18 @@ public class HealthRequestReport extends javax.swing.JPanel {
     private void toggleActionButtons(){
         if(request.getPatientManager()!=null){
             btnAssignToMe.setVisible(false);
+        }
+    }
+    
+    private void togglePrescriptionButton(){
+        if(request.getPrescriptionDirectory().getPrescriptionList().isEmpty()){
+            btnViewPresc.setVisible(false);
+            btnReportBacktoAM.setVisible(false);
+        }
+    }
+    private void toggleDoctorButton(){
+        if(request.getDoctor()!= null){
+            btnAssignToDoctor.setVisible(false);
         }
     }
 }

@@ -30,6 +30,7 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import ui.UserRole.HealthRequestReport;
 
 /**
  *
@@ -103,6 +104,7 @@ public class AddPrescription extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         nextConsultationDate = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -228,8 +230,16 @@ public class AddPrescription extends javax.swing.JPanel {
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, 340));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setText("                      Test Reporting");
+        jLabel5.setText("                      Add Prescription");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 270, 20));
+
+        jButton3.setText("Back");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
@@ -249,9 +259,10 @@ public class AddPrescription extends javax.swing.JPanel {
             request.getPrescriptionDirectory().addPrescriptionList(pres);
         }
         JOptionPane.showMessageDialog(null, "Prescription Added Successfully");
-        userProcessContainer.remove(this);
+        HealthRequestReport healthRequest=new HealthRequestReport(userProcessContainer,ent,userAccount,system, request, null, "doctor");
+        userProcessContainer.add("PatientManagerProfileJPanel", healthRequest);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        layout.next(userProcessContainer);
         
         
     }//GEN-LAST:event_addJButtonActionPerformed
@@ -264,10 +275,18 @@ public class AddPrescription extends javax.swing.JPanel {
        }
     }//GEN-LAST:event_nextConsultationComboBoxActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addJButton;
     private javax.swing.JPanel datePanel;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

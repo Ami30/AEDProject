@@ -243,6 +243,7 @@ public class AddCabServicesJAreaPanel extends javax.swing.JPanel {
         
         CabService cabServce=new CabService(packageName,serviceType);
         cabProvider.getCabServiceDirectory().addService(cabServce);
+         JOptionPane.showMessageDialog(null, "Cab Service added successfully!");
           populateTestTable();
         
        
@@ -259,6 +260,7 @@ public class AddCabServicesJAreaPanel extends javax.swing.JPanel {
         }
         CabService cabService=(CabService)ServiceTable.getValueAt(row, 0);;
         cabProvider.getCabServiceDirectory().removeService(cabService);
+         JOptionPane.showMessageDialog(null, "Cab Service removed successfully!");
         populateTestTable();
     }//GEN-LAST:event_btnRemoveFoodSuppplierActionPerformed
 

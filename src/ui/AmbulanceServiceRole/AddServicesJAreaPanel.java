@@ -240,6 +240,7 @@ public class AddServicesJAreaPanel extends javax.swing.JPanel {
         
         AmbulanceService ambServce=new AmbulanceService(packageName,serviceType);
         ambulanceProvider.getAmbulanceServiceDirectory().addService(ambServce);
+        JOptionPane.showMessageDialog(null, "Ambulance Service added successfully!");
           populateTestTable();
         
        
@@ -256,6 +257,7 @@ public class AddServicesJAreaPanel extends javax.swing.JPanel {
         }
         AmbulanceService ambulanceService=(AmbulanceService)ServiceTable.getValueAt(row, 0);
         ambulanceProvider.getAmbulanceServiceDirectory().removeService(ambulanceService);
+        JOptionPane.showMessageDialog(null, "Ambulance Service removed successfully!");
         populateTestTable();
     }//GEN-LAST:event_btnRemoveFoodSuppplierActionPerformed
 

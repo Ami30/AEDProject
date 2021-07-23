@@ -66,6 +66,7 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
         this.patientManager = patientManager;
         this.buttonFlag = buttonFlag;
         doctorJpanel.setVisible(false);
+        toggleNurseButton();
         populateprofile();
         this.comorbid=new ArrayList<>();
         
@@ -116,7 +117,6 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
         lblCough = new javax.swing.JLabel();
         lblBodyPain = new javax.swing.JLabel();
         lblOtherSymptoms = new javax.swing.JLabel();
-        btnAssignToDoctor = new javax.swing.JButton();
         doctorJpanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         doctorJTable = new javax.swing.JTable();
@@ -381,13 +381,6 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
                 .addGap(28, 28, 28))
         );
 
-        btnAssignToDoctor.setText("Assign a Doctor");
-        btnAssignToDoctor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAssignToDoctorActionPerformed(evt);
-            }
-        });
-
         doctorJpanel.setBackground(new java.awt.Color(255, 255, 255));
 
         doctorJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -458,14 +451,10 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
                             .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(31, 31, 31)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(doctorJpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(btnAssignToDoctor)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnAssignToNurse))))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(doctorJpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAssignToNurse)))
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(178, Short.MAX_VALUE))
         );
@@ -482,9 +471,7 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAssignToDoctor)
-                            .addComponent(btnAssignToNurse))
+                        .addComponent(btnAssignToNurse)
                         .addGap(45, 45, 45)
                         .addComponent(doctorJpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -530,39 +517,6 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
                   CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                   layout.next(userProcessContainer);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void btnAssignToDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignToDoctorActionPerformed
-        // TODO add your handling code here:
-        doctorJpanel.setVisible(true);
-        DefaultTableModel model = (DefaultTableModel) doctorJTable.getModel();
-        model.setRowCount(0);
-        for(Network net: system.getNetworkList()){
-            if(net.getName().equalsIgnoreCase(request.getUser().getRegisteredUserNetwork().getName())){
-                   for(Enterprise ent: net.getEnterpriseDir().getEnterpriseList()){
-            if(ent.getEnterpriseType().getValue().equalsIgnoreCase("Hospital")){
-                for(Organization org: ent.getOrganizationDirectory().getOrgList()){
-                    if(org.getType().getValue().equalsIgnoreCase("Doctor Organization")){
-                        for(Doctor doc: org.getDocDir().getdoctorDirectory()){
-                            Object[] row = new Object[4];
-                            row[0] = doc;
-                            row[1] = doc.getDegree();
-                            row[2] = doc.getYearsExperience();
-                            row[3] = doc.getZipcode();
-                            model.addRow(row);
-                            
-                        }
-                    }
-                    
-                    
-                }
-            }
-        }
-            }
-        }
-     
-        
-        
-    }//GEN-LAST:event_btnAssignToDoctorActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
@@ -636,7 +590,6 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAssignToDoctor;
     private javax.swing.JButton btnAssignToNurse;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JTable doctorJTable;
@@ -696,4 +649,9 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
        lblOtherSymptoms.setText(request.getOtherSymptoms());
        
     }     
+    public void toggleNurseButton(){
+        if(request.getNurse()!=null){
+            btnAssignToNurse.setVisible(false);
+        }
+    }
 }
