@@ -5,8 +5,6 @@
  */
 package ui.TestingServiceRole;
 
-import ui.DoctorRole.*;
-import Business.Doctor.Doctor;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
@@ -15,7 +13,6 @@ import Business.UserAccount.UserAccount;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;

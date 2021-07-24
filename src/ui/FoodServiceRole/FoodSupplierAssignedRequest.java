@@ -5,16 +5,12 @@
  */
 package ui.FoodServiceRole;
 
-import ui.SanitizationServiceRole.*;
-import ui.TestingServiceRole.*;
+
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.FoodSupplier.FoodSupplier;
 import Business.Organization.Organization;
-import Business.SanitizationPerson.SanitizationPerson;
-import Business.Tester.Tester;
 import Business.UserAccount.UserAccount;
-import Business.WorkQueue.HealthRequest;
 import Business.WorkQueue.ServiceRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -203,7 +199,7 @@ public class FoodSupplierAssignedRequest extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
-         if(serReq.getStatus().equalsIgnoreCase("Declined") || serReq.getStatus().equalsIgnoreCase("Completed") || serReq.getStatus().equalsIgnoreCase("Accepted")){
+         if(serReq.getStatus().equalsIgnoreCase("Declined") || serReq.getStatus().equalsIgnoreCase("Completed") || serReq.getStatus().equalsIgnoreCase("Accepted") || serReq.getStatus().equalsIgnoreCase("cancelled")){
          JOptionPane.showMessageDialog(null, "Food Service Request is already " + serReq.getStatus()+ " , please choose another request");
             
          }else{

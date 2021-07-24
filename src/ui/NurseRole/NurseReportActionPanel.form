@@ -346,6 +346,11 @@
                           </Group>
                           <EmptySpace pref="79" max="32767" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btnViewPresc" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -358,12 +363,12 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblDoctorsName" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lblDoctorsName" alignment="0" pref="31" max="32767" attributes="0"/>
                               <Component id="lblZipCode1" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblNursesName" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lblNursesName" alignment="0" pref="31" max="32767" attributes="0"/>
                               <Component id="lblContactNo2" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -371,12 +376,13 @@
                               <Component id="lblHospitalsName" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                               <Component id="jLabel4" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="19" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="lblStatus" alignment="0" max="32767" attributes="0"/>
                               <Component id="lblContactNo3" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                          <Component id="btnViewPresc" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -476,6 +482,14 @@
                       <Dimension value="[6, 20]"/>
                     </Property>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnViewPresc">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="View Prescription"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewPrescActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

@@ -5,7 +5,6 @@
  */
 package ui.TransportationEntAdminRole;
 
-import ui.HospitalEntAdminRole.*;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;

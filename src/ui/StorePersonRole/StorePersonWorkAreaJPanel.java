@@ -5,13 +5,6 @@
  */
 package ui.StorePersonRole;
 
-import ui.PatientManagerRole.*;
-import ui.UserRole.*;
-import ui.TestingEntAdminRole.*;
-import ui.FoodSupplyEntAdminRole.*;
-import ui.SanitizationEntAdminRole.*;
-import ui.PatientSupportEntAdminRole.*;
-import ui.HospitalEntAdminRole.*;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
@@ -240,7 +233,7 @@ public class StorePersonWorkAreaJPanel extends javax.swing.JPanel {
         setColor(btnOrders_JPanel);
         resetColor(btnAddMedicines_JPanel);
         resetColor(btnProfile_Panel);
-       StorePersonAssignedRequestJPanel assignedReqJPanel=new StorePersonAssignedRequestJPanel(workAreaJPanel,enterprise,useraccount,system,org);
+       StorePersonAssignedRequest assignedReqJPanel=new StorePersonAssignedRequest(workAreaJPanel,enterprise,useraccount,system,org);
         workAreaJPanel.add("StorePersonJPanel", assignedReqJPanel);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);
@@ -251,8 +244,8 @@ public class StorePersonWorkAreaJPanel extends javax.swing.JPanel {
         setColor(btnAddMedicines_JPanel);
         resetColor(btnOrders_JPanel);
         resetColor(btnProfile_Panel);
-        AddItemsJPanel additem=new AddItemsJPanel(workAreaJPanel,enterprise,useraccount,system,org);
-        workAreaJPanel.add("ItemJPanel", additem);
+        AddProductsJPanel addProducts=new AddProductsJPanel(workAreaJPanel,enterprise,useraccount,system,org);
+        workAreaJPanel.add("addProducts", addProducts);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);
     }//GEN-LAST:event_btnMedicinesMousePressed

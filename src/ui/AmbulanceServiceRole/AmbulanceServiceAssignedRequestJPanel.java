@@ -6,20 +6,14 @@
 package ui.AmbulanceServiceRole;
 
 import Business.AmbulanceDriver.AmbulanceDriver;
-import ui.FoodServiceRole.*;
-import ui.SanitizationServiceRole.*;
-import ui.TestingServiceRole.*;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.FoodSupplier.FoodSupplier;
 import Business.Organization.Organization;
 import Business.RegisteredUser.RegisteredUser;
-import Business.SanitizationPerson.SanitizationPerson;
-import Business.Tester.Tester;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HealthRequest;
 import Business.WorkQueue.ServiceRequest;
-import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -129,7 +123,7 @@ public class AmbulanceServiceAssignedRequestJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         jLabel1.setText("User's Requests");
 
-        Approved.setText("Approve");
+        Approved.setText("Accepted");
         Approved.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ApprovedActionPerformed(evt);
@@ -205,7 +199,7 @@ public class AmbulanceServiceAssignedRequestJPanel extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
-        if(serReq.getStatus().equalsIgnoreCase("On the way") || serReq.getStatus().equalsIgnoreCase("completed") || serReq.getStatus().equalsIgnoreCase("in waiting list") || serReq.getStatus().equalsIgnoreCase("Declined")){
+        if(serReq.getStatus().equalsIgnoreCase("On the way") || serReq.getStatus().equalsIgnoreCase("completed") || serReq.getStatus().equalsIgnoreCase("in waiting list") || serReq.getStatus().equalsIgnoreCase("Declined") || serReq.getStatus().equalsIgnoreCase("cancelled")){
          JOptionPane.showMessageDialog(null, "Ambulance already marked "+ serReq.getStatus());
         }else{
             serReq.setStatus("On the way");
@@ -224,7 +218,7 @@ public class AmbulanceServiceAssignedRequestJPanel extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
-        if(serReq.getStatus().equalsIgnoreCase("completed") || serReq.getStatus().equalsIgnoreCase("in waiting list") || serReq.getStatus().equalsIgnoreCase("Declined")){
+        if(serReq.getStatus().equalsIgnoreCase("completed") || serReq.getStatus().equalsIgnoreCase("in waiting list") || serReq.getStatus().equalsIgnoreCase("Declined") || serReq.getStatus().equalsIgnoreCase("cancelled")){
             JOptionPane.showMessageDialog(null, "Ambulance already marked "+ serReq.getStatus());
         }else{
         serReq.setStatus("Completed");
@@ -243,7 +237,7 @@ public class AmbulanceServiceAssignedRequestJPanel extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
-        if(serReq.getStatus().equalsIgnoreCase("On the way") || serReq.getStatus().equalsIgnoreCase("in waiting list") || serReq.getStatus().equalsIgnoreCase("Declined")){
+        if(serReq.getStatus().equalsIgnoreCase("On the way") || serReq.getStatus().equalsIgnoreCase("in waiting list") || serReq.getStatus().equalsIgnoreCase("Declined") || serReq.getStatus().equalsIgnoreCase("cancelled")){
         JOptionPane.showMessageDialog(null, "Ambulance already marked "+ serReq.getStatus());
         } else{
          serReq.setStatus("in waiting list");
@@ -261,9 +255,14 @@ public class AmbulanceServiceAssignedRequestJPanel extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
+        if(serReq.getStatus().equalsIgnoreCase("cancelled")){
+            JOptionPane.showMessageDialog(null, "Ambulance already marked "+ serReq.getStatus());
+        } else{
         serReq.setStatus("Declined");
         JOptionPane.showMessageDialog(null, "Ambulance request declined");
         populateRequestTable();
+        }
+        
     }//GEN-LAST:event_declineActionPerformed
 
 

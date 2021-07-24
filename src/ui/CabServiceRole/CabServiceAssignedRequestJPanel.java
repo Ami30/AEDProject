@@ -5,25 +5,18 @@
  */
 package ui.CabServiceRole;
 
-import ui.AmbulanceServiceRole.*;
-import Business.AmbulanceDriver.AmbulanceDriver;
+
 import Business.CabDriver.CabDriver;
 import Business.Doctor.Doctor;
-import ui.FoodServiceRole.*;
-import ui.SanitizationServiceRole.*;
-import ui.TestingServiceRole.*;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.FoodSupplier.FoodSupplier;
 import Business.Nurse.Nurse;
 import Business.Organization.Organization;
 import Business.RegisteredUser.RegisteredUser;
-import Business.SanitizationPerson.SanitizationPerson;
-import Business.Tester.Tester;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HealthRequest;
 import Business.WorkQueue.ServiceRequest;
-import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -239,7 +232,7 @@ public class CabServiceAssignedRequestJPanel extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
-        if(serReq.getStatus().equalsIgnoreCase("Accepted") || serReq.getStatus().equalsIgnoreCase("completed") || serReq.getStatus().equalsIgnoreCase("arrived") || serReq.getStatus().equalsIgnoreCase("riding") || serReq.getStatus().equalsIgnoreCase("declined")){
+        if(serReq.getStatus().equalsIgnoreCase("Accepted") || serReq.getStatus().equalsIgnoreCase("completed") || serReq.getStatus().equalsIgnoreCase("arrived") || serReq.getStatus().equalsIgnoreCase("riding") || serReq.getStatus().equalsIgnoreCase("declined") || serReq.getStatus().equalsIgnoreCase("cancelled")){
         JOptionPane.showMessageDialog(null, "Cab is already marked "+serReq.getStatus());
         }else{
         serReq.setStatus("Accepted");
@@ -258,7 +251,7 @@ public class CabServiceAssignedRequestJPanel extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
-        if(serReq.getStatus().equalsIgnoreCase("Accepted") || serReq.getStatus().equalsIgnoreCase("completed") || serReq.getStatus().equalsIgnoreCase("arrived") || serReq.getStatus().equalsIgnoreCase("declined")){
+        if(serReq.getStatus().equalsIgnoreCase("Accepted") || serReq.getStatus().equalsIgnoreCase("completed") || serReq.getStatus().equalsIgnoreCase("arrived") || serReq.getStatus().equalsIgnoreCase("declined") || serReq.getStatus().equalsIgnoreCase("cancelled")){
         JOptionPane.showMessageDialog(null, "Cab is already marked "+serReq.getStatus());
         }else{
         serReq.setStatus("Completed");
@@ -290,7 +283,7 @@ public class CabServiceAssignedRequestJPanel extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
-        if(serReq.getStatus().equalsIgnoreCase("declined") || serReq.getStatus().equalsIgnoreCase("completed") || serReq.getStatus().equalsIgnoreCase("arrived") || serReq.getStatus().equalsIgnoreCase("riding")){
+        if(serReq.getStatus().equalsIgnoreCase("declined") || serReq.getStatus().equalsIgnoreCase("completed") || serReq.getStatus().equalsIgnoreCase("arrived") || serReq.getStatus().equalsIgnoreCase("riding") || serReq.getStatus().equalsIgnoreCase("cancelled")){
         JOptionPane.showMessageDialog(null, "Cab is already marked "+serReq.getStatus());
         }else{
         serReq.setStatus("Arrived");
@@ -308,7 +301,7 @@ public class CabServiceAssignedRequestJPanel extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
-        if(serReq.getStatus().equalsIgnoreCase("declined") || serReq.getStatus().equalsIgnoreCase("completed") || serReq.getStatus().equalsIgnoreCase("accepted") || serReq.getStatus().equalsIgnoreCase("riding")){
+        if(serReq.getStatus().equalsIgnoreCase("declined") || serReq.getStatus().equalsIgnoreCase("completed") || serReq.getStatus().equalsIgnoreCase("accepted") || serReq.getStatus().equalsIgnoreCase("riding") || serReq.getStatus().equalsIgnoreCase("cancelled")){
         JOptionPane.showMessageDialog(null, "Cab is already marked "+serReq.getStatus());
         } else{
          serReq.setStatus("Riding");

@@ -5,13 +5,9 @@
  */
 package ui.HospitalEntAdminRole;
 
-import Business.EcoSystem;
-import Business.Enterprise.EnterpriseDirectory;
-import Business.Network.Network;
+
 import Business.Organization.Organization;
-import Business.Organization.Organization.Type;
 import Business.Organization.OrganizationDirectory;
-import Business.UserAccount.UserAccount;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;

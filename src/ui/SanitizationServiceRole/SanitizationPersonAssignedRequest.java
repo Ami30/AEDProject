@@ -5,14 +5,11 @@
  */
 package ui.SanitizationServiceRole;
 
-import ui.TestingServiceRole.*;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.SanitizationPerson.SanitizationPerson;
-import Business.Tester.Tester;
 import Business.UserAccount.UserAccount;
-import Business.WorkQueue.HealthRequest;
 import Business.WorkQueue.ServiceRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -201,7 +198,7 @@ public class SanitizationPersonAssignedRequest extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
-        if(serReq.getStatus().equalsIgnoreCase("declined") || serReq.getStatus().equalsIgnoreCase("completed") || serReq.getStatus().equalsIgnoreCase("accepted")){
+        if(serReq.getStatus().equalsIgnoreCase("declined") || serReq.getStatus().equalsIgnoreCase("completed") || serReq.getStatus().equalsIgnoreCase("accepted") || serReq.getStatus().equalsIgnoreCase("cancelled")){
         JOptionPane.showMessageDialog(null, "The Request is already " + serReq.getStatus()+" , please choose another request!");
             
         }else {

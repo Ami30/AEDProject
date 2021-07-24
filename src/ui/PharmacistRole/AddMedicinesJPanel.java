@@ -11,7 +11,6 @@ import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.Pharmacist.Medicine;
 import Business.Pharmacist.Pharmacist;
-import Business.Tester.Tester;
 import Business.UserAccount.UserAccount;
 import java.awt.Component;
 import java.text.DateFormat;
@@ -22,7 +21,6 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import ui.TestingServiceRole.ManageTests;
 
 /**
  *

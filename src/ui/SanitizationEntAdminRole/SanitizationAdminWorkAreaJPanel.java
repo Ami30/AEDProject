@@ -5,8 +5,6 @@
  */
 package ui.SanitizationEntAdminRole;
 
-import ui.PatientSupportEntAdminRole.*;
-import ui.HospitalEntAdminRole.*;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;

@@ -5,12 +5,6 @@
  */
 package ui.DoctorRole;
 
-import ui.UserRole.*;
-import ui.TestingEntAdminRole.*;
-import ui.FoodSupplyEntAdminRole.*;
-import ui.SanitizationEntAdminRole.*;
-import ui.PatientSupportEntAdminRole.*;
-import ui.HospitalEntAdminRole.*;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
@@ -71,15 +65,6 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         btnAssignedReq_JPanel = new javax.swing.JPanel();
         btnassignedRequests = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        btnOrderMed_JPanel = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        btnOrderMed = new javax.swing.JLabel();
-        btnAmbulance_JPanel = new javax.swing.JPanel();
-        btnAmbulance = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        btnSani_JPanel = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        btnSaniService = new javax.swing.JLabel();
         workAreaJPanel = new javax.swing.JPanel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -162,116 +147,6 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        btnOrderMed_JPanel.setBackground(new java.awt.Color(18, 102, 153));
-        btnOrderMed_JPanel.setToolTipText("");
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/medicine.png"))); // NOI18N
-
-        btnOrderMed.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnOrderMed.setForeground(new java.awt.Color(255, 255, 255));
-        btnOrderMed.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnOrderMed.setText(" Order Medicine");
-        btnOrderMed.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnOrderMedMousePressed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout btnOrderMed_JPanelLayout = new javax.swing.GroupLayout(btnOrderMed_JPanel);
-        btnOrderMed_JPanel.setLayout(btnOrderMed_JPanelLayout);
-        btnOrderMed_JPanelLayout.setHorizontalGroup(
-            btnOrderMed_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnOrderMed_JPanelLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnOrderMed, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(86, Short.MAX_VALUE))
-        );
-        btnOrderMed_JPanelLayout.setVerticalGroup(
-            btnOrderMed_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnOrderMed_JPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(btnOrderMed_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnOrderMed, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        btnAmbulance_JPanel.setBackground(new java.awt.Color(18, 102, 153));
-        btnAmbulance_JPanel.setToolTipText("");
-
-        btnAmbulance.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnAmbulance.setForeground(new java.awt.Color(255, 255, 255));
-        btnAmbulance.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnAmbulance.setText("Book Ambulance");
-        btnAmbulance.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnAmbulanceMousePressed(evt);
-            }
-        });
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/ambulance.png"))); // NOI18N
-
-        javax.swing.GroupLayout btnAmbulance_JPanelLayout = new javax.swing.GroupLayout(btnAmbulance_JPanel);
-        btnAmbulance_JPanel.setLayout(btnAmbulance_JPanelLayout);
-        btnAmbulance_JPanelLayout.setHorizontalGroup(
-            btnAmbulance_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnAmbulance_JPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAmbulance, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(69, Short.MAX_VALUE))
-        );
-        btnAmbulance_JPanelLayout.setVerticalGroup(
-            btnAmbulance_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnAmbulance_JPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(btnAmbulance_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(btnAmbulance_JPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(btnAmbulance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        btnSani_JPanel.setBackground(new java.awt.Color(18, 102, 153));
-        btnSani_JPanel.setToolTipText("");
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/spray1.png"))); // NOI18N
-
-        btnSaniService.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnSaniService.setForeground(new java.awt.Color(255, 255, 255));
-        btnSaniService.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnSaniService.setText("Book Sanitization Service");
-        btnSaniService.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnSaniServiceMousePressed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout btnSani_JPanelLayout = new javax.swing.GroupLayout(btnSani_JPanel);
-        btnSani_JPanel.setLayout(btnSani_JPanelLayout);
-        btnSani_JPanelLayout.setHorizontalGroup(
-            btnSani_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnSani_JPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSaniService)
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-        btnSani_JPanelLayout.setVerticalGroup(
-            btnSani_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnSani_JPanelLayout.createSequentialGroup()
-                .addGap(4, 4, 4)
-                .addGroup(btnSani_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSaniService, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -280,10 +155,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnProfile_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAssignedReq_JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnOrderMed_JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAmbulance_JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSani_JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAssignedReq_JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -293,12 +165,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnProfile_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnAssignedReq_JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(btnOrderMed_JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(btnAmbulance_JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnSani_JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(646, Short.MAX_VALUE))
+                .addContainerGap(767, Short.MAX_VALUE))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 880));
@@ -311,9 +178,6 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
     private void btnProfileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProfileMousePressed
         // TODO add your handling code here:
         setColor(btnProfile_Panel);
-        resetColor(btnAmbulance_JPanel);
-        resetColor(btnSani_JPanel);
-        resetColor(btnOrderMed_JPanel);
         resetColor(btnAssignedReq_JPanel);
         try {
             // TODO add your handling code here:
@@ -329,9 +193,6 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
     private void btnassignedRequestsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnassignedRequestsMousePressed
         // TODO add your handling code here:
         setColor(btnAssignedReq_JPanel);
-        resetColor(btnAmbulance_JPanel);
-        resetColor(btnSani_JPanel);
-        resetColor(btnOrderMed_JPanel);
         resetColor(btnProfile_Panel);
         DoctorAssignedRequests doctorAssignedRequests=new DoctorAssignedRequests(workAreaJPanel,enterprise,useraccount,system, org);
         workAreaJPanel.add("viewAllRequestJPanel", doctorAssignedRequests);
@@ -344,63 +205,14 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnAssignedReq_JPanelMousePressed
 
-    private void btnOrderMedMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOrderMedMousePressed
-        // TODO add your handling code here:
-        setColor(btnOrderMed_JPanel);
-        resetColor(btnAmbulance_JPanel);
-        resetColor(btnSani_JPanel);
-        resetColor(btnAssignedReq_JPanel);
-        resetColor(btnProfile_Panel);
-//        RequestMedicineJPanel requestMedicineJPanel=new RequestMedicineJPanel(workAreaJPanel,enterprise,useraccount,system);
-//        workAreaJPanel.add("MedicineJPanel", requestMedicineJPanel);
-//        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
-//        layout.next(workAreaJPanel);
-    }//GEN-LAST:event_btnOrderMedMousePressed
-
-    private void btnAmbulanceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAmbulanceMousePressed
-        // TODO add your handling code here:
-        setColor(btnAmbulance_JPanel);
-        resetColor(btnProfile_Panel);
-        resetColor(btnSani_JPanel);
-        resetColor(btnOrderMed_JPanel);
-        resetColor(btnAssignedReq_JPanel);
-//        RequestAmbulanceJPanel requestAmbulanceJPanel=new RequestAmbulanceJPanel(workAreaJPanel,enterprise,useraccount,system);
-//        workAreaJPanel.add("AmbulanceJPanel", requestAmbulanceJPanel);
-//        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
-//        layout.next(workAreaJPanel);
-
-    }//GEN-LAST:event_btnAmbulanceMousePressed
-
-    private void btnSaniServiceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaniServiceMousePressed
-        // TODO add your handling code here:
-        setColor(btnSani_JPanel);
-        resetColor(btnAmbulance_JPanel);
-        resetColor(btnAssignedReq_JPanel);
-        resetColor(btnOrderMed_JPanel);
-        resetColor(btnProfile_Panel);
-//        RequestSanitizationJPanel requestSanitizationJPanel=new RequestSanitizationJPanel(workAreaJPanel,enterprise,useraccount,system);
-//        workAreaJPanel.add("SanitizationJPanel", requestSanitizationJPanel);
-//        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
-//        layout.next(workAreaJPanel);
-    }//GEN-LAST:event_btnSaniServiceMousePressed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel btnAmbulance;
-    private javax.swing.JPanel btnAmbulance_JPanel;
     private javax.swing.JPanel btnAssignedReq_JPanel;
-    private javax.swing.JLabel btnOrderMed;
-    private javax.swing.JPanel btnOrderMed_JPanel;
     private javax.swing.JLabel btnProfile;
     private javax.swing.JPanel btnProfile_Panel;
-    private javax.swing.JLabel btnSaniService;
-    private javax.swing.JPanel btnSani_JPanel;
     private javax.swing.JLabel btnassignedRequests;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel workAreaJPanel;
     // End of variables declaration//GEN-END:variables

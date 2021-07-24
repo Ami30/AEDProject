@@ -6,12 +6,8 @@
 package ui.NecessitiesEntAdminRole;
 
 import Business.DeliveryMan.DeliveryMan;
-import ui.HospitalEntAdminRole.*;
-import Business.Doctor.Doctor;
-import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
 import Business.GroceryStorePerson.GroceryStorePerson;
-import Business.Nurse.Nurse;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.Pharmacist.Pharmacist;
@@ -19,8 +15,6 @@ import Business.Role.DeliveryManRole;
 import Business.Role.PharmacistRole;
 import Business.Role.StorePersonRole;
 import java.awt.Component;
-import java.util.ArrayList;
-import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;

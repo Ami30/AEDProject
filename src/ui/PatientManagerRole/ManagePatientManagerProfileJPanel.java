@@ -5,20 +5,13 @@
  */
 package ui.PatientManagerRole;
 
-import ui.DoctorRole.*;
-import Business.Doctor.Doctor;
-import ui.UserRole.*;
+
 import Business.EcoSystem;
-import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
-import Business.Network.Network;
 import Business.PatientManager.PatientManager;
 import Business.RegisteredUser.RegisteredUser;
-import Business.Role.PatientRole;
 import Business.UserAccount.UserAccount;
-import java.awt.Component;
 import java.text.DateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;

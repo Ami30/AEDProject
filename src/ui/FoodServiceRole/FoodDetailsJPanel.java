@@ -6,29 +6,19 @@
 package ui.FoodServiceRole;
 
 
-import ui.SanitizationServiceRole.*;
-import ui.TestingServiceRole.*;
+
 import Business.EcoSystem;
-import ui.TestingEntAdminRole.*;
 import Business.Enterprise.Enterprise;
-import Business.FoodSupplier.FoodPackage;
 import Business.FoodSupplier.FoodPackageDailyForm;
-import Business.FoodSupplier.FoodSupplier;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
-import Business.Role.TestingServiceRole;
 import Business.SanitizationPerson.SanitizationPerson;
-import Business.SanitizationPerson.SanitizationService;
-import Business.SanitizationPerson.SanitizationServiceForm;
-import Business.Tester.Tester;
-import Business.Tester.Tests;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.ServiceRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -384,6 +374,7 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
         }
         FoodPackageDailyForm foodPackage=(FoodPackageDailyForm)foodTable.getValueAt(row, 0);
         req.getFoodPackageDailyFormDirectory().removeFormList(foodPackage);
+        JOptionPane.showMessageDialog(null, "Service Removed Successfully");
         populateTestTable();
     }//GEN-LAST:event_btnRemoveActionPerformed
 
@@ -425,7 +416,7 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
             lblEndDate.setText(req.getEndDate());
         }
         public void toggleButtons(){
-            if(req.getStatus().equalsIgnoreCase("completed") || req.getStatus().equalsIgnoreCase("declined")){
+            if(req.getStatus().equalsIgnoreCase("completed") || req.getStatus().equalsIgnoreCase("declined") || req.getStatus().equalsIgnoreCase("cancelled")){
                 btnCompleted.setVisible(false);
                 btnDeclined.setVisible(false);
                 btnNextService.setVisible(false);

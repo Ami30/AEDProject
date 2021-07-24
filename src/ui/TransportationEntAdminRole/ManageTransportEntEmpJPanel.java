@@ -8,15 +8,12 @@ package ui.TransportationEntAdminRole;
 
 import Business.AmbulanceDriver.AmbulanceDriver;
 import Business.CabDriver.CabDriver;
-import Business.Doctor.Doctor;
 import Business.Enterprise.Enterprise;
-import Business.Nurse.Nurse;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.Role.AmbulanceServiceRole;
 import Business.Role.CabServiceRole;
 import java.awt.Component;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;

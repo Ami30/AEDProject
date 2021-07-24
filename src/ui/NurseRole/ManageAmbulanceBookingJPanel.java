@@ -5,20 +5,12 @@
  */
 package ui.NurseRole;
 
-import ui.AmbulanceServiceRole.*;
-import Business.AmbulanceDriver.AmbulanceDriver;
-import ui.FoodServiceRole.*;
-import ui.SanitizationServiceRole.*;
-import ui.TestingServiceRole.*;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.FoodSupplier.FoodSupplier;
 import Business.Nurse.Nurse;
 import Business.Organization.Organization;
-import Business.PatientManager.PatientManager;
 import Business.RegisteredUser.RegisteredUser;
-import Business.SanitizationPerson.SanitizationPerson;
-import Business.Tester.Tester;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HealthRequest;
 import Business.WorkQueue.ServiceRequest;
@@ -195,7 +187,9 @@ public class ManageAmbulanceBookingJPanel extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serviceSheet=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
+        serviceSheet.setStatus("Cancelled");
         nurse.getServicerequestDirectoryAmb().removeRequest(serviceSheet);
+        JOptionPane.showMessageDialog(null, "Request removed successfully");
         populateRequestTable();
     }//GEN-LAST:event_jButton1ActionPerformed
 
