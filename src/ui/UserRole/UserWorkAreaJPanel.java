@@ -5,11 +5,6 @@
  */
 package ui.UserRole;
 
-import ui.TestingEntAdminRole.*;
-import ui.FoodSupplyEntAdminRole.*;
-import ui.SanitizationEntAdminRole.*;
-import ui.PatientSupportEntAdminRole.*;
-import ui.HospitalEntAdminRole.*;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
@@ -63,21 +58,12 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnFoodService_JPanel = new javax.swing.JPanel();
-        btnFoodService = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         btnProfile_Panel = new javax.swing.JPanel();
         btnProfile = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnCosultDoc_JPanel = new javax.swing.JPanel();
         btnConsultDoc = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        btnOrderMed_JPanel = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        btnOrderMed = new javax.swing.JLabel();
-        btnSaniService_JPanel = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        btnSaniService = new javax.swing.JLabel();
         btnAmbulance_JPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         btnAmbulance = new javax.swing.JLabel();
@@ -87,46 +73,6 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(18, 102, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnFoodService_JPanel.setBackground(new java.awt.Color(18, 102, 153));
-        btnFoodService_JPanel.setToolTipText("");
-
-        btnFoodService.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnFoodService.setForeground(new java.awt.Color(255, 255, 255));
-        btnFoodService.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnFoodService.setText("Book Food Service");
-        btnFoodService.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnFoodServiceMousePressed(evt);
-            }
-        });
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/rest.png"))); // NOI18N
-
-        javax.swing.GroupLayout btnFoodService_JPanelLayout = new javax.swing.GroupLayout(btnFoodService_JPanel);
-        btnFoodService_JPanel.setLayout(btnFoodService_JPanelLayout);
-        btnFoodService_JPanelLayout.setHorizontalGroup(
-            btnFoodService_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnFoodService_JPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addGap(9, 9, 9)
-                .addComponent(btnFoodService, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(59, Short.MAX_VALUE))
-        );
-        btnFoodService_JPanelLayout.setVerticalGroup(
-            btnFoodService_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnFoodService_JPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(btnFoodService_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(btnFoodService_JPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(btnFoodService, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        jPanel1.add(btnFoodService_JPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 250, 40));
 
         btnProfile_Panel.setBackground(new java.awt.Color(130, 175, 203));
         btnProfile_Panel.setToolTipText("");
@@ -158,7 +104,7 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
             btnProfile_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnProfile_PanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnProfile, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addComponent(btnProfile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -208,82 +154,6 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
 
         jPanel1.add(btnCosultDoc_JPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 250, 40));
 
-        btnOrderMed_JPanel.setBackground(new java.awt.Color(18, 102, 153));
-        btnOrderMed_JPanel.setToolTipText("");
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/medicine.png"))); // NOI18N
-
-        btnOrderMed.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnOrderMed.setForeground(new java.awt.Color(255, 255, 255));
-        btnOrderMed.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnOrderMed.setText(" Order Medicine");
-        btnOrderMed.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnOrderMedMousePressed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout btnOrderMed_JPanelLayout = new javax.swing.GroupLayout(btnOrderMed_JPanel);
-        btnOrderMed_JPanel.setLayout(btnOrderMed_JPanelLayout);
-        btnOrderMed_JPanelLayout.setHorizontalGroup(
-            btnOrderMed_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnOrderMed_JPanelLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnOrderMed, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(86, Short.MAX_VALUE))
-        );
-        btnOrderMed_JPanelLayout.setVerticalGroup(
-            btnOrderMed_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnOrderMed_JPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(btnOrderMed_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnOrderMed, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(btnOrderMed_JPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 250, 40));
-
-        btnSaniService_JPanel.setBackground(new java.awt.Color(18, 102, 153));
-        btnSaniService_JPanel.setToolTipText("");
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/spray1.png"))); // NOI18N
-
-        btnSaniService.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnSaniService.setForeground(new java.awt.Color(255, 255, 255));
-        btnSaniService.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnSaniService.setText("Book Sanitization Service");
-        btnSaniService.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnSaniServiceMousePressed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout btnSaniService_JPanelLayout = new javax.swing.GroupLayout(btnSaniService_JPanel);
-        btnSaniService_JPanel.setLayout(btnSaniService_JPanelLayout);
-        btnSaniService_JPanelLayout.setHorizontalGroup(
-            btnSaniService_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnSaniService_JPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6)
-                .addGap(18, 18, 18)
-                .addComponent(btnSaniService)
-                .addContainerGap(13, Short.MAX_VALUE))
-        );
-        btnSaniService_JPanelLayout.setVerticalGroup(
-            btnSaniService_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnSaniService_JPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(btnSaniService_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSaniService, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(btnSaniService_JPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, -1, -1));
-
         btnAmbulance_JPanel.setBackground(new java.awt.Color(18, 102, 153));
         btnAmbulance_JPanel.setToolTipText("");
 
@@ -320,7 +190,7 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(btnAmbulance_JPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, -1, -1));
+        jPanel1.add(btnAmbulance_JPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, -1, -1));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 880));
 
@@ -329,28 +199,12 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
         add(workAreaJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 1180, 880));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnFoodServiceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFoodServiceMousePressed
-        // TODO add your handling code here:
-        setColor(btnFoodService_JPanel);
-        resetColor(btnProfile_Panel);
-        resetColor(btnAmbulance_JPanel);
-        resetColor(btnOrderMed_JPanel);
-        resetColor(btnSaniService_JPanel);
-        resetColor(btnCosultDoc_JPanel);
-        RequestFoodJPanel requestFoodJPanel=new RequestFoodJPanel(workAreaJPanel,enterprise,useraccount,system);
-        workAreaJPanel.add("FoodJPanel", requestFoodJPanel);
-        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
-        layout.next(workAreaJPanel);
-        
-    }//GEN-LAST:event_btnFoodServiceMousePressed
-
     private void btnProfileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProfileMousePressed
         // TODO add your handling code here:
         setColor(btnProfile_Panel);
-        resetColor(btnFoodService_JPanel);
+
         resetColor(btnAmbulance_JPanel);
-        resetColor(btnOrderMed_JPanel);
-        resetColor(btnSaniService_JPanel);
+
         resetColor(btnCosultDoc_JPanel);
         try {
             // TODO add your handling code here:
@@ -366,10 +220,9 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
     private void btnConsultDocMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConsultDocMousePressed
         // TODO add your handling code here:
         setColor(btnCosultDoc_JPanel);
-        resetColor(btnFoodService_JPanel);
+ 
         resetColor(btnAmbulance_JPanel);
-        resetColor(btnOrderMed_JPanel);
-        resetColor(btnSaniService_JPanel);
+
         resetColor(btnProfile_Panel);
         RequestDoctorAppointmentJPanel requestDoctorAppointmentJPanel=new RequestDoctorAppointmentJPanel(workAreaJPanel,enterprise,useraccount,system);
         workAreaJPanel.add("DoctorAppointmentJPanel", requestDoctorAppointmentJPanel);
@@ -378,41 +231,12 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnConsultDocMousePressed
 
-    private void btnOrderMedMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOrderMedMousePressed
-        // TODO add your handling code here:
-        setColor(btnOrderMed_JPanel);
-        resetColor(btnFoodService_JPanel);
-        resetColor(btnAmbulance_JPanel);
-        resetColor(btnCosultDoc_JPanel);
-        resetColor(btnSaniService_JPanel);
-        resetColor(btnProfile_Panel);
-           RequestMedicineJPanel requestMedicineJPanel=new RequestMedicineJPanel(workAreaJPanel,enterprise,useraccount,system);
-        workAreaJPanel.add("MedicineJPanel", requestMedicineJPanel);
-        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
-        layout.next(workAreaJPanel);
-    }//GEN-LAST:event_btnOrderMedMousePressed
-
-    private void btnSaniServiceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaniServiceMousePressed
-        // TODO add your handling code here:
-        setColor(btnSaniService_JPanel);
-        resetColor(btnFoodService_JPanel);
-        resetColor(btnAmbulance_JPanel);
-        resetColor(btnCosultDoc_JPanel);
-        resetColor(btnOrderMed_JPanel);
-        resetColor(btnProfile_Panel);
-        RequestSanitizationJPanel requestsaniJPanel=new RequestSanitizationJPanel(workAreaJPanel,enterprise,useraccount,system);
-        workAreaJPanel.add("SaniJPanel", requestsaniJPanel);
-        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
-        layout.next(workAreaJPanel);
-    }//GEN-LAST:event_btnSaniServiceMousePressed
-
     private void btnAmbulanceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAmbulanceMousePressed
         // TODO add your handling code here:
         setColor(btnAmbulance_JPanel);
-        resetColor(btnFoodService_JPanel);
-        resetColor(btnSaniService_JPanel);
+       
         resetColor(btnCosultDoc_JPanel);
-        resetColor(btnOrderMed_JPanel);
+     
         resetColor(btnProfile_Panel);
         ManageAmbulanceBookingUserJPanel requestAmbulanceJPanel=new ManageAmbulanceBookingUserJPanel(workAreaJPanel,enterprise,useraccount,system,org);
         workAreaJPanel.add("AmbulanceJPanel", requestAmbulanceJPanel);
@@ -432,20 +256,11 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel btnAmbulance_JPanel;
     private javax.swing.JLabel btnConsultDoc;
     private javax.swing.JPanel btnCosultDoc_JPanel;
-    private javax.swing.JLabel btnFoodService;
-    private javax.swing.JPanel btnFoodService_JPanel;
-    private javax.swing.JLabel btnOrderMed;
-    private javax.swing.JPanel btnOrderMed_JPanel;
     private javax.swing.JLabel btnProfile;
     private javax.swing.JPanel btnProfile_Panel;
-    private javax.swing.JLabel btnSaniService;
-    private javax.swing.JPanel btnSaniService_JPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel workAreaJPanel;
     // End of variables declaration//GEN-END:variables

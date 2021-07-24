@@ -8,25 +8,14 @@ package ui.NurseRole;
 
 import Business.AmbulanceDriver.AmbulanceDriver;
 import Business.AmbulanceDriver.AmbulanceService;
-import ui.AmbulanceServiceRole.*;
-import ui.FoodServiceRole.*;
-import ui.SanitizationServiceRole.*;
-import ui.TestingServiceRole.*;
 import Business.EcoSystem;
-import ui.TestingEntAdminRole.*;
 import Business.Enterprise.Enterprise;
 import Business.FoodSupplier.FoodSupplier;
-import Business.FoodSupplier.FoodPackage;
 import Business.Network.Network;
 import Business.Nurse.Nurse;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.RegisteredUser.RegisteredUser;
-import Business.Role.TestingServiceRole;
-import Business.SanitizationPerson.SanitizationPerson;
-import Business.SanitizationPerson.SanitizationService;
-import Business.Tester.Tester;
-import Business.Tester.Tests;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HealthRequest;
 import Business.WorkQueue.ServiceRequest;
@@ -241,6 +230,10 @@ public class BookAmbulanceJPanel extends javax.swing.JPanel {
         nurse.getServicerequestDirectoryAmb().addRequest(serReq);
         user.getServiceRequestDirectoryAmb().addRequest(serReq);
         JOptionPane.showMessageDialog(null, "Ambulance Service booked Successfully");
+        ManageAmbulanceBookingJPanel manageAmbulance=new ManageAmbulanceBookingJPanel(userProcessContainer,ent,userAccount,system,org);
+        userProcessContainer.add("manageAmbulance", manageAmbulance);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

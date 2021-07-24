@@ -12,23 +12,23 @@ import java.util.ArrayList;
  * @author amishagupta
  */
 public class ItemsDirectory {
-   ArrayList<Items> itemsList  = new ArrayList<>();
+   ArrayList<netWeight> itemsList  = new ArrayList<>();
 
-    public ArrayList<Items> getItemsList() {
+    public ArrayList<netWeight> getItemsList() {
         if(itemsList == null){
             itemsList = new ArrayList<>();
         }
         return itemsList;
     }
 
-    public void setItemsList(ArrayList<Items> itemsList) {
+    public void setItemsList(ArrayList<netWeight> itemsList) {
         this.itemsList = itemsList;
     }
     
-       public void addItemsList(Items item){
+       public void addItemsList(netWeight item){
         itemsList.add(item);
     }
-           public void removeItemsList(Items item){
+           public void removeItemsList(netWeight item){
                if(itemsList!=null){
         itemsList.remove(item);}
     }

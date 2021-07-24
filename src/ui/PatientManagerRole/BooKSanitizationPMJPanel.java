@@ -6,31 +6,17 @@
 package ui.PatientManagerRole;
 
 
-import ui.NurseRole.*;
-import Business.AmbulanceDriver.AmbulanceDriver;
-import Business.AmbulanceDriver.AmbulanceService;
-import Business.CabDriver.CabDriver;
-import Business.CabDriver.CabService;
-import ui.AmbulanceServiceRole.*;
-import ui.FoodServiceRole.*;
-import ui.SanitizationServiceRole.*;
-import ui.TestingServiceRole.*;
+
 import Business.EcoSystem;
-import ui.TestingEntAdminRole.*;
 import Business.Enterprise.Enterprise;
 import Business.FoodSupplier.FoodSupplier;
-import Business.FoodSupplier.FoodPackage;
 import Business.Network.Network;
-import Business.Nurse.Nurse;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.PatientManager.PatientManager;
 import Business.RegisteredUser.RegisteredUser;
-import Business.Role.TestingServiceRole;
 import Business.SanitizationPerson.SanitizationPerson;
 import Business.SanitizationPerson.SanitizationService;
-import Business.Tester.Tester;
-import Business.Tester.Tests;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HealthRequest;
 import Business.WorkQueue.ServiceRequest;
@@ -291,6 +277,10 @@ public class BooKSanitizationPMJPanel extends javax.swing.JPanel {
         pMan.getServicerequestDirectorySan().addRequest(serReq);
         user.getServiceRequestDirectorySan().addRequest(serReq);
         JOptionPane.showMessageDialog(null, "Sanitization Service booked Successfully");
+        ManageSanitizationPMJPanel manageSanitization=new ManageSanitizationPMJPanel(userProcessContainer,ent,userAccount,system,org);
+        userProcessContainer.add("manageSanitization", manageSanitization);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

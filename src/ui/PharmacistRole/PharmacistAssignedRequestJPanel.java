@@ -199,10 +199,10 @@ public class PharmacistAssignedRequestJPanel extends javax.swing.JPanel {
         }
         else{
             req = (HealthRequest)SubmittedrequestsJTable.getValueAt(selectedRow, 0);
-            DeliveredMedicinesJPanel completedTestResult=new DeliveredMedicinesJPanel(userProcessContainer,enterprise,useraccount,system, req);
-            userProcessContainer.add("userReport", completedTestResult);
-            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            layout.next(userProcessContainer);
+//            DeliveredMedicinesJPanel completedTestResult=new DeliveredMedicinesJPanel(userProcessContainer,enterprise,useraccount,system, req);
+//            userProcessContainer.add("userReport", completedTestResult);
+//            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+//            layout.next(userProcessContainer);
         }
     }//GEN-LAST:event_btnCompletedOrderActionPerformed
 

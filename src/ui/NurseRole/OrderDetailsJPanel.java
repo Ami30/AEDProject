@@ -6,22 +6,13 @@
 package ui.NurseRole;
 
 
-import ui.DoctorRole.*;
-import ui.TestingServiceRole.*;
+
 import Business.EcoSystem;
-import Business.Employee.Prescription;
-import ui.TestingEntAdminRole.*;
 import Business.Enterprise.Enterprise;
-import Business.FoodSupplier.FoodSupplier;
-import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
-import Business.Person.PersonalNotification;
 import Business.Pharmacist.Medicine;
 import Business.Pharmacist.Pharmacist;
-import Business.RegisteredUser.DailyReportSheet;
-import Business.Role.TestingServiceRole;
-import Business.Tester.Tester;
 import Business.Tester.Tests;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HealthRequest;
@@ -32,7 +23,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -193,6 +183,10 @@ public class OrderDetailsJPanel extends javax.swing.JPanel {
         }
         
        medicineList.clear();
+       OrderMedicineReport orderMedicine=new OrderMedicineReport(userProcessContainer,ent,userAccount,system,request, org);
+       userProcessContainer.add("orderMedicine", orderMedicine);
+       CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+       layout.next(userProcessContainer);
         
     }//GEN-LAST:event_btnSubmitActionPerformed
 

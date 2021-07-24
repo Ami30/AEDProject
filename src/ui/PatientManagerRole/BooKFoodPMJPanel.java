@@ -6,31 +6,16 @@
 package ui.PatientManagerRole;
 
 
-import ui.NurseRole.*;
-import Business.AmbulanceDriver.AmbulanceDriver;
-import Business.AmbulanceDriver.AmbulanceService;
-import Business.CabDriver.CabDriver;
-import Business.CabDriver.CabService;
-import ui.AmbulanceServiceRole.*;
-import ui.FoodServiceRole.*;
-import ui.SanitizationServiceRole.*;
-import ui.TestingServiceRole.*;
+
 import Business.EcoSystem;
-import ui.TestingEntAdminRole.*;
 import Business.Enterprise.Enterprise;
 import Business.FoodSupplier.FoodSupplier;
 import Business.FoodSupplier.FoodPackage;
 import Business.Network.Network;
-import Business.Nurse.Nurse;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.PatientManager.PatientManager;
 import Business.RegisteredUser.RegisteredUser;
-import Business.Role.TestingServiceRole;
-import Business.SanitizationPerson.SanitizationPerson;
-import Business.SanitizationPerson.SanitizationService;
-import Business.Tester.Tester;
-import Business.Tester.Tests;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HealthRequest;
 import Business.WorkQueue.ServiceRequest;
@@ -38,7 +23,6 @@ import java.awt.CardLayout;
 import java.awt.Component;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -274,6 +258,10 @@ public class BooKFoodPMJPanel extends javax.swing.JPanel {
         pMan.getServicerequestDirectoryFood().addRequest(serReq);
         user.getServiceRequestDirectoryFood().addRequest(serReq);
         JOptionPane.showMessageDialog(null, "Food booked Successfully");
+        ManageFoodBookingPMJPanel manageFood=new ManageFoodBookingPMJPanel(userProcessContainer,ent,userAccount,system,org);
+        userProcessContainer.add("manageFood", manageFood);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
 
         
 

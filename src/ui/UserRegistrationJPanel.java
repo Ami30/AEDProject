@@ -6,19 +6,12 @@
 package ui;
 
 import Business.EcoSystem;
-import Business.Employee.Employee;
-import Business.Enterprise.Enterprise;
 import Business.Network.Network;
-import Business.Organization.Organization;
-import Business.Organization.OrganizationDirectory;
 import Business.RegisteredUser.RegisteredUser;
-import Business.Role.PatientManagerRole;
 import Business.Role.PatientRole;
 import Business.Validation.Validations;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.Period;
-import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;

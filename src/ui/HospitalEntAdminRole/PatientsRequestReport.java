@@ -6,31 +6,18 @@
 package ui.HospitalEntAdminRole;
 
 import ui.UserRole.*;
-import Business.Doctor.Doctor;
 import Business.EcoSystem;
-import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
-import Business.Enterprise.HospitalEnterprise;
-import Business.Network.Network;
-import Business.Organization.DoctorOrganization;
-import Business.Organization.Organization;
 import Business.PatientManager.PatientManager;
 import Business.RegisteredUser.RegisteredUser;
-import Business.Role.PatientRole;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HealthRequest;
 import java.awt.CardLayout;
-import java.awt.Component;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
-import ui.DoctorRole.AssignHospitalToRequest;
 
 /**
  *

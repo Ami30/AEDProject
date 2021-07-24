@@ -5,8 +5,7 @@
  */
 package ui.NurseRole;
 
-import ui.DoctorRole.*;
-import Business.Doctor.Doctor;
+
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Nurse.Nurse;

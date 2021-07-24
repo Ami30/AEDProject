@@ -5,12 +5,8 @@
  */
 package ui.TestingEntAdminRole;
 
-import ui.FoodSupplyEntAdminRole.*;
-import ui.SanitizationEntAdminRole.*;
-import ui.PatientSupportEntAdminRole.*;
-import ui.HospitalEntAdminRole.*;
+
 import Business.Organization.Organization;
-import Business.Organization.Organization.Type;
 import Business.Organization.OrganizationDirectory;
 import java.awt.Component;
 import javax.swing.JOptionPane;

@@ -5,22 +5,13 @@
  */
 package ui.NurseRole;
 
-import ui.CabServiceRole.*;
-import ui.AmbulanceServiceRole.*;
-import Business.AmbulanceDriver.AmbulanceDriver;
-import Business.CabDriver.CabDriver;
-import Business.Doctor.Doctor;
-import ui.FoodServiceRole.*;
-import ui.SanitizationServiceRole.*;
-import ui.TestingServiceRole.*;
+
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.FoodSupplier.FoodSupplier;
 import Business.Nurse.Nurse;
 import Business.Organization.Organization;
 import Business.RegisteredUser.RegisteredUser;
-import Business.SanitizationPerson.SanitizationPerson;
-import Business.Tester.Tester;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HealthRequest;
 import Business.WorkQueue.ServiceRequest;
@@ -200,8 +191,15 @@ public class ManageCabBookingJPanel extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serviceSheet=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
+        if(serviceSheet.getStatus().equalsIgnoreCase("riding") || serviceSheet.getStatus().equalsIgnoreCase("completed") || serviceSheet.getStatus().equalsIgnoreCase("declined")){
+        JOptionPane.showMessageDialog(null, "You cannot cancelled the request since status: " + serviceSheet.getStatus());
+        }else{
+        serviceSheet.setStatus("Cancelled");
         nurse.getServicerequestDirectoryCab().removeRequest(serviceSheet);
+        JOptionPane.showMessageDialog(null, "Request removed successfully");
         populateRequestTable();
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

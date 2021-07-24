@@ -6,26 +6,18 @@
 package ui.SanitizationServiceRole;
 
 
-import ui.TestingServiceRole.*;
 import Business.EcoSystem;
-import ui.TestingEntAdminRole.*;
 import Business.Enterprise.Enterprise;
-import Business.FoodSupplier.FoodSupplier;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
-import Business.Role.TestingServiceRole;
 import Business.SanitizationPerson.SanitizationPerson;
-import Business.SanitizationPerson.SanitizationService;
 import Business.SanitizationPerson.SanitizationServiceForm;
-import Business.Tester.Tester;
-import Business.Tester.Tests;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.ServiceRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -123,6 +115,7 @@ public class SanitizationDetailsJPanel extends javax.swing.JPanel {
         btnNextService = new javax.swing.JButton();
         btnCompleted = new javax.swing.JButton();
         btnDeclined = new javax.swing.JButton();
+        btnRemove = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -314,6 +307,14 @@ public class SanitizationDetailsJPanel extends javax.swing.JPanel {
             }
         });
         add(btnDeclined, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 110, -1));
+
+        btnRemove.setText("Remove ");
+        btnRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveActionPerformed(evt);
+            }
+        });
+        add(btnRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
@@ -367,6 +368,21 @@ public class SanitizationDetailsJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
+        // TODO add your handling code here:
+
+        int row = saniTable.getSelectedRow();
+        if(row<0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        SanitizationServiceForm saniService=(SanitizationServiceForm)saniTable.getValueAt(row, 0);
+        req.getSanitizationServiceFormDirectory().removeFormList(saniService);
+        JOptionPane.showMessageDialog(null, "Service Removed Successfully");
+
+        populateTestTable();
+    }//GEN-LAST:event_btnRemoveActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane DoctorScrollPane;
@@ -375,6 +391,7 @@ public class SanitizationDetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnCompleted;
     private javax.swing.JButton btnDeclined;
     private javax.swing.JButton btnNextService;
+    private javax.swing.JButton btnRemove;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
@@ -395,5 +412,15 @@ public class SanitizationDetailsJPanel extends javax.swing.JPanel {
             lblName.setText(req.getUser().getName());
             lblStartDate.setText(req.getStartDate());
             lblEndDate.setText(req.getEndDate());
+        }
+        
+        public void toggleButtons(){
+            if(req.getStatus().equalsIgnoreCase("completed") || req.getStatus().equalsIgnoreCase("declined") || req.getStatus().equalsIgnoreCase("cancelled")){
+                btnCompleted.setVisible(false);
+                btnDeclined.setVisible(false);
+                btnNextService.setVisible(false);
+                btnRemove.setVisible(false);
+
+            }
         }
 }

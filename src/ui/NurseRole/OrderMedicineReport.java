@@ -6,23 +6,15 @@
 package ui.NurseRole;
 
 
-import ui.DoctorRole.*;
-import ui.TestingServiceRole.*;
+
 import Business.EcoSystem;
-import Business.Employee.Prescription;
-import ui.TestingEntAdminRole.*;
 import Business.Enterprise.Enterprise;
-import Business.FoodSupplier.FoodSupplier;
 import Business.Network.Network;
 import Business.Nurse.Nurse;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
-import Business.Person.PersonalNotification;
 import Business.Pharmacist.Medicine;
 import Business.Pharmacist.Pharmacist;
-import Business.RegisteredUser.DailyReportSheet;
-import Business.Role.TestingServiceRole;
-import Business.Tester.Tester;
 import Business.Tester.Tests;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HealthRequest;
@@ -344,13 +336,13 @@ public class OrderMedicineReport extends javax.swing.JPanel {
          }
          else{
          String Quantity = txtQuantity.getText();
-         if(Quantity != null){
-             Medicine med = (Medicine)medicineAvailableTable.getValueAt(selectedRow, 0);
+         if(Quantity == ""){
+         Medicine med = (Medicine)medicineAvailableTable.getValueAt(selectedRow, 0);
          med.setQuantity(Quantity);
          medicineList.add(med);
          populateCartMedicineTable();
          } else{
-             JOptionPane.showMessageDialog(null, "Please enter quantity");
+             JOptionPane.showMessageDialog(null, "Please enter quantity firse");
          }
          }
         

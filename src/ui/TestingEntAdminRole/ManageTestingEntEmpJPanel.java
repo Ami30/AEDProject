@@ -7,7 +7,6 @@ package ui.TestingEntAdminRole;
 
 
 import Business.Enterprise.Enterprise;
-import Business.FoodSupplier.FoodSupplier;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.Role.TestingServiceRole;

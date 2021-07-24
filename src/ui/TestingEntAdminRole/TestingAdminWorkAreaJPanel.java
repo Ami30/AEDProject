@@ -5,10 +5,7 @@
  */
 package ui.TestingEntAdminRole;
 
-import ui.FoodSupplyEntAdminRole.*;
-import ui.SanitizationEntAdminRole.*;
-import ui.PatientSupportEntAdminRole.*;
-import ui.HospitalEntAdminRole.*;
+
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;

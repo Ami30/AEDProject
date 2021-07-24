@@ -6,15 +6,12 @@
 package ui.DoctorRole;
 
 
-import ui.TestingServiceRole.*;
+
 import Business.EcoSystem;
 import Business.Employee.Prescription;
-import ui.TestingEntAdminRole.*;
 import Business.Enterprise.Enterprise;
-import Business.FoodSupplier.FoodSupplier;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
-import Business.Role.TestingServiceRole;
 import Business.Tester.Tester;
 import Business.Tester.Tests;
 import Business.UserAccount.UserAccount;
@@ -23,13 +20,11 @@ import java.awt.CardLayout;
 import java.awt.Component;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
 import ui.UserRole.HealthRequestReport;
 
 /**

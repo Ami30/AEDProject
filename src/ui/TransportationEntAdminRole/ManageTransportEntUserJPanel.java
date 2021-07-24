@@ -5,11 +5,8 @@
  */
 package ui.TransportationEntAdminRole;
 
-import ui.HospitalEntAdminRole.*;
-import Business.Doctor.Doctor;
 import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
-import Business.Nurse.Nurse;
 import Business.Organization.Organization;
 import Business.Role.Role;
 import Business.UserAccount.UserAccount;

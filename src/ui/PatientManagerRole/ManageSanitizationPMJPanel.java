@@ -5,17 +5,13 @@
  */
 package ui.PatientManagerRole;
 
-import ui.NurseRole.*;
-import ui.SanitizationServiceRole.*;
-import ui.TestingServiceRole.*;
+
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.PatientManager.PatientManager;
 import Business.SanitizationPerson.SanitizationPerson;
-import Business.Tester.Tester;
 import Business.UserAccount.UserAccount;
-import Business.WorkQueue.HealthRequest;
 import Business.WorkQueue.ServiceRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -196,7 +192,9 @@ public class ManageSanitizationPMJPanel extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serviceSheet=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
+        serviceSheet.setStatus("Cancelled");
         pMan.getServicerequestDirectorySan().removeRequest(serviceSheet);
+         JOptionPane.showMessageDialog(null, "Request removed successfully");
         populateRequestTable();
     }//GEN-LAST:event_jButton3ActionPerformed
 

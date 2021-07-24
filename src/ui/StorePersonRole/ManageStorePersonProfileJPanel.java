@@ -5,14 +5,10 @@
  */
 package ui.StorePersonRole;
 
-import ui.PharmacistRole.*;
-import ui.DoctorRole.*;
-import Business.Doctor.Doctor;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.GroceryStorePerson.GroceryStorePerson;
 import Business.Organization.Organization;
-import Business.Pharmacist.Pharmacist;
 import Business.UserAccount.UserAccount;
 import java.text.DateFormat;
 import java.text.ParseException;

@@ -6,13 +6,10 @@
 package ui.UserRole;
 
 import Business.EcoSystem;
-import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.RegisteredUser.RegisteredUser;
-import Business.Role.PatientRole;
 import Business.UserAccount.UserAccount;
-import java.awt.Component;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

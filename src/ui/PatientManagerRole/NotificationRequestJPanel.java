@@ -12,19 +12,13 @@ import Business.PatientManager.PatientManager;
 import Business.Person.PersonalNotification;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HealthRequest;
-import Business.WorkQueue.RequestDoctor;
-import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
-import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import ui.UserRole.HealthRequestReport;
 
 /**
  *
