@@ -146,6 +146,14 @@ public class PatientsRequestReport extends javax.swing.JPanel {
         jButton1.setText("View complete Profile");
         jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton1.setContentAreaFilled(false);
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1MouseExited(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -365,6 +373,14 @@ public class PatientsRequestReport extends javax.swing.JPanel {
         btnTest.setText("Assign Test");
         btnTest.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnTest.setContentAreaFilled(false);
+        btnTest.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnTestMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnTestMouseExited(evt);
+            }
+        });
         btnTest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTestActionPerformed(evt);
@@ -376,6 +392,14 @@ public class PatientsRequestReport extends javax.swing.JPanel {
         btnDischarged.setText("Mark Patient Discharged from Hospital");
         btnDischarged.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnDischarged.setContentAreaFilled(false);
+        btnDischarged.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnDischargedMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnDischargedMouseExited(evt);
+            }
+        });
         btnDischarged.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDischargedActionPerformed(evt);
@@ -387,6 +411,14 @@ public class PatientsRequestReport extends javax.swing.JPanel {
         btnCritical.setText("Mark Critical");
         btnCritical.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnCritical.setContentAreaFilled(false);
+        btnCritical.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCriticalMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCriticalMouseExited(evt);
+            }
+        });
         btnCritical.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCriticalActionPerformed(evt);
@@ -498,6 +530,70 @@ public class PatientsRequestReport extends javax.swing.JPanel {
          CardLayout layout = (CardLayout) userProcessContainer.getLayout();
          layout.next(userProcessContainer);
     }//GEN-LAST:event_btnTestActionPerformed
+
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+        // TODO add your handling code here:
+          jButton1.setBackground(new java.awt.Color(18,102,153));
+        jButton1.setContentAreaFilled(true);
+        jButton1.setFocusPainted(true);
+        jButton1.setBorderPainted(false);
+        jButton1.setOpaque(true);
+    }//GEN-LAST:event_jButton1MouseEntered
+
+    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
+        // TODO add your handling code here:
+         jButton1.setContentAreaFilled(false);
+        jButton1.setFocusPainted(false);
+        jButton1.setBorderPainted(true);
+    }//GEN-LAST:event_jButton1MouseExited
+
+    private void btnTestMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTestMouseEntered
+        // TODO add your handling code here:
+          btnTest.setBackground(new java.awt.Color(18,102,153));
+        btnTest.setContentAreaFilled(true);
+        btnTest.setFocusPainted(true);
+        btnTest.setBorderPainted(false);
+        btnTest.setOpaque(true);
+    }//GEN-LAST:event_btnTestMouseEntered
+
+    private void btnTestMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTestMouseExited
+        // TODO add your handling code here:
+         btnTest.setContentAreaFilled(false);
+        btnTest.setFocusPainted(false);
+        btnTest.setBorderPainted(true);
+    }//GEN-LAST:event_btnTestMouseExited
+
+    private void btnCriticalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCriticalMouseEntered
+        // TODO add your handling code here:
+          btnCritical.setBackground(new java.awt.Color(18,102,153));
+        btnCritical.setContentAreaFilled(true);
+        btnCritical.setFocusPainted(true);
+        btnCritical.setBorderPainted(false);
+        btnCritical.setOpaque(true);
+    }//GEN-LAST:event_btnCriticalMouseEntered
+
+    private void btnCriticalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCriticalMouseExited
+        // TODO add your handling code here:
+         btnCritical.setContentAreaFilled(false);
+        btnCritical.setFocusPainted(false);
+        btnCritical.setBorderPainted(true);
+    }//GEN-LAST:event_btnCriticalMouseExited
+
+    private void btnDischargedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDischargedMouseEntered
+        // TODO add your handling code here:
+          btnDischarged.setBackground(new java.awt.Color(18,102,153));
+        btnDischarged.setContentAreaFilled(true);
+        btnDischarged.setFocusPainted(true);
+        btnDischarged.setBorderPainted(false);
+        btnDischarged.setOpaque(true);
+    }//GEN-LAST:event_btnDischargedMouseEntered
+
+    private void btnDischargedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDischargedMouseExited
+        // TODO add your handling code here:
+         btnDischarged.setContentAreaFilled(false);
+        btnDischarged.setFocusPainted(false);
+        btnDischarged.setBorderPainted(true);
+    }//GEN-LAST:event_btnDischargedMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

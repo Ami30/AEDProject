@@ -58,7 +58,7 @@ public class AddCabServicesJAreaPanel extends javax.swing.JPanel {
         }
         public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused, int row, int column) {
             super.getTableCellRendererComponent(table, value, selected, focused, row, column);         
-           setBackground(new java.awt.Color(74,122,193));
+           setBackground(new java.awt.Color(18,102,153));
             return this;
         }
 
@@ -137,9 +137,18 @@ public class AddCabServicesJAreaPanel extends javax.swing.JPanel {
 
         btnRemoveFoodSuppplier.setBackground(new java.awt.Color(18, 102, 153));
         btnRemoveFoodSuppplier.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnRemoveFoodSuppplier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/delete2.png"))); // NOI18N
         btnRemoveFoodSuppplier.setText("Remove Service");
         btnRemoveFoodSuppplier.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRemoveFoodSuppplier.setContentAreaFilled(false);
+        btnRemoveFoodSuppplier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRemoveFoodSuppplierMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRemoveFoodSuppplierMouseExited(evt);
+            }
+        });
         btnRemoveFoodSuppplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoveFoodSuppplierActionPerformed(evt);
@@ -160,7 +169,7 @@ public class AddCabServicesJAreaPanel extends javax.swing.JPanel {
                         .addComponent(lblDoctorslist1)
                         .addGap(365, 365, 365))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnRemoveFoodSuppplier, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRemoveFoodSuppplier, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -183,9 +192,18 @@ public class AddCabServicesJAreaPanel extends javax.swing.JPanel {
 
         addJButton.setBackground(new java.awt.Color(18, 102, 153));
         addJButton.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        addJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/add2.png"))); // NOI18N
         addJButton.setText("Add Service");
         addJButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         addJButton.setContentAreaFilled(false);
+        addJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addJButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addJButtonMouseExited(evt);
+            }
+        });
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButtonActionPerformed(evt);
@@ -213,7 +231,7 @@ public class AddCabServicesJAreaPanel extends javax.swing.JPanel {
                         .addComponent(CabTypeCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(174, 174, 174)
-                        .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 130, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -225,8 +243,8 @@ public class AddCabServicesJAreaPanel extends javax.swing.JPanel {
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblAddress)
                     .addComponent(CabTypeCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -260,6 +278,38 @@ public class AddCabServicesJAreaPanel extends javax.swing.JPanel {
          JOptionPane.showMessageDialog(null, "Cab Service removed successfully!");
         populateTestTable();
     }//GEN-LAST:event_btnRemoveFoodSuppplierActionPerformed
+
+    private void btnRemoveFoodSuppplierMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemoveFoodSuppplierMouseEntered
+        // TODO add your handling code here:
+           btnRemoveFoodSuppplier.setBackground(new java.awt.Color(18,102,153));
+        btnRemoveFoodSuppplier.setContentAreaFilled(true);
+        btnRemoveFoodSuppplier.setFocusPainted(true);
+        btnRemoveFoodSuppplier.setBorderPainted(false);
+        btnRemoveFoodSuppplier.setOpaque(true);
+    }//GEN-LAST:event_btnRemoveFoodSuppplierMouseEntered
+
+    private void btnRemoveFoodSuppplierMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemoveFoodSuppplierMouseExited
+        // TODO add your handling code here:
+          btnRemoveFoodSuppplier.setContentAreaFilled(false);
+        btnRemoveFoodSuppplier.setFocusPainted(false);
+        btnRemoveFoodSuppplier.setBorderPainted(true);
+    }//GEN-LAST:event_btnRemoveFoodSuppplierMouseExited
+
+    private void addJButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMouseEntered
+        // TODO add your handling code here:
+         addJButton.setBackground(new java.awt.Color(18,102,153));
+        addJButton.setContentAreaFilled(true);
+        addJButton.setFocusPainted(true);
+        addJButton.setBorderPainted(false);
+        addJButton.setOpaque(true);
+    }//GEN-LAST:event_addJButtonMouseEntered
+
+    private void addJButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMouseExited
+        // TODO add your handling code here:
+          addJButton.setContentAreaFilled(false);
+        addJButton.setFocusPainted(false);
+        addJButton.setBorderPainted(true);
+    }//GEN-LAST:event_addJButtonMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

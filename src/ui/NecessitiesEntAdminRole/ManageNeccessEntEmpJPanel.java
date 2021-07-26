@@ -59,7 +59,7 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
         }
         public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused, int row, int column) {
             super.getTableCellRendererComponent(table, value, selected, focused, row, column);         
-           setBackground(new java.awt.Color(74,122,193));
+           setBackground(new java.awt.Color(18,102,153));
             return this;
         }
 
@@ -252,9 +252,18 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
 
         btnRemoveDeliveryMan.setBackground(new java.awt.Color(18, 102, 153));
         btnRemoveDeliveryMan.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnRemoveDeliveryMan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/delete2.png"))); // NOI18N
         btnRemoveDeliveryMan.setText("Remove Delivery Man");
         btnRemoveDeliveryMan.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRemoveDeliveryMan.setContentAreaFilled(false);
+        btnRemoveDeliveryMan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRemoveDeliveryManMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRemoveDeliveryManMouseExited(evt);
+            }
+        });
         btnRemoveDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoveDeliveryManActionPerformed(evt);
@@ -266,9 +275,18 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
 
         btnRemovePharmacist.setBackground(new java.awt.Color(18, 102, 153));
         btnRemovePharmacist.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnRemovePharmacist.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/delete2.png"))); // NOI18N
         btnRemovePharmacist.setText("Remove Pharmacist");
         btnRemovePharmacist.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRemovePharmacist.setContentAreaFilled(false);
+        btnRemovePharmacist.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRemovePharmacistMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRemovePharmacistMouseExited(evt);
+            }
+        });
         btnRemovePharmacist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemovePharmacistActionPerformed(evt);
@@ -310,9 +328,18 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
 
         btnRemoveStorePerson.setBackground(new java.awt.Color(18, 102, 153));
         btnRemoveStorePerson.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnRemoveStorePerson.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/delete2.png"))); // NOI18N
         btnRemoveStorePerson.setText("Remove Store Person");
         btnRemoveStorePerson.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRemoveStorePerson.setContentAreaFilled(false);
+        btnRemoveStorePerson.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRemoveStorePersonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRemoveStorePersonMouseExited(evt);
+            }
+        });
         btnRemoveStorePerson.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoveStorePersonActionPerformed(evt);
@@ -335,9 +362,18 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
 
         addJButton.setBackground(new java.awt.Color(18, 102, 153));
         addJButton.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        addJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/add2.png"))); // NOI18N
         addJButton.setText("Create Employee");
         addJButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         addJButton.setContentAreaFilled(false);
+        addJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addJButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addJButtonMouseExited(evt);
+            }
+        });
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButtonActionPerformed(evt);
@@ -422,17 +458,16 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(txtuserName, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(37, 37, 37)
-                                        .addComponent(jLabel4)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtpassword))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addComponent(txtuserName, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37)
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtpassword)))
                         .addGap(30, 30, 30))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(287, 287, 287))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -494,21 +529,22 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(NurseScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addGap(384, 384, 384)
-                            .addComponent(lblnurselist1)
-                            .addGap(150, 150, 150)
+                            .addGap(737, 737, 737)
                             .addComponent(btnRemoveDeliveryMan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(NurseScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(740, 740, 740)
-                        .addComponent(btnRemoveStorePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnRemoveStorePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(381, 381, 381)
+                        .addComponent(lblnurselist1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(55, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -526,7 +562,7 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
                 .addComponent(NurseScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRemoveDeliveryMan, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblnurselist1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(NurseScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -534,7 +570,7 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
                 .addComponent(btnRemoveStorePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(33, 33, 33))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 0, 1000, 730));
@@ -666,6 +702,70 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
        }      
         populateDeliveryManTable();
     }//GEN-LAST:event_btnRemoveStorePersonActionPerformed
+
+    private void btnRemovePharmacistMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemovePharmacistMouseEntered
+        // TODO add your handling code here:
+            btnRemovePharmacist.setBackground(new java.awt.Color(18,102,153));
+        btnRemovePharmacist.setContentAreaFilled(true);
+        btnRemovePharmacist.setFocusPainted(true);
+        btnRemovePharmacist.setBorderPainted(false);
+        btnRemovePharmacist.setOpaque(true);
+    }//GEN-LAST:event_btnRemovePharmacistMouseEntered
+
+    private void btnRemovePharmacistMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemovePharmacistMouseExited
+        // TODO add your handling code here:
+         btnRemovePharmacist.setContentAreaFilled(false);
+        btnRemovePharmacist.setFocusPainted(false);
+        btnRemovePharmacist.setBorderPainted(true);
+    }//GEN-LAST:event_btnRemovePharmacistMouseExited
+
+    private void btnRemoveDeliveryManMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemoveDeliveryManMouseEntered
+        // TODO add your handling code here:
+            btnRemoveDeliveryMan.setBackground(new java.awt.Color(18,102,153));
+        btnRemoveDeliveryMan.setContentAreaFilled(true);
+        btnRemoveDeliveryMan.setFocusPainted(true);
+        btnRemoveDeliveryMan.setBorderPainted(false);
+        btnRemoveDeliveryMan.setOpaque(true);
+    }//GEN-LAST:event_btnRemoveDeliveryManMouseEntered
+
+    private void btnRemoveDeliveryManMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemoveDeliveryManMouseExited
+        // TODO add your handling code here:
+         btnRemoveDeliveryMan.setContentAreaFilled(false);
+        btnRemoveDeliveryMan.setFocusPainted(false);
+        btnRemoveDeliveryMan.setBorderPainted(true);
+    }//GEN-LAST:event_btnRemoveDeliveryManMouseExited
+
+    private void btnRemoveStorePersonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemoveStorePersonMouseEntered
+        // TODO add your handling code here:
+        btnRemoveStorePerson.setBackground(new java.awt.Color(18,102,153));
+        btnRemoveStorePerson.setContentAreaFilled(true);
+        btnRemoveStorePerson.setFocusPainted(true);
+        btnRemoveStorePerson.setBorderPainted(false);
+        btnRemoveStorePerson.setOpaque(true);
+    }//GEN-LAST:event_btnRemoveStorePersonMouseEntered
+
+    private void btnRemoveStorePersonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemoveStorePersonMouseExited
+        // TODO add your handling code here:
+         btnRemoveStorePerson.setContentAreaFilled(false);
+        btnRemoveStorePerson.setFocusPainted(false);
+        btnRemoveStorePerson.setBorderPainted(true);
+    }//GEN-LAST:event_btnRemoveStorePersonMouseExited
+
+    private void addJButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMouseEntered
+        // TODO add your handling code here:
+            addJButton.setBackground(new java.awt.Color(18,102,153));
+        addJButton.setContentAreaFilled(true);
+        addJButton.setFocusPainted(true);
+        addJButton.setBorderPainted(false);
+        addJButton.setOpaque(true);
+    }//GEN-LAST:event_addJButtonMouseEntered
+
+    private void addJButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMouseExited
+        // TODO add your handling code here:
+         addJButton.setContentAreaFilled(false);
+        addJButton.setFocusPainted(false);
+        addJButton.setBorderPainted(true);
+    }//GEN-LAST:event_addJButtonMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

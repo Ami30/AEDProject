@@ -112,7 +112,6 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Personal Details", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font(".SF NS Text", 1, 13))); // NOI18N
 
         jPanel4.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -153,9 +152,17 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
 
         jButton1.setBackground(new java.awt.Color(18, 102, 153));
         jButton1.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        jButton1.setText("View completed Profile");
+        jButton1.setText("View complete Profile");
         jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton1.setContentAreaFilled(false);
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1MouseExited(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -167,6 +174,14 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
         viewAvailableTest.setText("View Available tests");
         viewAvailableTest.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         viewAvailableTest.setContentAreaFilled(false);
+        viewAvailableTest.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                viewAvailableTestMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                viewAvailableTestMouseExited(evt);
+            }
+        });
         viewAvailableTest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewAvailableTestActionPerformed(evt);
@@ -273,6 +288,14 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
         btnViewPresc.setText("View Prescription");
         btnViewPresc.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnViewPresc.setContentAreaFilled(false);
+        btnViewPresc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnViewPrescMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnViewPrescMouseExited(evt);
+            }
+        });
         btnViewPresc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewPrescActionPerformed(evt);
@@ -403,11 +426,21 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
                 .addGap(28, 28, 28))
         );
 
+        doctorJpanel.setBackground(new java.awt.Color(255, 255, 255));
+
         btnDailyReport.setBackground(new java.awt.Color(18, 102, 153));
         btnDailyReport.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnDailyReport.setText("Manage Daily Reports");
         btnDailyReport.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnDailyReport.setContentAreaFilled(false);
+        btnDailyReport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnDailyReportMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnDailyReportMouseExited(evt);
+            }
+        });
         btnDailyReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDailyReportActionPerformed(evt);
@@ -419,6 +452,14 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
         btnOrderMedicine.setText("Order Medicine");
         btnOrderMedicine.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnOrderMedicine.setContentAreaFilled(false);
+        btnOrderMedicine.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnOrderMedicineMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnOrderMedicineMouseExited(evt);
+            }
+        });
         btnOrderMedicine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOrderMedicineActionPerformed(evt);
@@ -450,6 +491,14 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
         jButton3.setText("Back");
         jButton3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton3.setContentAreaFilled(false);
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton3MouseExited(evt);
+            }
+        });
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -511,14 +560,14 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -569,6 +618,102 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnViewPrescActionPerformed
+
+    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
+        // TODO add your handling code here:
+            jButton3.setBackground(new java.awt.Color(18,102,153));
+        jButton3.setContentAreaFilled(true);
+        jButton3.setFocusPainted(true);
+        jButton3.setBorderPainted(false);
+        jButton3.setOpaque(true);
+    }//GEN-LAST:event_jButton3MouseEntered
+
+    private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
+        // TODO add your handling code here:
+         jButton3.setContentAreaFilled(false);
+        jButton3.setFocusPainted(false);
+        jButton3.setBorderPainted(true);
+    }//GEN-LAST:event_jButton3MouseExited
+
+    private void viewAvailableTestMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewAvailableTestMouseEntered
+        // TODO add your handling code here:
+            viewAvailableTest.setBackground(new java.awt.Color(18,102,153));
+        viewAvailableTest.setContentAreaFilled(true);
+        viewAvailableTest.setFocusPainted(true);
+        viewAvailableTest.setBorderPainted(false);
+        viewAvailableTest.setOpaque(true);
+    }//GEN-LAST:event_viewAvailableTestMouseEntered
+
+    private void viewAvailableTestMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewAvailableTestMouseExited
+        // TODO add your handling code here:
+         viewAvailableTest.setContentAreaFilled(false);
+        viewAvailableTest.setFocusPainted(false);
+        viewAvailableTest.setBorderPainted(true);
+    }//GEN-LAST:event_viewAvailableTestMouseExited
+
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+        // TODO add your handling code here:
+            jButton1.setBackground(new java.awt.Color(18,102,153));
+        jButton1.setContentAreaFilled(true);
+        jButton1.setFocusPainted(true);
+        jButton1.setBorderPainted(false);
+        jButton1.setOpaque(true);
+    }//GEN-LAST:event_jButton1MouseEntered
+
+    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
+        // TODO add your handling code here:
+         jButton1.setContentAreaFilled(false);
+        jButton1.setFocusPainted(false);
+        jButton1.setBorderPainted(true);
+    }//GEN-LAST:event_jButton1MouseExited
+
+    private void btnDailyReportMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDailyReportMouseEntered
+        // TODO add your handling code here:
+            btnDailyReport.setBackground(new java.awt.Color(18,102,153));
+        btnDailyReport.setContentAreaFilled(true);
+        btnDailyReport.setFocusPainted(true);
+        btnDailyReport.setBorderPainted(false);
+        btnDailyReport.setOpaque(true);
+    }//GEN-LAST:event_btnDailyReportMouseEntered
+
+    private void btnDailyReportMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDailyReportMouseExited
+        // TODO add your handling code here:
+         btnDailyReport.setContentAreaFilled(false);
+        btnDailyReport.setFocusPainted(false);
+        btnDailyReport.setBorderPainted(true);
+    }//GEN-LAST:event_btnDailyReportMouseExited
+
+    private void btnOrderMedicineMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOrderMedicineMouseEntered
+        // TODO add your handling code here:
+            btnOrderMedicine.setBackground(new java.awt.Color(18,102,153));
+        btnOrderMedicine.setContentAreaFilled(true);
+        btnOrderMedicine.setFocusPainted(true);
+        btnOrderMedicine.setBorderPainted(false);
+        btnOrderMedicine.setOpaque(true);
+    }//GEN-LAST:event_btnOrderMedicineMouseEntered
+
+    private void btnOrderMedicineMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOrderMedicineMouseExited
+        // TODO add your handling code here:
+         btnOrderMedicine.setContentAreaFilled(false);
+        btnOrderMedicine.setFocusPainted(false);
+        btnOrderMedicine.setBorderPainted(true);
+    }//GEN-LAST:event_btnOrderMedicineMouseExited
+
+    private void btnViewPrescMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewPrescMouseEntered
+        // TODO add your handling code here:
+            btnViewPresc.setBackground(new java.awt.Color(18,102,153));
+        btnViewPresc.setContentAreaFilled(true);
+        btnViewPresc.setFocusPainted(true);
+        btnViewPresc.setBorderPainted(false);
+        btnViewPresc.setOpaque(true);
+    }//GEN-LAST:event_btnViewPrescMouseEntered
+
+    private void btnViewPrescMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewPrescMouseExited
+        // TODO add your handling code here:
+         btnViewPresc.setContentAreaFilled(false);
+        btnViewPresc.setFocusPainted(false);
+        btnViewPresc.setBorderPainted(true);
+    }//GEN-LAST:event_btnViewPrescMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

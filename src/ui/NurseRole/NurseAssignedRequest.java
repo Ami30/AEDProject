@@ -56,7 +56,7 @@ public class NurseAssignedRequest extends javax.swing.JPanel {
         }
         public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused, int row, int column) {
             super.getTableCellRendererComponent(table, value, selected, focused, row, column);         
-           setBackground(new java.awt.Color(74,122,193));
+           setBackground(new java.awt.Color(18,102,153));
             return this;
         }
     }
@@ -129,6 +129,14 @@ public class NurseAssignedRequest extends javax.swing.JPanel {
         viewDetails.setText("View Details");
         viewDetails.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         viewDetails.setContentAreaFilled(false);
+        viewDetails.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                viewDetailsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                viewDetailsMouseExited(evt);
+            }
+        });
         viewDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewDetailsActionPerformed(evt);
@@ -180,6 +188,22 @@ public class NurseAssignedRequest extends javax.swing.JPanel {
          }
         
     }//GEN-LAST:event_viewDetailsActionPerformed
+
+    private void viewDetailsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewDetailsMouseEntered
+        // TODO add your handling code here:
+             viewDetails.setBackground(new java.awt.Color(18,102,153));
+        viewDetails.setContentAreaFilled(true);
+        viewDetails.setFocusPainted(true);
+        viewDetails.setBorderPainted(false);
+        viewDetails.setOpaque(true);
+    }//GEN-LAST:event_viewDetailsMouseEntered
+
+    private void viewDetailsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewDetailsMouseExited
+        // TODO add your handling code here:
+         viewDetails.setContentAreaFilled(false);
+        viewDetails.setFocusPainted(false);
+        viewDetails.setBorderPainted(true);
+    }//GEN-LAST:event_viewDetailsMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
