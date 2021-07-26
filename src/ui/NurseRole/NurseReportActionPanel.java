@@ -107,7 +107,6 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
         doctorJpanel = new javax.swing.JPanel();
         btnDailyReport = new javax.swing.JButton();
         btnOrderMedicine = new javax.swing.JButton();
-        btnBookAmbulance = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -409,22 +408,13 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
             }
         });
 
-        btnBookAmbulance.setText("Book Ambulance");
-        btnBookAmbulance.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBookAmbulanceActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout doctorJpanelLayout = new javax.swing.GroupLayout(doctorJpanel);
         doctorJpanel.setLayout(doctorJpanelLayout);
         doctorJpanelLayout.setHorizontalGroup(
             doctorJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(doctorJpanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(doctorJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnBookAmbulance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDailyReport, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnDailyReport)
                 .addGap(18, 18, 18)
                 .addComponent(btnOrderMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(84, Short.MAX_VALUE))
@@ -435,9 +425,7 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
                 .addGroup(doctorJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDailyReport)
                     .addComponent(btnOrderMedicine))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnBookAmbulance)
-                .addGap(0, 164, Short.MAX_VALUE))
+                .addGap(0, 198, Short.MAX_VALUE))
         );
 
         jButton3.setText("Back");
@@ -537,10 +525,6 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
                   layout.next(userProcessContainer);
     }//GEN-LAST:event_btnOrderMedicineActionPerformed
 
-    private void btnBookAmbulanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookAmbulanceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBookAmbulanceActionPerformed
-
     private void viewAvailableTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAvailableTestActionPerformed
         // TODO add your handling code here:
         CompletedTestReport completedTestResult=new CompletedTestReport(userProcessContainer,enterprise,useraccount,system, request);
@@ -566,7 +550,6 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBookAmbulance;
     private javax.swing.JButton btnDailyReport;
     private javax.swing.JButton btnOrderMedicine;
     private javax.swing.JButton btnViewPresc;

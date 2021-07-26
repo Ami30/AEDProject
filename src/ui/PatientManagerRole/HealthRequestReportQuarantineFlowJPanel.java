@@ -531,10 +531,10 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
                         nurse.getRequestDirectory().addRequestList(request);
                         JOptionPane.showMessageDialog(null, "This request assigned to Nurse "+nurse.getName()+" Successfully!");
                         doctorJpanel.setVisible(true);
+                  }else{
+                    JOptionPane.showMessageDialog(null, "This request is already assigned to doctor "+request.getDoctor().getName());
+                    }
                   }
-             }
-            
-             JOptionPane.showMessageDialog(null, "This request is already assigned to doctor "+request.getDoctor().getName());
              }    
          }
     }//GEN-LAST:event_btnSubmitActionPerformed

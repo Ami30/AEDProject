@@ -255,7 +255,7 @@ public class AmbulanceServiceAssignedRequestJPanel extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
-        if(serReq.getStatus().equalsIgnoreCase("cancelled")){
+        if(serReq.getStatus().equalsIgnoreCase("cancelled") || serReq.getStatus().equalsIgnoreCase("declined")){
             JOptionPane.showMessageDialog(null, "Ambulance already marked "+ serReq.getStatus());
         } else{
         serReq.setStatus("Declined");

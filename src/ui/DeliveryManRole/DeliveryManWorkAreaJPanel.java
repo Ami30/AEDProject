@@ -12,6 +12,9 @@ import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 /**
@@ -170,20 +173,24 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         setColor(btnOrders_JPanel);
         resetColor(btnProfile_Panel);
-//        AddServicesJAreaPanel ambulanceServiceRequest=new AddServicesJAreaPanel(workAreaJPanel,enterprise,useraccount,system,org);
-//        workAreaJPanel.add("ambulanceServiceRequest", ambulanceServiceRequest);
-//        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
-//        layout.next(workAreaJPanel);
+        DeliveryManAssignedRequestJPanel deliverymanAssignedRequest=new DeliveryManAssignedRequestJPanel(workAreaJPanel,enterprise,useraccount,system,org);
+        workAreaJPanel.add("deliverymanAssignedRequest", deliverymanAssignedRequest);
+        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+        layout.next(workAreaJPanel);
     }//GEN-LAST:event_btnmangOrdersMousePressed
 
     private void btnProfileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProfileMousePressed
-        // TODO add your handling code here:
-        setColor(btnProfile_Panel);
-        resetColor(btnOrders_JPanel);
-        ManagePatientManagerProfileJPanel managepManagerProfileJPanel=new ManagePatientManagerProfileJPanel(workAreaJPanel,enterprise,useraccount,system);
-        workAreaJPanel.add("PatientManagerProfileJPanel", managepManagerProfileJPanel);
-        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
-        layout.next(workAreaJPanel);
+        try {
+            // TODO add your handling code here:
+            setColor(btnProfile_Panel);
+            resetColor(btnOrders_JPanel);
+            ManageDeliveryManProfileJPanel managepManagerProfileJPanel=new ManageDeliveryManProfileJPanel(workAreaJPanel,enterprise,useraccount,system);
+            workAreaJPanel.add("PatientManagerProfileJPanel", managepManagerProfileJPanel);
+            CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+            layout.next(workAreaJPanel);
+        } catch (ParseException ex) {
+            Logger.getLogger(DeliveryManWorkAreaJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnProfileMousePressed
 
 

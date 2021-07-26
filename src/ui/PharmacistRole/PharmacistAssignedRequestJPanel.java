@@ -11,6 +11,7 @@ import Business.Organization.Organization;
 import Business.Pharmacist.Pharmacist;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HealthRequest;
+import Business.WorkQueue.OrderMedicine;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
@@ -63,12 +64,14 @@ public class PharmacistAssignedRequestJPanel extends javax.swing.JPanel {
        for(Organization org : enterprise.getOrganizationDirectory().getOrgList()){
            if(org.getPharDir().findPhar(useraccount.getUsername())!= null){
               pharmacist = org.getPharDir().findPhar(useraccount.getUsername());
-              for(HealthRequest req : pharmacist.getRequestDirectory().getRequestList()){
-            Object[] row = new Object[4];
+            for(HealthRequest req : pharmacist.getRequestDirectory().getRequestList()){
+            Object[] row = new Object[6];
             row[0] = req;
             row[1] = req.getUser().getName();
-            row[2] = req.getDoctor()==null?"Not Assigned": req.getDoctor().getName();
-            row[3] = req.getStatus();
+            row[2] =req.getUser().getContactNumber();
+            row[3] = req.getUser().getAddress();
+            row[4] = req.getUser().getZipcode();
+            row[5] = req.getStatus();
             model.addRow(row);
         }
            }
@@ -94,17 +97,17 @@ public class PharmacistAssignedRequestJPanel extends javax.swing.JPanel {
 
         SubmittedrequestsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Request ID", "Requester's Name", "Doctor Assigned", "Request Status"
+                "Request ID", "Patients Name", "Contact Number", "Address", "Zipcode", "Request Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, false, true
+                true, false, false, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -136,21 +139,19 @@ public class PharmacistAssignedRequestJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(viewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(btnCompletedOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(569, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(433, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(335, 335, 335))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(335, 335, 335))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(viewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCompletedOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

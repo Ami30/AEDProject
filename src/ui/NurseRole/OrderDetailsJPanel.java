@@ -51,7 +51,7 @@ public class OrderDetailsJPanel extends javax.swing.JPanel {
     private ArrayList<Medicine> medicineList = new ArrayList<>();
     DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
        
-    public OrderDetailsJPanel(JPanel userProcessContainer,Enterprise ent, UserAccount userAccount, EcoSystem system, HealthRequest request, OrderMedicine ordMed) {
+    public OrderDetailsJPanel(JPanel userProcessContainer,Enterprise ent, UserAccount userAccount, EcoSystem system, Organization org, HealthRequest request, OrderMedicine ordMed) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = userAccount;
@@ -59,6 +59,7 @@ public class OrderDetailsJPanel extends javax.swing.JPanel {
         this.ent=ent;
         this.request = request;
         this.ordMed = ordMed;
+        this.org = org;
         populateDetails();
         populateOrderTabletTable();
     }

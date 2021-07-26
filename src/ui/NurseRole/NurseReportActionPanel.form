@@ -636,10 +636,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="btnBookAmbulance" max="32767" attributes="0"/>
-                              <Component id="btnDailyReport" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="btnDailyReport" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnOrderMedicine" min="-2" pref="143" max="-2" attributes="0"/>
                           <EmptySpace pref="84" max="32767" attributes="0"/>
@@ -653,9 +650,7 @@
                               <Component id="btnDailyReport" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnOrderMedicine" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnBookAmbulance" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="164" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="198" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -675,14 +670,6 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOrderMedicineActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="btnBookAmbulance">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Book Ambulance"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBookAmbulanceActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

@@ -63,10 +63,11 @@ public class NotificationRequestJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) notificationJTable.getModel();
         model.setRowCount(0);
            for(PersonalNotification not : patientManager.getNotificationDirectory().getNotificationList()){
-            Object[] row = new Object[3];
+            Object[] row = new Object[4];
             row[0] = not;
             row[1] = not.getMessage();
             row[2] = not.getRequestNumber();
+            row[3] = not.getRequestNumber().getNurse();
             model.addRow(row);
         }
    
@@ -90,13 +91,13 @@ public class NotificationRequestJPanel extends javax.swing.JPanel {
 
         notificationJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Date", "Message", "Request Number"
+                "Date", "Message", "Request Number", "Assigned Nurse"
             }
         ));
         notificationJTable.setRequestFocusEnabled(false);

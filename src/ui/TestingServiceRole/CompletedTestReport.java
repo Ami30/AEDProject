@@ -239,7 +239,7 @@ public class CompletedTestReport extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
-      reportPanel.setVisible(true);
+
         populateDetails();
     }//GEN-LAST:event_addJButtonActionPerformed
 
@@ -290,6 +290,7 @@ public class CompletedTestReport extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }else{
+            reportPanel.setVisible(true);
         Tests test = (Tests)reprtedTestJTable.getValueAt(row, 0);
         lblTestName.setText(test.getTestName());
         lblTestDuration.setText(test.getReportingTime());

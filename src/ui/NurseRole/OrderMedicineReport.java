@@ -309,6 +309,8 @@ public class OrderMedicineReport extends javax.swing.JPanel {
             ordMed.getMedicineDirectory().addMedicineList(med);
         }
         request.getOrderDirectoryMed().addOrder(ordMed);
+        pharmacy.getRequestDirectory().addRequestList(request);
+        
          JOptionPane.showMessageDialog(null, "Your order will be processed soon");
        medicineList.clear();
        populateOrderTable();
@@ -317,13 +319,9 @@ public class OrderMedicineReport extends javax.swing.JPanel {
 
     private void pharmacyComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pharmacyComboBoxActionPerformed
         // TODO add your handling code here:
-        pharmacyComboBox.removeAllItems();
-        if(pharmacyComboBox.getItemCount()==0){
-            populateComboBox();
-            pharmacyComboBox.setSelectedIndex(0);
             pharmacy = (Pharmacist)pharmacyComboBox.getSelectedItem();
             populateAvailableMedicineTable();
-        }
+        
     }//GEN-LAST:event_pharmacyComboBoxActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
@@ -335,14 +333,15 @@ public class OrderMedicineReport extends javax.swing.JPanel {
             return;
          }
          else{
-         String Quantity = txtQuantity.getText();
-         if(Quantity == ""){
+         String quantity = txtQuantity.getText();
+         if(quantity.isEmpty()){
+              JOptionPane.showMessageDialog(null, "Please enter quantity firse");
+         
+         } else{
          Medicine med = (Medicine)medicineAvailableTable.getValueAt(selectedRow, 0);
-         med.setQuantity(Quantity);
+         med.setQuantity(quantity);
          medicineList.add(med);
          populateCartMedicineTable();
-         } else{
-             JOptionPane.showMessageDialog(null, "Please enter quantity firse");
          }
          }
         
@@ -357,7 +356,7 @@ public class OrderMedicineReport extends javax.swing.JPanel {
          }
          else{
          OrderMedicine ordMed = (OrderMedicine)completeOrderTable.getValueAt(selectedRow, 0);
-         OrderDetailsJPanel orderDetails=new OrderDetailsJPanel(userProcessContainer,ent,userAccount,system, request,ordMed);
+         OrderDetailsJPanel orderDetails=new OrderDetailsJPanel(userProcessContainer,ent,userAccount,system,organization, request,ordMed);
             userProcessContainer.add("PatientManagerProfileJPanel", orderDetails);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
             layout.next(userProcessContainer);
@@ -367,9 +366,10 @@ public class OrderMedicineReport extends javax.swing.JPanel {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+       NurseReportActionPanel nurseActionPanel=new NurseReportActionPanel(userProcessContainer,ent,userAccount,system,request,organization);
+            userProcessContainer.add("PatientManagerProfileJPanel", nurseActionPanel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
     }//GEN-LAST:event_jButton3ActionPerformed
 
 

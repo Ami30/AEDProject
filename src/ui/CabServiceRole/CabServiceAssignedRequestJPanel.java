@@ -270,9 +270,14 @@ public class CabServiceAssignedRequestJPanel extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
-        serReq.setStatus("Declined");
+        if(serReq.getStatus().equalsIgnoreCase("declined") ){
+        JOptionPane.showMessageDialog(null, "Cab is already marked "+serReq.getStatus());
+        } else{
+            serReq.setStatus("Declined");
         JOptionPane.showMessageDialog(null, "Cab request declined");
         populateRequestTable();
+        }
+        
     }//GEN-LAST:event_btnDeclineActionPerformed
 
     private void btnArrivedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArrivedActionPerformed

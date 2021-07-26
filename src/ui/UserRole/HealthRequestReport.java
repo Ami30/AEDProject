@@ -678,7 +678,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
             }
         }
      
-        
+        populateprofile();
         
     }//GEN-LAST:event_btnAssignToDoctorActionPerformed
 
@@ -737,6 +737,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
         PersonalNotification notification = new PersonalNotification(
         "Doctor has assigned this request back to you", nowDtae, request);
         notification.setStatus("new");
+//        notification.setNurse(request.getNurse());
 //        notification.setRequest(request);
         patMan.getNotificationDirectory().addNotification(notification);
         request.setStatus("quarantined");
