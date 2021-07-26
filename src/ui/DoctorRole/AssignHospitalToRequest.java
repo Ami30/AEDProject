@@ -15,11 +15,14 @@ import Business.RegisteredUser.RegisteredUser;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HealthRequest;
 import java.awt.CardLayout;
+import java.awt.Component;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -54,8 +57,22 @@ public class AssignHospitalToRequest extends javax.swing.JPanel {
         populateprofile();
         populateTable();
         this.comorbid=new ArrayList<>();
+         HospitalJTable.setRowHeight(25);
+        HospitalJTable.getTableHeader().setDefaultRenderer(new HeaderColor());
         
     }
+    public class HeaderColor extends DefaultTableCellRenderer {
+        public HeaderColor() {
+            setOpaque(true);
+        }
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused, int row, int column) {
+            super.getTableCellRendererComponent(table, value, selected, focused, row, column);         
+           setBackground(new java.awt.Color(18,102,153));
+            return this;
+        }
+
+    }
+
     
     
 
@@ -106,7 +123,6 @@ public class AssignHospitalToRequest extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         HospitalJTable = new javax.swing.JTable();
         btnSubmit = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -409,13 +425,6 @@ public class AssignHospitalToRequest extends javax.swing.JPanel {
             }
         });
 
-        jButton3.setText("Back");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout doctorJpanelLayout = new javax.swing.GroupLayout(doctorJpanel);
         doctorJpanel.setLayout(doctorJpanelLayout);
         doctorJpanelLayout.setHorizontalGroup(
@@ -427,11 +436,6 @@ public class AssignHospitalToRequest extends javax.swing.JPanel {
                     .addGroup(doctorJpanelLayout.createSequentialGroup()
                         .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(doctorJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(doctorJpanelLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         doctorJpanelLayout.setVerticalGroup(
             doctorJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -441,11 +445,6 @@ public class AssignHospitalToRequest extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(27, Short.MAX_VALUE))
-            .addGroup(doctorJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(doctorJpanelLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jButton3)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jButton4.setBackground(new java.awt.Color(18, 102, 153));
@@ -563,13 +562,6 @@ public class AssignHospitalToRequest extends javax.swing.JPanel {
          }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
@@ -631,7 +623,6 @@ public class AssignHospitalToRequest extends javax.swing.JPanel {
     private javax.swing.JButton btnSubmit;
     private javax.swing.JPanel doctorJpanel;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

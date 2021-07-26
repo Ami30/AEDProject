@@ -53,6 +53,8 @@ public class CompletedTestReport extends javax.swing.JPanel {
         this.request = request;
         populateTable();
         reportPanel.setVisible(false);
+        reprtedTestJTable.setRowHeight(25);
+        reprtedTestJTable.getTableHeader().setDefaultRenderer(new HeaderColor());
         
     }
      public class HeaderColor extends DefaultTableCellRenderer {
@@ -61,7 +63,7 @@ public class CompletedTestReport extends javax.swing.JPanel {
         }
         public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused, int row, int column) {
             super.getTableCellRendererComponent(table, value, selected, focused, row, column);         
-           setBackground(new java.awt.Color(74,122,193));
+           setBackground(new java.awt.Color(18,102,153));
             return this;
         }
 

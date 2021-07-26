@@ -42,7 +42,7 @@ public class ManageTransportEntOrgJPanel extends javax.swing.JPanel {
         }
         public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused, int row, int column) {
             super.getTableCellRendererComponent(table, value, selected, focused, row, column);         
-           setBackground(new java.awt.Color(74,122,193));
+           setBackground(new java.awt.Color(18,102,153));
             return this;
         }
 
@@ -60,10 +60,9 @@ public class ManageTransportEntOrgJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for (Organization organization : directory.getOrgList()){
-            Object[] row = new Object[3];
-            row[0] = organization.getOrgID();
-            row[1] = organization.getName();
-            row[2] = organization.getType().getValue();
+            Object[] row = new Object[2];
+            row[0] = organization.getName();
+            row[1] = organization.getType().getValue();
             model.addRow(row);
         }
     }
@@ -89,20 +88,20 @@ public class ManageTransportEntOrgJPanel extends javax.swing.JPanel {
 
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "ID", "Name", "Type"
+                "Name", "Type"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false
             };
 
             public Class getColumnClass(int columnIndex) {

@@ -64,6 +64,8 @@ public class DeliveryManAssignedRequestJPanel extends javax.swing.JPanel {
         this.ent=ent;
         this.organization = organization;
         delman=organization.getDelManDir().findDeliveryMan(userAccount.getUsername());
+         completeOrderTable.setRowHeight(25);
+        completeOrderTable.getTableHeader().setDefaultRenderer(new HeaderColor());
         populateOrderTable();
     }
      public class HeaderColor extends DefaultTableCellRenderer {
@@ -72,7 +74,7 @@ public class DeliveryManAssignedRequestJPanel extends javax.swing.JPanel {
         }
         public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused, int row, int column) {
             super.getTableCellRendererComponent(table, value, selected, focused, row, column);         
-           setBackground(new java.awt.Color(74,122,193));
+           setBackground(new java.awt.Color(18,102,153));
             return this;
         }
 

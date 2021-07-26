@@ -17,11 +17,14 @@ import Business.RegisteredUser.RegisteredUser;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HealthRequest;
 import java.awt.CardLayout;
+import java.awt.Component;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -58,7 +61,21 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
         toggleNurseButton();
         populateprofile();
         this.comorbid=new ArrayList<>();
+            doctorJTable.setRowHeight(25);
+        doctorJTable.getTableHeader().setDefaultRenderer(new HeaderColor());
         
+    }
+    
+       public class HeaderColor extends DefaultTableCellRenderer {
+        public HeaderColor() {
+            setOpaque(true);
+        }
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused, int row, int column) {
+            super.getTableCellRendererComponent(table, value, selected, focused, row, column);         
+           setBackground(new java.awt.Color(18,102,153));
+            return this;
+        }
+
     }
     
     
