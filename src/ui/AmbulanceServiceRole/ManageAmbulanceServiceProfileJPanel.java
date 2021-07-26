@@ -115,7 +115,11 @@ public class ManageAmbulanceServiceProfileJPanel extends javax.swing.JPanel {
             }
         });
 
+        addJButton.setBackground(new java.awt.Color(18, 102, 153));
+        addJButton.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         addJButton.setText("Save");
+        addJButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        addJButton.setContentAreaFilled(false);
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButtonActionPerformed(evt);
@@ -154,7 +158,7 @@ public class ManageAmbulanceServiceProfileJPanel extends javax.swing.JPanel {
                 .addContainerGap())
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(266, 266, 266)
-                .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -179,8 +183,8 @@ public class ManageAmbulanceServiceProfileJPanel extends javax.swing.JPanel {
                     .addComponent(lblGender)
                     .addComponent(GenderCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
-                .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

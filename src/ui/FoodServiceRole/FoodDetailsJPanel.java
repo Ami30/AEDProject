@@ -167,7 +167,11 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
 
         lblEndDate.setText("jLabel6");
 
+        jButton3.setBackground(new java.awt.Color(18, 102, 153));
+        jButton3.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         jButton3.setText("Back");
+        jButton3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton3.setContentAreaFilled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -194,7 +198,7 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(lblEndDate, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                .addComponent(lblEndDate, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(DoctorScrollPane)
@@ -203,10 +207,14 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDoctorslist1)
-                    .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblDoctorslist1)
+                        .addGap(0, 15, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -223,7 +231,11 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, 620, 280));
 
+        addJButton.setBackground(new java.awt.Color(18, 102, 153));
+        addJButton.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         addJButton.setText("Submit");
+        addJButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        addJButton.setContentAreaFilled(false);
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButtonActionPerformed(evt);
@@ -234,7 +246,11 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
 
         jLabel3.setText("Meal Type:");
 
+        jButton4.setBackground(new java.awt.Color(18, 102, 153));
+        jButton4.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         jButton4.setText("Close");
+        jButton4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton4.setContentAreaFilled(false);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -248,22 +264,21 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
         addServicePanelLayout.setHorizontalGroup(
             addServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addServicePanelLayout.createSequentialGroup()
-                .addGroup(addServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(addServicePanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sanitizationDate, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(mealTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(addServicePanelLayout.createSequentialGroup()
-                        .addGap(239, 239, 239)
-                        .addComponent(addJButton)
-                        .addGap(41, 41, 41)
-                        .addComponent(jButton4)))
-                .addGap(0, 51, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sanitizationDate, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(mealTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 53, Short.MAX_VALUE))
+            .addGroup(addServicePanelLayout.createSequentialGroup()
+                .addGap(194, 194, 194)
+                .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         addServicePanelLayout.setVerticalGroup(
             addServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,46 +290,62 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(mealTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(addServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addJButton)
-                    .addComponent(jButton4))
-                .addGap(47, 47, 47))
+                    .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
-        add(addServicePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 620, 150));
+        add(addServicePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 620, 150));
 
+        btnNextService.setBackground(new java.awt.Color(18, 102, 153));
+        btnNextService.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnNextService.setText("Add Next Service");
+        btnNextService.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnNextService.setContentAreaFilled(false);
         btnNextService.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextServiceActionPerformed(evt);
             }
         });
-        add(btnNextService, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 140, -1));
+        add(btnNextService, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 140, 40));
 
-        btnCompleted.setText("completed");
+        btnCompleted.setBackground(new java.awt.Color(18, 102, 153));
+        btnCompleted.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnCompleted.setText("Completed");
+        btnCompleted.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnCompleted.setContentAreaFilled(false);
         btnCompleted.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCompletedActionPerformed(evt);
             }
         });
-        add(btnCompleted, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 120, -1));
+        add(btnCompleted, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 120, 40));
 
+        btnDeclined.setBackground(new java.awt.Color(18, 102, 153));
+        btnDeclined.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnDeclined.setText("Declined");
+        btnDeclined.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnDeclined.setContentAreaFilled(false);
         btnDeclined.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeclinedActionPerformed(evt);
             }
         });
-        add(btnDeclined, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 110, -1));
+        add(btnDeclined, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 110, 40));
 
+        btnRemove.setBackground(new java.awt.Color(18, 102, 153));
+        btnRemove.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnRemove.setText("Remove ");
+        btnRemove.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnRemove.setContentAreaFilled(false);
         btnRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoveActionPerformed(evt);
             }
         });
-        add(btnRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, -1, -1));
+        add(btnRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, 80, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed

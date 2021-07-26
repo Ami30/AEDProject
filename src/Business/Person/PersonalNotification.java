@@ -5,6 +5,7 @@
  */
 package Business.Person;
 
+import Business.Nurse.Nurse;
 import Business.WorkQueue.HealthRequest;
 
 /**
@@ -16,6 +17,7 @@ public class PersonalNotification {
     private String date;
     private HealthRequest requestNumber;
     private String status;
+    private Nurse nurse;
 
     public PersonalNotification(String message, String date, HealthRequest requestNumber) {
         this.message = message;
@@ -53,6 +55,14 @@ public class PersonalNotification {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Nurse getNurse() {
+        return nurse;
+    }
+
+    public void setNurse(Nurse nurse) {
+        this.nurse = nurse;
     }
 
   

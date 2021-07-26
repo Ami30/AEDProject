@@ -76,7 +76,7 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         medicinesRequestedtable = new javax.swing.JTable();
-        deliveryManComboBox = new javax.swing.JComboBox<>();
+        deliveryManComboBox = new javax.swing.JComboBox();
 
         jPanel4.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -164,7 +164,11 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
                 .addGap(34, 34, 34))
         );
 
+        btnAssigndeliveryMan.setBackground(new java.awt.Color(18, 102, 153));
+        btnAssigndeliveryMan.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnAssigndeliveryMan.setText("Assign Delivery Man");
+        btnAssigndeliveryMan.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnAssigndeliveryMan.setContentAreaFilled(false);
         btnAssigndeliveryMan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAssigndeliveryManActionPerformed(evt);
@@ -195,7 +199,6 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(medicinesRequestedtable);
 
-        deliveryManComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         deliveryManComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deliveryManComboBoxActionPerformed(evt);
@@ -212,32 +215,32 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
                         .addGap(45, 45, 45)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(162, 162, 162)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(deliveryManComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(69, 69, 69)
-                                .addComponent(btnAssigndeliveryMan)))))
-                .addContainerGap(312, Short.MAX_VALUE))
+                        .addGap(135, 135, 135)
+                        .addComponent(deliveryManComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70)
+                        .addComponent(btnAssigndeliveryMan, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(297, 297, 297)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(360, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                .addGap(11, 11, 11)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(deliveryManComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAssigndeliveryMan))
-                .addGap(114, 114, 114))
+                    .addComponent(btnAssigndeliveryMan, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deliveryManComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -265,12 +268,24 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
         else{
 //            Tests test = (Tests)testAssignedTable.getValueAt(row, 0);
               OrderMedicine med=(OrderMedicine)medicinesRequestedtable.getValueAt(row, 0);
+              if(med.getDeliveryman() == null){
               med.setStatus("Assigned to DeliveryMan " + delMan);
               med.setUser(request.getUser());
+              med.setDeliveryman(delMan);
               delMan.getOrderDirectory().addOrder(med);
+              populateTable();
+              } else{
+              JOptionPane.showMessageDialog(null, "DeliveryMan Already Assigned!");
+              }
+              
         }
 
     }//GEN-LAST:event_btnAssigndeliveryManActionPerformed
+
+    private void deliveryManComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deliveryManComboBoxActionPerformed
+        // TODO add your handling code here:
+        delMan = (DeliveryMan)deliveryManComboBox.getSelectedItem();
+    }//GEN-LAST:event_deliveryManComboBoxActionPerformed
 
      private void populateprofile() {
        lblRequestNumber.setText(request.getRequestNumber());
@@ -286,7 +301,7 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
            for (Organization org : enterprise.getOrganizationDirectory().getOrgList()) {
                if(org.getType().getValue().equals("Delivery Provider Organization")){
                  for(DeliveryMan dm:org.getDelManDir().getdeliveryManDirectory()) {
-                     deliveryManComboBox.addItem(dm.getName());
+                     deliveryManComboBox.addItem(dm);
                  } 
                }        
          
@@ -312,16 +327,11 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
        
     }
     
-    private void deliveryManComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deliveryManComboBoxActionPerformed
-        // TODO add your handling code here:
-        delMan = (DeliveryMan)deliveryManComboBox.getSelectedItem();
-    }//GEN-LAST:event_deliveryManComboBoxActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Addresslabel;
     private javax.swing.JButton btnAssigndeliveryMan;
-    private javax.swing.JComboBox<String> deliveryManComboBox;
+    private javax.swing.JComboBox deliveryManComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;

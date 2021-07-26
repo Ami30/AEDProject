@@ -59,10 +59,9 @@ public class ManageSanitizationEntOrgJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for (Organization organization : directory.getOrgList()){
-            Object[] row = new Object[3];
-            row[0] = organization.getOrgID();
-            row[1] = organization.getName();
-            row[2] = organization.getType().getValue();
+            Object[] row = new Object[2];
+            row[0] = organization.getName();
+            row[1] = organization.getType().getValue();
             model.addRow(row);
         }
     }
@@ -88,20 +87,20 @@ public class ManageSanitizationEntOrgJPanel extends javax.swing.JPanel {
 
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "ID", "Name", "Type"
+                "Name", "Type"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -116,7 +115,11 @@ public class ManageSanitizationEntOrgJPanel extends javax.swing.JPanel {
         organizationJTable.setSelectionBackground(new java.awt.Color(235, 227, 126));
         jScrollPane1.setViewportView(organizationJTable);
 
-        addJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/btnAddOrg.png"))); // NOI18N
+        addJButton.setBackground(new java.awt.Color(18, 102, 153));
+        addJButton.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        addJButton.setText("Add Organization");
+        addJButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        addJButton.setContentAreaFilled(false);
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButtonActionPerformed(evt);
@@ -145,9 +148,6 @@ public class ManageSanitizationEntOrgJPanel extends javax.swing.JPanel {
                         .addGap(297, 297, 297)
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(259, 259, 259)
-                        .addComponent(addJButton))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(191, 191, 191)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -157,7 +157,10 @@ public class ManageSanitizationEntOrgJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(56, 56, 56)
-                                .addComponent(organizationJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(organizationJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(259, 259, 259)
+                        .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(432, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -176,8 +179,8 @@ public class ManageSanitizationEntOrgJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel3)
                     .addComponent(txtOrgName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
-                .addComponent(addJButton)
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(220, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

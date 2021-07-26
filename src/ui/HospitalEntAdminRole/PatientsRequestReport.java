@@ -141,10 +141,11 @@ public class PatientsRequestReport extends javax.swing.JPanel {
         lblDob.setMinimumSize(new java.awt.Dimension(6, 20));
         lblDob.setPreferredSize(new java.awt.Dimension(6, 20));
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 102));
-        jButton1.setText("View completel Profile");
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
+        jButton1.setBackground(new java.awt.Color(18, 102, 153));
+        jButton1.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        jButton1.setText("View complete Profile");
+        jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -173,7 +174,7 @@ public class PatientsRequestReport extends javax.swing.JPanel {
                 .addContainerGap(79, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -199,8 +200,9 @@ public class PatientsRequestReport extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblDob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblContactNo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(5, 5, 5)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jPanel5.setBackground(new java.awt.Color(204, 255, 204));
@@ -358,21 +360,33 @@ public class PatientsRequestReport extends javax.swing.JPanel {
                 .addGap(28, 28, 28))
         );
 
+        btnTest.setBackground(new java.awt.Color(18, 102, 153));
+        btnTest.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnTest.setText("Assign Test");
+        btnTest.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnTest.setContentAreaFilled(false);
         btnTest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTestActionPerformed(evt);
             }
         });
 
+        btnDischarged.setBackground(new java.awt.Color(18, 102, 153));
+        btnDischarged.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnDischarged.setText("Mark Patient Discharged from Hospital");
+        btnDischarged.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnDischarged.setContentAreaFilled(false);
         btnDischarged.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDischargedActionPerformed(evt);
             }
         });
 
+        btnCritical.setBackground(new java.awt.Color(18, 102, 153));
+        btnCritical.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnCritical.setText("Mark Critical");
+        btnCritical.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnCritical.setContentAreaFilled(false);
         btnCritical.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCriticalActionPerformed(evt);
@@ -394,7 +408,7 @@ public class PatientsRequestReport extends javax.swing.JPanel {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(btnTest, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnCritical))
+                        .addComponent(btnCritical, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnDischarged, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(178, Short.MAX_VALUE))
         );
@@ -409,11 +423,11 @@ public class PatientsRequestReport extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnTest)
-                            .addComponent(btnCritical))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnDischarged, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnTest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCritical, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDischarged, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(140, Short.MAX_VALUE))
         );
 
@@ -445,7 +459,7 @@ public class PatientsRequestReport extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

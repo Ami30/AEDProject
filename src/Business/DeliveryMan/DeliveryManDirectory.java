@@ -46,4 +46,15 @@ public class DeliveryManDirectory {
     }
     return false;
     } 
+    
+    
+    public DeliveryMan findDeliveryMan(String username){
+        DeliveryMan deliveryMan = null;
+        for(DeliveryMan d: deliveryManDirectory){
+            if(d.getUsername().equalsIgnoreCase(username)){
+            deliveryMan=d;
+            }
+        }
+        return deliveryMan;
+    }
 }

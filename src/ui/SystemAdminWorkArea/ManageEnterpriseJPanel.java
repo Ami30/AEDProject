@@ -131,7 +131,10 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
             }
         });
 
-        submitJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/button (2).png"))); // NOI18N
+        submitJButton.setBackground(new java.awt.Color(18, 102, 153));
+        submitJButton.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        submitJButton.setText("Submit");
+        submitJButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         submitJButton.setContentAreaFilled(false);
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -254,8 +257,8 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                     .addComponent(txtNumberOfBeds)
                     .addComponent(lblNumberOfBeds))
                 .addGap(40, 40, 40)
-                .addComponent(submitJButton)
-                .addGap(124, 124, 124))
+                .addComponent(submitJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(102, 102, 102))
         );
     }// </editor-fold>//GEN-END:initComponents
 

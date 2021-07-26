@@ -51,7 +51,7 @@ public class OrderDetailsJPanel extends javax.swing.JPanel {
     private ArrayList<Medicine> medicineList = new ArrayList<>();
     DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
        
-    public OrderDetailsJPanel(JPanel userProcessContainer,Enterprise ent, UserAccount userAccount, EcoSystem system, HealthRequest request, OrderMedicine ordMed) {
+    public OrderDetailsJPanel(JPanel userProcessContainer,Enterprise ent, UserAccount userAccount, EcoSystem system, Organization org, HealthRequest request, OrderMedicine ordMed) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = userAccount;
@@ -59,6 +59,7 @@ public class OrderDetailsJPanel extends javax.swing.JPanel {
         this.ent=ent;
         this.request = request;
         this.ordMed = ordMed;
+        this.org = org;
         populateDetails();
         populateOrderTabletTable();
     }
@@ -103,7 +104,11 @@ public class OrderDetailsJPanel extends javax.swing.JPanel {
 
         lblAddress.setText("OrderId");
 
+        btnSubmit.setBackground(new java.awt.Color(18, 102, 153));
+        btnSubmit.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnSubmit.setText("Close");
+        btnSubmit.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnSubmit.setContentAreaFilled(false);
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubmitActionPerformed(evt);
@@ -143,11 +148,11 @@ public class OrderDetailsJPanel extends javax.swing.JPanel {
                         .addComponent(lblAddress)
                         .addGap(56, 56, 56)
                         .addComponent(lblOrderId, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 183, Short.MAX_VALUE)))
+                        .addGap(0, 182, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(319, 319, 319)
-                .addComponent(btnSubmit)
+                .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -161,9 +166,9 @@ public class OrderDetailsJPanel extends javax.swing.JPanel {
                     .addComponent(lblOrderId))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(btnSubmit)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 740, 350));

@@ -146,35 +146,55 @@ public class CabServiceAssignedRequestJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         jLabel1.setText("User's Requests");
 
+        btnApproved.setBackground(new java.awt.Color(18, 102, 153));
+        btnApproved.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnApproved.setText("Accepted");
+        btnApproved.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnApproved.setContentAreaFilled(false);
         btnApproved.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnApprovedActionPerformed(evt);
             }
         });
 
+        btnCompleted.setBackground(new java.awt.Color(18, 102, 153));
+        btnCompleted.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnCompleted.setText("Completed");
+        btnCompleted.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnCompleted.setContentAreaFilled(false);
         btnCompleted.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCompletedActionPerformed(evt);
             }
         });
 
+        btnDecline.setBackground(new java.awt.Color(18, 102, 153));
+        btnDecline.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnDecline.setText("Decline");
+        btnDecline.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnDecline.setContentAreaFilled(false);
         btnDecline.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeclineActionPerformed(evt);
             }
         });
 
+        btnArrived.setBackground(new java.awt.Color(18, 102, 153));
+        btnArrived.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnArrived.setText("Arrived");
+        btnArrived.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnArrived.setContentAreaFilled(false);
         btnArrived.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnArrivedActionPerformed(evt);
             }
         });
 
+        btnRiding.setBackground(new java.awt.Color(18, 102, 153));
+        btnRiding.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnRiding.setText("Riding");
+        btnRiding.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnRiding.setContentAreaFilled(false);
         btnRiding.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRidingActionPerformed(evt);
@@ -215,12 +235,12 @@ public class CabServiceAssignedRequestJPanel extends javax.swing.JPanel {
                 .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnApproved)
-                    .addComponent(btnCompleted)
-                    .addComponent(btnDecline)
-                    .addComponent(btnArrived)
-                    .addComponent(btnRiding))
-                .addContainerGap(322, Short.MAX_VALUE))
+                    .addComponent(btnApproved, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCompleted, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDecline, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnArrived, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRiding, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(311, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -270,9 +290,14 @@ public class CabServiceAssignedRequestJPanel extends javax.swing.JPanel {
             return;
         }
         ServiceRequest serReq=(ServiceRequest)SubmittedrequestsJTable.getValueAt(row, 0);
-        serReq.setStatus("Declined");
+        if(serReq.getStatus().equalsIgnoreCase("declined") ){
+        JOptionPane.showMessageDialog(null, "Cab is already marked "+serReq.getStatus());
+        } else{
+            serReq.setStatus("Declined");
         JOptionPane.showMessageDialog(null, "Cab request declined");
         populateRequestTable();
+        }
+        
     }//GEN-LAST:event_btnDeclineActionPerformed
 
     private void btnArrivedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArrivedActionPerformed

@@ -66,7 +66,10 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         lblName.setText("Network Name");
         add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 273, 103, 30));
 
-        btnSubmit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/addNetworkbtn.png"))); // NOI18N
+        btnSubmit.setBackground(new java.awt.Color(18, 102, 153));
+        btnSubmit.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnSubmit.setText("Add New Network");
+        btnSubmit.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnSubmit.setContentAreaFilled(false);
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -250,7 +250,10 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
         organizationDeliveryManJTable1.setSelectionBackground(new java.awt.Color(235, 227, 126));
         NurseScrollPane.setViewportView(organizationDeliveryManJTable1);
 
-        btnRemoveDeliveryMan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/removeDelManImage.png"))); // NOI18N
+        btnRemoveDeliveryMan.setBackground(new java.awt.Color(18, 102, 153));
+        btnRemoveDeliveryMan.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnRemoveDeliveryMan.setText("Remove Delivery Man");
+        btnRemoveDeliveryMan.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRemoveDeliveryMan.setContentAreaFilled(false);
         btnRemoveDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -261,7 +264,10 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
         lblDoctorslist1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         lblDoctorslist1.setText("Pharmacist");
 
-        btnRemovePharmacist.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/removePharimage.png"))); // NOI18N
+        btnRemovePharmacist.setBackground(new java.awt.Color(18, 102, 153));
+        btnRemovePharmacist.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnRemovePharmacist.setText("Remove Pharmacist");
+        btnRemovePharmacist.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRemovePharmacist.setContentAreaFilled(false);
         btnRemovePharmacist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -302,7 +308,10 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
         organizationGroceryManJTable2.setSelectionBackground(new java.awt.Color(235, 227, 126));
         NurseScrollPane1.setViewportView(organizationGroceryManJTable2);
 
-        btnRemoveStorePerson.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/removeGroceryStoreimg.png"))); // NOI18N
+        btnRemoveStorePerson.setBackground(new java.awt.Color(18, 102, 153));
+        btnRemoveStorePerson.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnRemoveStorePerson.setText("Remove Store Person");
+        btnRemoveStorePerson.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRemoveStorePerson.setContentAreaFilled(false);
         btnRemoveStorePerson.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -324,7 +333,10 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Name");
 
-        addJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/btnCreate2.png"))); // NOI18N
+        addJButton.setBackground(new java.awt.Color(18, 102, 153));
+        addJButton.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        addJButton.setText("Create Employee");
+        addJButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         addJButton.setContentAreaFilled(false);
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -412,14 +424,14 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(addJButton)
-                                        .addGap(0, 348, Short.MAX_VALUE))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(txtuserName, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(37, 37, 37)
                                         .addComponent(jLabel4)
                                         .addGap(18, 18, 18)
-                                        .addComponent(txtpassword)))))
+                                        .addComponent(txtpassword))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))
                         .addGap(30, 30, 30))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -458,8 +470,8 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
                             .addComponent(jLabel4)
                             .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(addJButton, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -468,11 +480,6 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(384, 384, 384)
-                        .addComponent(lblnurselist1)
-                        .addGap(150, 150, 150)
-                        .addComponent(btnRemoveDeliveryMan))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -486,18 +493,23 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
                                 .addComponent(btnRemovePharmacist, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(NurseScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(NurseScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnRemoveStorePerson)
-                        .addGap(29, 29, 29)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGap(384, 384, 384)
+                            .addComponent(lblnurselist1)
+                            .addGap(150, 150, 150)
+                            .addComponent(btnRemoveDeliveryMan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(NurseScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(740, 740, 740)
+                        .addComponent(btnRemoveStorePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -507,26 +519,20 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnRemovePharmacist)
-                        .addGap(23, 23, 23))
-                    .addComponent(lblnurselist, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addComponent(btnRemovePharmacist, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(lblnurselist)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(NurseScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnRemoveDeliveryMan)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblnurselist1)))
+                .addComponent(btnRemoveDeliveryMan, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(lblnurselist1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(NurseScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnRemoveStorePerson)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnRemoveStorePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );

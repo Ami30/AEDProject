@@ -132,7 +132,6 @@ public class HealthRequestReport extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Personal Details", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font(".SF NS Text", 1, 13))); // NOI18N
 
         jPanel4.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -171,17 +170,22 @@ public class HealthRequestReport extends javax.swing.JPanel {
         lblDob.setMinimumSize(new java.awt.Dimension(6, 20));
         lblDob.setPreferredSize(new java.awt.Dimension(6, 20));
 
-        jButton1.setBackground(new java.awt.Color(204, 255, 255));
-        jButton1.setText("View completel Profile");
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
+        jButton1.setBackground(new java.awt.Color(18, 102, 153));
+        jButton1.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        jButton1.setText("View complete Profile");
+        jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
+        viewAvailableTest.setBackground(new java.awt.Color(18, 102, 153));
+        viewAvailableTest.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         viewAvailableTest.setText("View Available tests");
+        viewAvailableTest.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        viewAvailableTest.setContentAreaFilled(false);
         viewAvailableTest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewAvailableTestActionPerformed(evt);
@@ -211,8 +215,8 @@ public class HealthRequestReport extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(viewAvailableTest)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45)
+                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,7 +284,11 @@ public class HealthRequestReport extends javax.swing.JPanel {
         lblStatus.setMinimumSize(new java.awt.Dimension(6, 20));
         lblStatus.setPreferredSize(new java.awt.Dimension(6, 20));
 
+        btnViewPresc.setBackground(new java.awt.Color(18, 102, 153));
+        btnViewPresc.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnViewPresc.setText("View Prescription");
+        btnViewPresc.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnViewPresc.setContentAreaFilled(false);
         btnViewPresc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewPrescActionPerformed(evt);
@@ -306,10 +314,10 @@ public class HealthRequestReport extends javax.swing.JPanel {
                     .addComponent(lblNursesName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblHospitalsName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(170, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnViewPresc)
+                .addComponent(btnViewPresc, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -410,14 +418,22 @@ public class HealthRequestReport extends javax.swing.JPanel {
                 .addGap(28, 28, 28))
         );
 
+        btnAssignToMe.setBackground(new java.awt.Color(18, 102, 153));
+        btnAssignToMe.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnAssignToMe.setText("Assign to Me");
+        btnAssignToMe.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnAssignToMe.setContentAreaFilled(false);
         btnAssignToMe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAssignToMeActionPerformed(evt);
             }
         });
 
+        btnAssignToDoctor.setBackground(new java.awt.Color(18, 102, 153));
+        btnAssignToDoctor.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnAssignToDoctor.setText("Assign a Doctor");
+        btnAssignToDoctor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnAssignToDoctor.setContentAreaFilled(false);
         btnAssignToDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAssignToDoctorActionPerformed(evt);
@@ -439,7 +455,11 @@ public class HealthRequestReport extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(doctorJTable);
 
+        btnSubmit.setBackground(new java.awt.Color(18, 102, 153));
+        btnSubmit.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnSubmit.setText("Submit");
+        btnSubmit.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnSubmit.setContentAreaFilled(false);
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubmitActionPerformed(evt);
@@ -468,35 +488,55 @@ public class HealthRequestReport extends javax.swing.JPanel {
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
+        btnPres.setBackground(new java.awt.Color(18, 102, 153));
+        btnPres.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnPres.setText("Add Prescription");
+        btnPres.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnPres.setContentAreaFilled(false);
         btnPres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPresActionPerformed(evt);
             }
         });
 
+        btnBed.setBackground(new java.awt.Color(18, 102, 153));
+        btnBed.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnBed.setText("Assign Bed");
+        btnBed.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnBed.setContentAreaFilled(false);
         btnBed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBedActionPerformed(evt);
             }
         });
 
+        btnTest.setBackground(new java.awt.Color(18, 102, 153));
+        btnTest.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnTest.setText("Assign Test");
+        btnTest.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnTest.setContentAreaFilled(false);
         btnTest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTestActionPerformed(evt);
             }
         });
 
+        btnReportBacktoAM.setBackground(new java.awt.Color(18, 102, 153));
+        btnReportBacktoAM.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnReportBacktoAM.setText("Report to Patient Manager");
+        btnReportBacktoAM.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnReportBacktoAM.setContentAreaFilled(false);
         btnReportBacktoAM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReportBacktoAMActionPerformed(evt);
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(18, 102, 153));
+        jButton2.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         jButton2.setText("Back");
+        jButton2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton2.setContentAreaFilled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -524,15 +564,21 @@ public class HealthRequestReport extends javax.swing.JPanel {
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(btnPres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnAssignToMe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnAssignToDoctor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnBed, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnTest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnReportBacktoAM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)))))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(btnBed, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(30, 30, 30))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(btnAssignToDoctor, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                                        .addGap(18, 18, 18)))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(btnTest, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(btnReportBacktoAM, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))))
                 .addContainerGap(178, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -583,14 +629,14 @@ public class HealthRequestReport extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -678,7 +724,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
             }
         }
      
-        
+        populateprofile();
         
     }//GEN-LAST:event_btnAssignToDoctorActionPerformed
 
@@ -737,6 +783,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
         PersonalNotification notification = new PersonalNotification(
         "Doctor has assigned this request back to you", nowDtae, request);
         notification.setStatus("new");
+//        notification.setNurse(request.getNurse());
 //        notification.setRequest(request);
         patMan.getNotificationDirectory().addNotification(notification);
         request.setStatus("quarantined");
