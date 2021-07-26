@@ -121,14 +121,22 @@ public class PharmacistAssignedRequestJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         jLabel1.setText("Medicine Requests");
 
+        viewDetails.setBackground(new java.awt.Color(18, 102, 153));
+        viewDetails.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         viewDetails.setText("View Details");
+        viewDetails.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        viewDetails.setContentAreaFilled(false);
         viewDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewDetailsActionPerformed(evt);
             }
         });
 
+        btnCompletedOrder.setBackground(new java.awt.Color(18, 102, 153));
+        btnCompletedOrder.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnCompletedOrder.setText("Manage Completed Request");
+        btnCompletedOrder.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnCompletedOrder.setContentAreaFilled(false);
         btnCompletedOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCompletedOrderActionPerformed(evt);
@@ -147,9 +155,9 @@ public class PharmacistAssignedRequestJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(viewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCompletedOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(viewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCompletedOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -162,9 +170,9 @@ public class PharmacistAssignedRequestJPanel extends javax.swing.JPanel {
                 .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(viewDetails)
-                    .addComponent(btnCompletedOrder))
-                .addContainerGap(322, Short.MAX_VALUE))
+                    .addComponent(viewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCompletedOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(306, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

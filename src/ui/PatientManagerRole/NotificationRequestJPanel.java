@@ -85,7 +85,6 @@ public class NotificationRequestJPanel extends javax.swing.JPanel {
         notificationJTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         viewDetails = new javax.swing.JButton();
-        btnMarkAsRead = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -110,17 +109,14 @@ public class NotificationRequestJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         jLabel1.setText("Notifications");
 
+        viewDetails.setBackground(new java.awt.Color(18, 102, 153));
+        viewDetails.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         viewDetails.setText("View Details");
+        viewDetails.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        viewDetails.setContentAreaFilled(false);
         viewDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewDetailsActionPerformed(evt);
-            }
-        });
-
-        btnMarkAsRead.setText("Mark as Read");
-        btnMarkAsRead.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMarkAsReadActionPerformed(evt);
             }
         });
 
@@ -135,12 +131,9 @@ public class NotificationRequestJPanel extends javax.swing.JPanel {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(viewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnMarkAsRead, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(viewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(76, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -151,10 +144,8 @@ public class NotificationRequestJPanel extends javax.swing.JPanel {
                 .addGap(25, 25, 25)
                 .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(viewDetails)
-                    .addComponent(btnMarkAsRead))
-                .addContainerGap(322, Short.MAX_VALUE))
+                .addComponent(viewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(306, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -178,24 +169,9 @@ public class NotificationRequestJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_viewDetailsActionPerformed
 
-    private void btnMarkAsReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarkAsReadActionPerformed
-        // TODO add your handling code here:
-          int selectedRow = notificationJTable.getSelectedRow();
-         if (selectedRow < 0){
-              JOptionPane.showMessageDialog(null, "Please select a row!");
-            return;
-         }
-         else{
-                  PersonalNotification not = (PersonalNotification)notificationJTable.getValueAt(selectedRow, 0);
-                  not.setStatus("old");
-                  
-         }
-    }//GEN-LAST:event_btnMarkAsReadActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane DoctorScrollPane;
-    private javax.swing.JButton btnMarkAsRead;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTable notificationJTable;
     private javax.swing.JButton viewDetails;

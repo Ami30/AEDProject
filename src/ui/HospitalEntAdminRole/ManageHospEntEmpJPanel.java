@@ -239,7 +239,10 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel2.setText("Name");
 
-        addJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/btnEmpcreate1.png"))); // NOI18N
+        addJButton.setBackground(new java.awt.Color(18, 102, 153));
+        addJButton.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        addJButton.setText("Create");
+        addJButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         addJButton.setContentAreaFilled(false);
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -414,20 +417,23 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel5)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
-                .addComponent(addJButton)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, -1, 350));
 
-        btnRemoveDoctor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/btnEmpremove1.png"))); // NOI18N
+        btnRemoveDoctor.setBackground(new java.awt.Color(18, 102, 153));
+        btnRemoveDoctor.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnRemoveDoctor.setText("Remove ");
+        btnRemoveDoctor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRemoveDoctor.setContentAreaFilled(false);
         btnRemoveDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoveDoctorActionPerformed(evt);
             }
         });
-        add(btnRemoveDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 200, -1, -1));
+        add(btnRemoveDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 210, 110, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed

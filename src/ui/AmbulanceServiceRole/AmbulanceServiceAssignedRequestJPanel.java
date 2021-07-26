@@ -123,28 +123,44 @@ public class AmbulanceServiceAssignedRequestJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         jLabel1.setText("User's Requests");
 
+        Approved.setBackground(new java.awt.Color(18, 102, 153));
+        Approved.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         Approved.setText("Accepted");
+        Approved.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Approved.setContentAreaFilled(false);
         Approved.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ApprovedActionPerformed(evt);
             }
         });
 
+        completed.setBackground(new java.awt.Color(18, 102, 153));
+        completed.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         completed.setText("Completed");
+        completed.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        completed.setContentAreaFilled(false);
         completed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 completedActionPerformed(evt);
             }
         });
 
+        inqueue.setBackground(new java.awt.Color(18, 102, 153));
+        inqueue.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         inqueue.setText("In queue");
+        inqueue.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        inqueue.setContentAreaFilled(false);
         inqueue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inqueueActionPerformed(evt);
             }
         });
 
+        decline.setBackground(new java.awt.Color(18, 102, 153));
+        decline.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         decline.setText("Decline");
+        decline.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        decline.setContentAreaFilled(false);
         decline.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 declineActionPerformed(evt);
@@ -183,11 +199,11 @@ public class AmbulanceServiceAssignedRequestJPanel extends javax.swing.JPanel {
                 .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Approved)
-                    .addComponent(completed)
-                    .addComponent(inqueue)
-                    .addComponent(decline))
-                .addContainerGap(322, Short.MAX_VALUE))
+                    .addComponent(Approved, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(completed, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inqueue, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(decline, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(305, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

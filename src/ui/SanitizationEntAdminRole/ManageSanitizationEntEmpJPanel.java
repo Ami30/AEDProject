@@ -163,7 +163,10 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
         lblDoctorslist1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         lblDoctorslist1.setText("Sanitization Providers");
 
-        btnRemoveSanitizationProvider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/btnRemoveSaniProvider.png"))); // NOI18N
+        btnRemoveSanitizationProvider.setBackground(new java.awt.Color(18, 102, 153));
+        btnRemoveSanitizationProvider.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnRemoveSanitizationProvider.setText("Remove Sanitization Provider");
+        btnRemoveSanitizationProvider.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRemoveSanitizationProvider.setContentAreaFilled(false);
         btnRemoveSanitizationProvider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,14 +181,16 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRemoveSanitizationProvider, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addContainerGap())
+                            .addContainerGap())
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(lblDoctorslist1)
+                            .addGap(365, 365, 365)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblDoctorslist1)
-                        .addGap(365, 365, 365))))
+                        .addComponent(btnRemoveSanitizationProvider)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,9 +199,9 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
                 .addComponent(lblDoctorslist1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnRemoveSanitizationProvider)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnRemoveSanitizationProvider, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                .addGap(12, 12, 12))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, -1, 280));
@@ -215,7 +220,10 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Name");
 
-        addJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/btnCreatesaniProvider.png"))); // NOI18N
+        addJButton.setBackground(new java.awt.Color(18, 102, 153));
+        addJButton.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        addJButton.setText("Remove Sanitization Provider");
+        addJButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         addJButton.setContentAreaFilled(false);
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -316,7 +324,7 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
                         .addContainerGap(264, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(addJButton)
+                .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(188, 188, 188))
         );
         jPanel2Layout.setVerticalGroup(
@@ -350,9 +358,9 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel1)
                     .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(26, 26, 26)
-                .addComponent(addJButton)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, -1, 290));

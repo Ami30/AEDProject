@@ -116,28 +116,44 @@ public class DeliveryManAssignedRequestJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(completeOrderTable);
 
+        btnViewDetails.setBackground(new java.awt.Color(18, 102, 153));
+        btnViewDetails.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnViewDetails.setText("View Details");
+        btnViewDetails.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnViewDetails.setContentAreaFilled(false);
         btnViewDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewDetailsActionPerformed(evt);
             }
         });
 
+        Approved.setBackground(new java.awt.Color(18, 102, 153));
+        Approved.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         Approved.setText("Accepted");
+        Approved.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Approved.setContentAreaFilled(false);
         Approved.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ApprovedActionPerformed(evt);
             }
         });
 
+        completed.setBackground(new java.awt.Color(18, 102, 153));
+        completed.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         completed.setText("Completed");
+        completed.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        completed.setContentAreaFilled(false);
         completed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 completedActionPerformed(evt);
             }
         });
 
+        decline.setBackground(new java.awt.Color(18, 102, 153));
+        decline.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         decline.setText("Decline");
+        decline.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        decline.setContentAreaFilled(false);
         decline.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 declineActionPerformed(evt);
@@ -158,11 +174,9 @@ public class DeliveryManAssignedRequestJPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(decline, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnViewDetails)
-                        .addGap(30, 30, 30))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addComponent(btnViewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 728, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,10 +185,10 @@ public class DeliveryManAssignedRequestJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnViewDetails)
-                    .addComponent(Approved)
-                    .addComponent(completed)
-                    .addComponent(decline))
+                    .addComponent(btnViewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Approved, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(completed, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(decline, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(266, 266, 266))
         );
 
@@ -184,13 +198,17 @@ public class DeliveryManAssignedRequestJPanel extends javax.swing.JPanel {
         jLabel5.setText("Manage Order");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 270, 20));
 
+        jButton3.setBackground(new java.awt.Color(18, 102, 153));
+        jButton3.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         jButton3.setText("Back");
+        jButton3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton3.setContentAreaFilled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 110, -1));
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 110, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

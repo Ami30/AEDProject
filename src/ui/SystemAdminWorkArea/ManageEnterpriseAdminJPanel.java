@@ -135,7 +135,10 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             }
         });
 
-        submitJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/button (2).png"))); // NOI18N
+        submitJButton.setBackground(new java.awt.Color(18, 102, 153));
+        submitJButton.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        submitJButton.setText("Submit");
+        submitJButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         submitJButton.setContentAreaFilled(false);
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,7 +185,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 .addContainerGap(213, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(submitJButton)
+                .addComponent(submitJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(429, 429, 429))
         );
         layout.setVerticalGroup(
@@ -213,8 +216,8 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel5)
                     .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
-                .addComponent(submitJButton)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addComponent(submitJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(140, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
