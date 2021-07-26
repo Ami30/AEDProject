@@ -122,6 +122,14 @@ public class ManageDeliveryManProfileJPanel extends javax.swing.JPanel {
         addJButton.setText("Save");
         addJButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         addJButton.setContentAreaFilled(false);
+        addJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addJButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addJButtonMouseExited(evt);
+            }
+        });
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButtonActionPerformed(evt);
@@ -252,6 +260,22 @@ public class ManageDeliveryManProfileJPanel extends javax.swing.JPanel {
     private void GenderComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenderComboboxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_GenderComboboxActionPerformed
+
+    private void addJButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMouseEntered
+        // TODO add your handling code here:
+         addJButton.setBackground(new java.awt.Color(18,102,153));
+        addJButton.setContentAreaFilled(true);
+        addJButton.setFocusPainted(true);
+        addJButton.setBorderPainted(false);
+        addJButton.setOpaque(true);
+    }//GEN-LAST:event_addJButtonMouseEntered
+
+    private void addJButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMouseExited
+        // TODO add your handling code here:
+         addJButton.setContentAreaFilled(false);
+        addJButton.setFocusPainted(false);
+        addJButton.setBorderPainted(true);
+    }//GEN-LAST:event_addJButtonMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

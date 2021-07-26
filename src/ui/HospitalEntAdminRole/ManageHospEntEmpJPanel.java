@@ -241,9 +241,18 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
 
         addJButton.setBackground(new java.awt.Color(18, 102, 153));
         addJButton.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        addJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/add2.png"))); // NOI18N
         addJButton.setText("Create");
         addJButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         addJButton.setContentAreaFilled(false);
+        addJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addJButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addJButtonMouseExited(evt);
+            }
+        });
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButtonActionPerformed(evt);
@@ -425,15 +434,24 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
 
         btnRemoveDoctor.setBackground(new java.awt.Color(18, 102, 153));
         btnRemoveDoctor.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnRemoveDoctor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/delete2.png"))); // NOI18N
         btnRemoveDoctor.setText("Remove ");
         btnRemoveDoctor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRemoveDoctor.setContentAreaFilled(false);
+        btnRemoveDoctor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRemoveDoctorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRemoveDoctorMouseExited(evt);
+            }
+        });
         btnRemoveDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoveDoctorActionPerformed(evt);
             }
         });
-        add(btnRemoveDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 210, 110, 30));
+        add(btnRemoveDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 210, 170, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
@@ -541,6 +559,38 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
 
         populateDoctorTable();
     }//GEN-LAST:event_btnRemoveDoctorActionPerformed
+
+    private void btnRemoveDoctorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemoveDoctorMouseEntered
+        // TODO add your handling code here:
+             btnRemoveDoctor.setBackground(new java.awt.Color(18,102,153));
+        btnRemoveDoctor.setContentAreaFilled(true);
+        btnRemoveDoctor.setFocusPainted(true);
+        btnRemoveDoctor.setBorderPainted(false);
+        btnRemoveDoctor.setOpaque(true);
+    }//GEN-LAST:event_btnRemoveDoctorMouseEntered
+
+    private void btnRemoveDoctorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemoveDoctorMouseExited
+        // TODO add your handling code here:
+          btnRemoveDoctor.setContentAreaFilled(false);
+        btnRemoveDoctor.setFocusPainted(false);
+        btnRemoveDoctor.setBorderPainted(true);
+    }//GEN-LAST:event_btnRemoveDoctorMouseExited
+
+    private void addJButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMouseEntered
+        // TODO add your handling code here:
+             addJButton.setBackground(new java.awt.Color(18,102,153));
+        addJButton.setContentAreaFilled(true);
+        addJButton.setFocusPainted(true);
+        addJButton.setBorderPainted(false);
+        addJButton.setOpaque(true);
+    }//GEN-LAST:event_addJButtonMouseEntered
+
+    private void addJButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMouseExited
+        // TODO add your handling code here:
+          addJButton.setContentAreaFilled(false);
+        addJButton.setFocusPainted(false);
+        addJButton.setBorderPainted(true);
+    }//GEN-LAST:event_addJButtonMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

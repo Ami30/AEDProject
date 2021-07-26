@@ -151,6 +151,14 @@ public class CabServiceAssignedRequestJPanel extends javax.swing.JPanel {
         btnApproved.setText("Accepted");
         btnApproved.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnApproved.setContentAreaFilled(false);
+        btnApproved.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnApprovedMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnApprovedMouseExited(evt);
+            }
+        });
         btnApproved.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnApprovedActionPerformed(evt);
@@ -162,6 +170,14 @@ public class CabServiceAssignedRequestJPanel extends javax.swing.JPanel {
         btnCompleted.setText("Completed");
         btnCompleted.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnCompleted.setContentAreaFilled(false);
+        btnCompleted.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCompletedMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCompletedMouseExited(evt);
+            }
+        });
         btnCompleted.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCompletedActionPerformed(evt);
@@ -173,6 +189,14 @@ public class CabServiceAssignedRequestJPanel extends javax.swing.JPanel {
         btnDecline.setText("Decline");
         btnDecline.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnDecline.setContentAreaFilled(false);
+        btnDecline.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnDeclineMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnDeclineMouseExited(evt);
+            }
+        });
         btnDecline.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeclineActionPerformed(evt);
@@ -184,6 +208,14 @@ public class CabServiceAssignedRequestJPanel extends javax.swing.JPanel {
         btnArrived.setText("Arrived");
         btnArrived.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnArrived.setContentAreaFilled(false);
+        btnArrived.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnArrivedMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnArrivedMouseExited(evt);
+            }
+        });
         btnArrived.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnArrivedActionPerformed(evt);
@@ -195,6 +227,14 @@ public class CabServiceAssignedRequestJPanel extends javax.swing.JPanel {
         btnRiding.setText("Riding");
         btnRiding.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRiding.setContentAreaFilled(false);
+        btnRiding.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRidingMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRidingMouseExited(evt);
+            }
+        });
         btnRiding.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRidingActionPerformed(evt);
@@ -335,6 +375,86 @@ public class CabServiceAssignedRequestJPanel extends javax.swing.JPanel {
         }
        
     }//GEN-LAST:event_btnRidingActionPerformed
+
+    private void btnApprovedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApprovedMouseEntered
+        // TODO add your handling code here:
+            btnApproved.setBackground(new java.awt.Color(18,102,153));
+        btnApproved.setContentAreaFilled(true);
+        btnApproved.setFocusPainted(true);
+        btnApproved.setBorderPainted(false);
+        btnApproved.setOpaque(true);
+    }//GEN-LAST:event_btnApprovedMouseEntered
+
+    private void btnApprovedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApprovedMouseExited
+        // TODO add your handling code here:
+           btnApproved.setContentAreaFilled(false);
+        btnApproved.setFocusPainted(false);
+        btnApproved.setBorderPainted(true);
+    }//GEN-LAST:event_btnApprovedMouseExited
+
+    private void btnArrivedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnArrivedMouseEntered
+        // TODO add your handling code here:
+            btnArrived.setBackground(new java.awt.Color(18,102,153));
+        btnArrived.setContentAreaFilled(true);
+        btnArrived.setFocusPainted(true);
+        btnArrived.setBorderPainted(false);
+        btnArrived.setOpaque(true);
+    }//GEN-LAST:event_btnArrivedMouseEntered
+
+    private void btnArrivedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnArrivedMouseExited
+        // TODO add your handling code here:
+           btnArrived.setContentAreaFilled(false);
+        btnArrived.setFocusPainted(false);
+        btnArrived.setBorderPainted(true);
+    }//GEN-LAST:event_btnArrivedMouseExited
+
+    private void btnRidingMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRidingMouseEntered
+        // TODO add your handling code here:
+            btnRiding.setBackground(new java.awt.Color(18,102,153));
+        btnRiding.setContentAreaFilled(true);
+        btnRiding.setFocusPainted(true);
+        btnRiding.setBorderPainted(false);
+        btnRiding.setOpaque(true);
+    }//GEN-LAST:event_btnRidingMouseEntered
+
+    private void btnRidingMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRidingMouseExited
+        // TODO add your handling code here:
+           btnRiding.setContentAreaFilled(false);
+        btnRiding.setFocusPainted(false);
+        btnRiding.setBorderPainted(true);
+    }//GEN-LAST:event_btnRidingMouseExited
+
+    private void btnCompletedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCompletedMouseEntered
+        // TODO add your handling code here:
+            btnCompleted.setBackground(new java.awt.Color(18,102,153));
+        btnCompleted.setContentAreaFilled(true);
+        btnCompleted.setFocusPainted(true);
+        btnCompleted.setBorderPainted(false);
+        btnCompleted.setOpaque(true);
+    }//GEN-LAST:event_btnCompletedMouseEntered
+
+    private void btnCompletedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCompletedMouseExited
+        // TODO add your handling code here:
+           btnCompleted.setContentAreaFilled(false);
+        btnCompleted.setFocusPainted(false);
+        btnCompleted.setBorderPainted(true);
+    }//GEN-LAST:event_btnCompletedMouseExited
+
+    private void btnDeclineMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeclineMouseEntered
+        // TODO add your handling code here:
+            btnDecline.setBackground(new java.awt.Color(18,102,153));
+        btnDecline.setContentAreaFilled(true);
+        btnDecline.setFocusPainted(true);
+        btnDecline.setBorderPainted(false);
+        btnDecline.setOpaque(true);
+    }//GEN-LAST:event_btnDeclineMouseEntered
+
+    private void btnDeclineMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeclineMouseExited
+        // TODO add your handling code here:
+           btnDecline.setContentAreaFilled(false);
+        btnDecline.setFocusPainted(false);
+        btnDecline.setBorderPainted(true);
+    }//GEN-LAST:event_btnDeclineMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

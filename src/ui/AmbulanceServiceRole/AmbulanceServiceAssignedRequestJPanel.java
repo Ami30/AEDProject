@@ -128,6 +128,14 @@ public class AmbulanceServiceAssignedRequestJPanel extends javax.swing.JPanel {
         Approved.setText("Accepted");
         Approved.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Approved.setContentAreaFilled(false);
+        Approved.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ApprovedMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ApprovedMouseExited(evt);
+            }
+        });
         Approved.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ApprovedActionPerformed(evt);
@@ -139,6 +147,14 @@ public class AmbulanceServiceAssignedRequestJPanel extends javax.swing.JPanel {
         completed.setText("Completed");
         completed.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         completed.setContentAreaFilled(false);
+        completed.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                completedMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                completedMouseExited(evt);
+            }
+        });
         completed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 completedActionPerformed(evt);
@@ -150,6 +166,14 @@ public class AmbulanceServiceAssignedRequestJPanel extends javax.swing.JPanel {
         inqueue.setText("In queue");
         inqueue.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         inqueue.setContentAreaFilled(false);
+        inqueue.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                inqueueMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                inqueueMouseExited(evt);
+            }
+        });
         inqueue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inqueueActionPerformed(evt);
@@ -161,6 +185,14 @@ public class AmbulanceServiceAssignedRequestJPanel extends javax.swing.JPanel {
         decline.setText("Decline");
         decline.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         decline.setContentAreaFilled(false);
+        decline.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                declineMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                declineMouseExited(evt);
+            }
+        });
         decline.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 declineActionPerformed(evt);
@@ -280,6 +312,70 @@ public class AmbulanceServiceAssignedRequestJPanel extends javax.swing.JPanel {
         }
         
     }//GEN-LAST:event_declineActionPerformed
+
+    private void ApprovedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ApprovedMouseEntered
+        // TODO add your handling code here:
+          Approved.setBackground(new java.awt.Color(18,102,153));
+        Approved.setContentAreaFilled(true);
+        Approved.setFocusPainted(true);
+        Approved.setBorderPainted(false);
+        Approved.setOpaque(true);
+    }//GEN-LAST:event_ApprovedMouseEntered
+
+    private void ApprovedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ApprovedMouseExited
+        // TODO add your handling code here:
+        Approved.setContentAreaFilled(false);
+        Approved.setFocusPainted(false);
+        Approved.setBorderPainted(true);
+    }//GEN-LAST:event_ApprovedMouseExited
+
+    private void completedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_completedMouseEntered
+        // TODO add your handling code here:
+          completed.setBackground(new java.awt.Color(18,102,153));
+        completed.setContentAreaFilled(true);
+        completed.setFocusPainted(true);
+        completed.setBorderPainted(false);
+        completed.setOpaque(true);
+    }//GEN-LAST:event_completedMouseEntered
+
+    private void completedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_completedMouseExited
+        // TODO add your handling code here:
+         completed.setContentAreaFilled(false);
+        completed.setFocusPainted(false);
+        completed.setBorderPainted(true);
+    }//GEN-LAST:event_completedMouseExited
+
+    private void inqueueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inqueueMouseEntered
+        // TODO add your handling code here:
+          inqueue.setBackground(new java.awt.Color(18,102,153));
+        inqueue.setContentAreaFilled(true);
+        inqueue.setFocusPainted(true);
+        inqueue.setBorderPainted(false);
+        inqueue.setOpaque(true);
+    }//GEN-LAST:event_inqueueMouseEntered
+
+    private void inqueueMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inqueueMouseExited
+        // TODO add your handling code here:
+           inqueue.setContentAreaFilled(false);
+        inqueue.setFocusPainted(false);
+        inqueue.setBorderPainted(true);
+    }//GEN-LAST:event_inqueueMouseExited
+
+    private void declineMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_declineMouseEntered
+        // TODO add your handling code here:
+          decline.setBackground(new java.awt.Color(18,102,153));
+        decline.setContentAreaFilled(true);
+        decline.setFocusPainted(true);
+        decline.setBorderPainted(false);
+        decline.setOpaque(true);
+    }//GEN-LAST:event_declineMouseEntered
+
+    private void declineMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_declineMouseExited
+        // TODO add your handling code here:
+             decline.setContentAreaFilled(false);
+        decline.setFocusPainted(false);
+        decline.setBorderPainted(true);
+    }//GEN-LAST:event_declineMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
