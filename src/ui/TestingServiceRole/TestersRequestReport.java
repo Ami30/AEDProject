@@ -155,6 +155,14 @@ public class TestersRequestReport extends javax.swing.JPanel {
         jButton1.setText("View Complete Profile");
         jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton1.setContentAreaFilled(false);
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1MouseExited(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -166,6 +174,14 @@ public class TestersRequestReport extends javax.swing.JPanel {
         jButton3.setText("View Previous Tests");
         jButton3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton3.setContentAreaFilled(false);
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton3MouseExited(evt);
+            }
+        });
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -403,6 +419,14 @@ public class TestersRequestReport extends javax.swing.JPanel {
         jButton2.setText("Report");
         jButton2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton2.setContentAreaFilled(false);
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton2MouseExited(evt);
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -417,6 +441,14 @@ public class TestersRequestReport extends javax.swing.JPanel {
         jButton4.setText("Back");
         jButton4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton4.setContentAreaFilled(false);
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton4MouseExited(evt);
+            }
+        });
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -535,6 +567,70 @@ public class TestersRequestReport extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseEntered
+        // TODO add your handling code here:
+           jButton4.setBackground(new java.awt.Color(18,102,153));
+        jButton4.setContentAreaFilled(true);
+        jButton4.setFocusPainted(true);
+        jButton4.setBorderPainted(false);
+         jButton4.setOpaque(true);
+    }//GEN-LAST:event_jButton4MouseEntered
+
+    private void jButton4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseExited
+        // TODO add your handling code here:
+          jButton4.setContentAreaFilled(false);
+        jButton4.setFocusPainted(false);
+        jButton4.setBorderPainted(true);
+    }//GEN-LAST:event_jButton4MouseExited
+
+    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
+        // TODO add your handling code here:
+           jButton3.setBackground(new java.awt.Color(18,102,153));
+        jButton3.setContentAreaFilled(true);
+        jButton3.setFocusPainted(true);
+        jButton3.setBorderPainted(false);
+         jButton3.setOpaque(true);
+    }//GEN-LAST:event_jButton3MouseEntered
+
+    private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
+        // TODO add your handling code here:
+          jButton3.setContentAreaFilled(false);
+        jButton3.setFocusPainted(false);
+        jButton3.setBorderPainted(true);
+    }//GEN-LAST:event_jButton3MouseExited
+
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+        // TODO add your handling code here:
+           jButton1.setBackground(new java.awt.Color(18,102,153));
+        jButton1.setContentAreaFilled(true);
+        jButton1.setFocusPainted(true);
+        jButton1.setBorderPainted(false);
+         jButton1.setOpaque(true);
+    }//GEN-LAST:event_jButton1MouseEntered
+
+    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
+        // TODO add your handling code here:
+          jButton1.setContentAreaFilled(false);
+        jButton1.setFocusPainted(false);
+        jButton1.setBorderPainted(true);
+    }//GEN-LAST:event_jButton1MouseExited
+
+    private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
+        // TODO add your handling code here:
+           jButton2.setBackground(new java.awt.Color(18,102,153));
+        jButton2.setContentAreaFilled(true);
+        jButton2.setFocusPainted(true);
+        jButton2.setBorderPainted(false);
+         jButton2.setOpaque(true);
+    }//GEN-LAST:event_jButton2MouseEntered
+
+    private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
+        // TODO add your handling code here:
+          jButton2.setContentAreaFilled(false);
+        jButton2.setFocusPainted(false);
+        jButton2.setBorderPainted(true);
+    }//GEN-LAST:event_jButton2MouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

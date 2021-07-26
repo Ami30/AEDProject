@@ -68,9 +68,21 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
 
         btnSubmit.setBackground(new java.awt.Color(18, 102, 153));
         btnSubmit.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnSubmit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/add2.png"))); // NOI18N
         btnSubmit.setText("Add New Network");
         btnSubmit.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnSubmit.setContentAreaFilled(false);
+        btnSubmit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSubmitMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSubmitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSubmitMouseExited(evt);
+            }
+        });
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubmitActionPerformed(evt);
@@ -127,6 +139,26 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
 
         populateNetworkTable();
     }//GEN-LAST:event_btnSubmitActionPerformed
+
+    private void btnSubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSubmitMouseClicked
+
+    private void btnSubmitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMouseEntered
+        // TODO add your handling code here:
+            btnSubmit.setBackground(new java.awt.Color(18,102,153));
+        btnSubmit.setContentAreaFilled(true);
+        btnSubmit.setFocusPainted(true);
+        btnSubmit.setBorderPainted(false);
+         btnSubmit.setOpaque(true);
+    }//GEN-LAST:event_btnSubmitMouseEntered
+
+    private void btnSubmitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMouseExited
+        // TODO add your handling code here:
+             btnSubmit.setContentAreaFilled(false);
+        btnSubmit.setFocusPainted(false);
+        btnSubmit.setBorderPainted(true);
+    }//GEN-LAST:event_btnSubmitMouseExited
   private void populateNetworkTable() {
         DefaultTableModel model = (DefaultTableModel) networkJTable.getModel();
 

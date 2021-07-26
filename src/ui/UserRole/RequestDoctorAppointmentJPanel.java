@@ -216,9 +216,18 @@ public class RequestDoctorAppointmentJPanel extends javax.swing.JPanel {
 
         jButton1.setBackground(new java.awt.Color(18, 102, 153));
         jButton1.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/submit.png"))); // NOI18N
         jButton1.setText("Submit");
         jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton1.setContentAreaFilled(false);
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1MouseExited(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -352,6 +361,22 @@ public class RequestDoctorAppointmentJPanel extends javax.swing.JPanel {
         populateRequesttable();
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+        // TODO add your handling code here:
+          jButton1.setBackground(new java.awt.Color(18,102,153));
+        jButton1.setContentAreaFilled(true);
+        jButton1.setFocusPainted(true);
+        jButton1.setBorderPainted(false);
+         jButton1.setOpaque(true);
+    }//GEN-LAST:event_jButton1MouseEntered
+
+    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
+        // TODO add your handling code here:
+           jButton1.setContentAreaFilled(false);
+        jButton1.setFocusPainted(false);
+        jButton1.setBorderPainted(true);
+    }//GEN-LAST:event_jButton1MouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -100,7 +100,6 @@ public class BooKSanitizationPMJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lblDoctorslist1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -116,14 +115,14 @@ public class BooKSanitizationPMJPanel extends javax.swing.JPanel {
         txtRepeat = new javax.swing.JTextField();
         userComboBox = new javax.swing.JComboBox();
         jButton3 = new javax.swing.JButton();
+        lblDoctorslist1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblDoctorslist1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
-        lblDoctorslist1.setText("Sanitization Service");
-
+        jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel1.setText("Select an Sanitization Provider");
 
+        jLabel2.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel2.setText("Select a Service");
 
         jButton1.setBackground(new java.awt.Color(18, 102, 153));
@@ -131,6 +130,14 @@ public class BooKSanitizationPMJPanel extends javax.swing.JPanel {
         jButton1.setText("Book");
         jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton1.setContentAreaFilled(false);
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1MouseExited(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -156,6 +163,7 @@ public class BooKSanitizationPMJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel3.setText("Select a Patient first");
 
         jLabel4.setText("Select From Date");
@@ -202,16 +210,10 @@ public class BooKSanitizationPMJPanel extends javax.swing.JPanel {
                         .addGap(252, 252, 252)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(98, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lblDoctorslist1)
-                .addGap(267, 267, 267))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(lblDoctorslist1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(userComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -240,19 +242,31 @@ public class BooKSanitizationPMJPanel extends javax.swing.JPanel {
                 .addGap(97, 97, 97))
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 720, 450));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 720, 450));
 
         jButton3.setBackground(new java.awt.Color(18, 102, 153));
         jButton3.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         jButton3.setText("Back");
         jButton3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton3.setContentAreaFilled(false);
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton3MouseExited(evt);
+            }
+        });
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 120, 40));
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 120, 40));
+
+        lblDoctorslist1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
+        lblDoctorslist1.setText("Sanitization Service");
+        add(lblDoctorslist1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void ambulanceProviderComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ambulanceProviderComboBoxActionPerformed
@@ -301,6 +315,38 @@ public class BooKSanitizationPMJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
+        // TODO add your handling code here:
+         jButton3.setBackground(new java.awt.Color(18,102,153));
+        jButton3.setContentAreaFilled(true);
+        jButton3.setFocusPainted(true);
+        jButton3.setBorderPainted(false);
+         jButton3.setOpaque(true);
+    }//GEN-LAST:event_jButton3MouseEntered
+
+    private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
+        // TODO add your handling code here:
+           jButton3.setContentAreaFilled(false);
+        jButton3.setFocusPainted(false);
+        jButton3.setBorderPainted(true);
+    }//GEN-LAST:event_jButton3MouseExited
+
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+        // TODO add your handling code here:
+         jButton1.setBackground(new java.awt.Color(18,102,153));
+        jButton1.setContentAreaFilled(true);
+        jButton1.setFocusPainted(true);
+        jButton1.setBorderPainted(false);
+         jButton1.setOpaque(true);
+    }//GEN-LAST:event_jButton1MouseEntered
+
+    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
+        // TODO add your handling code here:
+          jButton1.setContentAreaFilled(false);
+        jButton1.setFocusPainted(false);
+        jButton1.setBorderPainted(true);
+    }//GEN-LAST:event_jButton1MouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

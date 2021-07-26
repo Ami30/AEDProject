@@ -96,11 +96,19 @@ public class MainJFrame extends javax.swing.JFrame {
 
         txtPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
 
-        btnLogin.setBackground(new java.awt.Color(169, 221, 243));
+        btnLogin.setBackground(new java.awt.Color(18, 102, 153));
         btnLogin.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnLogin.setText("LOGIN");
         btnLogin.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnLogin.setContentAreaFilled(false);
+        btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnLoginMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnLoginMouseExited(evt);
+            }
+        });
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -110,11 +118,19 @@ public class MainJFrame extends javax.swing.JFrame {
         lblUsername.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         lblUsername.setText("USERNAME");
 
-        btnRegister.setBackground(new java.awt.Color(169, 221, 243));
+        btnRegister.setBackground(new java.awt.Color(18, 102, 153));
         btnRegister.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnRegister.setText("REGISTER");
         btnRegister.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRegister.setContentAreaFilled(false);
+        btnRegister.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegisterMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegisterMouseExited(evt);
+            }
+        });
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegisterActionPerformed(evt);
@@ -326,6 +342,38 @@ public class MainJFrame extends javax.swing.JFrame {
         CardLayout layout = (CardLayout) containerJPanel.getLayout();
         layout.next(containerJPanel);
     }//GEN-LAST:event_btnRegisterActionPerformed
+
+    private void btnLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseEntered
+        // TODO add your handling code here:
+           btnLogin.setBackground(new java.awt.Color(18,102,153));
+        btnLogin.setContentAreaFilled(true);
+        btnLogin.setFocusPainted(true);
+        btnLogin.setBorderPainted(false);
+         btnLogin.setOpaque(true);
+    }//GEN-LAST:event_btnLoginMouseEntered
+
+    private void btnLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseExited
+        // TODO add your handling code here:
+         btnLogin.setContentAreaFilled(false);
+        btnLogin.setFocusPainted(false);
+        btnLogin.setBorderPainted(true);
+    }//GEN-LAST:event_btnLoginMouseExited
+
+    private void btnRegisterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseEntered
+        // TODO add your handling code here:
+           btnRegister.setBackground(new java.awt.Color(18,102,153));
+        btnRegister.setContentAreaFilled(true);
+        btnRegister.setFocusPainted(true);
+        btnRegister.setBorderPainted(false);
+         btnRegister.setOpaque(true);
+    }//GEN-LAST:event_btnRegisterMouseEntered
+
+    private void btnRegisterMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseExited
+        // TODO add your handling code here:
+         btnRegister.setContentAreaFilled(false);
+        btnRegister.setFocusPainted(false);
+        btnRegister.setBorderPainted(true);
+    }//GEN-LAST:event_btnRegisterMouseExited
 
 
     /**

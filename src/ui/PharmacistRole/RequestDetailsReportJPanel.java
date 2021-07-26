@@ -169,6 +169,14 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
         btnAssigndeliveryMan.setText("Assign Delivery Man");
         btnAssigndeliveryMan.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnAssigndeliveryMan.setContentAreaFilled(false);
+        btnAssigndeliveryMan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAssigndeliveryManMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAssigndeliveryManMouseExited(evt);
+            }
+        });
         btnAssigndeliveryMan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAssigndeliveryManActionPerformed(evt);
@@ -286,6 +294,22 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         delMan = (DeliveryMan)deliveryManComboBox.getSelectedItem();
     }//GEN-LAST:event_deliveryManComboBoxActionPerformed
+
+    private void btnAssigndeliveryManMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAssigndeliveryManMouseEntered
+        // TODO add your handling code here:
+           btnAssigndeliveryMan.setBackground(new java.awt.Color(18,102,153));
+        btnAssigndeliveryMan.setContentAreaFilled(true);
+        btnAssigndeliveryMan.setFocusPainted(true);
+        btnAssigndeliveryMan.setBorderPainted(false);
+         btnAssigndeliveryMan.setOpaque(true);
+    }//GEN-LAST:event_btnAssigndeliveryManMouseEntered
+
+    private void btnAssigndeliveryManMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAssigndeliveryManMouseExited
+        // TODO add your handling code here:
+           btnAssigndeliveryMan.setContentAreaFilled(false);
+        btnAssigndeliveryMan.setFocusPainted(false);
+        btnAssigndeliveryMan.setBorderPainted(true);
+    }//GEN-LAST:event_btnAssigndeliveryManMouseExited
 
      private void populateprofile() {
        lblRequestNumber.setText(request.getRequestNumber());

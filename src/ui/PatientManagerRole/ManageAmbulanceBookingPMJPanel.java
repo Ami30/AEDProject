@@ -127,6 +127,14 @@ public class ManageAmbulanceBookingPMJPanel extends javax.swing.JPanel {
         Approved.setText("Book New");
         Approved.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Approved.setContentAreaFilled(false);
+        Approved.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ApprovedMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ApprovedMouseExited(evt);
+            }
+        });
         Approved.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ApprovedActionPerformed(evt);
@@ -135,9 +143,18 @@ public class ManageAmbulanceBookingPMJPanel extends javax.swing.JPanel {
 
         jButton1.setBackground(new java.awt.Color(18, 102, 153));
         jButton1.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/delete2.png"))); // NOI18N
         jButton1.setText("Remove request");
         jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton1.setContentAreaFilled(false);
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1MouseExited(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -157,7 +174,7 @@ public class ManageAmbulanceBookingPMJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Approved, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(460, 460, 460)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -174,7 +191,7 @@ public class ManageAmbulanceBookingPMJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Approved, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(7, 7, 7)))
                 .addContainerGap(309, Short.MAX_VALUE))
         );
@@ -203,6 +220,38 @@ public class ManageAmbulanceBookingPMJPanel extends javax.swing.JPanel {
          JOptionPane.showMessageDialog(null, "Request removed successfully");
         populateRequestTable();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void ApprovedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ApprovedMouseEntered
+        // TODO add your handling code here:
+         Approved.setBackground(new java.awt.Color(18,102,153));
+        Approved.setContentAreaFilled(true);
+        Approved.setFocusPainted(true);
+        Approved.setBorderPainted(false);
+         Approved.setOpaque(true);
+    }//GEN-LAST:event_ApprovedMouseEntered
+
+    private void ApprovedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ApprovedMouseExited
+        // TODO add your handling code here:
+         Approved.setContentAreaFilled(false);
+        Approved.setFocusPainted(false);
+        Approved.setBorderPainted(true);
+    }//GEN-LAST:event_ApprovedMouseExited
+
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+        // TODO add your handling code here:
+          jButton1.setBackground(new java.awt.Color(18,102,153));
+        jButton1.setContentAreaFilled(true);
+        jButton1.setFocusPainted(true);
+        jButton1.setBorderPainted(false);
+         jButton1.setOpaque(true);
+    }//GEN-LAST:event_jButton1MouseEntered
+
+    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
+        // TODO add your handling code here:
+         jButton1.setContentAreaFilled(false);
+        jButton1.setFocusPainted(false);
+        jButton1.setBorderPainted(true);
+    }//GEN-LAST:event_jButton1MouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

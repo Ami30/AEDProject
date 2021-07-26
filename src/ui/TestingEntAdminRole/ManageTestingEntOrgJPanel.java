@@ -60,10 +60,9 @@ public class ManageTestingEntOrgJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for (Organization organization : directory.getOrgList()){
-            Object[] row = new Object[3];
-            row[0] = organization.getOrgID();
-            row[1] = organization.getName();
-            row[2] = organization.getType().getValue();
+            Object[] row = new Object[2];
+            row[0] = organization.getName();
+            row[1] = organization.getType().getValue();
             model.addRow(row);
         }
     }
@@ -89,20 +88,20 @@ public class ManageTestingEntOrgJPanel extends javax.swing.JPanel {
 
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "ID", "Name", "Type"
+                "Name", "Type"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -119,10 +118,19 @@ public class ManageTestingEntOrgJPanel extends javax.swing.JPanel {
 
         addJButton.setBackground(new java.awt.Color(18, 102, 153));
         addJButton.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        addJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/add2.png"))); // NOI18N
         addJButton.setText("Add Organization");
         addJButton.setToolTipText("");
         addJButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         addJButton.setContentAreaFilled(false);
+        addJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addJButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addJButtonMouseExited(evt);
+            }
+        });
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButtonActionPerformed(evt);
@@ -196,6 +204,22 @@ public class ManageTestingEntOrgJPanel extends javax.swing.JPanel {
        directory.createOrg(type,name);
         populateTable();
     }//GEN-LAST:event_addJButtonActionPerformed
+
+    private void addJButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMouseEntered
+        // TODO add your handling code here:
+           addJButton.setBackground(new java.awt.Color(18,102,153));
+        addJButton.setContentAreaFilled(true);
+        addJButton.setFocusPainted(true);
+        addJButton.setBorderPainted(false);
+         addJButton.setOpaque(true);
+    }//GEN-LAST:event_addJButtonMouseEntered
+
+    private void addJButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMouseExited
+        // TODO add your handling code here:
+         addJButton.setContentAreaFilled(false);
+        addJButton.setFocusPainted(false);
+        addJButton.setBorderPainted(true);
+    }//GEN-LAST:event_addJButtonMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

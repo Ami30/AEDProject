@@ -136,9 +136,18 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
 
         btnRemovemedicine.setBackground(new java.awt.Color(18, 102, 153));
         btnRemovemedicine.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnRemovemedicine.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/delete2.png"))); // NOI18N
         btnRemovemedicine.setText("Remove Medicine");
         btnRemovemedicine.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRemovemedicine.setContentAreaFilled(false);
+        btnRemovemedicine.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRemovemedicineMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRemovemedicineMouseExited(evt);
+            }
+        });
         btnRemovemedicine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemovemedicineActionPerformed(evt);
@@ -150,23 +159,27 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblDoctorslist1)
-                .addGap(365, 365, 365))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblDoctorslist1)
+                        .addGap(365, 365, 365))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRemovemedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(364, 364, 364)
+                .addComponent(btnRemovemedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblDoctorslist1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRemovemedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(16, Short.MAX_VALUE))
         );
@@ -177,9 +190,18 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
 
         addJButton.setBackground(new java.awt.Color(18, 102, 153));
         addJButton.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        addJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/add2.png"))); // NOI18N
         addJButton.setText("Add Medicine");
         addJButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         addJButton.setContentAreaFilled(false);
+        addJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addJButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addJButtonMouseExited(evt);
+            }
+        });
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButtonActionPerformed(evt);
@@ -204,7 +226,7 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
                 .addGap(10, 10, 10))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(228, 228, 228)
-                .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -218,7 +240,7 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
                         .addComponent(lblAddress))
                     .addComponent(expiryDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addJButton)
                 .addContainerGap(51, Short.MAX_VALUE))
         );
 
@@ -267,6 +289,38 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
         populateTestTable();
 
     }//GEN-LAST:event_addJButtonActionPerformed
+
+    private void btnRemovemedicineMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemovemedicineMouseEntered
+        // TODO add your handling code here:
+          btnRemovemedicine.setBackground(new java.awt.Color(18,102,153));
+        btnRemovemedicine.setContentAreaFilled(true);
+        btnRemovemedicine.setFocusPainted(true);
+        btnRemovemedicine.setBorderPainted(false);
+         btnRemovemedicine.setOpaque(true);
+    }//GEN-LAST:event_btnRemovemedicineMouseEntered
+
+    private void btnRemovemedicineMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemovemedicineMouseExited
+        // TODO add your handling code here:
+          btnRemovemedicine.setContentAreaFilled(false);
+        btnRemovemedicine.setFocusPainted(false);
+        btnRemovemedicine.setBorderPainted(true);
+    }//GEN-LAST:event_btnRemovemedicineMouseExited
+
+    private void addJButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMouseEntered
+        // TODO add your handling code here:
+          addJButton.setBackground(new java.awt.Color(18,102,153));
+        addJButton.setContentAreaFilled(true);
+        addJButton.setFocusPainted(true);
+        addJButton.setBorderPainted(false);
+         addJButton.setOpaque(true);
+    }//GEN-LAST:event_addJButtonMouseEntered
+
+    private void addJButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMouseExited
+        // TODO add your handling code here:
+          addJButton.setContentAreaFilled(false);
+        addJButton.setFocusPainted(false);
+        addJButton.setBorderPainted(true);
+    }//GEN-LAST:event_addJButtonMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
