@@ -109,9 +109,11 @@ public class AddPrescriptionDetailsJPanel extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setText("Patients Name:");
+        jLabel2.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
+        jLabel2.setText("Patients Name");
 
-        lblAddress.setText("Request Number:");
+        lblAddress.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
+        lblAddress.setText("Request Number");
 
         addJButton.setBackground(new java.awt.Color(18, 102, 153));
         addJButton.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N

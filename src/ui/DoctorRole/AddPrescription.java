@@ -106,9 +106,11 @@ public class AddPrescription extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setText("Patients Name:");
+        jLabel2.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
+        jLabel2.setText("Patients Name");
 
-        lblAddress.setText("Request Number:");
+        lblAddress.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
+        lblAddress.setText("Request Number");
 
         addJButton.setBackground(new java.awt.Color(18, 102, 153));
         addJButton.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
@@ -264,6 +266,11 @@ public class AddPrescription extends javax.swing.JPanel {
 
         String comment = txtComment.getText();
         String prescription = txtPrescription.getText();
+        if(prescription.equals("")){
+            JOptionPane.showMessageDialog(null, "Did you forget to add prescription ?", "Error!", JOptionPane.ERROR_MESSAGE);
+          return;
+        }
+        else{
         if(ifConsultationRequired.equalsIgnoreCase("yes")){
             datePanel.setVisible(true);
             Date date = nextConsultationDate.getDate();
@@ -281,7 +288,7 @@ public class AddPrescription extends javax.swing.JPanel {
         userProcessContainer.add("PatientManagerProfileJPanel", healthRequest);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-        
+        }
         
     }//GEN-LAST:event_addJButtonActionPerformed
 

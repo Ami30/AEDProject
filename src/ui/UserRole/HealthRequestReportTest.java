@@ -415,7 +415,6 @@ public class HealthRequestReportTest extends javax.swing.JPanel {
         });
 
         testProviderComboBox.setBackground(new java.awt.Color(204, 204, 204));
-        testProviderComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select" }));
         testProviderComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 testProviderComboBoxActionPerformed(evt);

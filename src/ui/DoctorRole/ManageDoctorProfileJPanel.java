@@ -37,7 +37,7 @@ public class ManageDoctorProfileJPanel extends javax.swing.JPanel {
         this.system = system;
         this.enterprise=enterprise;
         populateprofile();
-
+        jDateChooser1.setMaxSelectableDate(new Date());
  
     }
     
@@ -299,7 +299,11 @@ public class ManageDoctorProfileJPanel extends javax.swing.JPanel {
         String exp = txtYearsExp.getText();
         String birthDate = formatter.format(jDateChooser1.getDate());
  
-      
+         if(name.equals("")||address.equals("")||zipcode.equals("")||contactNumber.equals("")||selectedgender.equals("")||email.equals("")||degree.equals("")||exp.equals("")){
+            JOptionPane.showMessageDialog(null, "Did you miss any details? Please check again !", "Error!", JOptionPane.ERROR_MESSAGE);
+          return;
+        }
+         else{
         
         String username = useraccount.getUsername();
 //        RegisteredUser registeredUser= system.getRegisteredUserDirectory().findRegisteredUser(username);
@@ -313,7 +317,7 @@ public class ManageDoctorProfileJPanel extends javax.swing.JPanel {
         doctor.setYearsExperience(exp);
 
         JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I><font color='green'> Details Saved Successfully!! </font><></h2></html>"));
-      
+         }
 
 
     }//GEN-LAST:event_addJButtonActionPerformed

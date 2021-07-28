@@ -69,6 +69,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
         toggleButton();
         toggleDoctorButton();
         populateprofile();
+        toggleAllButtons();
         this.comorbid=new ArrayList<>();
           doctorJTable.setRowHeight(25);
         doctorJTable.getTableHeader().setDefaultRenderer(new HeaderColor());
@@ -1247,5 +1248,16 @@ public class HealthRequestReport extends javax.swing.JPanel {
         if(request.getDoctor()!= null){
             btnAssignToDoctor.setVisible(false);
         }
+    }
+    
+     private void toggleAllButtons(){
+        if(request.getStatus().equalsIgnoreCase("discharged")){
+        btnAssignToDoctor.setVisible(false);
+        btnAssignToMe.setVisible(false);
+        btnBed.setVisible(false);
+        btnReportBacktoAM.setVisible(false);
+        btnTest.setVisible(false);
+        }
+    
     }
 }

@@ -168,7 +168,7 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
 
         jDateChooser1.setBackground(new java.awt.Color(153, 153, 153));
         jDateChooser1.setDateFormatString("dd-MM-yyyy");
-        jPanel2.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 472, 372, -1));
+        jPanel2.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 472, 372, 30));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

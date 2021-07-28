@@ -13,6 +13,7 @@ import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.UserAccount.UserAccount;
+import Business.Validation.Validations;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -250,13 +251,18 @@ public class AddServicesJAreaPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
-
-        String packageName = txtName.getText();
+        Validations validation=new Validations();       
+        String packageName = txtName.getText();        
         String serviceType=ambulanceTypeCombobox.getSelectedItem().toString();
-        
-        AmbulanceService ambServce=new AmbulanceService(packageName,serviceType);
+        if(packageName.equals("")||serviceType.equalsIgnoreCase("select")){
+          JOptionPane.showMessageDialog(null, "Please enter service name", "Error!", JOptionPane.ERROR_MESSAGE);
+          return;
+        }
+        else{
+        AmbulanceService ambServce=new AmbulanceService(packageName,serviceType);       
         ambulanceProvider.getAmbulanceServiceDirectory().addService(ambServce);
         JOptionPane.showMessageDialog(null, "Ambulance Service added successfully!");
+        }
           populateTestTable();
         
        

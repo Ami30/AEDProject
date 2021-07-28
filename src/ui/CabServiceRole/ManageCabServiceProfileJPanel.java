@@ -11,6 +11,7 @@ import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import Business.Validation.Validations;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -220,9 +221,9 @@ public class ManageCabServiceProfileJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(119, 119, 119)
+                .addGap(57, 57, 57)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(75, 75, 75))
+                .addGap(137, 137, 137))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,14 +234,31 @@ public class ManageCabServiceProfileJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
-
+        Validations validation=new Validations();
         String name = nameJTextField.getText();
         String address=txtAddress.getText();
         String zipcode=txtZipCode.getText();
         String contactNumber=txtContactNo.getText();
         String selectedgender = GenderCombobox.getSelectedItem().toString();
         String email=txtEmail.getText();
-
+        
+        if(name.equals("")||address.equals("")||zipcode.equals("")||contactNumber.equals("")||selectedgender.equals("")||email.equals("")){
+            JOptionPane.showMessageDialog(null, "Did you miss any details? Please check again !", "Error!", JOptionPane.ERROR_MESSAGE);
+          return;
+        }
+        if(!validation.isValidZipCode(zipcode)){
+            JOptionPane.showMessageDialog(null, "Invalid Zipcode", "Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if(!validation.isValidPhoneNumber(contactNumber)){
+             JOptionPane.showMessageDialog(null, "Invalid Phone number", "Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+           
+        }
+        if(!validation.isValidEmail(email)){
+             JOptionPane.showMessageDialog(null, "Invalid email", "Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         String username = useraccount.getUsername();
         //        RegisteredUser registeredUser= system.getRegisteredUserDirectory().findRegisteredUser(username);
         AmbulanceDriver ambulanceProvider=null;
@@ -256,6 +274,7 @@ public class ManageCabServiceProfileJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I><font color='green'> Details Saved Successfully!! </font><></h2></html>"));
            }
        }
+    
     }//GEN-LAST:event_addJButtonActionPerformed
 
     private void txtContactNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactNoActionPerformed

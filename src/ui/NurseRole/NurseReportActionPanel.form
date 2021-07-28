@@ -252,26 +252,41 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel2">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Request Number:"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name=".SF NS Text" size="13" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Request Number"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblZipCode">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Patients Name:"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name=".SF NS Text" size="13" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Patients Name"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblContactNo">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Contact Number:"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name=".SF NS Text" size="13" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Contact Number"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel1">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Gender:"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name=".SF NS Text" size="13" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Gender"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblContactNo1">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name=".SF NS Text" size="13" style="1"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Date of Birth"/>
                   </Properties>
                 </Component>
@@ -391,7 +406,10 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel3">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Patient Manager Name:"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name=".SF NS Text" size="13" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Patient Manager Name"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblPatientManagerName">
@@ -410,7 +428,10 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblZipCode1">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Doctor&apos;s Name:"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name=".SF NS Text" size="13" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Doctor&apos;s Name"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblDoctorsName">
@@ -429,7 +450,10 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblContactNo2">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Nurse&apos;s Name:"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name=".SF NS Text" size="13" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Nurse&apos;s Name"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblNursesName">
@@ -448,6 +472,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel4">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name=".SF NS Text" size="13" style="1"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Hospital&apos;s Name"/>
                   </Properties>
                 </Component>
@@ -467,6 +494,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblContactNo3">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name=".SF NS Text" size="13" style="1"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Status"/>
                   </Properties>
                 </Component>
@@ -518,11 +548,16 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnDailyReport" min="-2" pref="174" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnOrderMedicine" min="-2" pref="143" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="btnDailyReport" min="-2" pref="174" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btnOrderMedicine" min="-2" pref="143" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="btnMarkDischarged" alignment="0" min="-2" pref="174" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -534,7 +569,9 @@
                               <Component id="btnDailyReport" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                               <Component id="btnOrderMedicine" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="278" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btnMarkDischarged" min="-2" pref="34" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="226" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -582,6 +619,28 @@
                     <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnOrderMedicineMouseEntered"/>
                     <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnOrderMedicineMouseExited"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOrderMedicineActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnMarkDischarged">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="99" green="66" red="12" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name=".SF NS Text" size="14" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Manage Daily Reports"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                        <EtchetBorder/>
+                      </Border>
+                    </Property>
+                    <Property name="contentAreaFilled" type="boolean" value="false"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnMarkDischargedMouseEntered"/>
+                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnMarkDischargedMouseExited"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMarkDischargedActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
