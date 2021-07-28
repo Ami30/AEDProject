@@ -90,7 +90,7 @@ public class PharmacistWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/requests.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/medicine.png"))); // NOI18N
 
         javax.swing.GroupLayout btnAddMedicines_JPanelLayout = new javax.swing.GroupLayout(btnAddMedicines_JPanel);
         btnAddMedicines_JPanel.setLayout(btnAddMedicines_JPanelLayout);

@@ -64,7 +64,7 @@ public class AmbulanceServiceAssignedRequestJPanel extends javax.swing.JPanel {
        
             AmbulanceDriver ambDriver = organization.getAmbulanceDriverDir().findAmbulanceProvider(useraccount.getUsername());
            for(ServiceRequest serReq : ambDriver.getServiceRequestDirectory().getServiceRequestList()){
-            Object[] row = new Object[5];
+            Object[] row = new Object[6];
                RegisteredUser user = serReq.getUser();
             row[0] = serReq;
             row[1] = user.getName();

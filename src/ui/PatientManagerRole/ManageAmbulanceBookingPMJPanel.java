@@ -124,7 +124,8 @@ public class ManageAmbulanceBookingPMJPanel extends javax.swing.JPanel {
 
         Approved.setBackground(new java.awt.Color(18, 102, 153));
         Approved.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        Approved.setText("Book New");
+        Approved.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/add2.png"))); // NOI18N
+        Approved.setText("Add New");
         Approved.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Approved.setContentAreaFilled(false);
         Approved.addMouseListener(new java.awt.event.MouseAdapter() {

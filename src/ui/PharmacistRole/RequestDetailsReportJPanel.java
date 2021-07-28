@@ -95,14 +95,20 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
         medicinesRequestedtable = new javax.swing.JTable();
         deliveryManComboBox = new javax.swing.JComboBox();
 
-        jPanel4.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
+        jPanel4.setBackground(new java.awt.Color(217, 217, 217));
+
+        jLabel2.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel2.setText("Request Number:");
 
+        lblZipCode.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblZipCode.setText("Patients Name:");
 
+        lblContactNo.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblContactNo.setText("Contact Number:");
 
+        jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel1.setText("Gender:");
 
         lblRequestNumber.setText("jLabel4");
@@ -125,6 +131,7 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
         lblGender.setMinimumSize(new java.awt.Dimension(6, 20));
         lblGender.setPreferredSize(new java.awt.Dimension(6, 20));
 
+        Addresslabel.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         Addresslabel.setText("Address");
 
         lblAddress.setText("jLabel4");
@@ -237,9 +244,6 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(135, 135, 135)
                         .addComponent(deliveryManComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(70, 70, 70)
@@ -248,8 +252,11 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
                         .addGap(65, 65, 65)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(297, 297, 297)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(306, 306, 306)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(254, 254, 254)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(360, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(

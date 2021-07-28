@@ -126,6 +126,7 @@ public class ManageFoodBookingPMJPanel extends javax.swing.JPanel {
 
         jButton1.setBackground(new java.awt.Color(18, 102, 153));
         jButton1.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/add2.png"))); // NOI18N
         jButton1.setText("Add New");
         jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton1.setContentAreaFilled(false);

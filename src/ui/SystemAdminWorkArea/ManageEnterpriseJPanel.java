@@ -119,8 +119,6 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel2.setText("Name");
 
-        txtName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-
         jLabel3.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel3.setText("Enterprise Type");
 
@@ -157,27 +155,17 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel5.setText("Zipcode");
 
-        txtZipcode.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-
         jLabel6.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel6.setText("Contact Number");
-
-        txtContact.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
 
         jLabel7.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel7.setText("Email");
 
-        txtEmail.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-
         jLabel8.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel8.setText("Address");
 
-        txtAddress.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-
         lblNumberOfBeds.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblNumberOfBeds.setText("Total Number of Beds");
-
-        txtNumberOfBeds.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -265,9 +253,9 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNumberOfBeds)
                     .addComponent(lblNumberOfBeds))
-                .addGap(40, 40, 40)
+                .addGap(41, 41, 41)
                 .addComponent(submitJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(102, 102, 102))
+                .addGap(101, 101, 101))
         );
     }// </editor-fold>//GEN-END:initComponents
 

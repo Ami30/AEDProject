@@ -271,7 +271,7 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
         btnAssignedRequest_JPanel.setBackground(new java.awt.Color(18, 102, 153));
         btnAssignedRequest_JPanel.setToolTipText("");
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/spray1.png"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/doc1.png"))); // NOI18N
 
         btnAssignedRequest.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnAssignedRequest.setForeground(new java.awt.Color(255, 255, 255));
@@ -307,7 +307,7 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
         btnNotifications_JPanel.setBackground(new java.awt.Color(18, 102, 153));
         btnNotifications_JPanel.setToolTipText("");
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/spray1.png"))); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/nurse.png"))); // NOI18N
 
         btnNotification.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnNotification.setForeground(new java.awt.Color(255, 255, 255));
@@ -373,7 +373,7 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnAssignedRequest_JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnNotifications_JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(486, Short.MAX_VALUE))
+                .addContainerGap(487, Short.MAX_VALUE))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -120, 250, 910));

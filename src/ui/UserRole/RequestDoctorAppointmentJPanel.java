@@ -345,7 +345,7 @@ public class RequestDoctorAppointmentJPanel extends javax.swing.JPanel {
                 }
             }    
     }
-        HealthRequest req = new HealthRequest("New", user, null, null, null, organization, selectedfever, selectedcough, selectedbodypain, selectedcough,null);
+        HealthRequest req = new HealthRequest("New", user, null, null, null, organization, selectedfever, selectedcough, selectedbodypain, otherSymptoms,null);
         user.getHealthRequestDirectory().addRequestList(req);
         organization.getRequestDirectory().addRequestList(req);
         // creating new Helath requesr

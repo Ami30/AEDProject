@@ -89,8 +89,6 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
             }
         });
         add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, 190, 39));
-
-        txtNetworkName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         add(txtNetworkName, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 273, 181, 30));
 
         networkJTable.setModel(new javax.swing.table.DefaultTableModel(

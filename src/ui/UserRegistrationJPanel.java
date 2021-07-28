@@ -92,10 +92,10 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
         });
         jPanel2.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 372, -1));
 
-        cityJComboBox.setBackground(new java.awt.Color(18, 102, 153));
+        cityJComboBox.setBackground(new java.awt.Color(153, 153, 153));
         cityJComboBox.setForeground(new java.awt.Color(255, 255, 255));
         cityJComboBox.setBorder(null);
-        jPanel2.add(cityJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 45, 372, -1));
+        jPanel2.add(cityJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 45, 372, 30));
 
         lblContactNo.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblContactNo.setText("CONTACT NUMBER");
@@ -152,8 +152,7 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
         lblGender.setText("GENDER");
         jPanel2.add(lblGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 331, -1, -1));
 
-        GenderCombobox.setBackground(new java.awt.Color(18, 102, 153));
-        GenderCombobox.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
+        GenderCombobox.setBackground(new java.awt.Color(153, 153, 153));
         GenderCombobox.setForeground(new java.awt.Color(255, 255, 255));
         GenderCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Male", "Female", "Others" }));
         GenderCombobox.addActionListener(new java.awt.event.ActionListener() {
@@ -161,12 +160,13 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
                 GenderComboboxActionPerformed(evt);
             }
         });
-        jPanel2.add(GenderCombobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 353, 372, -1));
+        jPanel2.add(GenderCombobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 353, 372, 30));
 
         jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel1.setText("DATE OF BIRTH");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 450, -1, -1));
 
+        jDateChooser1.setBackground(new java.awt.Color(153, 153, 153));
         jDateChooser1.setDateFormatString("dd-MM-yyyy");
         jPanel2.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 472, 372, -1));
 

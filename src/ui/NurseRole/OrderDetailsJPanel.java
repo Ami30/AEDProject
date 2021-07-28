@@ -140,6 +140,7 @@ public class OrderDetailsJPanel extends javax.swing.JPanel {
                 "Medicine Name", "Quantity", "ExpiryDate"
             }
         ));
+        completeOrderTable.setSelectionBackground(new java.awt.Color(204, 204, 204));
         jScrollPane1.setViewportView(completeOrderTable);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
