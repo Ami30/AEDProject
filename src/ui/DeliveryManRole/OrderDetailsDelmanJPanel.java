@@ -60,6 +60,8 @@ public class OrderDetailsDelmanJPanel extends javax.swing.JPanel {
         this.ordMed = ordMed;
         this.org = org;
         populateDetails();
+         completeOrderTable.setRowHeight(25);
+        completeOrderTable.getTableHeader().setDefaultRenderer(new HeaderColor());
         populateOrderTabletTable();
     }
      public class HeaderColor extends DefaultTableCellRenderer {
@@ -68,7 +70,7 @@ public class OrderDetailsDelmanJPanel extends javax.swing.JPanel {
         }
         public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused, int row, int column) {
             super.getTableCellRendererComponent(table, value, selected, focused, row, column);         
-           setBackground(new java.awt.Color(74,122,193));
+           setBackground(new java.awt.Color(18,102,153));
             return this;
         }
 

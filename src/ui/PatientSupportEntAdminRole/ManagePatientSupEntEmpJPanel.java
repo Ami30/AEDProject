@@ -50,7 +50,7 @@ public class ManagePatientSupEntEmpJPanel extends javax.swing.JPanel {
         }
         public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused, int row, int column) {
             super.getTableCellRendererComponent(table, value, selected, focused, row, column);         
-           setBackground(new java.awt.Color(74,122,193));
+           setBackground(new java.awt.Color(18,102,153));
             return this;
         }
 
@@ -164,6 +164,7 @@ public class ManagePatientSupEntEmpJPanel extends javax.swing.JPanel {
 
         btnRemovePatientManager.setBackground(new java.awt.Color(18, 102, 153));
         btnRemovePatientManager.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnRemovePatientManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/delete2.png"))); // NOI18N
         btnRemovePatientManager.setText("Remove Patient Manager");
         btnRemovePatientManager.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRemovePatientManager.setContentAreaFilled(false);
@@ -188,7 +189,7 @@ public class ManagePatientSupEntEmpJPanel extends javax.swing.JPanel {
                             .addComponent(lblDoctorslist1)
                             .addGap(365, 365, 365)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnRemovePatientManager)
+                        .addComponent(btnRemovePatientManager, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -221,6 +222,7 @@ public class ManagePatientSupEntEmpJPanel extends javax.swing.JPanel {
 
         addJButton.setBackground(new java.awt.Color(18, 102, 153));
         addJButton.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        addJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/add2.png"))); // NOI18N
         addJButton.setText("Create Patient Manager");
         addJButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         addJButton.setContentAreaFilled(false);
@@ -321,7 +323,7 @@ public class ManagePatientSupEntEmpJPanel extends javax.swing.JPanel {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(

@@ -13,11 +13,14 @@ import Business.Pharmacist.Pharmacist;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HealthRequest;
 import Business.WorkQueue.OrderMedicine;
+import java.awt.Component;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -49,6 +52,20 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
         populateprofile();
         populateTable();
         populateComboBox();
+            medicinesRequestedtable.setRowHeight(25);
+        medicinesRequestedtable.getTableHeader().setDefaultRenderer(new HeaderColor());
+    }
+    
+       public class HeaderColor extends DefaultTableCellRenderer {
+        public HeaderColor() {
+            setOpaque(true);
+        }
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused, int row, int column) {
+            super.getTableCellRendererComponent(table, value, selected, focused, row, column);         
+           setBackground(new java.awt.Color(18,102,153));
+            return this;
+        }
+
     }
 
     /**
@@ -78,14 +95,20 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
         medicinesRequestedtable = new javax.swing.JTable();
         deliveryManComboBox = new javax.swing.JComboBox();
 
-        jPanel4.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
+        jPanel4.setBackground(new java.awt.Color(217, 217, 217));
+
+        jLabel2.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel2.setText("Request Number:");
 
+        lblZipCode.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblZipCode.setText("Patients Name:");
 
+        lblContactNo.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblContactNo.setText("Contact Number:");
 
+        jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel1.setText("Gender:");
 
         lblRequestNumber.setText("jLabel4");
@@ -108,6 +131,7 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
         lblGender.setMinimumSize(new java.awt.Dimension(6, 20));
         lblGender.setPreferredSize(new java.awt.Dimension(6, 20));
 
+        Addresslabel.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         Addresslabel.setText("Address");
 
         lblAddress.setText("jLabel4");
@@ -169,6 +193,14 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
         btnAssigndeliveryMan.setText("Assign Delivery Man");
         btnAssigndeliveryMan.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnAssigndeliveryMan.setContentAreaFilled(false);
+        btnAssigndeliveryMan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAssigndeliveryManMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAssigndeliveryManMouseExited(evt);
+            }
+        });
         btnAssigndeliveryMan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAssigndeliveryManActionPerformed(evt);
@@ -212,9 +244,6 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(135, 135, 135)
                         .addComponent(deliveryManComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(70, 70, 70)
@@ -223,8 +252,11 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
                         .addGap(65, 65, 65)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(297, 297, 297)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(306, 306, 306)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(254, 254, 254)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(360, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -286,6 +318,22 @@ public class RequestDetailsReportJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         delMan = (DeliveryMan)deliveryManComboBox.getSelectedItem();
     }//GEN-LAST:event_deliveryManComboBoxActionPerformed
+
+    private void btnAssigndeliveryManMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAssigndeliveryManMouseEntered
+        // TODO add your handling code here:
+           btnAssigndeliveryMan.setBackground(new java.awt.Color(18,102,153));
+        btnAssigndeliveryMan.setContentAreaFilled(true);
+        btnAssigndeliveryMan.setFocusPainted(true);
+        btnAssigndeliveryMan.setBorderPainted(false);
+         btnAssigndeliveryMan.setOpaque(true);
+    }//GEN-LAST:event_btnAssigndeliveryManMouseEntered
+
+    private void btnAssigndeliveryManMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAssigndeliveryManMouseExited
+        // TODO add your handling code here:
+           btnAssigndeliveryMan.setContentAreaFilled(false);
+        btnAssigndeliveryMan.setFocusPainted(false);
+        btnAssigndeliveryMan.setBorderPainted(true);
+    }//GEN-LAST:event_btnAssigndeliveryManMouseExited
 
      private void populateprofile() {
        lblRequestNumber.setText(request.getRequestNumber());

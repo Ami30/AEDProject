@@ -67,7 +67,7 @@ public class SanitizationDetailsJPanel extends javax.swing.JPanel {
         }
         public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused, int row, int column) {
             super.getTableCellRendererComponent(table, value, selected, focused, row, column);         
-           setBackground(new java.awt.Color(74,122,193));
+           setBackground(new java.awt.Color(18,102,153));
             return this;
         }
 
@@ -172,6 +172,14 @@ public class SanitizationDetailsJPanel extends javax.swing.JPanel {
         jButton3.setText("Back");
         jButton3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton3.setContentAreaFilled(false);
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton3MouseExited(evt);
+            }
+        });
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -235,9 +243,18 @@ public class SanitizationDetailsJPanel extends javax.swing.JPanel {
 
         addJButton.setBackground(new java.awt.Color(18, 102, 153));
         addJButton.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        addJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/submit.png"))); // NOI18N
         addJButton.setText("Submit");
         addJButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         addJButton.setContentAreaFilled(false);
+        addJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addJButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addJButtonMouseExited(evt);
+            }
+        });
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButtonActionPerformed(evt);
@@ -253,6 +270,14 @@ public class SanitizationDetailsJPanel extends javax.swing.JPanel {
         jButton4.setText("Close");
         jButton4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton4.setContentAreaFilled(false);
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton4MouseExited(evt);
+            }
+        });
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -276,9 +301,9 @@ public class SanitizationDetailsJPanel extends javax.swing.JPanel {
                         .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(addServicePanelLayout.createSequentialGroup()
                         .addGap(213, 213, 213)
-                        .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 72, Short.MAX_VALUE))
         );
         addServicePanelLayout.setVerticalGroup(
@@ -302,51 +327,85 @@ public class SanitizationDetailsJPanel extends javax.swing.JPanel {
 
         btnNextService.setBackground(new java.awt.Color(18, 102, 153));
         btnNextService.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnNextService.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/add2.png"))); // NOI18N
         btnNextService.setText("Add Next Service");
         btnNextService.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnNextService.setContentAreaFilled(false);
+        btnNextService.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnNextServiceMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnNextServiceMouseExited(evt);
+            }
+        });
         btnNextService.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextServiceActionPerformed(evt);
             }
         });
-        add(btnNextService, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 140, 30));
+        add(btnNextService, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 170, 40));
 
         btnCompleted.setBackground(new java.awt.Color(18, 102, 153));
         btnCompleted.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnCompleted.setText("Completed");
         btnCompleted.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnCompleted.setContentAreaFilled(false);
+        btnCompleted.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCompletedMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCompletedMouseExited(evt);
+            }
+        });
         btnCompleted.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCompletedActionPerformed(evt);
             }
         });
-        add(btnCompleted, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 120, 30));
+        add(btnCompleted, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 120, 40));
 
         btnDeclined.setBackground(new java.awt.Color(18, 102, 153));
         btnDeclined.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnDeclined.setText("Declined");
         btnDeclined.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnDeclined.setContentAreaFilled(false);
+        btnDeclined.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnDeclinedMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnDeclinedMouseExited(evt);
+            }
+        });
         btnDeclined.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeclinedActionPerformed(evt);
             }
         });
-        add(btnDeclined, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 110, 30));
+        add(btnDeclined, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 110, 40));
 
         btnRemove.setBackground(new java.awt.Color(18, 102, 153));
         btnRemove.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnRemove.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/delete2.png"))); // NOI18N
         btnRemove.setText("Remove ");
         btnRemove.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRemove.setContentAreaFilled(false);
+        btnRemove.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRemoveMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRemoveMouseExited(evt);
+            }
+        });
         btnRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoveActionPerformed(evt);
             }
         });
-        add(btnRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(546, 300, 80, 30));
+        add(btnRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, 120, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
@@ -414,6 +473,118 @@ public class SanitizationDetailsJPanel extends javax.swing.JPanel {
 
         populateTestTable();
     }//GEN-LAST:event_btnRemoveActionPerformed
+
+    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
+        // TODO add your handling code here:
+         jButton3.setBackground(new java.awt.Color(18,102,153));
+        jButton3.setContentAreaFilled(true);
+        jButton3.setFocusPainted(true);
+        jButton3.setBorderPainted(false);
+         jButton3.setOpaque(true);
+    }//GEN-LAST:event_jButton3MouseEntered
+
+    private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
+        // TODO add your handling code here:
+         jButton3.setContentAreaFilled(false);
+        jButton3.setFocusPainted(false);
+        jButton3.setBorderPainted(true);
+    }//GEN-LAST:event_jButton3MouseExited
+
+    private void btnNextServiceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNextServiceMouseEntered
+        // TODO add your handling code here:
+         btnNextService.setBackground(new java.awt.Color(18,102,153));
+        btnNextService.setContentAreaFilled(true);
+        btnNextService.setFocusPainted(true);
+        btnNextService.setBorderPainted(false);
+         btnNextService.setOpaque(true);
+    }//GEN-LAST:event_btnNextServiceMouseEntered
+
+    private void btnNextServiceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNextServiceMouseExited
+        // TODO add your handling code here:
+         btnNextService.setContentAreaFilled(false);
+        btnNextService.setFocusPainted(false);
+        btnNextService.setBorderPainted(true);
+    }//GEN-LAST:event_btnNextServiceMouseExited
+
+    private void btnCompletedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCompletedMouseEntered
+        // TODO add your handling code here:
+         btnCompleted.setBackground(new java.awt.Color(18,102,153));
+        btnCompleted.setContentAreaFilled(true);
+        btnCompleted.setFocusPainted(true);
+        btnCompleted.setBorderPainted(false);
+         btnCompleted.setOpaque(true);
+    }//GEN-LAST:event_btnCompletedMouseEntered
+
+    private void btnCompletedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCompletedMouseExited
+        // TODO add your handling code here:
+         btnCompleted.setContentAreaFilled(false);
+        btnCompleted.setFocusPainted(false);
+        btnCompleted.setBorderPainted(true);
+    }//GEN-LAST:event_btnCompletedMouseExited
+
+    private void btnDeclinedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeclinedMouseEntered
+        // TODO add your handling code here:
+         btnDeclined.setBackground(new java.awt.Color(18,102,153));
+        btnDeclined.setContentAreaFilled(true);
+        btnDeclined.setFocusPainted(true);
+        btnDeclined.setBorderPainted(false);
+         btnDeclined.setOpaque(true);
+    }//GEN-LAST:event_btnDeclinedMouseEntered
+
+    private void btnDeclinedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeclinedMouseExited
+        // TODO add your handling code here:
+         btnDeclined.setContentAreaFilled(false);
+        btnDeclined.setFocusPainted(false);
+        btnDeclined.setBorderPainted(true);
+    }//GEN-LAST:event_btnDeclinedMouseExited
+
+    private void btnRemoveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemoveMouseEntered
+        // TODO add your handling code here:
+         btnRemove.setBackground(new java.awt.Color(18,102,153));
+        btnRemove.setContentAreaFilled(true);
+        btnRemove.setFocusPainted(true);
+        btnRemove.setBorderPainted(false);
+         btnRemove.setOpaque(true);
+    }//GEN-LAST:event_btnRemoveMouseEntered
+
+    private void btnRemoveMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemoveMouseExited
+        // TODO add your handling code here:
+         btnRemove.setContentAreaFilled(false);
+        btnRemove.setFocusPainted(false);
+        btnRemove.setBorderPainted(true);
+    }//GEN-LAST:event_btnRemoveMouseExited
+
+    private void addJButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMouseEntered
+        // TODO add your handling code here:
+         addJButton.setBackground(new java.awt.Color(18,102,153));
+        addJButton.setContentAreaFilled(true);
+        addJButton.setFocusPainted(true);
+        addJButton.setBorderPainted(false);
+         addJButton.setOpaque(true);
+    }//GEN-LAST:event_addJButtonMouseEntered
+
+    private void addJButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMouseExited
+        // TODO add your handling code here:
+         addJButton.setContentAreaFilled(false);
+        addJButton.setFocusPainted(false);
+        addJButton.setBorderPainted(true);
+    }//GEN-LAST:event_addJButtonMouseExited
+
+    private void jButton4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseEntered
+        // TODO add your handling code here:
+         addJButton.setBackground(new java.awt.Color(18,102,153));
+        addJButton.setContentAreaFilled(true);
+        addJButton.setFocusPainted(true);
+        addJButton.setBorderPainted(false);
+         addJButton.setOpaque(true);
+    }//GEN-LAST:event_jButton4MouseEntered
+
+    private void jButton4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseExited
+        // TODO add your handling code here:
+         addJButton.setContentAreaFilled(false);
+        addJButton.setFocusPainted(false);
+        addJButton.setBorderPainted(true);
+    }//GEN-LAST:event_jButton4MouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -56,7 +56,7 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
         }
         public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused, int row, int column) {
             super.getTableCellRendererComponent(table, value, selected, focused, row, column);         
-           setBackground(new java.awt.Color(74,122,193));
+           setBackground(new java.awt.Color(18,102,153));
             return this;
         }
 
@@ -223,9 +223,18 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
 
         btnRemoveAmbulanceService.setBackground(new java.awt.Color(18, 102, 153));
         btnRemoveAmbulanceService.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnRemoveAmbulanceService.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/delete2.png"))); // NOI18N
         btnRemoveAmbulanceService.setText("Remove Ambulance Provider");
         btnRemoveAmbulanceService.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRemoveAmbulanceService.setContentAreaFilled(false);
+        btnRemoveAmbulanceService.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRemoveAmbulanceServiceMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRemoveAmbulanceServiceMouseExited(evt);
+            }
+        });
         btnRemoveAmbulanceService.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoveAmbulanceServiceActionPerformed(evt);
@@ -237,9 +246,18 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
 
         btnRemoveCabService.setBackground(new java.awt.Color(18, 102, 153));
         btnRemoveCabService.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnRemoveCabService.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/delete2.png"))); // NOI18N
         btnRemoveCabService.setText("Remove Cab Provider");
         btnRemoveCabService.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRemoveCabService.setContentAreaFilled(false);
+        btnRemoveCabService.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRemoveCabServiceMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRemoveCabServiceMouseExited(evt);
+            }
+        });
         btnRemoveCabService.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoveCabServiceActionPerformed(evt);
@@ -309,9 +327,18 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
 
         addJButton.setBackground(new java.awt.Color(18, 102, 153));
         addJButton.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        addJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/add2.png"))); // NOI18N
         addJButton.setText("Create Provider");
         addJButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         addJButton.setContentAreaFilled(false);
+        addJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addJButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addJButtonMouseExited(evt);
+            }
+        });
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButtonActionPerformed(evt);
@@ -424,7 +451,7 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
                             .addComponent(NurseScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(DoctorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnRemoveCabService, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRemoveAmbulanceService, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnRemoveAmbulanceService, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                             .addComponent(lblAmbulance)
                             .addGap(352, 352, 352)))
@@ -450,7 +477,7 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
                 .addComponent(btnRemoveAmbulanceService, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, 1000, 690));
@@ -561,6 +588,54 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
     
         
     }//GEN-LAST:event_btnRemoveAmbulanceServiceActionPerformed
+
+    private void btnRemoveCabServiceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemoveCabServiceMouseEntered
+        // TODO add your handling code here:
+           btnRemoveCabService.setBackground(new java.awt.Color(18,102,153));
+        btnRemoveCabService.setContentAreaFilled(true);
+        btnRemoveCabService.setFocusPainted(true);
+        btnRemoveCabService.setBorderPainted(false);
+         btnRemoveCabService.setOpaque(true);
+    }//GEN-LAST:event_btnRemoveCabServiceMouseEntered
+
+    private void btnRemoveCabServiceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemoveCabServiceMouseExited
+        // TODO add your handling code here:
+           btnRemoveCabService.setContentAreaFilled(false);
+        btnRemoveCabService.setFocusPainted(false);
+        btnRemoveCabService.setBorderPainted(true);
+    }//GEN-LAST:event_btnRemoveCabServiceMouseExited
+
+    private void btnRemoveAmbulanceServiceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemoveAmbulanceServiceMouseEntered
+        // TODO add your handling code here:
+           btnRemoveAmbulanceService.setBackground(new java.awt.Color(18,102,153));
+        btnRemoveAmbulanceService.setContentAreaFilled(true);
+        btnRemoveAmbulanceService.setFocusPainted(true);
+        btnRemoveAmbulanceService.setBorderPainted(false);
+         btnRemoveAmbulanceService.setOpaque(true);
+    }//GEN-LAST:event_btnRemoveAmbulanceServiceMouseEntered
+
+    private void btnRemoveAmbulanceServiceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemoveAmbulanceServiceMouseExited
+        // TODO add your handling code here:
+           btnRemoveAmbulanceService.setContentAreaFilled(false);
+        btnRemoveAmbulanceService.setFocusPainted(false);
+        btnRemoveAmbulanceService.setBorderPainted(true);
+    }//GEN-LAST:event_btnRemoveAmbulanceServiceMouseExited
+
+    private void addJButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMouseEntered
+        // TODO add your handling code here:
+           addJButton.setBackground(new java.awt.Color(18,102,153));
+        addJButton.setContentAreaFilled(true);
+        addJButton.setFocusPainted(true);
+        addJButton.setBorderPainted(false);
+         addJButton.setOpaque(true);
+    }//GEN-LAST:event_addJButtonMouseEntered
+
+    private void addJButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMouseExited
+        // TODO add your handling code here:
+           addJButton.setContentAreaFilled(false);
+        addJButton.setFocusPainted(false);
+        addJButton.setBorderPainted(true);
+    }//GEN-LAST:event_addJButtonMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

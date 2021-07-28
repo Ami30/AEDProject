@@ -54,7 +54,7 @@ public class AmbulanceServiceAssignedRequestJPanel extends javax.swing.JPanel {
         }
         public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused, int row, int column) {
             super.getTableCellRendererComponent(table, value, selected, focused, row, column);         
-           setBackground(new java.awt.Color(74,122,193));
+           setBackground(new java.awt.Color(18,102,153));
             return this;
         }
     }
@@ -64,7 +64,7 @@ public class AmbulanceServiceAssignedRequestJPanel extends javax.swing.JPanel {
        
             AmbulanceDriver ambDriver = organization.getAmbulanceDriverDir().findAmbulanceProvider(useraccount.getUsername());
            for(ServiceRequest serReq : ambDriver.getServiceRequestDirectory().getServiceRequestList()){
-            Object[] row = new Object[5];
+            Object[] row = new Object[6];
                RegisteredUser user = serReq.getUser();
             row[0] = serReq;
             row[1] = user.getName();

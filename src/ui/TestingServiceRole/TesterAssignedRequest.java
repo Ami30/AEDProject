@@ -55,7 +55,7 @@ public class TesterAssignedRequest extends javax.swing.JPanel {
         }
         public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused, int row, int column) {
             super.getTableCellRendererComponent(table, value, selected, focused, row, column);         
-           setBackground(new java.awt.Color(74,122,193));
+           setBackground(new java.awt.Color(18,102,153));
             return this;
         }
     }
@@ -127,6 +127,14 @@ public class TesterAssignedRequest extends javax.swing.JPanel {
         viewDetails.setText("View Details");
         viewDetails.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         viewDetails.setContentAreaFilled(false);
+        viewDetails.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                viewDetailsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                viewDetailsMouseExited(evt);
+            }
+        });
         viewDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewDetailsActionPerformed(evt);
@@ -138,6 +146,14 @@ public class TesterAssignedRequest extends javax.swing.JPanel {
         btnManageProfile3.setText("Manage completed Test");
         btnManageProfile3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnManageProfile3.setContentAreaFilled(false);
+        btnManageProfile3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnManageProfile3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnManageProfile3MouseExited(evt);
+            }
+        });
         btnManageProfile3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageProfile3ActionPerformed(evt);
@@ -216,6 +232,38 @@ public class TesterAssignedRequest extends javax.swing.JPanel {
         layout.next(userProcessContainer);
          }
     }//GEN-LAST:event_btnManageProfile3ActionPerformed
+
+    private void viewDetailsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewDetailsMouseEntered
+        // TODO add your handling code here:
+           viewDetails.setBackground(new java.awt.Color(18,102,153));
+        viewDetails.setContentAreaFilled(true);
+        viewDetails.setFocusPainted(true);
+        viewDetails.setBorderPainted(false);
+         viewDetails.setOpaque(true);
+    }//GEN-LAST:event_viewDetailsMouseEntered
+
+    private void viewDetailsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewDetailsMouseExited
+        // TODO add your handling code here:
+          viewDetails.setContentAreaFilled(false);
+        viewDetails.setFocusPainted(false);
+        viewDetails.setBorderPainted(true);
+    }//GEN-LAST:event_viewDetailsMouseExited
+
+    private void btnManageProfile3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageProfile3MouseEntered
+        // TODO add your handling code here:
+           btnManageProfile3.setBackground(new java.awt.Color(18,102,153));
+        btnManageProfile3.setContentAreaFilled(true);
+        btnManageProfile3.setFocusPainted(true);
+        btnManageProfile3.setBorderPainted(false);
+         btnManageProfile3.setOpaque(true);
+    }//GEN-LAST:event_btnManageProfile3MouseEntered
+
+    private void btnManageProfile3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageProfile3MouseExited
+        // TODO add your handling code here:
+          btnManageProfile3.setContentAreaFilled(false);
+        btnManageProfile3.setFocusPainted(false);
+        btnManageProfile3.setBorderPainted(true);
+    }//GEN-LAST:event_btnManageProfile3MouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

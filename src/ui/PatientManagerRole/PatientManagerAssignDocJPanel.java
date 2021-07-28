@@ -55,7 +55,7 @@ public class PatientManagerAssignDocJPanel extends javax.swing.JPanel {
         }
         public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused, int row, int column) {
             super.getTableCellRendererComponent(table, value, selected, focused, row, column);         
-           setBackground(new java.awt.Color(74,122,193));
+           setBackground(new java.awt.Color(18,102,153));
             return this;
         }
     }
@@ -130,6 +130,14 @@ public class PatientManagerAssignDocJPanel extends javax.swing.JPanel {
         BtnAssign.setText("Assign to Me");
         BtnAssign.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnAssign.setContentAreaFilled(false);
+        BtnAssign.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BtnAssignMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BtnAssignMouseExited(evt);
+            }
+        });
         BtnAssign.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAssignActionPerformed(evt);
@@ -141,6 +149,14 @@ public class PatientManagerAssignDocJPanel extends javax.swing.JPanel {
         viewDetails.setText("View Details");
         viewDetails.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         viewDetails.setContentAreaFilled(false);
+        viewDetails.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                viewDetailsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                viewDetailsMouseExited(evt);
+            }
+        });
         viewDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewDetailsActionPerformed(evt);
@@ -220,6 +236,38 @@ public class PatientManagerAssignDocJPanel extends javax.swing.JPanel {
          }
         
     }//GEN-LAST:event_viewDetailsActionPerformed
+
+    private void viewDetailsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewDetailsMouseEntered
+        // TODO add your handling code here:
+               viewDetails.setBackground(new java.awt.Color(18,102,153));
+        viewDetails.setContentAreaFilled(true);
+        viewDetails.setFocusPainted(true);
+        viewDetails.setBorderPainted(false);
+         viewDetails.setOpaque(true);
+    }//GEN-LAST:event_viewDetailsMouseEntered
+
+    private void viewDetailsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewDetailsMouseExited
+        // TODO add your handling code here:
+            viewDetails.setContentAreaFilled(false);
+        viewDetails.setFocusPainted(false);
+        viewDetails.setBorderPainted(true);
+    }//GEN-LAST:event_viewDetailsMouseExited
+
+    private void BtnAssignMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAssignMouseEntered
+        // TODO add your handling code here:
+               BtnAssign.setBackground(new java.awt.Color(18,102,153));
+        BtnAssign.setContentAreaFilled(true);
+        BtnAssign.setFocusPainted(true);
+        BtnAssign.setBorderPainted(false);
+         BtnAssign.setOpaque(true);
+    }//GEN-LAST:event_BtnAssignMouseEntered
+
+    private void BtnAssignMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAssignMouseExited
+        // TODO add your handling code here:
+            BtnAssign.setContentAreaFilled(false);
+        BtnAssign.setFocusPainted(false);
+        BtnAssign.setBorderPainted(true);
+    }//GEN-LAST:event_BtnAssignMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

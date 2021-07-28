@@ -119,8 +119,6 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel2.setText("Name");
 
-        txtName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-
         jLabel3.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel3.setText("Enterprise Type");
 
@@ -133,9 +131,18 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
 
         submitJButton.setBackground(new java.awt.Color(18, 102, 153));
         submitJButton.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        submitJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/submit.png"))); // NOI18N
         submitJButton.setText("Submit");
         submitJButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         submitJButton.setContentAreaFilled(false);
+        submitJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                submitJButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                submitJButtonMouseExited(evt);
+            }
+        });
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitJButtonActionPerformed(evt);
@@ -148,27 +155,17 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel5.setText("Zipcode");
 
-        txtZipcode.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-
         jLabel6.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel6.setText("Contact Number");
-
-        txtContact.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
 
         jLabel7.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel7.setText("Email");
 
-        txtEmail.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-
         jLabel8.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel8.setText("Address");
 
-        txtAddress.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-
         lblNumberOfBeds.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblNumberOfBeds.setText("Total Number of Beds");
-
-        txtNumberOfBeds.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -212,11 +209,11 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                             .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(140, 140, 140))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(submitJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(366, 366, 366))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(301, 301, 301))))
+                        .addGap(301, 301, 301))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(submitJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(366, 366, 366))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,9 +253,9 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNumberOfBeds)
                     .addComponent(lblNumberOfBeds))
-                .addGap(40, 40, 40)
+                .addGap(41, 41, 41)
                 .addComponent(submitJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(102, 102, 102))
+                .addGap(101, 101, 101))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -301,6 +298,22 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
              }
         } 
     }//GEN-LAST:event_enterpriseTypeJComboBoxActionPerformed
+
+    private void submitJButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitJButtonMouseEntered
+        // TODO add your handling code here:
+            submitJButton.setBackground(new java.awt.Color(18,102,153));
+        submitJButton.setContentAreaFilled(true);
+        submitJButton.setFocusPainted(true);
+        submitJButton.setBorderPainted(false);
+         submitJButton.setOpaque(true);
+    }//GEN-LAST:event_submitJButtonMouseEntered
+
+    private void submitJButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitJButtonMouseExited
+        // TODO add your handling code here:
+         submitJButton.setContentAreaFilled(false);
+        submitJButton.setFocusPainted(false);
+        submitJButton.setBorderPainted(true);
+    }//GEN-LAST:event_submitJButtonMouseExited
 
      private void populateTable() {
         DefaultTableModel model = (DefaultTableModel) enterpriseJTable.getModel();

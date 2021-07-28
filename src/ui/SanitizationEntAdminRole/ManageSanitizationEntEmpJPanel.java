@@ -51,7 +51,7 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
         }
         public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused, int row, int column) {
             super.getTableCellRendererComponent(table, value, selected, focused, row, column);         
-           setBackground(new java.awt.Color(74,122,193));
+           setBackground(new java.awt.Color(18,102,153));
             return this;
         }
 
@@ -165,9 +165,18 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
 
         btnRemoveSanitizationProvider.setBackground(new java.awt.Color(18, 102, 153));
         btnRemoveSanitizationProvider.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnRemoveSanitizationProvider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/delete2.png"))); // NOI18N
         btnRemoveSanitizationProvider.setText("Remove Sanitization Provider");
         btnRemoveSanitizationProvider.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRemoveSanitizationProvider.setContentAreaFilled(false);
+        btnRemoveSanitizationProvider.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRemoveSanitizationProviderMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRemoveSanitizationProviderMouseExited(evt);
+            }
+        });
         btnRemoveSanitizationProvider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoveSanitizationProviderActionPerformed(evt);
@@ -189,7 +198,7 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
                             .addComponent(lblDoctorslist1)
                             .addGap(365, 365, 365)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnRemoveSanitizationProvider)
+                        .addComponent(btnRemoveSanitizationProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -222,9 +231,18 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
 
         addJButton.setBackground(new java.awt.Color(18, 102, 153));
         addJButton.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        addJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/add2.png"))); // NOI18N
         addJButton.setText("Remove Sanitization Provider");
         addJButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         addJButton.setContentAreaFilled(false);
+        addJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addJButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addJButtonMouseExited(evt);
+            }
+        });
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButtonActionPerformed(evt);
@@ -324,7 +342,7 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
                         .addContainerGap(264, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(188, 188, 188))
         );
         jPanel2Layout.setVerticalGroup(
@@ -438,6 +456,38 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
 
         populateSanitizationPersonTable();
     }//GEN-LAST:event_btnRemoveSanitizationProviderActionPerformed
+
+    private void addJButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMouseEntered
+        // TODO add your handling code here:
+         addJButton.setBackground(new java.awt.Color(18,102,153));
+        addJButton.setContentAreaFilled(true);
+        addJButton.setFocusPainted(true);
+        addJButton.setBorderPainted(false);
+         addJButton.setOpaque(true);
+    }//GEN-LAST:event_addJButtonMouseEntered
+
+    private void addJButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMouseExited
+        // TODO add your handling code here:
+         addJButton.setContentAreaFilled(false);
+        addJButton.setFocusPainted(false);
+        addJButton.setBorderPainted(true);
+    }//GEN-LAST:event_addJButtonMouseExited
+
+    private void btnRemoveSanitizationProviderMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemoveSanitizationProviderMouseEntered
+        // TODO add your handling code here:
+           btnRemoveSanitizationProvider.setBackground(new java.awt.Color(18,102,153));
+        btnRemoveSanitizationProvider.setContentAreaFilled(true);
+        btnRemoveSanitizationProvider.setFocusPainted(true);
+        btnRemoveSanitizationProvider.setBorderPainted(false);
+         btnRemoveSanitizationProvider.setOpaque(true);
+    }//GEN-LAST:event_btnRemoveSanitizationProviderMouseEntered
+
+    private void btnRemoveSanitizationProviderMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemoveSanitizationProviderMouseExited
+        // TODO add your handling code here:
+         btnRemoveSanitizationProvider.setContentAreaFilled(false);
+        btnRemoveSanitizationProvider.setFocusPainted(false);
+        btnRemoveSanitizationProvider.setBorderPainted(true);
+    }//GEN-LAST:event_btnRemoveSanitizationProviderMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

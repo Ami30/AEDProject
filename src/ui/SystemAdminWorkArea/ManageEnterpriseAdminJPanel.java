@@ -137,9 +137,18 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
         submitJButton.setBackground(new java.awt.Color(18, 102, 153));
         submitJButton.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        submitJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/submit.png"))); // NOI18N
         submitJButton.setText("Submit");
         submitJButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         submitJButton.setContentAreaFilled(false);
+        submitJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                submitJButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                submitJButtonMouseExited(evt);
+            }
+        });
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitJButtonActionPerformed(evt);
@@ -344,6 +353,22 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
     private void enterpriseJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseJComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_enterpriseJComboBoxActionPerformed
+
+    private void submitJButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitJButtonMouseEntered
+        // TODO add your handling code here:
+          submitJButton.setBackground(new java.awt.Color(18,102,153));
+        submitJButton.setContentAreaFilled(true);
+        submitJButton.setFocusPainted(true);
+        submitJButton.setBorderPainted(false);
+         submitJButton.setOpaque(true);
+    }//GEN-LAST:event_submitJButtonMouseEntered
+
+    private void submitJButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitJButtonMouseExited
+        // TODO add your handling code here:
+           submitJButton.setContentAreaFilled(false);
+        submitJButton.setFocusPainted(false);
+        submitJButton.setBorderPainted(true);
+    }//GEN-LAST:event_submitJButtonMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

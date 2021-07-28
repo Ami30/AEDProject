@@ -31,16 +31,17 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="jPanel3">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                          <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
                           <Component id="deliveryManComboBox" min="-2" pref="189" max="-2" attributes="0"/>
@@ -52,8 +53,12 @@
                           <Component id="jScrollPane2" min="-2" pref="628" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="297" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="306" max="-2" attributes="0"/>
                           <Component id="jLabel7" min="-2" pref="233" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="254" max="-2" attributes="0"/>
+                          <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="360" max="32767" attributes="0"/>
@@ -83,7 +88,7 @@
         <Container class="javax.swing.JPanel" name="jPanel4">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="cc" type="rgb"/>
+              <Color blue="d9" green="d9" red="d9" type="rgb"/>
             </Property>
           </Properties>
 
@@ -151,21 +156,33 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name=".SF NS Text" size="13" style="1"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Request Number:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblZipCode">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name=".SF NS Text" size="13" style="1"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Patients Name:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblContactNo">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name=".SF NS Text" size="13" style="1"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Contact Number:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name=".SF NS Text" size="13" style="1"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Gender:"/>
               </Properties>
             </Component>
@@ -227,6 +244,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="Addresslabel">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name=".SF NS Text" size="13" style="1"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Address"/>
               </Properties>
             </Component>
@@ -263,6 +283,8 @@
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
           <Events>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAssigndeliveryManMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAssigndeliveryManMouseExited"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAssigndeliveryManActionPerformed"/>
           </Events>
         </Component>

@@ -325,9 +325,9 @@ public class OrderMedicineReport extends javax.swing.JPanel {
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 740, 560));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         jLabel5.setText("Manage Order");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 270, 20));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 270, 20));
 
         jButton3.setBackground(new java.awt.Color(18, 102, 153));
         jButton3.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N

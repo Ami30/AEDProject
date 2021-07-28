@@ -460,17 +460,26 @@ public class UserReport extends javax.swing.JPanel {
             .addGap(0, 34, Short.MAX_VALUE)
         );
 
-        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/back.png"))); // NOI18N
+        btnBack.setBackground(new java.awt.Color(18, 102, 153));
+        btnBack.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnBack.setText("Back");
         btnBack.setToolTipText("");
         btnBack.setActionCommand("University");
         btnBack.setAlignmentY(0.0F);
-        btnBack.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true)));
-        btnBack.setBorderPainted(false);
+        btnBack.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnBack.setContentAreaFilled(false);
         btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnBack.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnBack.setIconTextGap(10);
         btnBack.setMargin(new java.awt.Insets(10, 5, 0, 2));
+        btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBackMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBackMouseExited(evt);
+            }
+        });
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -643,7 +652,7 @@ public class UserReport extends javax.swing.JPanel {
                                 .addGap(70, 70, 70)
                                 .addComponent(lblHealthProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(103, 103, 103)
+                                .addGap(123, 123, 123)
                                 .addComponent(lblHealthProfile1, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -651,8 +660,8 @@ public class UserReport extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(8, 8, 8)
-                .addComponent(btnBack)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(308, 308, 308)
@@ -663,12 +672,12 @@ public class UserReport extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanelGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(66, 66, 66)
+                        .addGap(18, 18, 18)
                         .addComponent(lblHealthProfile1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
+                        .addGap(18, 18, 18)
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanelLeft1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -676,6 +685,22 @@ public class UserReport extends javax.swing.JPanel {
         // back btn logic
         backAction();
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnBackMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseEntered
+        // TODO add your handling code here:
+         btnBack.setBackground(new java.awt.Color(18,102,153));
+        btnBack.setContentAreaFilled(true);
+        btnBack.setFocusPainted(true);
+        btnBack.setBorderPainted(false);
+         btnBack.setOpaque(true);
+    }//GEN-LAST:event_btnBackMouseEntered
+
+    private void btnBackMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseExited
+        // TODO add your handling code here:
+          btnBack.setContentAreaFilled(false);
+        btnBack.setFocusPainted(false);
+        btnBack.setBorderPainted(true);
+    }//GEN-LAST:event_btnBackMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

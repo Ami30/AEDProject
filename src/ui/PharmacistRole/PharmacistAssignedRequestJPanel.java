@@ -53,7 +53,7 @@ public class PharmacistAssignedRequestJPanel extends javax.swing.JPanel {
         }
         public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused, int row, int column) {
             super.getTableCellRendererComponent(table, value, selected, focused, row, column);         
-           setBackground(new java.awt.Color(74,122,193));
+           setBackground(new java.awt.Color(18,102,153));
             return this;
         }
     }
@@ -126,6 +126,14 @@ public class PharmacistAssignedRequestJPanel extends javax.swing.JPanel {
         viewDetails.setText("View Details");
         viewDetails.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         viewDetails.setContentAreaFilled(false);
+        viewDetails.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                viewDetailsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                viewDetailsMouseExited(evt);
+            }
+        });
         viewDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewDetailsActionPerformed(evt);
@@ -137,6 +145,14 @@ public class PharmacistAssignedRequestJPanel extends javax.swing.JPanel {
         btnCompletedOrder.setText("Manage Completed Request");
         btnCompletedOrder.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnCompletedOrder.setContentAreaFilled(false);
+        btnCompletedOrder.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCompletedOrderMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCompletedOrderMouseExited(evt);
+            }
+        });
         btnCompletedOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCompletedOrderActionPerformed(evt);
@@ -214,6 +230,38 @@ public class PharmacistAssignedRequestJPanel extends javax.swing.JPanel {
 //            layout.next(userProcessContainer);
         }
     }//GEN-LAST:event_btnCompletedOrderActionPerformed
+
+    private void viewDetailsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewDetailsMouseEntered
+        // TODO add your handling code here:
+          viewDetails.setBackground(new java.awt.Color(18,102,153));
+        viewDetails.setContentAreaFilled(true);
+        viewDetails.setFocusPainted(true);
+        viewDetails.setBorderPainted(false);
+         viewDetails.setOpaque(true);
+    }//GEN-LAST:event_viewDetailsMouseEntered
+
+    private void viewDetailsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewDetailsMouseExited
+        // TODO add your handling code here:
+         viewDetails.setContentAreaFilled(false);
+        viewDetails.setFocusPainted(false);
+        viewDetails.setBorderPainted(true);
+    }//GEN-LAST:event_viewDetailsMouseExited
+
+    private void btnCompletedOrderMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCompletedOrderMouseEntered
+        // TODO add your handling code here:
+          btnCompletedOrder.setBackground(new java.awt.Color(18,102,153));
+        btnCompletedOrder.setContentAreaFilled(true);
+        btnCompletedOrder.setFocusPainted(true);
+        btnCompletedOrder.setBorderPainted(false);
+         btnCompletedOrder.setOpaque(true);
+    }//GEN-LAST:event_btnCompletedOrderMouseEntered
+
+    private void btnCompletedOrderMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCompletedOrderMouseExited
+        // TODO add your handling code here:
+         btnCompletedOrder.setContentAreaFilled(false);
+        btnCompletedOrder.setFocusPainted(false);
+        btnCompletedOrder.setBorderPainted(true);
+    }//GEN-LAST:event_btnCompletedOrderMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
