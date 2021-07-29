@@ -8,11 +8,13 @@ package ui.TransportationEntAdminRole;
 
 import Business.AmbulanceDriver.AmbulanceDriver;
 import Business.CabDriver.CabDriver;
+import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.Role.AmbulanceServiceRole;
 import Business.Role.CabServiceRole;
+import Business.Validation.Validations;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -32,14 +34,15 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
     private OrganizationDirectory organizationDir;
     private JPanel userProcessContainer;
     private Enterprise ent;
+    private EcoSystem system;
 
     
-    public ManageTransportEntEmpJPanel(JPanel userProcessContainer,OrganizationDirectory organizationDir,Enterprise ent) {
+    public ManageTransportEntEmpJPanel(EcoSystem system,JPanel userProcessContainer,OrganizationDirectory organizationDir,Enterprise ent) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.organizationDir = organizationDir;
         this.ent=ent;
-
+        this.system=system;
         populateOrganizationComboBox();
         populateOrganizationEmpComboBox();
         populateCabServiceTable();
@@ -484,7 +487,7 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
-
+        Validations validation=new Validations();
         Organization organization = (Organization) organizationEmpJComboBox.getSelectedItem();
         String name = nameJTextField.getText();
         String license=txtlicenseno.getText();
@@ -496,6 +499,29 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
         String username = txtuserName.getText();
         char[] passwordCharArray = txtpassword.getPassword();
         String password = String.valueOf(passwordCharArray);
+        
+         if(name.equals("")||address.equals("")||email.equals("")||zipcode.equals("")||contactNumber.equals("")||username.equals("")||password.equals("")){
+            JOptionPane.showMessageDialog(null, "Please enter all the fields.", "Error!", JOptionPane.ERROR_MESSAGE);
+             return;
+        }
+        Boolean unique=system.checkIfUserIsUnique(username);
+        if(!unique){
+            JOptionPane.showMessageDialog(null, "Username " + username + " already exists. Please try with different username", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(!validation.isValidPassword(password)){
+            return;
+        }
+        if(!validation.isValidZipCode(zipcode)){
+            return;
+        }
+        if(!validation.isValidPhoneNumber(contactNumber)){
+            return;
+        }
+        if(!validation.isValidEmail(email)){
+            return;
+        } 
+        
         if(organization.getType().getValue().equals("Cab Provider Organization")){
           CabDriver cd=new CabDriver(license, name, null, gender, address, zipcode, contactNumber, email,username,password,new CabServiceRole());
           organization.getCabDriverDir().addCabDriver(cd);

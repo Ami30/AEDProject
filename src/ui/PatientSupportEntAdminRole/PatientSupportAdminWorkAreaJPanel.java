@@ -181,7 +181,7 @@ public class PatientSupportAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         setColor(btnEmployee_Panel);
         resetColor(btnOrganization_Panel);
-        ManagePatientSupEntEmpJPanel managePatientSupEmpJPanel=new ManagePatientSupEntEmpJPanel(workAreaJPanel,enterprise.getOrganizationDirectory(),enterprise);
+        ManagePatientSupEntEmpJPanel managePatientSupEmpJPanel=new ManagePatientSupEntEmpJPanel(system,workAreaJPanel,enterprise.getOrganizationDirectory(),enterprise);
         workAreaJPanel.add("ManageEmpJPanel", managePatientSupEmpJPanel);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);

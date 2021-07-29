@@ -98,7 +98,10 @@ public class AddFoodServicesTypesJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtPackageDetails = new javax.swing.JTextArea();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         foodTypesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -181,6 +184,8 @@ public class AddFoodServicesTypesJPanel extends javax.swing.JPanel {
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, -1, 280));
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel2.setText("Package Name");
 
         addJButton.setBackground(new java.awt.Color(18, 102, 153));
@@ -254,6 +259,10 @@ public class AddFoodServicesTypesJPanel extends javax.swing.JPanel {
         String packageName = txtName.getText();
         String packageDetails=txtPackageDetails.getText();
         
+        if(packageName.equals("")){
+            JOptionPane.showMessageDialog(null, "Please enter package name", "Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         FoodPackage foodPackage=new FoodPackage(packageName,packageDetails);
         foodProvider.getFoodpackageDirectory().addFoodTypeList(foodPackage);
         JOptionPane.showMessageDialog(null, "Food Package added successfully!");

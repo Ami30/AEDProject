@@ -46,13 +46,13 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Component id="btnProfile_Panel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnAddServices_JPanel" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="btnAssignedReq_JPanel" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace pref="720" max="32767" attributes="0"/>
+                  <EmptySpace pref="723" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -85,7 +85,7 @@
                       <Component id="btnProfile" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jLabel1" alignment="1" max="32767" attributes="0"/>
+                  <Component id="jLabel1" alignment="1" pref="40" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -212,7 +212,7 @@
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/ui/images/medicine.png"/>
+                  <Image iconType="3" name="/ui/images/cab2.png"/>
                 </Property>
               </Properties>
             </Component>

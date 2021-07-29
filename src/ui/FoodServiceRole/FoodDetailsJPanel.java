@@ -61,7 +61,7 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
         addServicePanel.setVisible(false);
         foodTable.setRowHeight(25);
         foodTable.getTableHeader().setDefaultRenderer(new HeaderColor());
-        
+        sanitizationDate.setMinSelectableDate(new Date());
     }
      public class HeaderColor extends DefaultTableCellRenderer {
         public HeaderColor() {
@@ -259,9 +259,11 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel1.setText("Date");
 
-        jLabel3.setText("Meal Type:");
+        jLabel3.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
+        jLabel3.setText("Meal Type");
 
         jButton4.setBackground(new java.awt.Color(18, 102, 153));
         jButton4.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
@@ -420,7 +422,7 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
           addServicePanel.setVisible(false);
         
        
-        
+         
 
     }//GEN-LAST:event_addJButtonActionPerformed
 

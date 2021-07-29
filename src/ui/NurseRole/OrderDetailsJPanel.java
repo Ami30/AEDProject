@@ -102,8 +102,10 @@ public class OrderDetailsJPanel extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setText("Patients Name:");
+        jLabel2.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
+        jLabel2.setText("Patients Name");
 
+        lblAddress.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblAddress.setText("OrderId");
 
         btnSubmit.setBackground(new java.awt.Color(18, 102, 153));
@@ -159,7 +161,7 @@ public class OrderDetailsJPanel extends javax.swing.JPanel {
                         .addComponent(lblAddress)
                         .addGap(56, 56, 56)
                         .addComponent(lblOrderId, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 182, Short.MAX_VALUE)))
+                        .addGap(0, 176, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(319, 319, 319)

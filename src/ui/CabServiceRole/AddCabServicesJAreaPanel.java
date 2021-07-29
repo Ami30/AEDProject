@@ -14,6 +14,7 @@ import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.UserAccount.UserAccount;
+import Business.Validation.Validations;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -252,13 +253,19 @@ public class AddCabServicesJAreaPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
-
+        Validations validation=new Validations(); 
         String packageName = txtName.getText();
         String serviceType=CabTypeCombobox.getSelectedItem().toString();
+         if(packageName.equals("")||serviceType.equalsIgnoreCase("select")){
+          JOptionPane.showMessageDialog(null, "Please enter service name", "Error!", JOptionPane.ERROR_MESSAGE);
+          return;
+        }
+         else{
         
         CabService cabServce=new CabService(packageName,serviceType);
         cabProvider.getCabServiceDirectory().addService(cabServce);
          JOptionPane.showMessageDialog(null, "Cab Service added successfully!");
+         }
           populateTestTable();
         
        

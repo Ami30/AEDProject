@@ -10,6 +10,7 @@ import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Nurse.Nurse;
 import Business.UserAccount.UserAccount;
+import Business.Validation.Validations;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -281,7 +282,7 @@ public class ManageNurseProfile extends javax.swing.JPanel {
     }//GEN-LAST:event_txtAddressActionPerformed
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
-
+       
         String name = nameJTextField.getText();
         String address=txtAddress.getText();
         String zipcode=txtZipCode.getText();
@@ -292,7 +293,27 @@ public class ManageNurseProfile extends javax.swing.JPanel {
         String exp = txtYearsExp.getText();
         String birthDate = formatter.format(jDateChooser1.getDate());
  
-      
+       Validations validation=new Validations();
+
+      if(name.equals("")||address.equals("")||email.equals("")||zipcode.equals("")||contactNumber.equals("")||exp.equals("")||degree.equals("")){
+            JOptionPane.showMessageDialog(null, "Please enter all the fields.", "Error!", JOptionPane.ERROR_MESSAGE);
+             return;
+        }
+        
+        if(!validation.isValidZipCode(zipcode)){
+            return;
+        }
+        if(!validation.isValidPhoneNumber(contactNumber)){
+            return;
+        }
+        if(!validation.isValidEmail(email)){
+            return;
+        }
+        if(!validation.isFloat(exp)){
+         JOptionPane.showMessageDialog(null, "Please enter valid years of Experience!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
         
         String username = useraccount.getUsername();
 //        RegisteredUser registeredUser= system.getRegisteredUserDirectory().findRegisteredUser(username);

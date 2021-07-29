@@ -6,12 +6,14 @@
 package ui.HospitalEntAdminRole;
 
 import Business.Doctor.Doctor;
+import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Nurse.Nurse;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.Role.DoctorRole;
 import Business.Role.NurseRole;
+import Business.Validation.Validations;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -31,12 +33,14 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
     private OrganizationDirectory organizationDir;
     private JPanel userProcessContainer;
     private Enterprise ent;
+    private EcoSystem system;
     
-    public ManageHospEntEmpJPanel(JPanel userProcessContainer,OrganizationDirectory organizationDir,Enterprise ent) {
+    public ManageHospEntEmpJPanel(EcoSystem system,JPanel userProcessContainer,OrganizationDirectory organizationDir,Enterprise ent) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.organizationDir = organizationDir;
         this.ent=ent;
+        this.system=system;
 
         populateOrganizationComboBox();
         populateOrganizationEmpComboBox();
@@ -468,6 +472,32 @@ public class ManageHospEntEmpJPanel extends javax.swing.JPanel {
         String username = txtuserName.getText();
         char[] passwordCharArray = txtpassword.getPassword();
         String password = String.valueOf(passwordCharArray);
+        Validations validation=new Validations();
+        if(name.equals("")||address.equals("")||email.equals("")||zipcode.equals("")||contactNumber.equals("")||username.equals("")||password.equals("")||yearsExp.equals("")||degree.equals("")){
+            JOptionPane.showMessageDialog(null, "Please enter all the fields.", "Error!", JOptionPane.ERROR_MESSAGE);
+             return;
+        }
+        Boolean unique=system.checkIfUserIsUnique(username);
+        if(!unique){
+            JOptionPane.showMessageDialog(null, "Username " + username + " already exists. Please try with different username", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(!validation.isValidPassword(password)){
+            return;
+        }
+        if(!validation.isValidZipCode(zipcode)){
+            return;
+        }
+        if(!validation.isValidPhoneNumber(contactNumber)){
+            return;
+        }
+        if(!validation.isValidEmail(email)){
+            return;
+        }
+        if(!validation.isFloat(yearsExp)){
+         JOptionPane.showMessageDialog(null, "Please enter valid years of Experience!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         if(organization.getType().getValue().equals("Doctor Organization")){
           Doctor doc=new Doctor(degree, ent.getName(), null, yearsExp, name, null, gender, address, zipcode, contactNumber, email,username,password, new DoctorRole(), organization);
           organization.getDocDir().addDoctor(doc);

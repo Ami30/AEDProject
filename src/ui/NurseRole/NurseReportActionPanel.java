@@ -17,6 +17,7 @@ import java.awt.CardLayout;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import ui.DoctorRole.ViewPrescriptionJPanel;
 import ui.TestingServiceRole.CompletedTestReport;
@@ -53,6 +54,7 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
         this.patientManager = patientManager;
         this.buttonFlag = buttonFlag;
         populateprofile();
+        toggleButton();
         this.comorbid=new ArrayList<>();
         
     }
@@ -97,6 +99,7 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
         doctorJpanel = new javax.swing.JPanel();
         btnDailyReport = new javax.swing.JButton();
         btnOrderMedicine = new javax.swing.JButton();
+        btnMarkDischarged = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jPanelGender = new javax.swing.JPanel();
         lblGender1 = new javax.swing.JLabel();
@@ -117,14 +120,19 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel2.setText("Request Number:");
+        jLabel2.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
+        jLabel2.setText("Request Number");
 
-        lblZipCode.setText("Patients Name:");
+        lblZipCode.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
+        lblZipCode.setText("Patients Name");
 
-        lblContactNo.setText("Contact Number:");
+        lblContactNo.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
+        lblContactNo.setText("Contact Number");
 
-        jLabel1.setText("Gender:");
+        jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
+        jLabel1.setText("Gender");
 
+        lblContactNo1.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblContactNo1.setText("Date of Birth");
 
         lblRequestNumber.setText("jLabel4");
@@ -190,27 +198,31 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel3.setText("Patient Manager Name:");
+        jLabel3.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
+        jLabel3.setText("Patient Manager Name");
 
         lblPatientManagerName.setText("jLabel4");
         lblPatientManagerName.setMaximumSize(new java.awt.Dimension(6, 20));
         lblPatientManagerName.setMinimumSize(new java.awt.Dimension(6, 20));
         lblPatientManagerName.setPreferredSize(new java.awt.Dimension(6, 20));
 
-        lblZipCode1.setText("Doctor's Name:");
+        lblZipCode1.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
+        lblZipCode1.setText("Doctor's Name");
 
         lblDoctorsName.setText("jLabel4");
         lblDoctorsName.setMaximumSize(new java.awt.Dimension(6, 20));
         lblDoctorsName.setMinimumSize(new java.awt.Dimension(6, 20));
         lblDoctorsName.setPreferredSize(new java.awt.Dimension(6, 20));
 
-        lblContactNo2.setText("Nurse's Name:");
+        lblContactNo2.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
+        lblContactNo2.setText("Nurse's Name");
 
         lblNursesName.setText("jLabel4");
         lblNursesName.setMaximumSize(new java.awt.Dimension(6, 20));
         lblNursesName.setMinimumSize(new java.awt.Dimension(6, 20));
         lblNursesName.setPreferredSize(new java.awt.Dimension(6, 20));
 
+        jLabel4.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel4.setText("Hospital's Name");
 
         lblHospitalsName.setText("jLabel4");
@@ -218,6 +230,7 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
         lblHospitalsName.setMinimumSize(new java.awt.Dimension(6, 20));
         lblHospitalsName.setPreferredSize(new java.awt.Dimension(6, 20));
 
+        lblContactNo3.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblContactNo3.setText("Status");
 
         lblStatus.setText("jLabel4");
@@ -382,15 +395,37 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
             }
         });
 
+        btnMarkDischarged.setBackground(new java.awt.Color(18, 102, 153));
+        btnMarkDischarged.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnMarkDischarged.setText("Mark Discharged");
+        btnMarkDischarged.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnMarkDischarged.setContentAreaFilled(false);
+        btnMarkDischarged.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMarkDischargedMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMarkDischargedMouseExited(evt);
+            }
+        });
+        btnMarkDischarged.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMarkDischargedActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout doctorJpanelLayout = new javax.swing.GroupLayout(doctorJpanel);
         doctorJpanel.setLayout(doctorJpanelLayout);
         doctorJpanelLayout.setHorizontalGroup(
             doctorJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(doctorJpanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnDailyReport, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnOrderMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(doctorJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(doctorJpanelLayout.createSequentialGroup()
+                        .addComponent(btnDailyReport, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnOrderMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnMarkDischarged, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         doctorJpanelLayout.setVerticalGroup(
@@ -399,7 +434,9 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
                 .addGroup(doctorJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDailyReport, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnOrderMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 278, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnMarkDischarged, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 226, Short.MAX_VALUE))
         );
 
         jButton3.setBackground(new java.awt.Color(18, 102, 153));
@@ -782,9 +819,34 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
         btnViewPresc.setBorderPainted(true);
     }//GEN-LAST:event_btnViewPrescMouseExited
 
+    private void btnMarkDischargedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMarkDischargedMouseEntered
+        // TODO add your handling code here:
+        btnMarkDischarged.setBackground(new java.awt.Color(18,102,153));
+        btnMarkDischarged.setContentAreaFilled(true);
+        btnMarkDischarged.setFocusPainted(true);
+        btnMarkDischarged.setBorderPainted(false);
+        btnMarkDischarged.setOpaque(true);
+    }//GEN-LAST:event_btnMarkDischargedMouseEntered
+
+    private void btnMarkDischargedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMarkDischargedMouseExited
+        // TODO add your handling code here:
+         btnMarkDischarged.setContentAreaFilled(false);
+        btnMarkDischarged.setFocusPainted(false);
+        btnMarkDischarged.setBorderPainted(true);
+    }//GEN-LAST:event_btnMarkDischargedMouseExited
+
+    private void btnMarkDischargedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarkDischargedActionPerformed
+        // TODO add your handling code here:
+        request.setStatus("Discharged");
+        JOptionPane.showMessageDialog(this, "Patient marked 'discharged' from Quarantine successfully!!!");
+        populateprofile();
+        toggleButton();
+    }//GEN-LAST:event_btnMarkDischargedActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDailyReport;
+    private javax.swing.JButton btnMarkDischarged;
     private javax.swing.JButton btnOrderMedicine;
     private javax.swing.JButton btnViewPresc;
     private javax.swing.JPanel doctorJpanel;
@@ -845,6 +907,14 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
        lblOtherSymptoms.setText(request.getOtherSymptoms());
        
     }
+    
+    public void toggleButton(){
+            if(request.getStatus().equalsIgnoreCase("discharged")){
+            btnDailyReport.setVisible(false);
+            btnOrderMedicine.setVisible(false);
+            btnMarkDischarged.setVisible(false);
+            }
+        }
 //    private void populateTable(){
 //         DefaultTableModel model = (DefaultTableModel) HospitalJTable.getModel();
 //         model.setRowCount(0);

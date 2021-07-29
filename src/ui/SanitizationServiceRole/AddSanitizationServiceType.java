@@ -256,6 +256,10 @@ public class AddSanitizationServiceType extends javax.swing.JPanel {
 
         String type = txtName.getText();
         String duration=txtDuration.getText();
+        if(type.equals("")||duration.equals("")){
+            JOptionPane.showMessageDialog(null, "Please enter the type and duration", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         
         SanitizationService saniService=new SanitizationService(type,duration);
         saniPerson.getSaniServiceTypeDirectory().addSanitizationServiceList(saniService);

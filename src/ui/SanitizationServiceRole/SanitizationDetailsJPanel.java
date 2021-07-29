@@ -59,6 +59,7 @@ public class SanitizationDetailsJPanel extends javax.swing.JPanel {
         addServicePanel.setVisible(false);
         saniTable.setRowHeight(25);
         saniTable.getTableHeader().setDefaultRenderer(new HeaderColor());
+        sanitizationDate.setMinSelectableDate(new Date());
         
     }
      public class HeaderColor extends DefaultTableCellRenderer {
@@ -413,6 +414,10 @@ public class SanitizationDetailsJPanel extends javax.swing.JPanel {
         Date tDate = sanitizationDate.getDate();
         String sanDate = formatter.format(tDate);
         String duration=txtStatus.getText();
+        if(duration.equals("")){
+            JOptionPane.showMessageDialog(null, "Please enter status", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         
         SanitizationServiceForm saniService=new SanitizationServiceForm(sanDate,duration);
         req.getSanitizationServiceFormDirectory().addFormList(saniService);

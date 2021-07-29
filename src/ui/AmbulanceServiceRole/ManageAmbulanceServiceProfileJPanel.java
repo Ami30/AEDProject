@@ -11,6 +11,7 @@ import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import Business.Validation.Validations;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -217,22 +218,23 @@ public class ManageAmbulanceServiceProfileJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(85, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(17, 17, 17)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
-
+        Validations validation=new Validations();
+       
         String name = nameJTextField.getText();
         String address=txtAddress.getText();
         String zipcode=txtZipCode.getText();
@@ -240,6 +242,21 @@ public class ManageAmbulanceServiceProfileJPanel extends javax.swing.JPanel {
         String selectedgender = GenderCombobox.getSelectedItem().toString();
         String email=txtEmail.getText();
 
+        if(name.equals("")||address.equals("")||zipcode.equals("")||contactNumber.equals("")||selectedgender.equals("")||email.equals("")){
+            JOptionPane.showMessageDialog(null, "Did you miss any details? Please check again !", "Error!", JOptionPane.ERROR_MESSAGE);
+          return;
+        }
+       if(!validation.isValidZipCode(zipcode)){
+            return;
+        }
+        if(!validation.isValidPhoneNumber(contactNumber)){
+            return;
+           
+        }
+        if(!validation.isValidEmail(email)){
+            return;
+        }
+        
         String username = useraccount.getUsername();
         //        RegisteredUser registeredUser= system.getRegisteredUserDirectory().findRegisteredUser(username);
         CabDriver cabDriver=null;
@@ -255,6 +272,7 @@ public class ManageAmbulanceServiceProfileJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I><font color='green'> Details Saved Successfully!! </font><></h2></html>"));
            }
        }
+        
     }//GEN-LAST:event_addJButtonActionPerformed
 
     private void txtContactNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactNoActionPerformed

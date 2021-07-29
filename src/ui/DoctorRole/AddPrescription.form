@@ -109,7 +109,7 @@
                   <Component id="datePanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="addJButton" min="-2" pref="34" max="-2" attributes="0"/>
-                  <EmptySpace pref="31" max="32767" attributes="0"/>
+                  <EmptySpace pref="25" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -117,12 +117,18 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Patients Name:"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name=".SF NS Text" size="13" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Patients Name"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblAddress">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Request Number:"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name=".SF NS Text" size="13" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Request Number"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="addJButton">
@@ -207,8 +213,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel6" min="-2" pref="93" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       <Component id="nextConsultationDate" pref="157" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -216,11 +223,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="nextConsultationDate" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="21" max="32767" attributes="0"/>
+                      <EmptySpace pref="27" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -228,7 +235,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Select Date:"/>
+                <Property name="text" type="java.lang.String" value="Select Date"/>
               </Properties>
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="nextConsultationDate">

@@ -181,7 +181,7 @@ public class SanitizationAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         setColor(btnEmployee_Panel);
         resetColor(btnOrganization_Panel);
-       ManageSanitizationEntEmpJPanel manageSanitizationEmpJPanel=new ManageSanitizationEntEmpJPanel(workAreaJPanel,enterprise.getOrganizationDirectory(),enterprise);
+       ManageSanitizationEntEmpJPanel manageSanitizationEmpJPanel=new ManageSanitizationEntEmpJPanel(system,workAreaJPanel,enterprise.getOrganizationDirectory(),enterprise);
         workAreaJPanel.add("ManageEmpJPanel", manageSanitizationEmpJPanel);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);

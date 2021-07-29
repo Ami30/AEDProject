@@ -171,7 +171,7 @@ public class TestingAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         setColor(btnEmployee_Panel);
         resetColor(btnOrganization_Panel);
-        ManageTestingEntEmpJPanel manageSanitizationEmpJPanel=new ManageTestingEntEmpJPanel(workAreaJPanel,enterprise.getOrganizationDirectory(),enterprise);
+        ManageTestingEntEmpJPanel manageSanitizationEmpJPanel=new ManageTestingEntEmpJPanel(system,workAreaJPanel,enterprise.getOrganizationDirectory(),enterprise);
         workAreaJPanel.add("ManageEmpJPanel", manageSanitizationEmpJPanel);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);

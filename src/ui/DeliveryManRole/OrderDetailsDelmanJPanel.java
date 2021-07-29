@@ -182,9 +182,9 @@ public class OrderDetailsDelmanJPanel extends javax.swing.JPanel {
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 740, 350));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         jLabel5.setText("Manage Order");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 270, 20));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 270, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed

@@ -64,6 +64,8 @@ public class BooKFoodPMJPanel extends javax.swing.JPanel {
         populateComboBox();
          serviceTable.setRowHeight(25);
         serviceTable.getTableHeader().setDefaultRenderer(new HeaderColor());
+         dateFrom.setMinSelectableDate(new Date());
+        dateTo.setMinSelectableDate(new Date());
         
     }
      public class HeaderColor extends DefaultTableCellRenderer {
@@ -115,7 +117,10 @@ public class BooKFoodPMJPanel extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         lblDoctorslist1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel1.setText("Select an Food Provider");
@@ -281,6 +286,10 @@ public class BooKFoodPMJPanel extends javax.swing.JPanel {
         if(row<0) {
             JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
+        }
+        if(user==null){
+             JOptionPane.showMessageDialog(null, "No Patient selected", "Error!", JOptionPane.ERROR_MESSAGE);
+             return;
         }
 //        Nurse nurse=org.getNurDir().findNurse(userAccount.getUsername());
         FoodPackage foodPackage=(FoodPackage)serviceTable.getValueAt(row, 0);

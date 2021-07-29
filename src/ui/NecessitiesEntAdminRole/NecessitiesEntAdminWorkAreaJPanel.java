@@ -171,7 +171,7 @@ public class NecessitiesEntAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         setColor(btnEmployee_Panel);
         resetColor(btnOrganization_Panel);
-        ManageNeccessEntEmpJPanel manageNeccessEntEmpJPanel=new ManageNeccessEntEmpJPanel(workAreaJPanel,enterprise.getOrganizationDirectory(),enterprise);
+        ManageNeccessEntEmpJPanel manageNeccessEntEmpJPanel=new ManageNeccessEntEmpJPanel(system,workAreaJPanel,enterprise.getOrganizationDirectory(),enterprise);
         workAreaJPanel.add("ManageEmpJPanel", manageNeccessEntEmpJPanel);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);

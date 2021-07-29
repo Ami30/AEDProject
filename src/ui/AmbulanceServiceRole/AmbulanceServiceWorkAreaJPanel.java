@@ -34,12 +34,21 @@ public class AmbulanceServiceWorkAreaJPanel extends javax.swing.JPanel {
     Organization org;
     EcoSystem system;
     public AmbulanceServiceWorkAreaJPanel(JPanel userProcessContainer, UserAccount useraccount, Organization org, Enterprise enterprise, EcoSystem system) {
-        initComponents();
-        this.userProcessContainer=userProcessContainer;
-        this.enterprise=enterprise;
-        this.useraccount=useraccount;
-        this.org=org;
-        this.system=system;
+        try {
+            initComponents();
+            this.userProcessContainer=userProcessContainer;
+            this.enterprise=enterprise;
+            this.useraccount=useraccount;
+            this.org=org;
+            this.system=system;
+            ManageAmbulanceServiceProfileJPanel profileJPanel = new ManageAmbulanceServiceProfileJPanel(workAreaJPanel,enterprise,useraccount,system);
+            
+            workAreaJPanel.add("adminDashboard", profileJPanel);
+            CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+            layout.next(workAreaJPanel);
+        } catch (ParseException ex) {
+            Logger.getLogger(AmbulanceServiceWorkAreaJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
               void setColor(JPanel panel){

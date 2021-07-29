@@ -11,6 +11,7 @@ import Business.Enterprise.Enterprise;
 import Business.PatientManager.PatientManager;
 import Business.RegisteredUser.RegisteredUser;
 import Business.UserAccount.UserAccount;
+import Business.Validation.Validations;
 import java.text.DateFormat;
 import java.util.Date;
 import javax.swing.JLabel;
@@ -235,9 +236,9 @@ public class ManagePatientManagerProfileJPanel extends javax.swing.JPanel {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -276,6 +277,24 @@ public class ManagePatientManagerProfileJPanel extends javax.swing.JPanel {
         //         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         //        String stringDate = sdf.format(doBirth );
       
+         Validations validation=new Validations();
+
+        if(name.equals("")||address.equals("")||zipcode.equals("")||contactNumber.equals("")||selectedgender.equals("")||email.equals("")){
+            JOptionPane.showMessageDialog(null, "Did you miss any details? Please check again !", "Error!", JOptionPane.ERROR_MESSAGE);
+          return;
+        }
+         if(!validation.isValidZipCode(zipcode)){
+            return;
+        }
+        if(!validation.isValidPhoneNumber(contactNumber)){
+            return;
+           
+        }
+        if(!validation.isValidEmail(email)){
+            return;
+        }
+        
+        
         
         String username = useraccount.getUsername();
         RegisteredUser registeredUser= system.getRegisteredUserDirectory().findRegisteredUser(username);

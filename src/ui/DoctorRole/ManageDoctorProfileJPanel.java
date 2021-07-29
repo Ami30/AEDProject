@@ -9,6 +9,7 @@ import Business.Doctor.Doctor;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.UserAccount.UserAccount;
+import Business.Validation.Validations;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -37,7 +38,7 @@ public class ManageDoctorProfileJPanel extends javax.swing.JPanel {
         this.system = system;
         this.enterprise=enterprise;
         populateprofile();
-
+        jDateChooser1.setMaxSelectableDate(new Date());
  
     }
     
@@ -209,7 +210,7 @@ public class ManageDoctorProfileJPanel extends javax.swing.JPanel {
                             .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtAddress)
                             .addComponent(nameJTextField))))
-                .addGap(0, 301, Short.MAX_VALUE))
+                .addGap(0, 293, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(333, 333, 333)
                 .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -298,8 +299,22 @@ public class ManageDoctorProfileJPanel extends javax.swing.JPanel {
         String degree = txtDegree.getText();
         String exp = txtYearsExp.getText();
         String birthDate = formatter.format(jDateChooser1.getDate());
- 
-      
+        Validations validation=new Validations();
+        
+         if(name.equals("")||address.equals("")||zipcode.equals("")||contactNumber.equals("")||selectedgender.equals("")||email.equals("")||degree.equals("")||exp.equals("")){
+            JOptionPane.showMessageDialog(null, "Did you miss any details? Please check again !", "Error!", JOptionPane.ERROR_MESSAGE);
+          return;
+        }
+         if(!validation.isValidZipCode(zipcode)){
+            return;
+        }
+        if(!validation.isValidPhoneNumber(contactNumber)){
+            return;
+           
+        }
+        if(!validation.isValidEmail(email)){
+            return;
+        }
         
         String username = useraccount.getUsername();
 //        RegisteredUser registeredUser= system.getRegisteredUserDirectory().findRegisteredUser(username);
@@ -313,7 +328,7 @@ public class ManageDoctorProfileJPanel extends javax.swing.JPanel {
         doctor.setYearsExperience(exp);
 
         JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I><font color='green'> Details Saved Successfully!! </font><></h2></html>"));
-      
+         
 
 
     }//GEN-LAST:event_addJButtonActionPerformed

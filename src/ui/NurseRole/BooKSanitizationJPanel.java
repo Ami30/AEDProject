@@ -64,8 +64,10 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
         nurse=org.getNurDir().findNurse(userAccount.getUsername());
         UserComboBox();
         populateComboBox();
-          serviceTable.setRowHeight(25);
+        serviceTable.setRowHeight(25);
         serviceTable.getTableHeader().setDefaultRenderer(new HeaderColor());
+        dateFrom.setMinSelectableDate(new Date());
+        dateTo.setMinSelectableDate(new Date());
         
     }
     public class HeaderColor extends DefaultTableCellRenderer {
@@ -285,6 +287,10 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
         String repeat = txtRepeat.getText();
         if(row<0) {
             JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(repeat.equals("")){
+            JOptionPane.showMessageDialog(null, "Please enter number of repetitions", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
 //        Nurse nurse=org.getNurDir().findNurse(userAccount.getUsername());

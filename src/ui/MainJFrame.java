@@ -263,7 +263,13 @@ public class MainJFrame extends javax.swing.JFrame {
         // Get Password
         char[] passwordCharArray = txtPassword.getPassword();
         String password = String.valueOf(passwordCharArray);
-
+       
+        if(userName.equals("")||password.equals("")){
+            JOptionPane.showMessageDialog(null, "Please enter username and password", "Warning", JOptionPane.WARNING_MESSAGE);
+             return;
+        }
+        
+        
         //Step1: Check in the system user account directory if you have the user
         UserAccount userAccount = system.getUserAccountDir().authenticateUser(userName, password);
         Enterprise inEnterprise = null;

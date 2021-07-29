@@ -111,7 +111,7 @@ public class SanitizationServiceWorkAreaJPanel extends javax.swing.JPanel {
         btnOrders_JPanel.setBackground(new java.awt.Color(18, 102, 153));
         btnOrders_JPanel.setToolTipText("");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/rest.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/requests.png"))); // NOI18N
 
         btnOrders.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnOrders.setForeground(new java.awt.Color(255, 255, 255));
@@ -162,7 +162,7 @@ public class SanitizationServiceWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/requests.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/spray1.png"))); // NOI18N
 
         javax.swing.GroupLayout btnAddMedicines_JPanelLayout = new javax.swing.GroupLayout(btnAddMedicines_JPanel);
         btnAddMedicines_JPanel.setLayout(btnAddMedicines_JPanelLayout);

@@ -13,6 +13,7 @@ import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import Business.Validation.Validations;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -227,14 +228,28 @@ public class ManageDeliveryManProfileJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
-
+       Validations validation=new Validations();
         String name = nameJTextField.getText();
         String address=txtAddress.getText();
         String zipcode=txtZipCode.getText();
         String contactNumber=txtContactNo.getText();
         String selectedgender = GenderCombobox.getSelectedItem().toString();
         String email=txtEmail.getText();
-
+        if(name.equals("")||address.equals("")||zipcode.equals("")||contactNumber.equals("")||selectedgender.equals("")||email.equals("")){
+            JOptionPane.showMessageDialog(null, "Did you miss any details? Please check again !", "Error!", JOptionPane.ERROR_MESSAGE);
+          return;
+        }
+        if(!validation.isValidZipCode(zipcode)){
+            return;
+        }
+        if(!validation.isValidPhoneNumber(contactNumber)){
+            return;
+           
+        }
+        if(!validation.isValidEmail(email)){
+            return;
+        }
+ 
         String username = useraccount.getUsername();
         //        RegisteredUser registeredUser= system.getRegisteredUserDirectory().findRegisteredUser(username);
         DeliveryMan delman=null;
@@ -250,6 +265,7 @@ public class ManageDeliveryManProfileJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I><font color='green'> Details Saved Successfully!! </font><></h2></html>"));
            }
        }
+ 
     }//GEN-LAST:event_addJButtonActionPerformed
 
     private void txtContactNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactNoActionPerformed
