@@ -109,7 +109,10 @@ public class BookAmbulancePMJPanel extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         lblDoctorslist1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel1.setText("Select an Ambulance Provider");
@@ -250,6 +253,10 @@ public class BookAmbulancePMJPanel extends javax.swing.JPanel {
             return;
         }
         AmbulanceService ambService=(AmbulanceService)serviceTable.getValueAt(row, 0);
+        if(user==null){
+             JOptionPane.showMessageDialog(null, "No Patient selected", "Error!", JOptionPane.ERROR_MESSAGE);
+             return;
+        }
         ServiceRequest serReq = new ServiceRequest(ambService.getServiceName(), ambService.getServiceType(), user, null, null,"New");
         ambulance.getServiceRequestDirectory().addRequest(serReq);
         pManager.getServicerequestDirectoryAmb().addRequest(serReq);

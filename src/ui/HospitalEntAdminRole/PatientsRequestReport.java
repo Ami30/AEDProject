@@ -8,6 +8,7 @@ package ui.HospitalEntAdminRole;
 import ui.UserRole.*;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
+import Business.Enterprise.HospitalEnterprise;
 import Business.PatientManager.PatientManager;
 import Business.RegisteredUser.RegisteredUser;
 import Business.UserAccount.UserAccount;
@@ -36,6 +37,7 @@ public class PatientsRequestReport extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private PatientManager patientManager;
     private Enterprise enterprise;
+    private HospitalEnterprise hospEnt;
      DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
  
     public PatientsRequestReport(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system, HealthRequest request, PatientManager patientManager) {
@@ -47,6 +49,7 @@ public class PatientsRequestReport extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.patientManager = patientManager;
         populateprofile();
+        getEnterprise(enterprise);
         this.comorbid=new ArrayList<>();
         
     }
@@ -581,6 +584,10 @@ public class PatientsRequestReport extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "This Patient is already discharged from Hospital" );
         }else {
             request.setStatus("Discharged");
+            
+            int bedCount = Integer.parseInt(hospEnt.getNumberOfBeds());
+                    bedCount = bedCount +1;
+                    hospEnt.setNumberOfBeds(String.valueOf(bedCount));
         }
         
     }//GEN-LAST:event_btnDischargedActionPerformed
@@ -725,5 +732,11 @@ public class PatientsRequestReport extends javax.swing.JPanel {
        lblBodyPain.setText(request.getBodyPain());
        lblOtherSymptoms.setText(request.getOtherSymptoms());
        
-    }     
+    }   
+    private void getEnterprise(Enterprise enterprise){
+        
+        if(enterprise.getType().getValue().equalsIgnoreCase("Hospital")){
+           hospEnt = (HospitalEnterprise) enterprise;
+        }
+    }
 }

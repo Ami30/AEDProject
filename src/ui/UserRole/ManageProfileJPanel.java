@@ -44,6 +44,7 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
         }
         populateprofile();
         this.comorbid=new ArrayList<>();
+        toggleProfileFields(Boolean.FALSE);
         
     }
     
@@ -99,6 +100,7 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
         txtHeight = new javax.swing.JTextField();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         addJButton = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -414,7 +416,7 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
 
         addJButton.setBackground(new java.awt.Color(18, 102, 153));
         addJButton.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        addJButton.setText("Save");
+        addJButton.setText("Update");
         addJButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         addJButton.setContentAreaFilled(false);
         addJButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -431,6 +433,25 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnEdit.setBackground(new java.awt.Color(18, 102, 153));
+        btnEdit.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        btnEdit.setText("Edit");
+        btnEdit.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnEdit.setContentAreaFilled(false);
+        btnEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEditMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEditMouseExited(evt);
+            }
+        });
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -441,7 +462,9 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
                 .addContainerGap())
             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(307, 307, 307)
+                .addGap(147, 147, 147)
+                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -453,7 +476,9 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(65, 65, 65))
         );
 
@@ -612,6 +637,19 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
         addJButton.setBorderPainted(true);
     }//GEN-LAST:event_addJButtonMouseExited
 
+    private void btnEditMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditMouseEntered
+
+    private void btnEditMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditMouseExited
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        // TODO add your handling code here:
+        toggleProfileFields(Boolean.TRUE);
+    }//GEN-LAST:event_btnEditActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox BloodGroupCombobox;
@@ -619,6 +657,7 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox GenderCombobox;
     private javax.swing.JComboBox VaccinationCombobox;
     private javax.swing.JButton addJButton;
+    private javax.swing.JButton btnEdit;
     private javax.swing.JComboBox cityJComboBox;
     private javax.swing.JCheckBox jCheckBoxAsthama;
     private javax.swing.JCheckBox jCheckBoxAtrial;
@@ -704,5 +743,31 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
 
         
        
+    }
+    
+    public void toggleProfileFields(Boolean val){
+        txtAddress.setEditable(val);
+        txtAllergy.setEditable(val);
+        txtContactNo.setEditable(val);
+        txtEmail.setEditable(val);
+        txtHeight.setEditable(val);
+        txtSurgery.setEditable(val);
+        txtWeight.setEditable(val);
+        txtZipCode.setEditable(val);
+        cityJComboBox.setEditable(val);
+        jDateChooser1.setEnabled(val);
+        GenderCombobox.setEditable(val);
+        FoodPrefCombobox.setEditable(val);
+        VaccinationCombobox.setEditable(val);
+        BloodGroupCombobox.setEditable(val);
+        jCheckBoxAsthama.setEnabled(val);
+        jCheckBoxAtrial.setEnabled(val);
+        jCheckBoxCystic.setEnabled(val);
+        jCheckBoxDiabetes.setEnabled(val);
+        jCheckBoxSmoking.setEnabled(val);
+        jCheckBoxcardio.setEnabled(val);
+        btnEdit.setEnabled(!val);
+        addJButton.setEnabled(val);
+        
     }
 }

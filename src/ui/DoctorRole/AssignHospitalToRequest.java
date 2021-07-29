@@ -133,19 +133,14 @@ public class AssignHospitalToRequest extends javax.swing.JPanel {
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel2.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
-        jLabel2.setText("Request Number");
+        jLabel2.setText("Request Number:");
 
-        lblZipCode.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
-        lblZipCode.setText("Patients Name");
+        lblZipCode.setText("Patients Name:");
 
-        lblContactNo.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
-        lblContactNo.setText("Contact Number");
+        lblContactNo.setText("Contact Number:");
 
-        jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
-        jLabel1.setText("Gender");
+        jLabel1.setText("Gender:");
 
-        lblContactNo1.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblContactNo1.setText("Date of Birth");
 
         lblRequestNumber.setText("jLabel4");
@@ -192,31 +187,27 @@ public class AssignHospitalToRequest extends javax.swing.JPanel {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
-        jLabel3.setText("Patient Manager Name");
+        jLabel3.setText("Patient Manager Name:");
 
         lblPatientManagerName.setText("jLabel4");
         lblPatientManagerName.setMaximumSize(new java.awt.Dimension(6, 20));
         lblPatientManagerName.setMinimumSize(new java.awt.Dimension(6, 20));
         lblPatientManagerName.setPreferredSize(new java.awt.Dimension(6, 20));
 
-        lblZipCode1.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
-        lblZipCode1.setText("Doctor's Name");
+        lblZipCode1.setText("Doctor's Name:");
 
         lblDoctorsName.setText("jLabel4");
         lblDoctorsName.setMaximumSize(new java.awt.Dimension(6, 20));
         lblDoctorsName.setMinimumSize(new java.awt.Dimension(6, 20));
         lblDoctorsName.setPreferredSize(new java.awt.Dimension(6, 20));
 
-        lblContactNo2.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
-        lblContactNo2.setText("Nurse's Name");
+        lblContactNo2.setText("Nurse's Name:");
 
         lblNursesName.setText("jLabel4");
         lblNursesName.setMaximumSize(new java.awt.Dimension(6, 20));
         lblNursesName.setMinimumSize(new java.awt.Dimension(6, 20));
         lblNursesName.setPreferredSize(new java.awt.Dimension(6, 20));
 
-        jLabel4.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel4.setText("Hospital's Name");
 
         lblHospitalsName.setText("jLabel4");
@@ -224,7 +215,6 @@ public class AssignHospitalToRequest extends javax.swing.JPanel {
         lblHospitalsName.setMinimumSize(new java.awt.Dimension(6, 20));
         lblHospitalsName.setPreferredSize(new java.awt.Dimension(6, 20));
 
-        lblContactNo3.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblContactNo3.setText("Status");
 
         lblStatus.setText("jLabel4");
@@ -592,7 +582,7 @@ public class AssignHospitalToRequest extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(369, 369, 369))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -602,7 +592,7 @@ public class AssignHospitalToRequest extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addContainerGap(190, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -635,6 +625,9 @@ public class AssignHospitalToRequest extends javax.swing.JPanel {
                   request.setStatus("Assigned to Hospital-"+hospEnt.getName());
                   request.setHospital(hospEnt);
                   hospEnt.getRequestDirectory().addRequestList(request);
+                  int bedCount = Integer.parseInt(hospEnt.getNumberOfBeds());
+                    bedCount = bedCount -1;
+                    hospEnt.setNumberOfBeds(String.valueOf(bedCount));
                   JOptionPane.showMessageDialog(null, "This request assigned to Hospital- "+hospEnt.getName()+" Successfully!");
              }else{
                  JOptionPane.showMessageDialog(null, "This request is already assigned to Hospital- "+request.getHospital().getName());

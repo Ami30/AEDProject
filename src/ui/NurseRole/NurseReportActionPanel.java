@@ -397,7 +397,7 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
 
         btnMarkDischarged.setBackground(new java.awt.Color(18, 102, 153));
         btnMarkDischarged.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnMarkDischarged.setText("Manage Daily Reports");
+        btnMarkDischarged.setText("Mark Discharged");
         btnMarkDischarged.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnMarkDischarged.setContentAreaFilled(false);
         btnMarkDischarged.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -821,10 +821,18 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
 
     private void btnMarkDischargedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMarkDischargedMouseEntered
         // TODO add your handling code here:
+        btnMarkDischarged.setBackground(new java.awt.Color(18,102,153));
+        btnMarkDischarged.setContentAreaFilled(true);
+        btnMarkDischarged.setFocusPainted(true);
+        btnMarkDischarged.setBorderPainted(false);
+        btnMarkDischarged.setOpaque(true);
     }//GEN-LAST:event_btnMarkDischargedMouseEntered
 
     private void btnMarkDischargedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMarkDischargedMouseExited
         // TODO add your handling code here:
+         btnMarkDischarged.setContentAreaFilled(false);
+        btnMarkDischarged.setFocusPainted(false);
+        btnMarkDischarged.setBorderPainted(true);
     }//GEN-LAST:event_btnMarkDischargedMouseExited
 
     private void btnMarkDischargedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarkDischargedActionPerformed

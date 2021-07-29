@@ -121,7 +121,10 @@ public class BooKSanitizationPMJPanel extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         lblDoctorslist1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel1.setText("Select an Sanitization Provider");

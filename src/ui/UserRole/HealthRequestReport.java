@@ -904,6 +904,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
                             model.addRow(row);
                             
                         }
+                        
                     }
                     
                     
@@ -913,7 +914,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
             }
         }
      
-        populateprofile();
+       
         
     }//GEN-LAST:event_btnAssignToDoctorActionPerformed
 
@@ -930,6 +931,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
                   request.setStatus("Assigned to doctor-"+doc.getName());
                   request.setDoctor(doc);
                   doc.getRequestDirectory().addRequestList(request);
+                  populateprofile();
                   JOptionPane.showMessageDialog(null, "This request assigned to doctor "+doc.getName()+" Successfully!");
                   doctorJpanel.setVisible(true);
              } else{
@@ -976,7 +978,8 @@ public class HealthRequestReport extends javax.swing.JPanel {
 //        notification.setRequest(request);
         patMan.getNotificationDirectory().addNotification(notification);
         request.setStatus("quarantined");
-        JOptionPane.showMessageDialog(null, "This patient has been marked as quarntined ");
+        populateprofile();
+        JOptionPane.showMessageDialog(null, "This patient has been marked as quarantined ");
     }//GEN-LAST:event_btnReportBacktoAMActionPerformed
 
     private void btnViewPrescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPrescActionPerformed
@@ -1251,7 +1254,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
     }
     
      private void toggleAllButtons(){
-        if(request.getStatus().equalsIgnoreCase("discharged")){
+        if(request.getStatus().equalsIgnoreCase("discharged") || request.getStatus().equalsIgnoreCase("Negative")){
         btnAssignToDoctor.setVisible(false);
         btnAssignToMe.setVisible(false);
         btnBed.setVisible(false);
