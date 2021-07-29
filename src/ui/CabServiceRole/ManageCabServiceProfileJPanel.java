@@ -247,16 +247,13 @@ public class ManageCabServiceProfileJPanel extends javax.swing.JPanel {
           return;
         }
         if(!validation.isValidZipCode(zipcode)){
-            JOptionPane.showMessageDialog(null, "Invalid Zipcode", "Error!", JOptionPane.ERROR_MESSAGE);
             return;
         }
         if(!validation.isValidPhoneNumber(contactNumber)){
-             JOptionPane.showMessageDialog(null, "Invalid Phone number", "Error!", JOptionPane.ERROR_MESSAGE);
             return;
            
         }
         if(!validation.isValidEmail(email)){
-             JOptionPane.showMessageDialog(null, "Invalid email", "Error!", JOptionPane.ERROR_MESSAGE);
             return;
         }
         String username = useraccount.getUsername();

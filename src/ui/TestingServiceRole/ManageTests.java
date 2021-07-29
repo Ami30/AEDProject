@@ -255,6 +255,10 @@ public class ManageTests extends javax.swing.JPanel {
 
         String name = txtName.getText();
         String duration=txtDuration.getText();
+        if(name.equals("")||duration.equals("")){
+          JOptionPane.showMessageDialog(null, "Please enter medicine name", "Warning", JOptionPane.WARNING_MESSAGE);
+          return;
+        }
         
          Tests test = new Tests(name, duration);
          tester.getTestDirectory().addTestsList(test);

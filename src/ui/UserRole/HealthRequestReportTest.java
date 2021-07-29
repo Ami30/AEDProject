@@ -145,14 +145,19 @@ public class HealthRequestReportTest extends javax.swing.JPanel {
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel2.setText("Request Number:");
+        jLabel2.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
+        jLabel2.setText("Request Number");
 
-        lblZipCode.setText("Patients Name:");
+        lblZipCode.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
+        lblZipCode.setText("Patients Name");
 
-        lblContactNo.setText("Contact Number:");
+        lblContactNo.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
+        lblContactNo.setText("Contact Number");
 
+        jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel1.setText("Gender");
 
+        lblContactNo1.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblContactNo1.setText("Date of Birth");
 
         lblRequestNumber.setText("jLabel4");
@@ -199,14 +204,19 @@ public class HealthRequestReportTest extends javax.swing.JPanel {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel3.setText("Patient Manager Name");
 
+        lblZipCode1.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblZipCode1.setText("Doctor's Name");
 
+        lblContactNo2.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblContactNo2.setText("Nurse's Name");
 
+        jLabel4.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel4.setText("Hospital's Name");
 
+        lblContactNo3.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblContactNo3.setText("Status");
 
         lblPatientManagerName.setText("jLabel4");
@@ -259,7 +269,7 @@ public class HealthRequestReportTest extends javax.swing.JPanel {
                                             .addComponent(lblPatientManagerName, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(lblNursesName, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(lblHospitalsName, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 100, Short.MAX_VALUE))))
+                                        .addGap(0, 90, Short.MAX_VALUE))))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(lblContactNo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

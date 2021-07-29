@@ -91,7 +91,7 @@ public class TestingServiceWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/requests.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/icons8-add-30.png"))); // NOI18N
 
         javax.swing.GroupLayout btnAddTests_JPanelLayout = new javax.swing.GroupLayout(btnAddTests_JPanel);
         btnAddTests_JPanel.setLayout(btnAddTests_JPanelLayout);
@@ -117,7 +117,7 @@ public class TestingServiceWorkAreaJPanel extends javax.swing.JPanel {
         btnOrders_JPanel.setBackground(new java.awt.Color(18, 102, 153));
         btnOrders_JPanel.setToolTipText("");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/rest.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/requests.png"))); // NOI18N
 
         btnOrders.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
         btnOrders.setForeground(new java.awt.Color(255, 255, 255));

@@ -181,7 +181,7 @@ public class TransportationAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         setColor(btnEmployee_Panel);
         resetColor(btnOrganization_Panel);
-        ManageTransportEntEmpJPanel manageEmpJPanel=new ManageTransportEntEmpJPanel(workAreaJPanel,enterprise.getOrganizationDirectory(),enterprise);
+        ManageTransportEntEmpJPanel manageEmpJPanel=new ManageTransportEntEmpJPanel(system,workAreaJPanel,enterprise.getOrganizationDirectory(),enterprise);
         workAreaJPanel.add("ManageEmpJPanel", manageEmpJPanel);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);

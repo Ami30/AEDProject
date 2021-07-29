@@ -254,6 +254,10 @@ public class AddFoodServicesTypesJPanel extends javax.swing.JPanel {
         String packageName = txtName.getText();
         String packageDetails=txtPackageDetails.getText();
         
+        if(packageName.equals("")){
+            JOptionPane.showMessageDialog(null, "Please enter package name", "Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         FoodPackage foodPackage=new FoodPackage(packageName,packageDetails);
         foodProvider.getFoodpackageDirectory().addFoodTypeList(foodPackage);
         JOptionPane.showMessageDialog(null, "Food Package added successfully!");

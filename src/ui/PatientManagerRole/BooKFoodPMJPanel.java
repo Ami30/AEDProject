@@ -64,6 +64,8 @@ public class BooKFoodPMJPanel extends javax.swing.JPanel {
         populateComboBox();
          serviceTable.setRowHeight(25);
         serviceTable.getTableHeader().setDefaultRenderer(new HeaderColor());
+         dateFrom.setMinSelectableDate(new Date());
+        dateTo.setMinSelectableDate(new Date());
         
     }
      public class HeaderColor extends DefaultTableCellRenderer {

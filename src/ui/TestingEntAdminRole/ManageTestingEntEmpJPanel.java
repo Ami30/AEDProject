@@ -6,11 +6,13 @@
 package ui.TestingEntAdminRole;
 
 
+import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.Role.TestingServiceRole;
 import Business.Tester.Tester;
+import Business.Validation.Validations;
 import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -32,13 +34,14 @@ public class ManageTestingEntEmpJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private Enterprise ent;
     private ArrayList<String> gender;
+    private EcoSystem system;
     
-    public ManageTestingEntEmpJPanel(JPanel userProcessContainer,OrganizationDirectory organizationDir,Enterprise ent) {
+    public ManageTestingEntEmpJPanel(EcoSystem system,JPanel userProcessContainer,OrganizationDirectory organizationDir,Enterprise ent) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.organizationDir = organizationDir;
         this.ent=ent;
-
+        this.system=system;
         this.gender=new ArrayList<>();
      
         gender.add(new String("MALE"));
@@ -394,7 +397,7 @@ public class ManageTestingEntEmpJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
-
+        Validations validation=new Validations();
         Organization organization = (Organization) organizationEmpJComboBox.getSelectedItem();
         String name = nameJTextField.getText();
         String address=txtAddress.getText();
@@ -405,6 +408,29 @@ public class ManageTestingEntEmpJPanel extends javax.swing.JPanel {
         String username = txtuserName.getText();
         char[] passwordCharArray = txtpassword.getPassword();
         String password = String.valueOf(passwordCharArray);
+        
+         if(name.equals("")||address.equals("")||email.equals("")||zipcode.equals("")||contactNumber.equals("")||username.equals("")||password.equals("")){
+            JOptionPane.showMessageDialog(null, "Please enter all the fields.", "Error!", JOptionPane.ERROR_MESSAGE);
+             return;
+        }
+        Boolean unique=system.checkIfUserIsUnique(username);
+        if(!unique){
+            JOptionPane.showMessageDialog(null, "Username " + username + " already exists. Please try with different username", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(!validation.isValidPassword(password)){
+            return;
+        }
+        if(!validation.isValidZipCode(zipcode)){
+            return;
+        }
+        if(!validation.isValidPhoneNumber(contactNumber)){
+            return;
+        }
+        if(!validation.isValidEmail(email)){
+            return;
+        } 
+        
         if(organization.getType().getValue().equalsIgnoreCase("Testing Provider Organization")){
          Tester test=new Tester(name, null, gender, address, zipcode, contactNumber, email,username,password, new TestingServiceRole());
         organization.getTesterDir().addtester(test);

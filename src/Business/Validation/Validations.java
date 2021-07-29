@@ -96,6 +96,17 @@ public class Validations {
         return true;
     }
 
+     public boolean isFloat(String strFloat) {
+        if (strFloat == null) {
+            return false;
+        }
+        try {
+            float d = Float.parseFloat(strFloat);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
+    }
 
     public boolean isNull(String strNum) {
         if (strNum.trim().isEmpty()) {

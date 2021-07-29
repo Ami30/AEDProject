@@ -15,6 +15,7 @@ import Business.RegisteredUser.DailyReportSheet;
 import Business.Tester.Tester;
 import Business.Tester.Tests;
 import Business.UserAccount.UserAccount;
+import Business.Validation.Validations;
 import Business.WorkQueue.HealthRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -301,7 +302,7 @@ public class AddDailyReport extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-
+         Validations validation=new Validations();
         Date date = new Date();
         String nowDate = formatter.format(date);
         String slot = slotComboBox.getSelectedItem().toString();
@@ -310,6 +311,23 @@ public class AddDailyReport extends javax.swing.JPanel {
         String bloodPressure = txtBloodPressure.getText();
         String heartRate = txtHeartRate.getText();
         String details = txtDetails.getText();
+        
+        if(fever.equals("")||oxygenSaturation.equals("")||bloodPressure.equals("")||heartRate.equals("")){
+             JOptionPane.showMessageDialog(null, "Please enter all the fields.", "Error!", JOptionPane.ERROR_MESSAGE);
+             return;
+        }
+        if(!validation.isFloat(fever)){
+            JOptionPane.showMessageDialog(null, "Invalid data for fever", "Error!", JOptionPane.ERROR_MESSAGE);
+        }
+        if(!validation.isFloat(oxygenSaturation)){
+            JOptionPane.showMessageDialog(null, "Invalid data for oxygen saturation", "Error!", JOptionPane.ERROR_MESSAGE);
+        }
+        if(!validation.isFloat(bloodPressure)){
+            JOptionPane.showMessageDialog(null, "Invalid data for blood pressure", "Error!", JOptionPane.ERROR_MESSAGE);
+        }
+        if(!validation.isFloat(heartRate)){
+            JOptionPane.showMessageDialog(null, "Invalid data for heart rate", "Error!", JOptionPane.ERROR_MESSAGE);
+        }
         
         DailyReportSheet ds = new DailyReportSheet(nowDate, slot, fever, oxygenSaturation, bloodPressure, heartRate, details);
         request.getDailyReportDirectory().addDailyReport(ds);

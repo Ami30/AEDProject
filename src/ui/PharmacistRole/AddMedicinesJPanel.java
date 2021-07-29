@@ -52,6 +52,7 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
         populateTestTable();
         medicineTable.setRowHeight(25);
         medicineTable.getTableHeader().setDefaultRenderer(new HeaderColor());
+        expiryDateChooser.setMinSelectableDate(new Date());
     }
 
     public class HeaderColor extends DefaultTableCellRenderer {
@@ -284,6 +285,10 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
 
         String name = txtName.getText();
         Date date = expiryDateChooser.getDate();
+        if(name.equals("")){
+         JOptionPane.showMessageDialog(null, "Please enter medicine name", "Warning", JOptionPane.WARNING_MESSAGE);
+          return;
+        }
         String orderDate = formatter.format(date);
         Medicine med = new Medicine(name, orderDate);
         pharmacist.getMedicineDirectory().addMedicineList(med);

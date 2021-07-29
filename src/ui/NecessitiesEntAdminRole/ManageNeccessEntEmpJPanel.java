@@ -6,6 +6,7 @@
 package ui.NecessitiesEntAdminRole;
 
 import Business.DeliveryMan.DeliveryMan;
+import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.GroceryStorePerson.GroceryStorePerson;
 import Business.Organization.Organization;
@@ -14,6 +15,7 @@ import Business.Pharmacist.Pharmacist;
 import Business.Role.DeliveryManRole;
 import Business.Role.PharmacistRole;
 import Business.Role.StorePersonRole;
+import Business.Validation.Validations;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -33,24 +35,25 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
     private OrganizationDirectory organizationDir;
     private JPanel userProcessContainer;
     private Enterprise ent;
+    private EcoSystem system;
     
-    public ManageNeccessEntEmpJPanel(JPanel userProcessContainer,OrganizationDirectory organizationDir,Enterprise ent) {
+    public ManageNeccessEntEmpJPanel(EcoSystem system,JPanel userProcessContainer,OrganizationDirectory organizationDir,Enterprise ent) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.organizationDir = organizationDir;
         this.ent=ent;
-
+        this.system=system;
         populateOrganizationComboBox();
       //  populateOrganizationEmpComboBox();
         populateDeliveryManTable();
         populatePharmacistTable();
-        populateGroceryPersonTable();
+       // populateGroceryPersonTable();
         organizationPharmacistJTable.setRowHeight(25);
         organizationPharmacistJTable.getTableHeader().setDefaultRenderer(new HeaderColor());
         organizationDeliveryManJTable1.setRowHeight(25);
         organizationDeliveryManJTable1.getTableHeader().setDefaultRenderer(new HeaderColor());
-        organizationGroceryManJTable2.setRowHeight(25);
-        organizationGroceryManJTable2.getTableHeader().setDefaultRenderer(new HeaderColor());
+//        organizationGroceryManJTable2.setRowHeight(25);
+//        organizationGroceryManJTable2.getTableHeader().setDefaultRenderer(new HeaderColor());
         
     }
      public class HeaderColor extends DefaultTableCellRenderer {
@@ -119,25 +122,25 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
         }
     }
      
-      private void populateGroceryPersonTable(){
-        DefaultTableModel model = (DefaultTableModel) organizationGroceryManJTable2.getModel();
-        
-        model.setRowCount(0);
-        for(Organization org:organizationDir.getOrgList()){
-           
-        for (GroceryStorePerson gr : org.getGrocPerDir().getgroceryPersonDirectory()){
-            Object[] row = new Object[6];
-            row[0] = gr;  
-            row[1] = gr.getFullName();          
-            row[2] = gr.getAddress();
-            row[3] = gr.getZipcode();
-            row[4] = gr.getContactNumber();
-            row[5] = gr.getEmail();
-            model.addRow(row);
-        }
-           
-        }
-    }
+//      private void populateGroceryPersonTable(){
+//        DefaultTableModel model = (DefaultTableModel) organizationGroceryManJTable2.getModel();
+//        
+//        model.setRowCount(0);
+//        for(Organization org:organizationDir.getOrgList()){
+//           
+//        for (GroceryStorePerson gr : org.getGrocPerDir().getgroceryPersonDirectory()){
+//            Object[] row = new Object[6];
+//            row[0] = gr;  
+//            row[1] = gr.getFullName();          
+//            row[2] = gr.getAddress();
+//            row[3] = gr.getZipcode();
+//            row[4] = gr.getContactNumber();
+//            row[5] = gr.getEmail();
+//            model.addRow(row);
+//        }
+//           
+//        }
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -157,10 +160,6 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
         btnRemoveDeliveryMan = new javax.swing.JButton();
         lblDoctorslist1 = new javax.swing.JLabel();
         btnRemovePharmacist = new javax.swing.JButton();
-        lblnurselist1 = new javax.swing.JLabel();
-        NurseScrollPane1 = new javax.swing.JScrollPane();
-        organizationGroceryManJTable2 = new javax.swing.JTable();
-        btnRemoveStorePerson = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         txtAddress = new javax.swing.JTextField();
         organizationEmpJComboBox = new javax.swing.JComboBox();
@@ -290,59 +289,6 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
         btnRemovePharmacist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemovePharmacistActionPerformed(evt);
-            }
-        });
-
-        lblnurselist1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
-        lblnurselist1.setText("Grocery Store Persons");
-
-        organizationGroceryManJTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Name", "Address", "ZipCode", "Contact Number", "Email"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        organizationGroceryManJTable2.setRequestFocusEnabled(false);
-        organizationGroceryManJTable2.setSelectionBackground(new java.awt.Color(235, 227, 126));
-        NurseScrollPane1.setViewportView(organizationGroceryManJTable2);
-
-        btnRemoveStorePerson.setBackground(new java.awt.Color(18, 102, 153));
-        btnRemoveStorePerson.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
-        btnRemoveStorePerson.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/delete2.png"))); // NOI18N
-        btnRemoveStorePerson.setText("Remove Store Person");
-        btnRemoveStorePerson.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnRemoveStorePerson.setContentAreaFilled(false);
-        btnRemoveStorePerson.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnRemoveStorePersonMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnRemoveStorePersonMouseExited(evt);
-            }
-        });
-        btnRemoveStorePerson.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoveStorePersonActionPerformed(evt);
             }
         });
 
@@ -526,9 +472,6 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
                                 .addComponent(lblnurselist)
                                 .addGap(180, 180, 180)
                                 .addComponent(btnRemovePharmacist, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(NurseScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addGap(737, 737, 737)
@@ -537,13 +480,7 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
                             .addContainerGap()
                             .addComponent(NurseScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(740, 740, 740)
-                        .addComponent(btnRemoveStorePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(381, 381, 381)
-                        .addComponent(lblnurselist1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
+                        .addGap(62, 62, 62)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(55, Short.MAX_VALUE))
         );
@@ -562,22 +499,16 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
                 .addComponent(NurseScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRemoveDeliveryMan, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblnurselist1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(NurseScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnRemoveStorePerson, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(54, 54, 54)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addContainerGap(149, Short.MAX_VALUE))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 0, 1000, 730));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
-
+        Validations validation=new Validations();
         Organization organization = (Organization) organizationEmpJComboBox.getSelectedItem();
         String name = nameJTextField.getText();
         String address=txtAddress.getText();
@@ -588,6 +519,30 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
          String username = txtuserName.getText();
         char[] passwordCharArray = txtpassword.getPassword();
         String password = String.valueOf(passwordCharArray);
+        
+              if(name.equals("")||address.equals("")||email.equals("")||zipcode.equals("")||contactNumber.equals("")||username.equals("")||password.equals("")){
+            JOptionPane.showMessageDialog(null, "Please enter all the fields.", "Error!", JOptionPane.ERROR_MESSAGE);
+             return;
+        }
+        Boolean unique=system.checkIfUserIsUnique(username);
+        if(!unique){
+            JOptionPane.showMessageDialog(null, "Username " + username + " already exists. Please try with different username", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(!validation.isValidPassword(password)){
+            return;
+        }
+        if(!validation.isValidZipCode(zipcode)){
+            return;
+        }
+        if(!validation.isValidPhoneNumber(contactNumber)){
+            return;
+        }
+        if(!validation.isValidEmail(email)){
+            return;
+        }
+      
+        
         if(organization.getType().getValue().equals("Delivery Provider Organization")){
           DeliveryMan del=new DeliveryMan(null, name, null, gender, address, zipcode, contactNumber, email,username,password, new DeliveryManRole());
           organization.getDelManDir().adddeliveryMan(del);
@@ -607,7 +562,7 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
           organization.getGrocPerDir().addgroceryPerson(groc);
           organization.getUserAccountDir().addUserAccount(groc);
           //organization.getEmpDir().createEmp(name);
-          populateGroceryPersonTable();
+         // populateGroceryPersonTable();
         }
         
 
@@ -683,26 +638,6 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnRemoveDeliveryManActionPerformed
 
-    private void btnRemoveStorePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveStorePersonActionPerformed
-        // TODO add your handling code here:
-          int row = organizationGroceryManJTable2.getSelectedRow();
-        if(row<0) {
-            JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        GroceryStorePerson groc=(GroceryStorePerson)organizationGroceryManJTable2.getValueAt(row, 0);
-        
-       for(int i=0;i<organizationDir.getOrgList().size();i++){
-           Organization o= organizationDir.getOrgList().get(i);
-           Boolean success=o.getGrocPerDir().removegroceryPerson(groc);
-           if(success){
-               o.getEmpDir().removeEmpByName(groc.getFullName());
-               o.getUserAccountDir().removeUserAccountByUserName(groc.getFullName());
-           }
-       }      
-        populateDeliveryManTable();
-    }//GEN-LAST:event_btnRemoveStorePersonActionPerformed
-
     private void btnRemovePharmacistMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemovePharmacistMouseEntered
         // TODO add your handling code here:
             btnRemovePharmacist.setBackground(new java.awt.Color(18,102,153));
@@ -735,22 +670,6 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
         btnRemoveDeliveryMan.setBorderPainted(true);
     }//GEN-LAST:event_btnRemoveDeliveryManMouseExited
 
-    private void btnRemoveStorePersonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemoveStorePersonMouseEntered
-        // TODO add your handling code here:
-        btnRemoveStorePerson.setBackground(new java.awt.Color(18,102,153));
-        btnRemoveStorePerson.setContentAreaFilled(true);
-        btnRemoveStorePerson.setFocusPainted(true);
-        btnRemoveStorePerson.setBorderPainted(false);
-        btnRemoveStorePerson.setOpaque(true);
-    }//GEN-LAST:event_btnRemoveStorePersonMouseEntered
-
-    private void btnRemoveStorePersonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemoveStorePersonMouseExited
-        // TODO add your handling code here:
-         btnRemoveStorePerson.setContentAreaFilled(false);
-        btnRemoveStorePerson.setFocusPainted(false);
-        btnRemoveStorePerson.setBorderPainted(true);
-    }//GEN-LAST:event_btnRemoveStorePersonMouseExited
-
     private void addJButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addJButtonMouseEntered
         // TODO add your handling code here:
             addJButton.setBackground(new java.awt.Color(18,102,153));
@@ -772,11 +691,9 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane DoctorScrollPane;
     private javax.swing.JComboBox GenderCombobox;
     private javax.swing.JScrollPane NurseScrollPane;
-    private javax.swing.JScrollPane NurseScrollPane1;
     private javax.swing.JButton addJButton;
     private javax.swing.JButton btnRemoveDeliveryMan;
     private javax.swing.JButton btnRemovePharmacist;
-    private javax.swing.JButton btnRemoveStorePerson;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -790,11 +707,9 @@ public class ManageNeccessEntEmpJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblDoctorslist1;
     private javax.swing.JLabel lblZipCode;
     private javax.swing.JLabel lblnurselist;
-    private javax.swing.JLabel lblnurselist1;
     private javax.swing.JTextField nameJTextField;
     private javax.swing.JTable organizationDeliveryManJTable1;
     private javax.swing.JComboBox organizationEmpJComboBox;
-    private javax.swing.JTable organizationGroceryManJTable2;
     private javax.swing.JTable organizationPharmacistJTable;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtContactNo;

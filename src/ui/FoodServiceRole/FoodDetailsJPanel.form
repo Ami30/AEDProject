@@ -278,6 +278,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name=".SF NS Text" size="13" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Date"/>
           </Properties>
         </Component>
@@ -285,7 +288,10 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Meal Type:"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name=".SF NS Text" size="13" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Meal Type"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton4">

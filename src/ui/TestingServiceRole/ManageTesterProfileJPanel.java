@@ -10,6 +10,7 @@ import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.Tester.Tester;
 import Business.UserAccount.UserAccount;
+import Business.Validation.Validations;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -238,6 +239,23 @@ public class ManageTesterProfileJPanel extends javax.swing.JPanel {
         String selectedgender = GenderCombobox.getSelectedItem().toString();
         String email=txtEmail.getText();
 
+        Validations validation=new Validations();
+
+        if(name.equals("")||address.equals("")||zipcode.equals("")||contactNumber.equals("")||selectedgender.equals("")||email.equals("")){
+            JOptionPane.showMessageDialog(null, "Did you miss any details? Please check again !", "Error!", JOptionPane.ERROR_MESSAGE);
+          return;
+        }
+         if(!validation.isValidZipCode(zipcode)){
+            return;
+        }
+        if(!validation.isValidPhoneNumber(contactNumber)){
+            return;
+           
+        }
+        if(!validation.isValidEmail(email)){
+            return;
+        }
+        
         String username = useraccount.getUsername();
         //        RegisteredUser registeredUser= system.getRegisteredUserDirectory().findRegisteredUser(username);
         Tester tester=enterprise.getOrganizationDirectory().getOrgList().get(0).getTesterDir().findTester(username);
