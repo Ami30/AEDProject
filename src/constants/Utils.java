@@ -154,7 +154,7 @@ public class Utils extends EmailConstants {
 //            Message message = new MimeMessage(session);
 //            message.setFrom(new InternetAddress(user));
 //            message.addRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
-//            message.addRecipient(Message.RecipientType.TO, new InternetAddress("kunalupadhyay165@gmail.com"));
+//            message.addRecipient(Message.RecipientType.TO, new InternetAddress("amishagupta1930@gmail.com"));
 //            message.setSubject(subject);
 //
 //            if (isHtml) {
