@@ -10,6 +10,7 @@ import Business.Network.Network;
 import Business.RegisteredUser.RegisteredUser;
 import Business.Role.PatientRole;
 import Business.Validation.Validations;
+import constants.Utils;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -340,6 +341,10 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
            system.getRegisteredUserDirectory().addRegisteredUser(p);
             
             system.getUserAccountDir().addUserAccount(p);
+            Utils utils = new Utils();
+            String subject = "New user registration";
+            String msg = "Welcome to Digicare, Thank you for registering with us!";
+            utils.sendEmail(email, subject, msg);
           JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I><font color='green'> Registered Successfully </font><></h2></html>"));
           nameJTextField.setText("");
        txtAddress.setText("");
