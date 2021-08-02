@@ -257,13 +257,18 @@ public class ManageTesterProfileJPanel extends javax.swing.JPanel {
         }
         
         String username = useraccount.getUsername();
-        //        RegisteredUser registeredUser= system.getRegisteredUserDirectory().findRegisteredUser(username);
-        Tester tester=enterprise.getOrganizationDirectory().getOrgList().get(0).getTesterDir().findTester(username);
+         Tester tester = null;
+       for(Organization org : enterprise.getOrganizationDirectory().getOrgList()){
+           if(org.getTesterDir().findTester(username)!= null){
+               tester = org.getTesterDir().findTester(username);
+        //        RegisteredUser registeredUser= system.getRegisteredUserDirectory().findRegisteredUser(username);       
         tester.setFullName(name);
         tester.setAddress(address);
         tester.setEmail(email);
         tester.setZipcode(zipcode);
         tester.setContactNumber(contactNumber);
+           }
+       }
 
         JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I><font color='green'> Details Saved Successfully!! </font><></h2></html>"));
 

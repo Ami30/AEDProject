@@ -39,7 +39,7 @@ public class ManageNurseProfile extends javax.swing.JPanel {
         this.system = system;
         this.enterprise=enterprise;
         populateprofile();
-
+        jDateChooser1.setMaxSelectableDate(new Date());
  
     }
     
@@ -325,6 +325,7 @@ public class ManageNurseProfile extends javax.swing.JPanel {
         nurse.setDob(birthDate);
         nurse.setDegree(degree);
         nurse.setYearsExperience(exp);
+        nurse.setGender(selectedgender);
 
         JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I><font color='green'> Details Saved Successfully!! </font><></h2></html>"));
       

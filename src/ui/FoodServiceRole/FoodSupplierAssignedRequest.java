@@ -70,7 +70,7 @@ public class FoodSupplierAssignedRequest extends javax.swing.JPanel {
                         row[2] = req.getUser().getContactNumber();
                         row[3] = req.getUser().getAddress();
                         row[4] = req.getUser().getZipcode();
-                        row[5] = req.getServiceType();
+                        row[5] = req.getServiceName();
                         row[6] = req.getStartDate();
                         row[7] = req.getEndDate();
                         row[8] = req.getStatus();

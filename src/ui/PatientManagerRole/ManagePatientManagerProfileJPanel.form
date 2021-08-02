@@ -33,7 +33,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="70" max="32767" attributes="0"/>
+              <EmptySpace pref="93" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -71,32 +71,32 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="270" max="-2" attributes="0"/>
-                              <Component id="addJButton" min="-2" pref="104" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblZipCode" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblContactNo" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblContactNo2" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblAddress" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblEmail" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblGender" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="GenderCombobox" pref="254" max="32767" attributes="0"/>
-                                  <Component id="txtEmail" pref="254" max="32767" attributes="0"/>
-                                  <Component id="txtAddress" pref="254" max="32767" attributes="0"/>
-                                  <Component id="txtcurrentnumberPatients" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jDateChooser1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtContactNo" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtZipCode" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="nameJTextField" alignment="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="GenderCombobox" min="-2" pref="254" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txtEmail" pref="254" max="32767" attributes="0"/>
+                                      <Component id="txtAddress" pref="254" max="32767" attributes="0"/>
+                                      <Component id="jDateChooser1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtContactNo" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtZipCode" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="nameJTextField" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+                              <Component id="addJButton" min="-2" pref="104" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="249" max="32767" attributes="0"/>
@@ -121,18 +121,15 @@
                           <Component id="txtContactNo" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="lblContactNo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jDateChooser1" min="-2" pref="34" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <Component id="jDateChooser1" min="-2" pref="34" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           </Group>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtcurrentnumberPatients" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                          <Component id="lblContactNo2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -146,12 +143,12 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblGender" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="GenderCombobox" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="lblGender" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Component id="addJButton" min="-2" pref="33" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -173,11 +170,10 @@
             <Component class="javax.swing.JComboBox" name="GenderCombobox">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
+                  <StringArray count="3">
+                    <StringItem index="0" value="Male"/>
+                    <StringItem index="1" value="Female"/>
+                    <StringItem index="2" value="Others"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -204,14 +200,6 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAddressActionPerformed"/>
               </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblContactNo2">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name=".SF NS Text" size="13" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Current Patients"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtEmail">
               <Events>
@@ -248,11 +236,6 @@
                   <Font name=".SF NS Text" size="13" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Date of Birth"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtcurrentnumberPatients">
-              <Properties>
-                <Property name="editable" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblGender">

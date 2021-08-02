@@ -6,8 +6,10 @@
 package ui.PatientManagerRole;
 
 
+import Business.Doctor.Doctor;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
+import Business.Organization.Organization;
 import Business.PatientManager.PatientManager;
 import Business.RegisteredUser.RegisteredUser;
 import Business.UserAccount.UserAccount;
@@ -37,7 +39,7 @@ public class ManagePatientManagerProfileJPanel extends javax.swing.JPanel {
         this.system = system;
         this.enterprise=enterprise;
         populateprofile();
- 
+           jDateChooser1.setMaxSelectableDate(new Date());
     }
     
     
@@ -60,13 +62,11 @@ public class ManagePatientManagerProfileJPanel extends javax.swing.JPanel {
         lblEmail = new javax.swing.JLabel();
         nameJTextField = new javax.swing.JTextField();
         txtAddress = new javax.swing.JTextField();
-        lblContactNo2 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         lblAddress = new javax.swing.JLabel();
         lblZipCode = new javax.swing.JLabel();
         lblContactNo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtcurrentnumberPatients = new javax.swing.JTextField();
         lblGender = new javax.swing.JLabel();
         txtContactNo = new javax.swing.JTextField();
         addJButton = new javax.swing.JButton();
@@ -80,7 +80,7 @@ public class ManagePatientManagerProfileJPanel extends javax.swing.JPanel {
 
         jDateChooser1.setDateFormatString("dd-MM-yyyy");
 
-        GenderCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        GenderCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Male", "Female", "Others" }));
         GenderCombobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GenderComboboxActionPerformed(evt);
@@ -102,9 +102,6 @@ public class ManagePatientManagerProfileJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblContactNo2.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
-        lblContactNo2.setText("Current Patients");
-
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
@@ -122,8 +119,6 @@ public class ManagePatientManagerProfileJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel1.setText("Date of Birth");
-
-        txtcurrentnumberPatients.setEditable(false);
 
         lblGender.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblGender.setText("Gender");
@@ -160,29 +155,28 @@ public class ManagePatientManagerProfileJPanel extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(270, 270, 270)
-                        .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblZipCode)
                             .addComponent(lblContactNo)
                             .addComponent(jLabel2)
                             .addComponent(jLabel1)
-                            .addComponent(lblContactNo2)
                             .addComponent(lblAddress)
                             .addComponent(lblEmail)
                             .addComponent(lblGender))
                         .addGap(55, 55, 55)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(GenderCombobox, 0, 254, Short.MAX_VALUE)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
-                            .addComponent(txtAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
-                            .addComponent(txtcurrentnumberPatients)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtContactNo)
-                            .addComponent(txtZipCode)
-                            .addComponent(nameJTextField))))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(GenderCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+                                .addComponent(txtAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+                                .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtContactNo)
+                                .addComponent(txtZipCode)
+                                .addComponent(nameJTextField))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(249, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -200,16 +194,13 @@ public class ManagePatientManagerProfileJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblContactNo))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
+                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel1)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtcurrentnumberPatients, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblContactNo2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -220,11 +211,11 @@ public class ManagePatientManagerProfileJPanel extends javax.swing.JPanel {
                     .addComponent(lblEmail))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblGender)
-                    .addComponent(GenderCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(105, 105, 105)
+                    .addComponent(GenderCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblGender))
+                .addGap(38, 38, 38)
                 .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
+                .addGap(162, 162, 162))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -255,7 +246,7 @@ public class ManagePatientManagerProfileJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -297,14 +288,19 @@ public class ManagePatientManagerProfileJPanel extends javax.swing.JPanel {
         
         
         String username = useraccount.getUsername();
-        RegisteredUser registeredUser= system.getRegisteredUserDirectory().findRegisteredUser(username);
+         PatientManager patman = null;
+       for(Organization org : enterprise.getOrganizationDirectory().getOrgList()){
+           if(org.getpManagerDir().findPatientManager(username)!= null){
+               patman = org.getpManagerDir().findPatientManager(username);
+        //PatientManager patman=enterprise.getOrganizationDirectory().getOrgList().get(0).getpManagerDir().findPatientManager(username);
 
-        registeredUser.setFullName(name);
-        registeredUser.setAddress(address);
-        registeredUser.setEmail(email);
-        registeredUser.setContactNumber(contactNumber);
-        registeredUser.setDob(strDate);
-
+        patman.setFullName(name);
+        patman.setAddress(address);
+        patman.setEmail(email);
+        patman.setContactNumber(contactNumber);
+        patman.setDob(strDate);
+        patman.setGender(selectedgender);
+           }}
         JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I><font color='green'> Details Saved Successfully!! </font><></h2></html>"));
       
 
@@ -355,7 +351,6 @@ public class ManagePatientManagerProfileJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblContactNo;
-    private javax.swing.JLabel lblContactNo2;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblZipCode;
@@ -364,41 +359,26 @@ public class ManagePatientManagerProfileJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtContactNo;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtZipCode;
-    private javax.swing.JTextField txtcurrentnumberPatients;
     // End of variables declaration//GEN-END:variables
 
     private void populateprofile() {
         String username = useraccount.getUsername();
        // Doctor doctor1= enterprise.getDocDir().findDoctor(username);
-        PatientManager pat=enterprise.getOrganizationDirectory().getOrgList().get(0).getpManagerDir().findPatientManager(username);
+        PatientManager pat = null;
+       for(Organization org : enterprise.getOrganizationDirectory().getOrgList()){
+           if(org.getpManagerDir().findPatientManager(username)!= null){
+               pat = org.getpManagerDir().findPatientManager(username);
+       // PatientManager pat=enterprise.getOrganizationDirectory().getOrgList().get(0).getpManagerDir().findPatientManager(username);
         nameJTextField.setText(pat.getFullName());
         txtAddress.setText(pat.getAddress());
         txtZipCode.setText(pat.getZipcode());
         txtContactNo.setText(pat.getContactNumber());
-  
-       // GenderCombobox.getModel().setSelectedItem(o);
-//        for (int i = 0; i < GenderCombobox.getItemCount(); i++)
-//        {
-//            
-//            if (GenderCombobox.getItemAt(i).equals(registeredUser.getGender()))
-//            {
-//                GenderCombobox.setSelectedIndex(i);
-//                break;
-//            }
-//        }
-//for (int i = 0; i < 3; i++){
-//if (GenderCombobox.getItemAt(i).toString ().contains(registeredUser.getGender())) 
-//{ 
-//    GenderCombobox.setSelectedIndex(i);
-//}
-//}
-
-     
+        GenderCombobox.setSelectedItem(pat.getGender());   
         txtEmail.setText(pat.getEmail());
         jDateChooser1.setDateFormatString(pat.getDob());
         
 
-        
+           }}
        
     }
 }

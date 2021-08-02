@@ -23,6 +23,7 @@ import java.awt.CardLayout;
 import java.awt.Component;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -393,9 +394,20 @@ public class BooKFoodPMJPanel extends javax.swing.JPanel {
     
      public void UserComboBox(){
          
-//         ArrayList<HealthRequest> requestList = pMan.getRequestDirectory().getRequestList();
-         for(HealthRequest req: pMan.getRequestDirectory().getRequestList()){
-                userComboBox.addItem(req.getUser());
+            ArrayList<HealthRequest> requestList = pMan.getRequestDirectory().getRequestList();
+         ArrayList<RegisteredUser> uniqueuser = new ArrayList<>();
+           for(HealthRequest req: requestList){
+            if(!uniqueuser.contains(req.getUser())){
+                 uniqueuser.add(req.getUser());
             }
+        }
+         for(RegisteredUser user: uniqueuser){
+                userComboBox.addItem(user);
+            }
+         
+//         ArrayList<HealthRequest> requestList = pMan.getRequestDirectory().getRequestList();
+//         for(HealthRequest req: pMan.getRequestDirectory().getRequestList()){
+//                userComboBox.addItem(req.getUser());
+//            }
     }
 }

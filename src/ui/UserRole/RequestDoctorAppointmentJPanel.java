@@ -155,6 +155,7 @@ public class RequestDoctorAppointmentJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font(".SF NS Text", 1, 18)); // NOI18N
         jLabel1.setText("REQUEST DOCTOR");
 
+        lblFever.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         lblFever.setText("Fever");
 
         ComboBoxFever.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));

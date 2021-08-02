@@ -8,6 +8,7 @@ package ui.DoctorRole;
 import Business.Doctor.Doctor;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
+import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import Business.Validation.Validations;
 import java.text.DateFormat;
@@ -318,7 +319,10 @@ public class ManageDoctorProfileJPanel extends javax.swing.JPanel {
         
         String username = useraccount.getUsername();
 //        RegisteredUser registeredUser= system.getRegisteredUserDirectory().findRegisteredUser(username);
-        Doctor doctor=enterprise.getOrganizationDirectory().getOrgList().get(0).getDocDir().findDoctor(username);
+       Doctor doctor = null;
+       for(Organization org : enterprise.getOrganizationDirectory().getOrgList()){
+           if(org.getDocDir().findDoctor(username)!= null){
+               doctor = org.getDocDir().findDoctor(username);
         doctor.setFullName(name);
         doctor.setAddress(address);
         doctor.setEmail(email);
@@ -326,7 +330,8 @@ public class ManageDoctorProfileJPanel extends javax.swing.JPanel {
         doctor.setDob(birthDate);
         doctor.setDegree(degree);
         doctor.setYearsExperience(exp);
-
+        doctor.setGender(selectedgender);
+           }}
         JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I><font color='green'> Details Saved Successfully!! </font><></h2></html>"));
          
 
@@ -401,7 +406,11 @@ public class ManageDoctorProfileJPanel extends javax.swing.JPanel {
     private void populateprofile() throws ParseException {
         String username = useraccount.getUsername();
        // Doctor doctor1= enterprise.getDocDir().findDoctor(username);
-        Doctor doctor=enterprise.getOrganizationDirectory().getOrgList().get(0).getDocDir().findDoctor(username);
+       Doctor doctor = null;
+       for(Organization org : enterprise.getOrganizationDirectory().getOrgList()){
+           if(org.getDocDir().findDoctor(username)!= null){
+               doctor = org.getDocDir().findDoctor(username);
+       // Doctor doctor=enterprise.getOrganizationDirectory().getOrgList().get(0).getDocDir().findDoctor(username);
         nameJTextField.setText(doctor.getFullName());
         txtAddress.setText(doctor.getAddress());
         txtZipCode.setText(doctor.getZipcode());
@@ -415,5 +424,7 @@ public class ManageDoctorProfileJPanel extends javax.swing.JPanel {
             Date date = (Date) formatter.parse(birthDate);
             jDateChooser1.setDate(date);
         }    
+           }
+       }
     }
 }

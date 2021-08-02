@@ -32,12 +32,21 @@ public class SanitizationServiceWorkAreaJPanel extends javax.swing.JPanel {
     Organization org;
     EcoSystem system;
     public SanitizationServiceWorkAreaJPanel(JPanel userProcessContainer, UserAccount useraccount, Organization org, Enterprise enterprise, EcoSystem system) {
+        try{
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.enterprise=enterprise;
         this.useraccount=useraccount;
         this.org=org;
         this.system=system;
+        
+               ManageSanitizationPersonProfileJPanel profileJPanel = new ManageSanitizationPersonProfileJPanel(workAreaJPanel,enterprise,useraccount,system);
+             workAreaJPanel.add("cabServiceDashboard", profileJPanel);
+            CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+            layout.next(workAreaJPanel);
+        } catch (ParseException ex) {
+            Logger.getLogger(SanitizationServiceWorkAreaJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
       void setColor(JPanel panel){

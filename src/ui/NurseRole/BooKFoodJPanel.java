@@ -297,6 +297,7 @@ public class BooKFoodJPanel extends javax.swing.JPanel {
 
     private void userComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userComboBoxActionPerformed
         // TODO add your handling code here:
+      
          user = (RegisteredUser)userComboBox.getSelectedItem();
     }//GEN-LAST:event_userComboBoxActionPerformed
 
@@ -377,8 +378,25 @@ public class BooKFoodJPanel extends javax.swing.JPanel {
      public void UserComboBox(){
          
          ArrayList<HealthRequest> requestList = nurse.getRequestDirectory().getRequestList();
-         for(HealthRequest req: requestList){
-                userComboBox.addItem(req.getUser());
+         ArrayList<RegisteredUser> uniqueuser = new ArrayList<>();
+           for(HealthRequest req: requestList){
+            if(!uniqueuser.contains(req.getUser())){
+                 uniqueuser.add(req.getUser());
             }
+        }
+         for(RegisteredUser user: uniqueuser){
+                userComboBox.addItem(user);
+            }
+//                ArrayList<String> allUser = new ArrayList<>();
+//              ArrayList<String> uniqueuser = new ArrayList<>();
+//        for(HealthRequest req: requestList){
+//            allUser.add(req.getStatus());
+//        }
+//        
+//        for(HealthRequest req: requestList){
+//            if(!uniqueStatus.contains(req.getStatus())){
+//                 uniqueStatus.add(req.getStatus());
+//            }
+//        }
     }
 }
