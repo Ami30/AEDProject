@@ -32,12 +32,21 @@ public class UserWorkAreaJPanel extends javax.swing.JPanel {
     Organization org;
     EcoSystem system;
     public UserWorkAreaJPanel(JPanel userProcessContainer, UserAccount useraccount, Organization org, Enterprise enterprise, EcoSystem system) {
+        try{
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.enterprise=enterprise;
         this.useraccount=useraccount;
         this.org=org;
         this.system=system;
+        
+               ManageProfileJPanel profileJPanel = new ManageProfileJPanel(workAreaJPanel,enterprise,useraccount,system);
+             workAreaJPanel.add("cabServiceDashboard", profileJPanel);
+            CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+            layout.next(workAreaJPanel);
+        } catch (ParseException ex) {
+            Logger.getLogger(UserWorkAreaJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     void setColor(JPanel panel){

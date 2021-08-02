@@ -36,6 +36,10 @@ public class PatientSupportAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.useraccount=useraccount;
         this.org=org;
         this.system=system;
+          ManagePatientSupEntOrgJPanel profileJPanel = new ManagePatientSupEntOrgJPanel(workAreaJPanel,enterprise.getOrganizationDirectory());
+        workAreaJPanel.add("foodSupplyDashboard", profileJPanel);
+        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+        layout.next(workAreaJPanel);
     }
 
      void setColor(JPanel panel){

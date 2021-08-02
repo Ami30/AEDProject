@@ -36,6 +36,10 @@ public class FoodSupplierAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.useraccount=useraccount;
         this.org=org;
         this.system=system;
+        ManageFoodSupplyEntOrgJPanel profileJPanel = new ManageFoodSupplyEntOrgJPanel(workAreaJPanel,enterprise.getOrganizationDirectory());
+        workAreaJPanel.add("foodSupplyDashboard", profileJPanel);
+        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+        layout.next(workAreaJPanel);
     }
     
      void setColor(JPanel panel){

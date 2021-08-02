@@ -10,6 +10,7 @@ import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Enterprise.HospitalEnterprise;
 import Business.Network.Network;
+import Business.Organization.Organization;
 import Business.PatientManager.PatientManager;
 import Business.RegisteredUser.RegisteredUser;
 import Business.UserAccount.UserAccount;
@@ -43,9 +44,10 @@ public class AssignHospitalToRequest extends javax.swing.JPanel {
     private PatientManager patientManager;
     private String buttonFlag;
     private Enterprise enterprise;
+    private Organization org;
      DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
  
-    public AssignHospitalToRequest(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system, HealthRequest request) {
+    public AssignHospitalToRequest(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system, HealthRequest request, Organization org) {
         initComponents();
         this.useraccount=account;
         this.system = system;
@@ -54,6 +56,7 @@ public class AssignHospitalToRequest extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.patientManager = patientManager;
         this.buttonFlag = buttonFlag;
+        this.org=org;
         populateprofile();
         populateTable();
         this.comorbid=new ArrayList<>();
@@ -629,6 +632,11 @@ public class AssignHospitalToRequest extends javax.swing.JPanel {
                     bedCount = bedCount -1;
                     hospEnt.setNumberOfBeds(String.valueOf(bedCount));
                   JOptionPane.showMessageDialog(null, "This request assigned to Hospital- "+hospEnt.getName()+" Successfully!");
+                  HealthRequestReport  reportActionJPanel=new HealthRequestReport(userProcessContainer,enterprise,useraccount,system,request,null,"doctor", org);
+                userProcessContainer.add("reportActionJPanel", reportActionJPanel);
+                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                layout.next(userProcessContainer);
+                  
              }else{
                  JOptionPane.showMessageDialog(null, "This request is already assigned to Hospital- "+request.getHospital().getName());
              }

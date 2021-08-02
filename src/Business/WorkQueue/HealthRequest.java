@@ -54,7 +54,7 @@ public class HealthRequest {
     private PrescriptionDirectory prescriptionDirectory;
     private DailyRepotDirectory dailyReportDirectory;
     private OrderDirectory orderDirectoryMed;
-    
+        
 
     public HealthRequest(String status, RegisteredUser user, Doctor doctor, Nurse nurse, PatientManager patientManager, Organization organization, String fever, String cough, String bodyPain, String otherSymptoms, HospitalEnterprise hospital) {
         Random rnd = new Random();
@@ -303,6 +303,8 @@ public class HealthRequest {
         }
         return orderDirectoryMed;
     }
+
+    
 
     
       @Override

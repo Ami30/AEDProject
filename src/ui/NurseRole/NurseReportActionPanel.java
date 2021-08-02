@@ -717,7 +717,7 @@ public class NurseReportActionPanel extends javax.swing.JPanel {
 
     private void btnViewPrescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPrescActionPerformed
         // TODO add your handling code here:
-        ViewPrescriptionJPanel  viewPrescription=new ViewPrescriptionJPanel(userProcessContainer,enterprise,useraccount,system,request);
+        ViewPrescriptionJPanel  viewPrescription=new ViewPrescriptionJPanel(userProcessContainer,enterprise,useraccount,system,request, organization);
         userProcessContainer.add("viewPrescriptionPanel", viewPrescription);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

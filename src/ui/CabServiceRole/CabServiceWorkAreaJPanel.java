@@ -33,12 +33,20 @@ public class CabServiceWorkAreaJPanel extends javax.swing.JPanel {
     Organization org;
     EcoSystem system;
     public CabServiceWorkAreaJPanel(JPanel userProcessContainer, UserAccount useraccount, Organization org, Enterprise enterprise, EcoSystem system) {
+        try{
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.enterprise=enterprise;
         this.useraccount=useraccount;
         this.org=org;
         this.system=system;
+        ManageCabServiceProfileJPanel profileJPanel = new ManageCabServiceProfileJPanel(workAreaJPanel,enterprise,useraccount,system);
+             workAreaJPanel.add("cabServiceDashboard", profileJPanel);
+            CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+            layout.next(workAreaJPanel);
+        } catch (ParseException ex) {
+            Logger.getLogger(CabServiceWorkAreaJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     void setColor(JPanel panel){

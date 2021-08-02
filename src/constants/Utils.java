@@ -94,8 +94,8 @@ public class Utils extends EmailConstants {
     }
 
     public void sendEmail(String recepient, String subject, String emailMessage) {
-        String user = "info.care4uus@gmail.com";//change accordingly  
-        String password = "care@1234";//change accordingly  
+        String user = "einfo.digicare@gmail.com";//change accordingly  
+        String password = "Amisha@123";//change accordingly  
         //Get the session object  
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");

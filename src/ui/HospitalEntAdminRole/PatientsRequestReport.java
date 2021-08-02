@@ -9,6 +9,7 @@ import ui.UserRole.*;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Enterprise.HospitalEnterprise;
+import Business.Organization.Organization;
 import Business.PatientManager.PatientManager;
 import Business.RegisteredUser.RegisteredUser;
 import Business.UserAccount.UserAccount;
@@ -38,9 +39,10 @@ public class PatientsRequestReport extends javax.swing.JPanel {
     private PatientManager patientManager;
     private Enterprise enterprise;
     private HospitalEnterprise hospEnt;
+    private Organization org;
      DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
  
-    public PatientsRequestReport(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system, HealthRequest request, PatientManager patientManager) {
+    public PatientsRequestReport(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system, HealthRequest request, PatientManager patientManager, Organization org) {
         initComponents();
         this.useraccount=account;
         this.system = system;
@@ -48,8 +50,9 @@ public class PatientsRequestReport extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.userProcessContainer = userProcessContainer;
         this.patientManager = patientManager;
+        this.org = org;
         populateprofile();
-        getEnterprise(enterprise);
+        getEnterprise();
         this.comorbid=new ArrayList<>();
         
     }
@@ -584,6 +587,7 @@ public class PatientsRequestReport extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "This Patient is already discharged from Hospital" );
         }else {
             request.setStatus("Discharged");
+            populateprofile();
             
             int bedCount = Integer.parseInt(hospEnt.getNumberOfBeds());
                     bedCount = bedCount +1;
@@ -598,12 +602,13 @@ public class PatientsRequestReport extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "This patient is already marked as critical" );
         }else {
             request.setStatus("Critical");
+            populateprofile();
         }
     }//GEN-LAST:event_btnCriticalActionPerformed
 
     private void btnTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTestActionPerformed
         // TODO add your handling code here:
-        HealthRequestReportTest healthRequestReportTest=new HealthRequestReportTest(userProcessContainer,enterprise,useraccount,system, request, null);
+        HealthRequestReportTest healthRequestReportTest=new HealthRequestReportTest(userProcessContainer,enterprise,useraccount,system, request, null,org);
          userProcessContainer.add("PatientManagerProfileJPanel", healthRequestReportTest);
          CardLayout layout = (CardLayout) userProcessContainer.getLayout();
          layout.next(userProcessContainer);
@@ -733,9 +738,9 @@ public class PatientsRequestReport extends javax.swing.JPanel {
        lblOtherSymptoms.setText(request.getOtherSymptoms());
        
     }   
-    private void getEnterprise(Enterprise enterprise){
+    private void getEnterprise(){
         
-        if(enterprise.getType().getValue().equalsIgnoreCase("Hospital")){
+        if(enterprise.getEnterpriseType().getValue().equalsIgnoreCase("Hospital")){
            hospEnt = (HospitalEnterprise) enterprise;
         }
     }
