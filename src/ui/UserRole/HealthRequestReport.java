@@ -49,14 +49,16 @@ public class HealthRequestReport extends javax.swing.JPanel {
     private PatientManager patientManager;
     private String buttonFlag;
     private Enterprise enterprise;
+    private Organization org;
      DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
  
-    public HealthRequestReport(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system, HealthRequest request, PatientManager patientManager, String buttonFlag) {
+    public HealthRequestReport(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system, HealthRequest request, PatientManager patientManager, String buttonFlag, Organization org) {
         initComponents();
         this.useraccount=account;
         this.system = system;
         this.request = request;
         this.enterprise = enterprise;
+        this.org = org;
         this.userProcessContainer = userProcessContainer;
         this.patientManager = patientManager;
         this.buttonFlag = buttonFlag;
@@ -70,6 +72,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
         toggleDoctorButton();
         populateprofile();
         toggleAllButtons();
+        toggleBTAMButtons();
         this.comorbid=new ArrayList<>();
           doctorJTable.setRowHeight(25);
         doctorJTable.getTableHeader().setDefaultRenderer(new HeaderColor());
@@ -944,7 +947,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
     private void btnBedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBedActionPerformed
         // TODO add your handling code here:
         
-        AssignHospitalToRequest assignHospital=new AssignHospitalToRequest(userProcessContainer,enterprise,useraccount,system,request);
+        AssignHospitalToRequest assignHospital=new AssignHospitalToRequest(userProcessContainer,enterprise,useraccount,system,request, org);
         userProcessContainer.add("userReport", assignHospital);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -952,7 +955,7 @@ public class HealthRequestReport extends javax.swing.JPanel {
 
     private void btnTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTestActionPerformed
         // TODO add your handling code here:
-         HealthRequestReportTest healthRequestReportTest=new HealthRequestReportTest(userProcessContainer,enterprise,useraccount,system, request, null);
+         HealthRequestReportTest healthRequestReportTest=new HealthRequestReportTest(userProcessContainer,enterprise,useraccount,system, request, null, org);
          userProcessContainer.add("PatientManagerProfileJPanel", healthRequestReportTest);
          CardLayout layout = (CardLayout) userProcessContainer.getLayout();
          layout.next(userProcessContainer);
@@ -980,11 +983,12 @@ public class HealthRequestReport extends javax.swing.JPanel {
         request.setStatus("quarantined");
         populateprofile();
         JOptionPane.showMessageDialog(null, "This patient has been marked as quarantined ");
+        toggleBTAMButtons();
     }//GEN-LAST:event_btnReportBacktoAMActionPerformed
 
     private void btnViewPrescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPrescActionPerformed
         // TODO add your handling code here:
-         ViewPrescriptionJPanel  viewPrescription=new ViewPrescriptionJPanel(userProcessContainer,enterprise,useraccount,system,request);
+         ViewPrescriptionJPanel  viewPrescription=new ViewPrescriptionJPanel(userProcessContainer,enterprise,useraccount,system,request,org);
          userProcessContainer.add("viewPrescriptionPanel", viewPrescription);
          CardLayout layout = (CardLayout) userProcessContainer.getLayout();
          layout.next(userProcessContainer);
@@ -1254,12 +1258,21 @@ public class HealthRequestReport extends javax.swing.JPanel {
     }
     
      private void toggleAllButtons(){
-        if(request.getStatus().equalsIgnoreCase("discharged") || request.getStatus().equalsIgnoreCase("Negative")){
+        if(request.getStatus().equalsIgnoreCase("discharged") || request.getStatus().equalsIgnoreCase("Negative") || request.getHospital()!=null){
         btnAssignToDoctor.setVisible(false);
         btnAssignToMe.setVisible(false);
         btnBed.setVisible(false);
         btnReportBacktoAM.setVisible(false);
         btnTest.setVisible(false);
+        }
+    
+    }
+     
+      private void toggleBTAMButtons(){
+        if(request.getStatus().equalsIgnoreCase("quarantined")){
+        btnAssignToDoctor.setVisible(false);
+        btnAssignToMe.setVisible(false);
+        btnReportBacktoAM.setVisible(false);
         }
     
     }

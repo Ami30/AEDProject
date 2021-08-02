@@ -12,6 +12,7 @@ import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
+import ui.PatientManagerRole.ManagePatientManagerProfileJPanel;
 
 /**
  *
@@ -35,6 +36,10 @@ public class HospitalEntAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.useraccount=useraccount;
         this.org=org;
         this.system=system;
+         ManageHospEntOrgJPanel profileJPanel = new ManageHospEntOrgJPanel(workAreaJPanel,enterprise.getOrganizationDirectory());
+        workAreaJPanel.add("cabServiceDashboard", profileJPanel);
+        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+        layout.next(workAreaJPanel);
     }
           void setColor(JPanel panel){
         panel.setBackground(new Color(130,175,203));

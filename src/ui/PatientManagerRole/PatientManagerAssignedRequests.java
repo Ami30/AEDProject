@@ -180,7 +180,7 @@ public class PatientManagerAssignedRequests extends javax.swing.JPanel {
          }
          else{
                   req = (HealthRequest)SubmittedrequestsJTable.getValueAt(selectedRow, 0);
-                  HealthRequestReport healthRequest=new HealthRequestReport(userProcessContainer,enterprise,useraccount,system, req, patientManager, "patManAssignedReq");
+                  HealthRequestReport healthRequest=new HealthRequestReport(userProcessContainer,enterprise,useraccount,system, req, patientManager, "patManAssignedReq",organization);
                   userProcessContainer.add("PatientManagerProfileJPanel", healthRequest);
                   CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                   layout.next(userProcessContainer);

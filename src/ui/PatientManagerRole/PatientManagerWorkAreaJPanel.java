@@ -9,10 +9,26 @@ package ui.PatientManagerRole;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
+import Business.PatientManager.PatientManager;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.HealthRequest;
+import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+import ui.NurseRole.ManageNurseProfile;
+import ui.NurseRole.NurseWorkAreaJPanel;
 
 /**
  *
@@ -36,6 +52,10 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
         this.useraccount=useraccount;
         this.org=org;
         this.system=system;
+        ManagePatientManagerProfileJPanel profileJPanel = new ManagePatientManagerProfileJPanel(workAreaJPanel,enterprise,useraccount,system);
+        workAreaJPanel.add("cabServiceDashboard", profileJPanel);
+        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+        layout.next(workAreaJPanel);
     }
 
     
@@ -77,6 +97,7 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
         btnNotifications_JPanel = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         btnNotification = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         workAreaJPanel = new javax.swing.JPanel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -150,7 +171,7 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(btnProfile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
         );
 
         btnAllRequest_JPanel.setBackground(new java.awt.Color(18, 102, 153));
@@ -340,6 +361,16 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jButton1.setBackground(new java.awt.Color(255, 102, 102));
+        jButton1.setFont(new java.awt.Font(".SF NS Text", 1, 16)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/images/bar.png"))); // NOI18N
+        jButton1.setText("Analytics");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -349,16 +380,20 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
                     .addComponent(btnProfile_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAllRequest_JPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnFoodService_JPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAmbulance_JPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAmbulance_JPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnSaniService_JPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnNotifications_JPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAssignedRequest_JPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(146, 146, 146)
+                .addGap(135, 135, 135)
                 .addComponent(btnProfile_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnAllRequest_JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -373,7 +408,9 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnAssignedRequest_JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnNotifications_JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(487, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(426, Short.MAX_VALUE))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -120, 250, 910));
@@ -392,6 +429,7 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
                 resetColor(btnProfile_Panel);
                 resetColor(btnNotifications_JPanel);
                 resetColor(btnAssignedRequest_JPanel);
+                
         ManageAmbulanceBookingPMJPanel viewAssignedRequests=new ManageAmbulanceBookingPMJPanel(workAreaJPanel,enterprise,useraccount,system, org);
         workAreaJPanel.add("viewAllRequestJPanel", viewAssignedRequests);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
@@ -421,7 +459,6 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
                
                 resetColor(btnSaniService_JPanel);
                 resetColor(btnProfile_Panel);
-                
                 resetColor(btnNotifications_JPanel);
                 resetColor(btnAssignedRequest_JPanel);
                 PatientManagerAssignDocJPanel viewAllRequestJPanel=new PatientManagerAssignDocJPanel(workAreaJPanel,enterprise,useraccount,system, org);
@@ -442,7 +479,6 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
                
                 resetColor(btnSaniService_JPanel);
                 resetColor(btnAllRequest_JPanel);
-               
                 resetColor(btnNotifications_JPanel);
                 resetColor(btnAssignedRequest_JPanel);
                 ManageFoodBookingPMJPanel requestAmbulanceJPanel=new ManageFoodBookingPMJPanel(workAreaJPanel,enterprise,useraccount,system,org);
@@ -459,7 +495,6 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
                 resetColor(btnAllRequest_JPanel);
                 
                 resetColor(btnProfile_Panel);
-               
                 resetColor(btnNotifications_JPanel);
                 resetColor(btnAssignedRequest_JPanel);
                 ManageSanitizationPMJPanel requestSanitizationJPanel=new ManageSanitizationPMJPanel(workAreaJPanel,enterprise,useraccount,system,org);
@@ -478,7 +513,6 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
                 resetColor(btnProfile_Panel);
                 resetColor(btnSaniService_JPanel);
                 resetColor(btnNotifications_JPanel);
-                
                 PatientManagerAssignedRequests viewAssignedRequests=new PatientManagerAssignedRequests(workAreaJPanel,enterprise,useraccount,system, org);
         workAreaJPanel.add("viewAllRequestJPanel", viewAssignedRequests);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
@@ -494,13 +528,47 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
                 
                 resetColor(btnProfile_Panel);
                 resetColor(btnSaniService_JPanel);
-              
                 resetColor(btnAssignedRequest_JPanel);
                  NotificationRequestJPanel viewAssignedRequests=new NotificationRequestJPanel(workAreaJPanel,enterprise,useraccount,system, org);
         workAreaJPanel.add("viewAllRequestJPanel", viewAssignedRequests);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);
     }//GEN-LAST:event_btnNotificationMousePressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+//        PatientManager patman = org.getpManagerDir().findPatientManager(useraccount.getUsername());
+//        DefaultCategoryDataset data = new DefaultCategoryDataset();
+//        ArrayList<String> allStatus = new ArrayList<>();
+//        ArrayList<String> uniqueStatus = new ArrayList<>();
+//        for(HealthRequest req: patman.getRequestDirectory().getRequestList()){
+//            allStatus.add(req.getStatus());
+//        }
+//        
+//        for(HealthRequest req: patman.getRequestDirectory().getRequestList()){
+//            if(!uniqueStatus.contains(req.getStatus())){
+//                 uniqueStatus.add(req.getStatus());
+//            }
+//        }
+//        
+//        for(String str: uniqueStatus){
+//        int occurrences = Collections.frequency(allStatus, str);
+//        data.setValue(occurrences, "Count", str);
+//        }
+//        
+//        JFreeChart barchart =ChartFactory.createBarChart("Patient Details", "Status", "Count", data, PlotOrientation.VERTICAL,false,true,false);
+//        CategoryPlot brcrt=barchart.getCategoryPlot();
+//        brcrt.setRangeGridlinePaint(Color.orange);
+//        ChartPanel barPanel = new ChartPanel(barchart);
+//        workAreaJPanel.removeAll();
+//        workAreaJPanel.add(barPanel, BorderLayout.CENTER);
+//        workAreaJPanel.validate();
+        
+         AnalyticsJPanel healthRequest=new AnalyticsJPanel(userProcessContainer,enterprise,useraccount,system, org);
+        userProcessContainer.add("PatientManagerProfileJPanel", healthRequest);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -518,6 +586,7 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel btnProfile_Panel;
     private javax.swing.JLabel btnSaniService;
     private javax.swing.JPanel btnSaniService_JPanel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

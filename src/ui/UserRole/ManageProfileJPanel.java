@@ -709,6 +709,7 @@ public class ManageProfileJPanel extends javax.swing.JPanel {
         txtSurgery.setText(registeredUser.getSurgeries());
         FoodPrefCombobox.setSelectedItem(registeredUser.getFoodpreference());
         VaccinationCombobox.setSelectedItem(registeredUser.getIsVaccinated());
+        GenderCombobox.setSelectedItem(registeredUser.getGender());
         cityJComboBox.setSelectedItem(registeredUser.getRegisteredUserNetwork().toString());
         txtEmail.setText(registeredUser.getEmail());
         txtWeight.setText(registeredUser.getWeight());

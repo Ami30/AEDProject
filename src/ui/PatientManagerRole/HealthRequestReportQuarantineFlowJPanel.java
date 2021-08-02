@@ -14,6 +14,7 @@ import Business.Nurse.Nurse;
 import Business.Organization.Organization;
 import Business.PatientManager.PatientManager;
 import Business.RegisteredUser.RegisteredUser;
+import Business.Tester.Tests;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HealthRequest;
 import java.awt.CardLayout;
@@ -26,6 +27,7 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import ui.TestingServiceRole.CompletedTestReport;
 
 /**
  *
@@ -61,6 +63,7 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
         toggleNurseButton();
         populateprofile();
         toggleAllButtons();
+        toggleNegativeButton();
         this.comorbid=new ArrayList<>();
             doctorJTable.setRowHeight(25);
         doctorJTable.getTableHeader().setDefaultRenderer(new HeaderColor());
@@ -114,6 +117,7 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
         lblHospitalsName = new javax.swing.JLabel();
         lblContactNo3 = new javax.swing.JLabel();
         lblStatus = new javax.swing.JLabel();
+        viewAvailableTest = new javax.swing.JButton();
         doctorJpanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         doctorJTable = new javax.swing.JTable();
@@ -231,43 +235,65 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
         lblStatus.setMinimumSize(new java.awt.Dimension(6, 20));
         lblStatus.setPreferredSize(new java.awt.Dimension(6, 20));
 
+        viewAvailableTest.setBackground(new java.awt.Color(18, 102, 153));
+        viewAvailableTest.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
+        viewAvailableTest.setText("View Available tests");
+        viewAvailableTest.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        viewAvailableTest.setContentAreaFilled(false);
+        viewAvailableTest.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                viewAvailableTestMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                viewAvailableTestMouseExited(evt);
+            }
+        });
+        viewAvailableTest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewAvailableTestActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lblContactNo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblContactNo3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblZipCode1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblContactNo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblContactNo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblZipCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(68, 68, 68)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
-                            .addComponent(lblHospitalsName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblNursesName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblDoctorsName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblPatientManagerName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblRequestNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
-                            .addComponent(lblPatientsName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblContact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblGender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblDob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 90, Short.MAX_VALUE))
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(lblContactNo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblContactNo3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblZipCode1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblContactNo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblContactNo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblZipCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(68, 68, 68)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(viewAvailableTest)
+                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                                        .addComponent(lblHospitalsName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblNursesName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblDoctorsName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblPatientManagerName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblRequestNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                                        .addComponent(lblPatientsName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblContact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblGender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblDob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -312,9 +338,11 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblContactNo3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewAvailableTest, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         doctorJpanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -444,7 +472,7 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(lblDob1, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE))
+                        .addComponent(lblDob1, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblFever, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -457,7 +485,7 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
                 .addComponent(lblDob1)
                 .addGap(18, 18, 18)
                 .addComponent(lblFever, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanelGender1.setBackground(new java.awt.Color(204, 204, 204));
@@ -480,7 +508,7 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
             .addGroup(jPanelGender1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelGender1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblGender2, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(lblGender2, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
                     .addComponent(lblCough, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -514,7 +542,7 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
             .addGroup(jPanelGenderLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelGenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblGender1, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                    .addComponent(lblGender1, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
                     .addComponent(lblBodyPain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -561,7 +589,7 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
                 .addComponent(lblGender3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblOtherSymptoms, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btnMarkNegative.setBackground(new java.awt.Color(18, 102, 153));
@@ -693,7 +721,7 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
                   request.setDoctor(doc);
                   doc.getRequestDirectory().addRequestList(request);
                   JOptionPane.showMessageDialog(null, "This request assigned to doctor "+doc.getName()+" Successfully!");
-                  doctorJpanel.setVisible(true);
+                  doctorJpanel.setVisible(false);
              } else{
                     if(request.getNurse()==null){
                         Nurse nurse = (Nurse)doctorJTable.getValueAt(selectedRow, 0);
@@ -702,9 +730,11 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
                         nurse.getRequestDirectory().addRequestList(request);
                         populateprofile();
                         JOptionPane.showMessageDialog(null, "This request assigned to Nurse "+nurse.getName()+" Successfully!");
-                        doctorJpanel.setVisible(true);
+                        doctorJpanel.setVisible(false);
+                       populateprofile();
+                        
                   }else{
-                    JOptionPane.showMessageDialog(null, "This request is already assigned to doctor "+request.getDoctor().getName());
+                    JOptionPane.showMessageDialog(null, "This request is already assigned to Nurse "+request.getNurse().getName());
                     }
                   }
              }    
@@ -837,6 +867,30 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
         populateprofile();
     }//GEN-LAST:event_btnMarkNegativeActionPerformed
 
+    private void viewAvailableTestMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewAvailableTestMouseEntered
+        // TODO add your handling code here:
+        viewAvailableTest.setBackground(new java.awt.Color(18,102,153));
+        viewAvailableTest.setContentAreaFilled(true);
+        viewAvailableTest.setFocusPainted(true);
+        viewAvailableTest.setBorderPainted(false);
+        viewAvailableTest.setOpaque(true);
+    }//GEN-LAST:event_viewAvailableTestMouseEntered
+
+    private void viewAvailableTestMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewAvailableTestMouseExited
+        // TODO add your handling code here:
+        viewAvailableTest.setContentAreaFilled(false);
+        viewAvailableTest.setFocusPainted(false);
+        viewAvailableTest.setBorderPainted(true);
+    }//GEN-LAST:event_viewAvailableTestMouseExited
+
+    private void viewAvailableTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAvailableTestActionPerformed
+        // TODO add your handling code here:
+        CompletedTestReport completedTestResult=new CompletedTestReport(userProcessContainer,enterprise,useraccount,system, request);
+        userProcessContainer.add("userReport", completedTestResult);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_viewAvailableTestActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssignToNurse;
@@ -882,6 +936,7 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
     private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblZipCode;
     private javax.swing.JLabel lblZipCode1;
+    private javax.swing.JButton viewAvailableTest;
     // End of variables declaration//GEN-END:variables
 
     private void populateprofile() {
@@ -911,6 +966,14 @@ public class HealthRequestReportQuarantineFlowJPanel extends javax.swing.JPanel 
         if(request.getStatus().equalsIgnoreCase("Discharged") || request.getStatus().equalsIgnoreCase("Negative")){
             btnAssignToNurse.setVisible(false);
             btnMarkNegative.setVisible(false);
+        }
+    }
+    
+    public void toggleNegativeButton(){
+        for(Tests test:request.getPreviousTestDirectory().getTestList()){
+            if(test.getStatus().equalsIgnoreCase("positive")){
+            btnMarkNegative.setVisible(false);
+            }
         }
     }
 }

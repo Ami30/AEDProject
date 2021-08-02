@@ -36,6 +36,10 @@ public class NecessitiesEntAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.useraccount=useraccount;
         this.org=org;
         this.system=system;
+         ManageNeccessEntOrgJPanel profileJPanel = new ManageNeccessEntOrgJPanel(workAreaJPanel,enterprise.getOrganizationDirectory());
+        workAreaJPanel.add("cabServiceDashboard", profileJPanel);
+        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+        layout.next(workAreaJPanel);
     }
 
     void setColor(JPanel panel){

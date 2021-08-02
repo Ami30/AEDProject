@@ -36,6 +36,10 @@ public class TestingAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.useraccount=useraccount;
         this.org=org;
         this.system=system;
+         ManageTestingEntOrgJPanel profileJPanel = new ManageTestingEntOrgJPanel(workAreaJPanel,enterprise.getOrganizationDirectory());
+        workAreaJPanel.add("foodSupplyDashboard", profileJPanel);
+        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+        layout.next(workAreaJPanel);
     }
      void setColor(JPanel panel){
         panel.setBackground(new Color(130,175,203));

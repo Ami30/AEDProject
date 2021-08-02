@@ -16,6 +16,8 @@ import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
+import ui.DoctorRole.DoctorWorkAreaJPanel;
+import ui.DoctorRole.ManageDoctorProfileJPanel;
 
 /**
  *
@@ -33,12 +35,20 @@ public class FoodServiceWorkAreaJPanel extends javax.swing.JPanel {
     Organization org;
     EcoSystem system;
     public FoodServiceWorkAreaJPanel(JPanel userProcessContainer, UserAccount useraccount, Organization org, Enterprise enterprise, EcoSystem system) {
+        try{
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.enterprise=enterprise;
         this.useraccount=useraccount;
         this.org=org;
         this.system=system;
+           ManageFoodSupplierProfileJPanel profileJPanel = new ManageFoodSupplierProfileJPanel(workAreaJPanel,enterprise,useraccount,system);
+             workAreaJPanel.add("deliveryManDashboard", profileJPanel);
+            CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+            layout.next(workAreaJPanel);
+        } catch (ParseException ex) {
+            Logger.getLogger(FoodServiceWorkAreaJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     void setColor(JPanel panel){
         panel.setBackground(new Color(130,175,203));

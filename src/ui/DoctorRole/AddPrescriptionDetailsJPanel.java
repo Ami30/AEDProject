@@ -309,10 +309,13 @@ public class AddPrescriptionDetailsJPanel extends javax.swing.JPanel {
         txtComment.setText(presc.getComment());
         txtPrescription.setText(presc.getPrescription());
         lblNextConsultation.setText(presc.getNextConsultationRequired());
-        try {
+        if(!presc.getDate().equalsIgnoreCase("Not Applicable")){
+            try {
             nextConsultationDate.setDate(formatter.parse(presc.getDate()));
         } catch (ParseException ex) {
             Logger.getLogger(AddPrescriptionDetailsJPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
+        }
+        
    }
 }

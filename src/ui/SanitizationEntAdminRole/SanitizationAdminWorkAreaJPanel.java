@@ -12,6 +12,7 @@ import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
+import ui.PatientSupportEntAdminRole.ManagePatientSupEntOrgJPanel;
 
 /**
  *
@@ -35,6 +36,10 @@ public class SanitizationAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.useraccount=useraccount;
         this.org=org;
         this.system=system;
+         ManageSanitizationEntOrgJPanel profileJPanel = new ManageSanitizationEntOrgJPanel(workAreaJPanel,enterprise.getOrganizationDirectory());
+        workAreaJPanel.add("foodSupplyDashboard", profileJPanel);
+        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+        layout.next(workAreaJPanel);
     }
     
      void setColor(JPanel panel){

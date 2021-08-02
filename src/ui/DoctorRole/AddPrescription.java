@@ -56,6 +56,7 @@ public class AddPrescription extends javax.swing.JPanel {
         this.ent=ent;
         this.request = request;
         populateDetails();
+        ifConsultationRequired = "No";
         datePanel.setVisible(false);
         nextConsultationDate.setMinSelectableDate(new Date());
         
@@ -286,7 +287,7 @@ public class AddPrescription extends javax.swing.JPanel {
             request.getPrescriptionDirectory().addPrescriptionList(pres);
         }
         JOptionPane.showMessageDialog(null, "Prescription Added Successfully");
-        HealthRequestReport healthRequest=new HealthRequestReport(userProcessContainer,ent,userAccount,system, request, null, "doctor");
+        HealthRequestReport healthRequest=new HealthRequestReport(userProcessContainer,ent,userAccount,system, request, null, "doctor", org);
         userProcessContainer.add("PatientManagerProfileJPanel", healthRequest);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

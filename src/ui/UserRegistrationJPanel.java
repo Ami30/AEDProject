@@ -29,12 +29,14 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
      */
     private JPanel userProcessContainer;
     private EcoSystem system;
+    String selectedgender;
     DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
     
     public UserRegistrationJPanel(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.system=system;
+        GenderCombobox.setSelectedItem("Male");
          cityJComboBox.removeAllItems();
               for (Network network : system.getNetworkList()) {
             cityJComboBox.addItem(network);
@@ -293,7 +295,6 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
         String address=txtAddress.getText();
         String zipcode=txtZipCode.getText();
         String contactNumber=txtContactNo.getText();
-        String selectedgender = (String) GenderCombobox.getSelectedItem();
         String email=txtEmail.getText();
         Validations validation=new Validations();
 
@@ -343,7 +344,7 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
             system.getUserAccountDir().addUserAccount(p);
             Utils utils = new Utils();
             String subject = "New user registration";
-            String msg = "Welcome to Digicare, Thank you for registering with us!";
+            String msg = "Welcome to digicare, Thank you for registering with us!";
             utils.sendEmail(email, subject, msg);
           JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I><font color='green'> Registered Successfully </font><></h2></html>"));
           nameJTextField.setText("");
@@ -377,6 +378,7 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
 
     private void GenderComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenderComboboxActionPerformed
         // TODO add your handling code here:
+        selectedgender = (String) GenderCombobox.getSelectedItem();
     }//GEN-LAST:event_GenderComboboxActionPerformed
 
     private void pwdfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwdfieldActionPerformed

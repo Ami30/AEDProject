@@ -20,6 +20,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import ui.NurseRole.NurseReportActionPanel;
+import ui.UserRole.HealthRequestReport;
 
 
 /**
@@ -39,7 +40,7 @@ public class ViewPrescriptionJPanel extends javax.swing.JPanel {
        private JPanel userProcessContainer;
        private HealthRequest req;
        private Prescription presc;
-    public ViewPrescriptionJPanel(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system,HealthRequest request) {
+    public ViewPrescriptionJPanel(JPanel userProcessContainer,Enterprise enterprise, UserAccount account, EcoSystem system,HealthRequest request, Organization organization) {
         initComponents();
         this.useraccount=account;
         this.system=system;
@@ -211,10 +212,18 @@ public class ViewPrescriptionJPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        if(organization.getType().getValue().equalsIgnoreCase("Nurse Organization")){
         NurseReportActionPanel  reportActionJPanel=new NurseReportActionPanel(userProcessContainer,enterprise,useraccount,system,req,organization);
         userProcessContainer.add("reportActionJPanel", reportActionJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
+        }else{
+        HealthRequestReport  reportActionJPanel=new HealthRequestReport(userProcessContainer,enterprise,useraccount,system,req,null,"doctor",organization);
+        userProcessContainer.add("reportActionJPanel", reportActionJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void viewDetailsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewDetailsMouseEntered

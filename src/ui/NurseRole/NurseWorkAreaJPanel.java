@@ -16,6 +16,8 @@ import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
+import ui.CabServiceRole.CabServiceWorkAreaJPanel;
+import ui.CabServiceRole.ManageCabServiceProfileJPanel;
 
 /**
  *
@@ -33,12 +35,21 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
     Organization org;
     EcoSystem system;
     public NurseWorkAreaJPanel(JPanel userProcessContainer, UserAccount useraccount, Organization org, Enterprise enterprise, EcoSystem system) {
+        try{
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.enterprise=enterprise;
         this.useraccount=useraccount;
         this.org=org;
         this.system=system;
+        
+         ManageNurseProfile profileJPanel = new ManageNurseProfile(workAreaJPanel,enterprise,useraccount,system);
+             workAreaJPanel.add("cabServiceDashboard", profileJPanel);
+            CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+            layout.next(workAreaJPanel);
+        } catch (ParseException ex) {
+            Logger.getLogger(NurseWorkAreaJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     void setColor(JPanel panel){
