@@ -28,6 +28,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=system;
+         ManageNetworkJPanel networkJPanel=new ManageNetworkJPanel(workAreaJPanel,ecosystem);
+        workAreaJPanel.add("ManageNetworkJPanel", networkJPanel);
+        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+        layout.next(workAreaJPanel);
+        
     }
 
       void setColor(JPanel panel){

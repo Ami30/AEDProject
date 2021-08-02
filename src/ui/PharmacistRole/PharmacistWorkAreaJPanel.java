@@ -32,12 +32,20 @@ public class PharmacistWorkAreaJPanel extends javax.swing.JPanel {
     Organization org;
     EcoSystem system;
     public PharmacistWorkAreaJPanel(JPanel userProcessContainer, UserAccount useraccount, Organization org, Enterprise enterprise, EcoSystem system) {
+        try{
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.enterprise=enterprise;
         this.useraccount=useraccount;
         this.org=org;
         this.system=system;
+            ManagePharmacistProfileJPanel profileJPanel = new ManagePharmacistProfileJPanel(workAreaJPanel,enterprise,useraccount,system);
+             workAreaJPanel.add("cabServiceDashboard", profileJPanel);
+            CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+            layout.next(workAreaJPanel);
+        } catch (ParseException ex) {
+            Logger.getLogger(PharmacistWorkAreaJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
      void setColor(JPanel panel){
         panel.setBackground(new Color(130,175,203));

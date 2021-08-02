@@ -7,6 +7,7 @@ package ui.CabServiceRole;
 
 
 import Business.AmbulanceDriver.AmbulanceDriver;
+import Business.CabDriver.CabDriver;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
@@ -69,6 +70,10 @@ public class ManageCabServiceProfileJPanel extends javax.swing.JPanel {
         txtContactNo = new javax.swing.JTextField();
         addJButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font(".SF NS Text", 1, 13)); // NOI18N
         jLabel2.setText("Name");
@@ -148,39 +153,31 @@ public class ManageCabServiceProfileJPanel extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(140, 140, 140)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblZipCode)
-                                            .addComponent(lblContactNo)
-                                            .addComponent(jLabel2)
-                                            .addComponent(lblAddress)
-                                            .addComponent(lblGender, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addGap(85, 85, 85)
-                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(txtAddress)
-                                                    .addComponent(txtEmail)
-                                                    .addComponent(txtContactNo)
-                                                    .addComponent(GenderCombobox, 0, 292, Short.MAX_VALUE)))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addComponent(lblEmail)))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(253, 253, 253)
+                                    .addComponent(lblZipCode)
+                                    .addComponent(lblContactNo)
+                                    .addComponent(jLabel2)
+                                    .addComponent(lblAddress)
+                                    .addComponent(lblGender, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(65, 65, 65)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                                    .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(GenderCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblEmail)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(253, 253, 253)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(235, 235, 235)
+                        .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,9 +208,9 @@ public class ManageCabServiceProfileJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(GenderCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblGender, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
+                .addGap(41, 41, 41)
                 .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(158, 158, 158))
+                .addGap(167, 167, 167))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -258,15 +255,15 @@ public class ManageCabServiceProfileJPanel extends javax.swing.JPanel {
         }
         String username = useraccount.getUsername();
         //        RegisteredUser registeredUser= system.getRegisteredUserDirectory().findRegisteredUser(username);
-        AmbulanceDriver ambulanceProvider=null;
+        CabDriver cabdriver=null;
        for(Organization org : enterprise.getOrganizationDirectory().getOrgList()){
-           if(org.getAmbulanceDriverDir().findAmbulanceProvider(username)!= null){
-               ambulanceProvider = org.getAmbulanceDriverDir().findAmbulanceProvider(username);
-        ambulanceProvider.setFullName(name);
-        ambulanceProvider.setAddress(address);
-        ambulanceProvider.setEmail(email);
-        ambulanceProvider.setZipcode(zipcode);
-        ambulanceProvider.setContactNumber(contactNumber);
+           if(org.getCabDriverDir().findCabProvider(username)!= null){
+               cabdriver = org.getCabDriverDir().findCabProvider(username);
+        cabdriver.setFullName(name);
+        cabdriver.setAddress(address);
+        cabdriver.setEmail(email);
+        cabdriver.setZipcode(zipcode);
+        cabdriver.setContactNumber(contactNumber);
 
         JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I><font color='green'> Details Saved Successfully!! </font><></h2></html>"));
            }
@@ -332,17 +329,17 @@ public class ManageCabServiceProfileJPanel extends javax.swing.JPanel {
     private void populateprofile() throws ParseException {
         String username = useraccount.getUsername();
        // Doctor doctor1= enterprise.getDocDir().findDoctor(username);
-        AmbulanceDriver ambulanceProvider=null;
+        CabDriver cabdriver=null;
        for(Organization org : enterprise.getOrganizationDirectory().getOrgList()){
-           if(org.getAmbulanceDriverDir().findAmbulanceProvider(username)!= null){
-               ambulanceProvider = org.getAmbulanceDriverDir().findAmbulanceProvider(username);
-               nameJTextField.setText(ambulanceProvider.getFullName());
-            txtAddress.setText(ambulanceProvider.getAddress());
-            txtZipCode.setText(ambulanceProvider.getZipcode());
-            txtContactNo.setText(ambulanceProvider.getContactNumber());
-            GenderCombobox.setSelectedItem(ambulanceProvider.getGender());  
-            txtEmail.setText(ambulanceProvider.getEmail());       
-            String birthDate = ambulanceProvider.getDob();   
+           if(org.getCabDriverDir().findCabProvider(username)!= null){
+               cabdriver = org.getCabDriverDir().findCabProvider(username);
+               nameJTextField.setText(cabdriver.getFullName());
+            txtAddress.setText(cabdriver.getAddress());
+            txtZipCode.setText(cabdriver.getZipcode());
+            txtContactNo.setText(cabdriver.getContactNumber());
+            GenderCombobox.setSelectedItem(cabdriver.getGender());  
+            txtEmail.setText(cabdriver.getEmail());       
+            String birthDate = cabdriver.getDob();   
            }
        }
     }

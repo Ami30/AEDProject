@@ -361,9 +361,21 @@ public class BooKSanitizationJPanel extends javax.swing.JPanel {
     
      public void UserComboBox(){
          
-         ArrayList<HealthRequest> requestList = nurse.getRequestDirectory().getRequestList();
-         for(HealthRequest req: requestList){
-                userComboBox.addItem(req.getUser());
+             ArrayList<HealthRequest> requestList = nurse.getRequestDirectory().getRequestList();
+         ArrayList<RegisteredUser> uniqueuser = new ArrayList<>();
+           for(HealthRequest req: requestList){
+            if(!uniqueuser.contains(req.getUser())){
+                 uniqueuser.add(req.getUser());
             }
+        }
+         for(RegisteredUser user: uniqueuser){
+                userComboBox.addItem(user);
+            }
+
+         
+//         ArrayList<HealthRequest> requestList = nurse.getRequestDirectory().getRequestList();
+//         for(HealthRequest req: requestList){
+//                userComboBox.addItem(req.getUser());
+//            }
     }
 }

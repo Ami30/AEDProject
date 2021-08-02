@@ -194,7 +194,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel3.setBackground(new java.awt.Color(18, 102, 153));
         jLabel3.setFont(new java.awt.Font(".SF NS Text", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("WELCOME TO PATIENT CARE SYSTEM");
+        jLabel3.setText("WELCOME TO DIGICARE SYSTEM");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

@@ -32,12 +32,23 @@ public class TestingServiceWorkAreaJPanel extends javax.swing.JPanel {
     Organization org;
     EcoSystem system;
     public TestingServiceWorkAreaJPanel(JPanel userProcessContainer, UserAccount useraccount, Organization org, Enterprise enterprise, EcoSystem system) {
-        initComponents();
+       
+        try{
+            initComponents();
         this.userProcessContainer=userProcessContainer;
         this.enterprise=enterprise;
         this.useraccount=useraccount;
         this.org=org;
         this.system=system;
+         
+            // TODO add your handling code here:
+            ManageTesterProfileJPanel manageTesterProfile=new ManageTesterProfileJPanel(workAreaJPanel,enterprise,useraccount,system);
+            workAreaJPanel.add("UserProfileJPanel", manageTesterProfile);
+            CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
+            layout.next(workAreaJPanel);
+        } catch (ParseException ex) {
+            Logger.getLogger(TestingServiceWorkAreaJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
         void setColor(JPanel panel){
