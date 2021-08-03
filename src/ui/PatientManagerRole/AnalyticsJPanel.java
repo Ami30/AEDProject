@@ -101,11 +101,11 @@ public class AnalyticsJPanel extends javax.swing.JPanel {
 
         barGraphJPanel.setBackground(new java.awt.Color(255, 255, 255));
         barGraphJPanel.setLayout(new java.awt.BorderLayout());
-        add(barGraphJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, 370));
+        add(barGraphJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 1180, 410));
 
         jLabel5.setFont(new java.awt.Font(".SF NS Text", 1, 16)); // NOI18N
         jLabel5.setText("Bar Graph");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 130, 40));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, 130, 40));
 
         jButton3.setBackground(new java.awt.Color(18, 102, 153));
         jButton3.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N

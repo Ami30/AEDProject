@@ -11,6 +11,7 @@ import Business.RegisteredUser.RegisteredUser;
 import Business.Role.PatientRole;
 import Business.Validation.Validations;
 import constants.Utils;
+import java.awt.CardLayout;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -345,8 +346,9 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
             Utils utils = new Utils();
             String subject = "New user registration";
             String msg = "Welcome to digicare, Thank you for registering with us!";
-            utils.sendEmail(email, subject, msg);
-          JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I><font color='green'> Registered Successfully </font><></h2></html>"));
+            JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I><font color='green'> Registered Successfully </font><></h2></html>"));
+
+          
           nameJTextField.setText("");
        txtAddress.setText("");
        txtZipCode.setText("");
@@ -356,7 +358,8 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
        txtusername.setText("");
      pwdfield.setText("");
      pwdfieldconfirm.setText(""); 
-            
+          
+          utils.sendEmail(email, subject, msg);
 
     }//GEN-LAST:event_addJButtonActionPerformed
 
