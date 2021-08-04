@@ -293,21 +293,18 @@ public class BookAmbulanceUserJPanel extends javax.swing.JPanel {
     private javax.swing.JTable serviceTable;
     // End of variables declaration//GEN-END:variables
     public void populateComboBox(){
-        
-          Organization orgnization = null;
-        for(Network net: system.getNetworkList()){
-         for(Enterprise ent: net.getEnterpriseDir().getEnterpriseList()){
+         for(Enterprise ent: user.getRegisteredUserNetwork().getEnterpriseDir().getEnterpriseList()){
              for(Organization org: ent.getOrganizationDirectory().getOrgList()){
                 if(org.getType().getValue().equalsIgnoreCase("Ambulance Provider Organization")){
-                    orgnization = org;
+                     for(AmbulanceDriver ad: org.getAmbulanceDriverDir().getambulanceDriverDirectory()){
+                ambulanceProviderComboBox.addItem(ad);
+            }
                 }
             }
          }
-    }
+    
         
-            for(AmbulanceDriver ad: orgnization.getAmbulanceDriverDir().getambulanceDriverDirectory()){
-                ambulanceProviderComboBox.addItem(ad);
-            }
+           
     }
     
 }

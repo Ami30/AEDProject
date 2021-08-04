@@ -326,7 +326,7 @@ public class BooKFoodJPanel extends javax.swing.JPanel {
 
     private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
         // TODO add your handling code here:
-            jButton3.setBackground(new java.awt.Color(18,102,153));
+        jButton3.setBackground(new java.awt.Color(18,102,153));
         jButton3.setContentAreaFilled(true);
         jButton3.setFocusPainted(true);
         jButton3.setBorderPainted(false);
@@ -360,19 +360,22 @@ public class BooKFoodJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
     public void populateComboBox(){
         
-         Organization orgnization = null;
+//         Organization orgnization = null;
         for(Network net: system.getNetworkList()){
-         for(Enterprise ent: net.getEnterpriseDir().getEnterpriseList()){
+            if(net.getName().equalsIgnoreCase(user.getRegisteredUserNetwork().getName())){
+                for(Enterprise ent: net.getEnterpriseDir().getEnterpriseList()){
              for(Organization org: ent.getOrganizationDirectory().getOrgList()){
                 if(org.getType().getValue().equalsIgnoreCase("Food Provider Organization")){
-                    orgnization = org;
+                    for(FoodSupplier ad: org.getFoodSupplierDir().getfoodSupplierDirectory()){
+                ambulanceProviderComboBox.addItem(ad);
+            }
                 }
             }
          }
-    }
-            for(FoodSupplier ad: orgnization.getFoodSupplierDir().getfoodSupplierDirectory()){
-                ambulanceProviderComboBox.addItem(ad);
             }
+         
+    }
+            
     }
     
      public void UserComboBox(){
