@@ -80,12 +80,11 @@ public class ManageFoodSupplyEntEmpJPanel extends javax.swing.JPanel {
         for(Organization org:organizationDir.getOrgList()){
         for (FoodSupplier p : org.getFoodSupplierDir().getfoodSupplierDirectory()){          
             Object[] row = new Object[6];
-            row[0] = p;
-            row[1] = p.getFullName();          
-            row[2] = p.getAddress();
-            row[3] = p.getZipcode();
-            row[4] = p.getContactNumber();
-            row[5] = p.getEmail();
+            row[0] = p;         
+            row[1] = p.getAddress();
+            row[2] = p.getZipcode();
+            row[3] = p.getContactNumber();
+            row[4] = p.getEmail();
             model.addRow(row);
         }
         }
@@ -133,20 +132,20 @@ public class ManageFoodSupplyEntEmpJPanel extends javax.swing.JPanel {
 
         organizationFoodSupplierJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID", "Name", "Address", "ZipCode", "Contact Number", "Email"
+                "Name", "Address", "ZipCode", "Contact Number", "Email"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -329,7 +328,7 @@ public class ManageFoodSupplyEntEmpJPanel extends javax.swing.JPanel {
                                                 .addComponent(GenderCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGap(0, 6, Short.MAX_VALUE))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(organizationEmpJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(organizationEmpJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -87,12 +87,12 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
         for(Organization org:organizationDir.getOrgList()){
         for (CabDriver cd : org.getCabDriverDir().getCabDriverDirectory()){
             Object[] row = new Object[6];
-            row[0] = cd;
-            row[1] = cd.getFullName();          
-            row[2] = cd.getAddress();
-            row[3] = cd.getZipcode();
-            row[4] = cd.getContactNumber();
-            row[5] = cd.getEmail();
+            row[0] = cd;         
+            row[1] = cd.getAddress();
+            row[2] = cd.getZipcode();
+            row[3] = cd.getContactNumber();
+            row[4] = cd.getEmail();
+            row[5] = cd.getLicenseNumber();
             model.addRow(row);
         }
         }
@@ -104,12 +104,12 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
         for(Organization org:organizationDir.getOrgList()){
         for (AmbulanceDriver amb : org.getAmbulanceDriverDir().getambulanceDriverDirectory()){
             Object[] row = new Object[6];
-            row[0] = amb;  
-            row[1] = amb.getFullName();          
-            row[2] = amb.getAddress();
-            row[3] = amb.getZipcode();
-            row[4] = amb.getContactNumber();
-            row[5] = amb.getEmail();
+            row[0] = amb;          
+            row[1] = amb.getAddress();
+            row[2] = amb.getZipcode();
+            row[3] = amb.getContactNumber();
+            row[4] = amb.getEmail();
+            row[5] = amb.getLicenseNumber();
             model.addRow(row);
         }
         }
@@ -166,20 +166,20 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
 
         organizationCabJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Name", "Address", "ZipCode", "Contact Number", "Email", "License Number"
+                "Name", "Address", "ZipCode", "Contact Number", "Email", "License Number"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -196,20 +196,20 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
 
         organizationAmbulanceJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Name", "Address", "ZipCode", "Contact Number", "Email", "License Number"
+                "Name", "Address", "ZipCode", "Contact Number", "Email", "License Number"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -367,9 +367,6 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
                         .addComponent(txtpassword, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
                         .addGap(408, 408, 408))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(organizationEmpJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(GenderCombobox, 0, 126, Short.MAX_VALUE)
                             .addComponent(nameJTextField)
@@ -392,11 +389,14 @@ public class ManageTransportEntEmpJPanel extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
-                                    .addComponent(txtuserName)))))))
+                                    .addComponent(txtuserName)))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(organizationEmpJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(233, 233, 233))
+                .addGap(237, 237, 237))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
