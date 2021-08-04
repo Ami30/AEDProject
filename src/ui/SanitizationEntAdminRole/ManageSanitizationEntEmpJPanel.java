@@ -83,12 +83,11 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
         for(Organization org:organizationDir.getOrgList()){
         for (SanitizationPerson p : org.getSaniPersonDir().getsanitizationPersonDirectory()){          
             Object[] row = new Object[6];
-            row[0] = p;
-            row[1] = p.getFullName();          
-            row[2] = p.getAddress();
-            row[3] = p.getZipcode();
-            row[4] = p.getContactNumber();
-            row[5] = p.getEmail();
+            row[0] = p;         
+            row[1] = p.getAddress();
+            row[2] = p.getZipcode();
+            row[3] = p.getContactNumber();
+            row[4] = p.getEmail();
             model.addRow(row);
         }
         }
@@ -136,20 +135,20 @@ public class ManageSanitizationEntEmpJPanel extends javax.swing.JPanel {
 
         organizationSanitizationJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID", "Name", "Address", "ZipCode", "Contact Number", "Email"
+                "Name", "Address", "ZipCode", "Contact Number", "Email"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {

@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * @author amishagupta
  */
 public class UserAccountDirectory {
-      private ArrayList<UserAccount> uaList;
+      private ArrayList<UserAccount> uaList = new ArrayList<>();
 
     public UserAccountDirectory() {
         
