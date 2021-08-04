@@ -120,7 +120,10 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
         btnDeclined = new javax.swing.JButton();
         btnRemove = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         foodTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -238,6 +241,8 @@ public class FoodDetailsJPanel extends javax.swing.JPanel {
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, 620, 280));
+
+        addServicePanel.setBackground(new java.awt.Color(255, 255, 255));
 
         addJButton.setBackground(new java.awt.Color(18, 102, 153));
         addJButton.setFont(new java.awt.Font(".SF NS Text", 1, 14)); // NOI18N
